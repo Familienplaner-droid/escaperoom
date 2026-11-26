@@ -488,23 +488,36 @@ function morseTick(){ document.querySelectorAll('.morse').forEach(e=>e.style.opa
 const CHESS={g8:'♚',f7:'♟',g7:'♟',h7:'♟',c6:'♞',b7:'♝',g1:'♔',f2:'♙',g2:'♙',h2:'♙'};
 const CHESS_WHY={d8:'Der schwarze Springer auf c6 springt auf d8 und schlägt deine Dame.',b8:'Der schwarze Springer auf c6 schlägt deine Dame auf b8.',c8:'Der schwarze Läufer auf b7 schlägt deine Dame auf c8.',a8:'Der schwarze Läufer auf b7 schlägt deine Dame auf a8.',f8:'Der schwarze König schlägt die Dame einfach selbst – sie steht direkt neben ihm.'};
 let chessLock=0;
+// Gemaltes Brett (900×900) mit gemalten Figuren. Ecken des Spielfelds a8, h8, h1, a1:
+const BOARD=[[206,185],[703,185],[768,623],[136,623]];
+const PIECE={'♚':['bK',103,256],'♟':['bP',80,146],'♞':['bN',100,188],'♝':['bB',91,202],'♔':['wK',104,256],'♙':['wP',79,144],'♕':['wQ',99,219]};
+function sqPos(c,r){ // c 0..7 (a..h), r 0..7 (0 = Reihe 8 oben); liefert Mittelpunkt & Feldbreite in Prozent
+ const v=(r+.5)/8, u=(c+.5)/8, L=[BOARD[0][0]+(BOARD[3][0]-BOARD[0][0])*v, BOARD[0][1]+(BOARD[3][1]-BOARD[0][1])*v], R=[BOARD[1][0]+(BOARD[2][0]-BOARD[1][0])*v];
+ const x=L[0]+(R[0]-L[0])*u, y=L[1], w=(R[0]-L[0])/8, h=(BOARD[3][1]-BOARD[0][1])/8;
+ return {x:x/9,y:y/9,w:w/9,h:h/9};
+}
+function pieceHTML(sym,c,r,extra=''){
+ const [n,pw,ph]=PIECE[sym], q=sqPos(c,r), W=q.w*pw/104*.95, Hh=W*ph/pw;
+ return `<img class="cp${extra}" src="${A('schach_'+n+'.webp')}" alt="" style="left:${q.x-W/2}%;top:${q.y+q.h*.28-Hh}%;width:${W}%;z-index:${10+r}">`;
+}
 function openChess(canPlace){
  const files='abcdefgh';
- let cells='';
- for(let r=8;r>=1;r--) for(let c=0;c<8;c++){ const sq=files[c]+r, p=CHESS[sq]||'', dark=(r+c)%2===1;
-  cells+=`<button class="sq${dark?' d':''}" data-sq="${sq}" aria-label="${sq}">${p?`<span class="pc ${'♔♕♖♗♘♙'.includes(p)?'w':'b'}">${p}︎</span>`:''}</button>`; }
- const body=dialog('Opas Schachpartie',`<p class="small" style="margin-top:0">${canPlace?'Tippe auf das Feld, auf das die weiße Dame soll.':'Weiß ist am Zug. Die weiße Dame fehlt.'}</p><div class="chess">${cells}</div><div class="chessF">${[...files].map(f=>`<span>${f}</span>`).join('')}</div><p class="cMsg"></p>`,'Zurück');
+ let pcs='', hit='';
+ for(let r=0;r<8;r++) for(let c=0;c<8;c++){ const sq=files[c]+(8-r), q=sqPos(c,r);
+  if(CHESS[sq]) pcs+=pieceHTML(CHESS[sq],c,r);
+  hit+=`<button class="sqHit" data-sq="${sq}" aria-label="${sq}" style="left:${q.x-q.w/2}%;top:${q.y-q.h/2}%;width:${q.w}%;height:${q.h}%"></button>`; }
+ const body=dialog('Opas Schachpartie',`<p class="small" style="margin-top:0">${canPlace?'Tippe auf das Feld, auf das die weiße Dame soll.':'Weiß ist am Zug. Die weiße Dame fehlt.'}</p><div class="cBoard"><img src="${A('schach_brett.jpg')}" alt="">${pcs}<div class="cQ"></div>${hit}</div><p class="cMsg"></p>`,'Zurück');
  if(!canPlace) return;
- const msg=body.querySelector('.cMsg');
- body.querySelector('.chess').addEventListener('click',e=>{
-  const b=e.target.closest('.sq'); if(!b) return; const sq=b.dataset.sq;
+ const msg=body.querySelector('.cMsg'), qd=body.querySelector('.cQ');
+ body.querySelector('.cBoard').addEventListener('click',e=>{
+  const b=e.target.closest('.sqHit'); if(!b) return; const sq=b.dataset.sq;
   if(Date.now()<chessLock){ msg.textContent='Der Mechanismus unter dem Brett spannt sich noch … warte einen Moment.'; return; }
   if(CHESS[sq]){ msg.textContent='Da steht schon eine Figur.'; sfx('no'); return; }
-  b.innerHTML='<span class="pc w">♕︎</span>'; sfx('click');
-  if(sq==='e8'){ setTimeout(()=>{ closeDialog(); S.f.fach=1; take('dame'); give('rostig'); sfx('unlock'); say('Schach auf der letzten Reihe – und der König kann nirgends hin. <b>Matt!</b> Klack – an der Tischkante springt ein <b>Geheimfach</b> auf. Darin: ein <b>rostiger Aufziehschlüssel</b>.'); render(); },700); return; }
+  qd.innerHTML=pieceHTML('♕',files.indexOf(sq[0]),8-+sq[1],' drop'); sfx('click');
+  if(sq==='e8'){ setTimeout(()=>{ closeDialog(); S.f.fach=1; take('dame'); give('rostig'); sfx('unlock'); say('Schach auf der letzten Reihe – und der König kann nirgends hin. <b>Matt!</b> Klack – an der Tischkante springt ein <b>Geheimfach</b> auf. Darin: ein <b>rostiger Aufziehschlüssel</b>.'); render(); },1100); return; }
   chessLock=Date.now()+4000;
   msg.innerHTML=(CHESS_WHY[sq]||'Kein Schachmatt. Der schwarze König ist nicht einmal bedroht.')+' <i>Die Dame rutscht zurück.</i>';
-  setTimeout(()=>{ b.innerHTML=''; sfx('no'); },900);
+  setTimeout(()=>{ qd.innerHTML=''; sfx('no'); },1300);
  });
 }
 function openBooks(){
