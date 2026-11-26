@@ -156,6 +156,7 @@ const BOOK_ORDER=['Das Meer','Der Sturm','Das Licht','Der Turm'];
 const R2 = {
  title:'Die Bibliothek', chapter:'Kapitel 2', img:A('bibliothek.jpg'), keep:['lampe','foto'],
  intro:['Der Flur endet an einer schweren Doppeltür. Dahinter: eine Bibliothek, so hoch, dass die Regale im Dunkeln verschwinden.','Durch das Fenster siehst du ihn – den Leuchtturm aus dem Gemälde. Dort oben brennt Licht.','Hinter dir fällt die Tür ins Schloss. Natürlich.'],
+ comboNo:{'dame+rostig':'Eine Schachfigur und ein Schlüssel. Hübsch, aber nutzlos zusammen.','brief+lampe':'Du leuchtest durch den Umschlag … Lesen geht leichter, wenn du ihn einfach öffnest.'},
  combos:[
   {a:'oel',b:'rostig',t:()=>{ take('oel'); take('rostig'); give('geoelt'); return 'Du träufelst Öl auf den rostigen Schlüssel und reibst ihn ab. Er glänzt wieder!'; }}
  ],
@@ -172,17 +173,17 @@ const R2 = {
     use:{lampe(){ if(S.f.oel) return 'Da oben ist nichts mehr.'; S.f.oel=1; flash(90,95); give('oel'); return 'Du kletterst hinauf und leuchtest ins oberste Regal. Zwischen Spinnweben steht ein kleines <b>Ölkännchen</b>.';}}},
   {id:'buste',r:[358,148,62,85],act:()=>'Eine Büste aus Bronze. Ein strenger Herr mit Locken. Jemand hat ihm einen Schnurrbart aufgemalt – mit Bleistift.'},
   {id:'sphaere',r:[452,152,100,125],act:()=>'Eine Armillarsphäre. Die Ringe zeigen die Bahnen der Sterne. Sie lässt sich drehen, aber nichts passiert.'},
-  {id:'goldbuecher',r:[335,388,250,108],vis:()=>!S.f.door,act(){ if(!S.f.vitrine) return 'Vier Bücher mit prächtiger Goldprägung, dazwischen ganz normale. Du versuchst eins herauszuziehen – es sitzt <b>bombenfest</b>, als wäre es von hinten verriegelt.'; openBooks(); return 'Die Bücher lassen sich jetzt ein Stück herausziehen. Aber in welcher Reihenfolge?';}},
-  {id:'regalM',r:[292,280,100,100],vis:()=>!S.f.door,act:()=>'Bücher über Leuchtfeuer, Gezeiten und Sturmfluten.'},
+  {id:'goldbuecher',r:[335,388,250,108],no:{lampe:'Im Licht erkennst du die Titel: „Die Insel“, „Das Licht“, „Der Turm“, „Das Meer“, „Der Sturm“, „Der Hafen“.'},vis:()=>!S.f.door,act(){ if(!S.f.vitrine) return 'Vier Bücher mit prächtiger Goldprägung, dazwischen ganz normale. Du versuchst eins herauszuziehen – es sitzt <b>bombenfest</b>, als wäre es von hinten verriegelt.'; openBooks(); return 'Die Bücher lassen sich jetzt ein Stück herausziehen. Aber in welcher Reihenfolge?';}},
+  {id:'regalM',r:[292,280,100,100],vis:()=>!S.f.door,act(){ openPaperHTML('Schach für Kapitäne','Zwischen Büchern über Leuchtfeuer steckt ein dünnes Heft. Eine Seite hat ein Eselsohr:<br><br><b>Das Grundreihenmatt</b><br>Ein König, der sich hinter seinen eigenen Bauern versteckt, hat keine Luft zum Atmen. Ein Schach auf seiner letzten Reihe – und es ist vorbei.<br><br>Aber Vorsicht: Bewacht ein Springer oder ein Läufer das Feld, wird deine Dame einfach geschlagen.<br><br><i>Am Rand, mit Bleistift:</i> „Elena hat das mit acht Jahren besser gekonnt als ich. V.“'); return 'Ein Heft über Schach, mit Eselsohr.'; }},
   {id:'globus',r:[302,505,95,115],act:()=>'Ein kleiner Globus. Die Insel Morgenrot ist mit einem Kreuz markiert.'},
   {id:'flaschen',r:[428,565,62,52],act:()=>'Zwei Fläschchen mit Sand. Auf den Etiketten: „Strand, 2009“ und „Strand, 2010“.'},
   {id:'truhe',r:[498,640,90,62],act:()=>'Eine kleine Truhe. Leer – bis auf eine getrocknete Seesternhälfte.'},
   {id:'fenster',r:[700,70,232,410],act:()=>'Draußen tobt das Meer. Auf der Klippe steht der Leuchtturm. Sein Lichtstrahl streicht über das Wasser, immer wieder.'},
   {id:'vorhang',r:[935,0,151,640],act:()=>'Schwere Samtvorhänge. Sie riechen nach Salz und Staub.'},
   {id:'fernrohr',r:[608,470,170,465],act(){ openScope([900,280,110,110],`<g transform="translate(40 100) scale(.55)"><path d="M-3 0v-12a3 3 0 0 1 6 0V0z" fill="#050608"/><circle cy="-15" r="2.4" fill="#050608"/><circle cx="5" cy="-8" r="2" fill="#ffd27a" class="glint"/><circle cx="5" cy="-8" r="6" fill="#ffd27a" opacity=".25" class="glint"/></g>`,'Am Fuß des Leuchtturms steht eine Gestalt mit einer Laterne. Sie schwenkt das Licht – dreimal. Als würde sie dich grüßen.'); return 'Du blickst durchs Fernrohr zum Leuchtturm …'; }},
-  {id:'vitrine',r:[757,555,250,380],act:()=>S.f.vitrine?'Muscheln, Korallen, ein Ammonit. Den Brief hast du schon.':'Eine Vitrine mit Muscheln, Korallen und Fossilien. Ganz hinten liegt ein <b>Briefumschlag</b>. Die Glastür ist <b>abgeschlossen</b>.',
+  {id:'vitrine',r:[757,555,250,380],no:{rostig:'Der Aufziehschlüssel passt nicht in das Schloss der Vitrine.',geoelt:'Der Aufziehschlüssel passt nicht in das Schloss der Vitrine.',lampe:'Du leuchtest hinein: Ganz hinten liegt ein Umschlag mit deinem Namen. „Für Elena“.'},act:()=>S.f.vitrine?'Muscheln, Korallen, ein Ammonit. Den Brief hast du schon.':'Eine Vitrine mit Muscheln, Korallen und Fossilien. Ganz hinten liegt ein <b>Briefumschlag</b>. Die Glastür ist <b>abgeschlossen</b>.',
     use:{vitrinenschluessel(){ S.f.vitrine=1; take('vitrinenschluessel'); give('brief'); sfx('unlock'); return 'Der kleine Schlüssel passt. Die Glastür schwingt auf – du nimmst den <b>Brief</b> heraus. Auf dem Umschlag steht: „Für Elena“. Im selben Moment klickt es im mittleren Bücherregal – als hätte sich ein Riegel gelöst.';}}},
-  {id:'kaefig',r:[922,630,164,360],act:()=>S.f.parrot?'Der Papagei sitzt still. Wenn du ganz genau hinhörst, summt er leise vor sich hin.':'Ein mechanischer <b>Papagei</b> aus Messing in einem goldenen Käfig. In seinem Rücken ist ein kleines <b>Schlüsselloch zum Aufziehen</b>.',
+  {id:'kaefig',r:[922,630,164,360],no:{vitrinenschluessel:'Viel zu zierlich für das Aufzieh-Loch.',oel:'Ein paar Tropfen in das Aufzieh-Loch … aber drehen musst du schon selbst. Mit einem Schlüssel.',dame:'Du hältst dem Papagei die Dame hin. Er schaut dich mit Glasaugen an. Keine Reaktion.'},act:()=>S.f.parrot?(sfx('music'),'Der Papagei summt leise … die Melodie vom Grammophon aus dem Arbeitszimmer! Dein Herz klopft. Du kennst sie. Von früher.'):'Ein mechanischer <b>Papagei</b> aus Messing in einem goldenen Käfig. In seinem Rücken ist ein kleines <b>Schlüsselloch zum Aufziehen</b>.',
     use:{rostig(){ sfx('no'); return 'Der Schlüssel passt, aber er ist so verrostet, dass er sich keinen Millimeter drehen lässt.';},
          geoelt(){ S.f.parrot=1; S.f.sing=1; take('geoelt'); sfx('parrot'); setTimeout(()=>{S.f.sing=0;render();},3000);
            setTimeout(()=>{ give('vitrinenschluessel'); },2200);
@@ -191,17 +192,18 @@ const R2 = {
   {id:'sessel',r:[0,715,450,570],act(){ if(!S.f.sessel){ S.f.sessel=1; give('dame'); return 'Du tastest zwischen die Polster des Ohrensessels … und ziehst eine Schachfigur hervor: die <b>weiße Dame</b>.';} return 'Ein abgewetzter Ohrensessel. Eine Decke liegt darüber, als hätte gerade noch jemand hier gelesen.';}},
   {id:'oellampe',r:[40,820,95,240],act:()=>'Eine Öllampe. Sie brennt – jemand hat sie vor Kurzem angezündet.'},
   {id:'tisch',r:[0,1015,190,385],act:()=>'Auf dem Beistelltisch liegt ein abgegriffenes Buch: „Die Schatzinsel“. Eine Widmung: „Vorlesen, bis sie einschläft. V.“'},
-  {id:'schach',r:[463,945,397,395],act:()=>S.f.fach?'Die Partie ist vollständig. Das Geheimfach steht offen.':'Eine angefangene Schachpartie. Auf der weißen Seite <b>fehlt die Dame</b>.',
-    use:{dame(){ S.f.fach=1; take('dame'); give('rostig'); sfx('unlock'); return 'Du stellst die weiße Dame auf ihr Feld. Klack – an der Tischkante springt ein <b>Geheimfach</b> auf! Darin: ein <b>rostiger Aufziehschlüssel</b>.';}}}
+  {id:'schach',r:[463,945,397,395],act(){ if(S.f.fach) return 'Die weiße Dame steht auf e8. Schachmatt. Das Geheimfach steht offen.'; openChess(false); return 'Eine angefangene Schachpartie. Unter dem Brett klemmt ein Zettel: <b>„Weiß zieht und setzt matt. Setz die Dame richtig – dann öffnet sich der Tisch. V.“</b> Die weiße Dame fehlt.'; },
+    no:{rostig:'Ein Schlüsselloch suchst du am Schachtisch vergeblich.',lampe:'Im Licht siehst du: Unter der Tischkante ist eine feine Fuge. Da ist ein Fach!'},
+    use:{dame(){ if(S.f.fach) return 'Die Dame steht schon.'; openChess(true); return 'Wohin mit der Dame? Opas Zettel: „Weiß zieht und setzt matt.“'; }}}
  ],
  hint(){ const f=S.f;
-  if(!f.sessel) return 'Im Ohrensessel könnte etwas zwischen die Polster gerutscht sein.';
-  if(!f.fach) return 'Auf dem Schachbrett fehlt eine Figur.';
-  if(!f.oel) return 'Die Leiter führt zu einem dunklen Regal. Nimm Licht mit – wähle die Taschenlampe und tippe auf die Leiter.';
-  if(has('rostig')) return 'Der rostige Schlüssel braucht etwas Öl. Kombiniere die beiden im Inventar.';
-  if(!f.parrot) return 'Der Papagei hat ein Schlüsselloch im Rücken.';
-  if(!f.vitrine) return 'Der kleine Schlüssel mit dem Anhänger passt zur Vitrine.';
-  if(!S.f.hint7){ S.f.hint7=1; return 'Der Papagei kennt den Anfang des Reims, Opas Brief das Ende. Lies beides genau.'; } return 'Zieh im mittleren Regal genau vier Bücher: Das Meer, Der Sturm, Das Licht, Der Turm.'; },
+  if(!f.sessel) return ['Jemand hat hier vor Kurzem gelesen. Vielleicht ist dabei etwas verloren gegangen.','Tippe auf den Ohrensessel und taste zwischen die Polster.'];
+  if(!f.fach) return ['Auf dem Schachtisch klemmt ein Zettel. Was verlangt Opa?','Im mittleren Regal steckt ein Heft über Schach. Lies die Seite mit dem Eselsohr.','Der schwarze König steht auf g8, eingesperrt von seinen Bauern. Springer und Läufer bewachen b8, c8, a8 und d8.','Setz die Dame auf e8. Schachmatt.'];
+  if(!f.oel) return ['Ganz oben im linken Regal ist es stockdunkel.','Nimm Licht mit auf die Leiter.','Wähle die Taschenlampe und tippe auf die Leiter.'];
+  if(has('rostig')) return ['Der Aufziehschlüssel ist völlig verrostet.','Rost löst sich mit Öl.','Kombiniere Ölkännchen und rostigen Schlüssel im Inventar.'];
+  if(!f.parrot) return ['Wer hat hier ein Schlüsselloch zum Aufziehen?','Der mechanische Papagei im Käfig.'];
+  if(!f.vitrine) return ['Der kleine Schlüssel hat einen Anhänger. Was steht darauf?','Er passt zur Vitrine unter dem Fenster.'];
+  return ['Der Papagei kennt den Anfang des Reims, Opas Brief das Ende.','Lies den Brief und erinnere dich an den Papagei. Welche vier Bücher passen dazu?','Zieh im mittleren Regal: Das Meer, Der Sturm, Das Licht, Der Turm.']; },
  end:['Kapitel 2 geschafft','Das Regal schwingt zur Seite. Dahinter windet sich eine steinerne Treppe in die Tiefe. Kalte, salzige Luft steigt herauf – und irgendwo dort unten rauscht das Meer.<br><br>Opa Viktor wartet am Leuchtturm. Und du erinnerst dich: An einen Sommer. An eine Stimme, die vorliest.'],
  ov(f){ return [`<defs>
   <radialGradient id="torch" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff2c0" stop-opacity=".8"/><stop offset="1" stop-color="#fff2c0" stop-opacity="0"/></radialGradient>
@@ -488,6 +490,29 @@ const MSG='MUT', UNIT=330; const mSeq=[]; let mOn=false;
 [...MSG].forEach((c,ci)=>{ [...MORSE[c]].forEach((d,di)=>{ mSeq.push([1,d==='.'?1:3]); mSeq.push([0,di<MORSE[c].length-1?1:(ci<MSG.length-1?3:10)]); }); });
 function morseTick(){ document.querySelectorAll('.morse').forEach(e=>e.style.opacity=mOn?'1':'0'); }
 (function loop(i){ const [on,len]=mSeq[i]; mOn=!!on; morseTick(); setTimeout(()=>loop((i+1)%mSeq.length),len*UNIT); })(0);
+/* Schach: Matt in einem Zug. Schwarz: Kg8, Bauern f7 g7 h7, Springer c6, Läufer b7. Weiß: Kg1, Bauern f2 g2 h2. */
+const CHESS={g8:'♚',f7:'♟',g7:'♟',h7:'♟',c6:'♞',b7:'♝',g1:'♔',f2:'♙',g2:'♙',h2:'♙'};
+const CHESS_WHY={d8:'Der schwarze Springer auf c6 springt auf d8 und schlägt deine Dame.',b8:'Der schwarze Springer auf c6 schlägt deine Dame auf b8.',c8:'Der schwarze Läufer auf b7 schlägt deine Dame auf c8.',a8:'Der schwarze Läufer auf b7 schlägt deine Dame auf a8.',f8:'Der schwarze König schlägt die Dame einfach selbst – sie steht direkt neben ihm.'};
+let chessLock=0;
+function openChess(canPlace){
+ const files='abcdefgh';
+ let cells='';
+ for(let r=8;r>=1;r--) for(let c=0;c<8;c++){ const sq=files[c]+r, p=CHESS[sq]||'', dark=(r+c)%2===1;
+  cells+=`<button class="sq${dark?' d':''}" data-sq="${sq}" aria-label="${sq}">${p?`<span class="pc ${'♔♕♖♗♘♙'.includes(p)?'w':'b'}">${p}︎</span>`:''}</button>`; }
+ const body=dialog('Opas Schachpartie',`<p class="small" style="margin-top:0">${canPlace?'Tippe auf das Feld, auf das die weiße Dame soll.':'Weiß ist am Zug. Die weiße Dame fehlt.'}</p><div class="chess">${cells}</div><div class="chessF">${[...files].map(f=>`<span>${f}</span>`).join('')}</div><p class="cMsg"></p>`,'Zurück');
+ if(!canPlace) return;
+ const msg=body.querySelector('.cMsg');
+ body.querySelector('.chess').addEventListener('click',e=>{
+  const b=e.target.closest('.sq'); if(!b) return; const sq=b.dataset.sq;
+  if(Date.now()<chessLock){ msg.textContent='Der Mechanismus unter dem Brett spannt sich noch … warte einen Moment.'; return; }
+  if(CHESS[sq]){ msg.textContent='Da steht schon eine Figur.'; sfx('no'); return; }
+  b.innerHTML='<span class="pc w">♕︎</span>'; sfx('click');
+  if(sq==='e8'){ setTimeout(()=>{ closeDialog(); S.f.fach=1; take('dame'); give('rostig'); sfx('unlock'); say('Schach auf der letzten Reihe – und der König kann nirgends hin. <b>Matt!</b> Klack – an der Tischkante springt ein <b>Geheimfach</b> auf. Darin: ein <b>rostiger Aufziehschlüssel</b>.'); render(); },700); return; }
+  chessLock=Date.now()+4000;
+  msg.innerHTML=(CHESS_WHY[sq]||'Kein Schachmatt. Der schwarze König ist nicht einmal bedroht.')+' <i>Die Dame rutscht zurück.</i>';
+  setTimeout(()=>{ b.innerHTML=''; sfx('no'); },900);
+ });
+}
 function openBooks(){
  let pulled=[];
  const body=dialog('Das mittlere Regal',`<p class="small" style="margin-top:0">Tippe Bücher an, um sie herauszuziehen. Nach dem vierten Buch zeigt sich, ob die Reihenfolge stimmt.</p><div class="books">${BOOKS.map((b,k)=>`<button class="book" data-b="${k}" style="width:calc(var(--bh) * ${(b.r[2]/b.r[3]).toFixed(3)} + 6px)"><div style="${cutStyle(room().img,b.r).replace(/left:[^;]+;top:[^;]+;width:[^;]+;height:[^;]+;/,'')}"></div><span>${b.t}</span></button>`).join('')}</div>`,'Zurück');

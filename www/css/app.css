@@ -146,3 +146,12 @@ header h1{flex:1;font:20px/1 "IM Fell English SC",serif;margin:0;color:var(--amb
 #sIntro{padding-bottom:0}
 #introText{flex:none;min-height:0}
 .introBar{position:sticky;bottom:0;align-self:stretch;flex:none;margin-top:auto;padding:28px 0 calc(16px + var(--sab));background:linear-gradient(#0b141600,#0b1416 38%)}
+/* Schachbrett */
+.chess{display:grid;grid-template-columns:repeat(8,1fr);width:min(300px,76vw);margin:0 auto;border:6px solid #4a2c18;border-radius:6px;box-shadow:0 8px 20px #0009}
+.chess .sq{aspect-ratio:1;border:0;padding:0;background:#e9d7b0;display:grid;place-items:center;min-width:0}
+.chess .sq.d{background:#8a5a34}
+.chess .pc{font:clamp(22px,7vw,32px)/1 "Segoe UI Symbol","Noto Sans Symbols 2","DejaVu Sans",serif}
+.chess .pc.w{color:#fbf3e0;text-shadow:0 0 1px #000,0 0 2px #000,0 1px 2px #000}
+.chess .pc.b{color:#1a1209;text-shadow:0 0 1px #e9d7b0}
+.chessF{display:flex;width:min(300px,76vw);margin:2px auto 0;justify-content:space-around;font-size:12px;color:var(--muted)}
+.cMsg{min-height:2.6em;font-size:15px}
