@@ -154,16 +154,16 @@ const R1 = {
 const BOOKS=[ {t:'Die Insel',r:[340,392,18,98]},{t:'Das Licht',r:[403,398,29,92]},{t:'Der Turm',r:[433,398,29,92]},{t:'Das Meer',r:[463,398,30,92]},{t:'Der Sturm',r:[495,398,33,92]},{t:'Der Hafen',r:[562,392,18,98]} ];
 const BOOK_ORDER=['Das Meer','Der Sturm','Das Licht','Der Turm'];
 const R2 = {
- title:'Die Bibliothek', chapter:'Kapitel 2', img:A('bibliothek.jpg'), keep:['lampe','foto'],
+ title:'Die Bibliothek', chapter:'Kapitel 2', img:A('bibliothek.jpg'), introImg:A('intro2.jpg'), keep:['lampe','foto'],
  intro:['Der Flur endet an einer schweren Doppeltür. Dahinter: eine Bibliothek, so hoch, dass die Regale im Dunkeln verschwinden.','Durch das Fenster siehst du ihn – den Leuchtturm aus dem Gemälde. Dort oben brennt Licht.','Hinter dir fällt die Tür ins Schloss. Natürlich.'],
  comboNo:{'dame+rostig':'Eine Schachfigur und ein Schlüssel. Hübsch, aber nutzlos zusammen.','brief+lampe':'Du leuchtest durch den Umschlag … Lesen geht leichter, wenn du ihn einfach öffnest.'},
  combos:[
   {a:'oel',b:'rostig',t:()=>{ take('oel'); take('rostig'); give('geoelt'); return 'Du träufelst Öl auf den rostigen Schlüssel und reibst ihn ab. Er glänzt wieder!'; }}
  ],
  cuts:[
-  {r:[292,128,316,575],kind:'hingeL',origin:'0 50%',on:f=>f.door},
-  {r:[763,588,244,150],kind:'hingeR',origin:'100% 50%',on:f=>f.vitrine},
-  {r:[512,1070,290,44],kind:'slide',on:f=>f.fach},
+  {r:[520,920,330,250],kind:'reveal',src:A('bib_zustand.jpg'),on:f=>f.fach},
+  {r:[755,555,280,210],kind:'reveal',src:A('bib_zustand.jpg'),on:f=>f.vitrine},
+  {r:[285,60,370,880],kind:'reveal slow',src:A('bib_gang.jpg'),on:f=>f.door},
   {r:[958,762,112,165],kind:'puff',origin:'50% 100%',on:f=>f.sing}
  ],
  hot:[
@@ -209,12 +209,6 @@ const R2 = {
   <radialGradient id="torch" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff2c0" stop-opacity=".8"/><stop offset="1" stop-color="#fff2c0" stop-opacity="0"/></radialGradient>
   <radialGradient id="stair" cx=".5" cy=".85" r=".8"><stop offset="0" stop-color="#e09a4a"/><stop offset=".45" stop-color="#4a2a14"/><stop offset="1" stop-color="#090605"/></radialGradient>
  </defs>
- ${f.door?`<rect x="292" y="128" width="316" height="575" fill="url(#stair)"/>
-  <path d="M292 128h316v575H292z" fill="none" stroke="#000" stroke-width="14" opacity=".7"/>
-  ${[0,1,2,3,4,5,6].map(i=>`<path d="M${330+i*14} ${690-i*40} h${250-i*28} l-10 14 h-${230-i*28}z" fill="#5a3a22" opacity="${.95-i*.1}"/><path d="M${330+i*14} ${690-i*40} h${250-i*28}" stroke="#c98a45" stroke-width="2" opacity="${.8-i*.1}"/>`).join('')}
-  <circle cx="452" cy="300" r="10" fill="#ffd890" class="flicker"/><circle cx="452" cy="300" r="60" fill="url(#torch)" class="flicker"/>`:''}
- ${f.fach?`<rect x="516" y="1072" width="282" height="26" fill="#0b0604"/>`:''}
- ${f.fach?`<image href="${A('dame.png')}" x="758" y="968" width="26" height="54"/>`:''}
  <ellipse id="gFlash" cx="90" cy="95" rx="120" ry="90" fill="url(#torch)" opacity="0"/>`,
  `<defs>
   <radialGradient id="oilG" cx="88" cy="925" r="300" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffcf7a" stop-opacity=".35"/><stop offset="1" stop-color="#ffcf7a" stop-opacity="0"/></radialGradient>

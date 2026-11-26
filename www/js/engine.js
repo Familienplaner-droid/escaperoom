@@ -47,11 +47,11 @@ function loadRoom() {
   $('roomImg').src = curImg; $('roomTitle').textContent = r.title;
   ov.setAttribute('viewBox', `0 0 ${W} ${H}`); ov2.setAttribute('viewBox', `0 0 ${W} ${H}`);
   $('scene').style.aspectRatio = `${W}/${H}`;
-  cutsEl.innerHTML = r.cuts.map((c, k) => `<div class="cut ${c.kind}" data-k="${k}" style="${cutStyle(curImg, c.r)};${c.origin ? 'transform-origin:' + c.origin + ';' : ''}${c.clip ? 'clip-path:' + c.clip : ''}"></div>`).join('');
+  cutsEl.innerHTML = r.cuts.map((c, k) => `<div class="cut ${c.kind}" data-k="${k}" style="${cutStyle(c.src || curImg, c.r)};${c.origin ? 'transform-origin:' + c.origin + ';' : ''}${c.clip ? 'clip-path:' + c.clip : ''}"></div>`).join('');
 }
 function render() {
   const r = room(), src = imgOf(r);
-  if (src !== curImg) { curImg = src; $('roomImg').src = src; cutsEl.querySelectorAll('.cut').forEach(el => el.style.backgroundImage = `url(${src})`); }
+  if (src !== curImg) { curImg = src; $('roomImg').src = src; cutsEl.querySelectorAll('.cut').forEach(el => { if (!r.cuts[el.dataset.k].src) el.style.backgroundImage = `url(${src})`; }); }
   const [a, b] = r.ov(S.f); ov.innerHTML = a; ov2.innerHTML = b;
   cutsEl.querySelectorAll('.cut').forEach(el => el.classList.toggle('on', !!r.cuts[el.dataset.k].on(S.f)));
   if (book.afterRender) book.afterRender();
