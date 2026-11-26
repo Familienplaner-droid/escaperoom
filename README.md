@@ -6,7 +6,8 @@ Rätselabenteuer im Escape-Room-Stil als App. Jede Geschichte ist ein „Buch“
 
 ## Spielen und testen
 
-- **Android-Test-App:** Unter [Actions](../../actions) den neuesten Lauf von „Android-App bauen“ öffnen, unten bei *Artifacts* `escape-buecher-debug-apk` herunterladen, entpacken und die APK auf dem Handy installieren (Installation aus unbekannten Quellen erlauben).
+- **Android-Test-App (direkter Link):** https://github.com/Familienplaner-droid/escaperoom/releases/download/test/escape-buecher-test.apk
+- **Ältere Builds:** Unter [Actions](../../actions) den neuesten Lauf von „Android-App bauen“ öffnen, unten bei *Artifacts* `escape-buecher-debug-apk` herunterladen, entpacken und die APK auf dem Handy installieren (Installation aus unbekannten Quellen erlauben).
 - **Im Browser:** Nach dem Aktivieren von GitHub Pages (Settings → Pages → Source: *GitHub Actions*) läuft das Spiel unter `https://<benutzer>.github.io/escaperoom/`.
 - **Lokal:** `npm run serve` und `http://localhost:8080` öffnen.
 
