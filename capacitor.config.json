@@ -1,0 +1,8 @@
+{
+  "appId": "de.escapebuecher.app",
+  "appName": "Escape-Bücher",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#0b1416"
+  }
+}

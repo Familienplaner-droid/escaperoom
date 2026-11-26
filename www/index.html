@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0b1416">
+<title>Escape-Bücher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<!-- BÜCHERREGAL -->
+<section class="screen lib on" id="sLib">
+ <div class="libIn">
+  <div class="libHead"><h1>Escape-Bücher</h1><p>Wähle eine Geschichte. Jede ist ein Rätselabenteuer zum Mitnehmen.</p></div>
+  <div class="shelf" id="shelf"></div>
+ </div>
+</section>
+
+<!-- BUCHSEITE -->
+<section class="screen bookPage" id="sBook">
+ <div class="bpHero" id="bpHero"><button class="ib bpBack" id="bBookBack" aria-label="Zurück zum Bücherregal"><svg viewBox="0 0 24 24" fill="none" stroke="#efe4cf" stroke-width="2.4" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button></div>
+ <div class="bpIn">
+  <h2 id="bpTitle"></h2>
+  <div class="bpGenre" id="bpGenre"></div>
+  <p id="bpTag"></p>
+  <button class="btn pri" id="bPlay"></button>
+  <button class="btn" id="bRestart">Von vorne beginnen</button>
+  <ul class="chap" id="chapList"></ul>
+ </div>
+</section>
+
+<!-- INTRO -->
+<section class="screen cover" id="sIntro">
+  <h2 id="introTitle" style="font-size:clamp(30px,8vw,44px)"></h2>
+  <div id="introText"></div>
+  <button class="btn pri" id="bIntro">Weiter</button>
+</section>
+
+<!-- SPIEL -->
+<section class="screen" id="sGame">
+ <div id="app">
+  <header>
+    <button class="ib" id="bGameBack" aria-label="Zur Kapitelübersicht"><svg viewBox="0 0 24 24" fill="none" stroke="#efe4cf" stroke-width="2.4" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <h1 id="roomTitle"></h1>
+    <button class="ib" id="bLook" aria-label="Interessante Stellen zeigen"><svg viewBox="0 0 24 24" fill="none" stroke="#efe4cf" stroke-width="2"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg></button>
+    <button class="ib" id="bHint" aria-label="Hinweis"><svg viewBox="0 0 24 24" fill="none" stroke="#f2b35b" stroke-width="2"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></button>
+    <button class="ib" id="bSnd" aria-label="Ton an oder aus"><svg viewBox="0 0 24 24" fill="none" stroke="#efe4cf" stroke-width="2"><path d="M4 9h4l5-4v14l-5-4H4z"/><path id="sndW" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></button>
+  </header>
+  <div id="stage"><div id="scene">
+   <img class="room" id="roomImg" alt="">
+   <svg id="ov" class="ov" preserveAspectRatio="none" aria-hidden="true"></svg>
+   <div id="cuts"></div>
+   <svg id="ov2" class="ov" preserveAspectRatio="none" aria-hidden="true"></svg>
+   <div id="hs"></div></div></div>
+  <div id="msg"></div>
+  <div id="inv"></div>
+ </div>
+</section>
+
+<!-- KAPITELENDE -->
+<section class="screen cover" id="sEnd" style="overflow-y:auto;justify-content:flex-start;padding-top:max(24px,env(safe-area-inset-top))">
+  <img id="endImg" alt="" hidden style="width:min(100%,360px);max-height:46vh;object-fit:cover;border-radius:14px;box-shadow:0 10px 40px #000a;margin:8px auto 14px">
+  <h2 id="endTitle"></h2>
+  <p id="endText"></p>
+  <p class="small" id="endStats"></p>
+  <div class="endBtns">
+   <button class="btn pri" id="bNext">Weiter</button>
+   <button class="btn" id="bToBook">Zur Kapitelübersicht</button>
+  </div>
+  <p class="small" id="endSoon"></p>
+</section>
+
+<!-- DIALOGE -->
+<div class="modal" id="mPaper"><div class="card"><h3 id="pTitle"></h3><div class="paper" id="pText"></div><br><button class="btn" data-close>Schließen</button></div></div>
+<div class="modal" id="mSafe"><div class="card" id="safeCard"><h3>Tresor</h3><div id="code"><span></span><span></span><span></span><span></span></div><div id="pad"></div><br><button class="btn" data-close>Zurück</button></div></div>
+<div class="modal" id="mLock"><div class="card" id="lockCard"><h3 id="lockTitle"></h3><div id="rings" style="display:flex;gap:10px;justify-content:center;margin:10px 0 16px"></div><button class="btn pri" id="bLockOpen">Öffnen</button><br><button class="btn" data-close>Zurück</button></div></div>
+<div class="modal" id="mDlg"><div class="card"><h3 id="dTitle"></h3><div id="dBody"></div><button class="btn" id="dClose" data-close>Schließen</button></div></div>
+<div class="modal" id="mHint"><div class="card"><h3>Hinweis</h3><div id="hintBody"></div></div></div>
+<div class="modal" id="mConfirm"><div class="card"><h3 id="cTitle"></h3><p id="cText"></p><button class="btn pri" id="cYes"></button><br><button class="btn" data-close>Abbrechen</button></div></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
