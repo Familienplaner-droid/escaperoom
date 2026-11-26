@@ -58,7 +58,7 @@ const desc=i=>typeof ITEMS[i].d==='function'?ITEMS[i].d():ITEMS[i].d;
 
 /* ================= KAPITEL 1: ARBEITSZIMMER ================= */
 const R1 = {
- title:'Das Arbeitszimmer', chapter:'Kapitel 1', img:A('room.jpg'),
+ title:'Das Arbeitszimmer', chapter:'Kapitel 1', img:A('room.jpg'), imgFor:f=>f.dark?A('room_dunkel.jpg'):A('room.jpg'), introImg:A('intro1.jpg'),
  intro:['Kopfschmerzen. Der Geruch von altem Papier und kaltem Rauch.','Du öffnest die Augen. Ein Arbeitszimmer, das du nie zuvor gesehen hast. Draußen rauscht das Meer.','Du weißt nicht, wie du hierhergekommen bist. Du weißt nicht einmal deinen Namen.','Die Tür ist verschlossen. Aber in deiner Hand steckt ein zerknitterter Zettel.'],
  onStart(){ give('zettel1'); },
  firstMsg:'In deiner Hand: ein <b>Zettel</b>. Tippe ihn unten im Inventar zweimal an, um ihn zu lesen.',
@@ -69,7 +69,6 @@ const R1 = {
  ],
  cuts:[
   {r:[296,148,294,310],kind:'hingeL',origin:'6% 50%',clip:'polygon(9.5% .6%,99.3% 11.9%,90.5% 99.6%,0 90.6%)',on:f=>f.paint},
-  {r:[262,1086,440,84],kind:'slide',on:f=>f.drawer},
   {r:[700,444,43,174],kind:'swing',origin:'50% 0',on:f=>f.clock}
  ],
  code:'0912',
@@ -94,7 +93,7 @@ const R1 = {
     use:{tuerschluessel(){ S.f.door=1;take('tuerschluessel');sfx('door');setTimeout(win,1800);return 'Der Schlüssel dreht sich schwer im Schloss … die Tür schwingt knarrend auf. Warmes Licht fällt herein.';}}},
   {id:'pflanze',r:[975,450,111,440],act:()=>'Ein vertrockneter Gummibaum. Hier hat seit Monaten niemand mehr gegossen.'},
   {id:'teppich',r:[745,945,341,400],act(){ if(S.f.rug) return 'Ein schwerer Perserteppich. Die Ecke ist umgeschlagen.'; if(!S.f.glow) return 'Ein schwerer Perserteppich. Er riecht nach Staub und Pfeifentabak.'; S.f.rug=1;sfx('slide');return 'Genau dort, wo im Dunkeln das Kreuz geleuchtet hat, schlägst du die Ecke um. Darunter: ein <b>lockeres Dielenbrett</b>.';}},
-  {id:'diele',r:[750,948,115,62],vis:()=>S.f.rug,act:()=>S.f.board?'Ein leeres Loch im Boden.':'Das Brett wackelt, aber mit den Fingern bekommst du es nicht hoch. Du brauchst einen <b>Hebel</b>.',
+  {id:'diele',r:[770,1020,95,100],vis:()=>S.f.rug,act:()=>S.f.board?'Ein leeres Loch im Boden.':'Das Brett wackelt, aber mit den Fingern bekommst du es nicht hoch. Du brauchst einen <b>Hebel</b>.',
     use:{schuerhaken(){ if(S.f.board) return 'Da ist nichts mehr.'; S.f.board=1;give('batterien');sfx('slide');return 'Du hebelst das Brett auf. Darunter liegen zwei <b>Batterien</b>!';}}},
   {id:'stuhl',r:[30,1180,500,268],act:()=>'Der Lederstuhl ist noch leicht eingedrückt. Hier hat jemand viele, viele Stunden gesessen.'},
   {id:'lade',r:[262,1084,440,86],act:()=>S.f.drawer?'Die Schublade ist leer.':'Die Schreibtischschublade ist abgeschlossen. Ein <b>kleines Messingschloss</b>.',
@@ -128,8 +127,10 @@ const R1 = {
   <linearGradient id="pendBg" x1="0" x2="1"><stop offset="0" stop-color="#1b1613"/><stop offset=".5" stop-color="#2a221c"/><stop offset="1" stop-color="#16110e"/></linearGradient>
   <radialGradient id="torch" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff2c0" stop-opacity=".75"/><stop offset="1" stop-color="#fff2c0" stop-opacity="0"/></radialGradient>
   <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .35 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
-  <clipPath id="tri"><path d="M748 945 870 946 785 1068z"/></clipPath>
  </defs>
+ ${[['poker',f.poker,548,592,100,262],['book',f.book,28,950,275,112],['drawer',f.drawer,268,1066,414,128],['rug',f.rug,732,918,354,446]].filter(p=>p[1]).map(([n,,x,y,w,h])=>`<image href="${A('p_'+n+(f.dark?'_d':'')+'.webp')}" x="${x}" y="${y}" width="${w}" height="${h}"/>`).join('')}
+ ${f.board?`<path d="M783 1036 806 1033 848 1103 810 1109z" fill="#0a0604"/><path d="M783 1036 806 1033 810 1040 787 1043z" fill="#2a1a0e"/>`:''}
+ <g style="filter:brightness(${f.dark?.5:1})">
  ${f.paint?`<path d="M330 158 580 190 556 446 304 418z" fill="#0b0807"/><path d="M330 158 580 190 556 446 304 418z" fill="none" stroke="#000" stroke-width="18" opacity=".6"/>
   ${f.safe?`<rect x="368" y="232" width="160" height="160" fill="#060505"/><rect x="380" y="320" width="70" height="10" fill="#3a2a17"/><path d="M368 232 318 218v188l50-14z" fill="url(#steel)" stroke="#111" stroke-width="3"/>`
   :`<rect x="362" y="226" width="172" height="172" rx="8" fill="url(#steel)" stroke="#121516" stroke-width="5"/><rect x="374" y="238" width="148" height="148" rx="5" fill="none" stroke="#8a9295" stroke-width="2" opacity=".5"/><rect x="362" y="226" width="172" height="172" rx="8" filter="url(#grain)" fill="#000"/>
@@ -137,14 +138,10 @@ const R1 = {
    <circle cx="458" cy="312" r="10" fill="#3a2d16"/><path d="M386 290v44" stroke="#9aa3a6" stroke-width="8" stroke-linecap="round"/><rect x="398" y="360" width="50" height="16" rx="2" fill="#b8954c"/><text x="423" y="372" font-size="11" text-anchor="middle" fill="#3a2a17" font-family="Georgia">V. M.</text>`}`:''}
  ${f.clock?`<rect x="695" y="446" width="50" height="196" fill="url(#pendBg)"/><path d="M706 446v120M733 446v110" stroke="#8a6a35" stroke-width="2"/><circle cx="719" cy="355" r="25" fill="url(#face)"/>
   <path d="M719 355v-16" stroke="#1a1209" stroke-width="4" stroke-linecap="round" transform="rotate(276 719 355)"/><path d="M719 355v-30" stroke="#1a1209" stroke-width="2.5" stroke-linecap="round" transform="rotate(72 719 355)"/><circle cx="719" cy="355" r="3.5" fill="#b8954c"/>`:''}
+ </g>
  ${f.keySeen&&!f.key?`<g transform="rotate(20 430 612)"><path d="M430 586v14" stroke="#555" stroke-width="2"/><circle cx="430" cy="606" r="6" fill="none" stroke="#e0b04f" stroke-width="3"/><path d="M430 612v16M430 622h7M430 627h5" stroke="#e0b04f" stroke-width="3"/></g><circle class="glint" cx="436" cy="604" r="5" fill="#fff6d0"/>`:''}
  <ellipse id="gFlash" cx="425" cy="660" rx="120" ry="110" fill="url(#torch)" opacity="0"/>
- ${f.drawer?`<rect x="266" y="1088" width="432" height="30" fill="#0b0604"/>`:''}
- ${f.rug?`<image href="${A('room.jpg')}" x="0" y="120" width="${W}" height="${H}" clip-path="url(#tri)"/><path d="M748 945 870 946 785 1068z" fill="#000" opacity=".25"/>
-  ${f.board?`<path d="M760 962 850 962 830 998 770 998z" fill="#0a0604"/><path d="M760 962 850 962 846 968 763 968z" fill="#1f130b"/>`
-   :`<path d="M760 962 850 962 830 998 770 998z" fill="#6e4a2e" stroke="#1d110a" stroke-width="3"/><path d="M766 980h70" stroke="#4a3020" stroke-width="2"/><circle cx="776" cy="972" r="2.5" fill="#222"/><circle cx="826" cy="972" r="2.5" fill="#222"/>`}
-  <path d="M870 946 785 1068 913 1060z" fill="#b39672"/><path d="M870 946 785 1068 913 1060z" fill="#000" filter="url(#grain)"/>
-  <path d="M872 952 796 1060M880 960 820 1055M890 975 850 1052" stroke="#8f744f" stroke-width="2" opacity=".7"/><path d="M785 1068 913 1060" stroke="#e8d7b5" stroke-width="6" stroke-dasharray="2 4"/><path d="M870 946 785 1068" stroke="#000" stroke-width="3" opacity=".5"/>`:''}`,
+ `,
  `<defs>
   <radialGradient id="cand"><stop offset="0" stop-color="#ffcf7a" stop-opacity=".55"/><stop offset="1" stop-color="#ffcf7a" stop-opacity="0"/></radialGradient>
   <radialGradient id="lampG" cx="120" cy="800" r="420" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffd48a" stop-opacity=".22"/><stop offset="1" stop-color="#ffd48a" stop-opacity="0"/></radialGradient>
@@ -152,9 +149,9 @@ const R1 = {
   <linearGradient id="beamF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffcf7a" stop-opacity=".45"/><stop offset="1" stop-color="#ffcf7a" stop-opacity="0"/></linearGradient>
  </defs>
  ${f.door?`<path d="M842 272h203v556H842z" fill="url(#hall)"/><path d="M842 272 800 250v600l42-22z" fill="#3a2010"/><path d="M842 828h203l41 172H700z" fill="url(#beamF)"/>`:''}
- ${f.dark?`<rect width="${W}" height="${H}" fill="#040a12" opacity=".62"/>
+ ${f.dark?`
   <defs><filter id="glowF" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-  <g filter="url(#glowF)" stroke="#b8ffcf" stroke-width="5" stroke-linecap="round" fill="none" class="flicker">${f.rug?'':'<path d="M790 962l36 30M826 962l-36 30"/>'}<circle cx="528" cy="846" r="7" fill="#b8ffcf" stroke-width="2"/><circle cx="528" cy="846" r="15" stroke-width="2"/></g>`:`<rect width="${W}" height="${H}" fill="url(#lampG)" class="flicker"/>`}
+  <g filter="url(#glowF)" stroke="#b8ffcf" stroke-width="5" stroke-linecap="round" fill="none" class="flicker">${f.rug?'':'<path d="M805 972l36 30M841 972l-36 30"/>'}<circle cx="528" cy="846" r="7" fill="#b8ffcf" stroke-width="2"/><circle cx="528" cy="846" r="15" stroke-width="2"/></g>`:`<rect width="${W}" height="${H}" fill="url(#lampG)" class="flicker"/>`}
  <circle cx="279" cy="436" r="46" fill="url(#cand)" class="flicker"/><circle cx="581" cy="436" r="46" fill="url(#cand)" class="flicker" style="animation-delay:-1.3s"/>`]; }
 };
 

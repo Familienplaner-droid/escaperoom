@@ -40,15 +40,19 @@ function cutStyle(src, [x, y, w, h]) {
   return `left:${x / W * 100}%;top:${y / H * 100}%;width:${w / W * 100}%;height:${h / H * 100}%;background-image:url(${src});background-size:${W / w * 100}% ${H / h * 100}%;background-position:${x / (W - w) * 100}% ${y / (H - h) * 100}%`;
 }
 
+let curImg = '';
+const imgOf = r => r.imgFor ? r.imgFor(S.f) : r.img;
 function loadRoom() {
-  const r = room();
-  $('roomImg').src = r.img; $('roomTitle').textContent = r.title;
+  const r = room(); curImg = imgOf(r);
+  $('roomImg').src = curImg; $('roomTitle').textContent = r.title;
   ov.setAttribute('viewBox', `0 0 ${W} ${H}`); ov2.setAttribute('viewBox', `0 0 ${W} ${H}`);
   $('scene').style.aspectRatio = `${W}/${H}`;
-  cutsEl.innerHTML = r.cuts.map((c, k) => `<div class="cut ${c.kind}" data-k="${k}" style="${cutStyle(r.img, c.r)};${c.origin ? 'transform-origin:' + c.origin + ';' : ''}${c.clip ? 'clip-path:' + c.clip : ''}"></div>`).join('');
+  cutsEl.innerHTML = r.cuts.map((c, k) => `<div class="cut ${c.kind}" data-k="${k}" style="${cutStyle(curImg, c.r)};${c.origin ? 'transform-origin:' + c.origin + ';' : ''}${c.clip ? 'clip-path:' + c.clip : ''}"></div>`).join('');
 }
 function render() {
-  const r = room(), [a, b] = r.ov(S.f); ov.innerHTML = a; ov2.innerHTML = b;
+  const r = room(), src = imgOf(r);
+  if (src !== curImg) { curImg = src; $('roomImg').src = src; cutsEl.querySelectorAll('.cut').forEach(el => el.style.backgroundImage = `url(${src})`); }
+  const [a, b] = r.ov(S.f); ov.innerHTML = a; ov2.innerHTML = b;
   cutsEl.querySelectorAll('.cut').forEach(el => el.classList.toggle('on', !!r.cuts[el.dataset.k].on(S.f)));
   if (book.afterRender) book.afterRender();
   hs.innerHTML = r.hot.filter(h => !h.vis || h.vis()).map(h => `<button class="h" data-id="${h.id}" aria-label="${h.id}" style="left:${h.r[0] / W * 100}%;top:${h.r[1] / H * 100}%;width:${h.r[2] / W * 100}%;height:${h.r[3] / H * 100}%"></button>`).join('');
