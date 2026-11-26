@@ -8,14 +8,15 @@ const $ = id => document.getElementById(id);
 const hs = $('hs'), msgEl = $('msg'), invEl = $('inv'), ov = $('ov'), ov2 = $('ov2'), cutsEl = $('cuts');
 
 // Der Spielstand ist EIN Objekt, das nie ersetzt wird – Bücher halten eine Referenz darauf.
-const S = { room: 0, f: {}, inv: [], hints: 0, t0: 0, maxDone: 0, playing: false };
+const FRESH = () => ({ room: 0, f: {}, inv: [], hints: 0, t0: 0, maxDone: 0, playing: false, seen: [], hintLv: {}, freeHint: true });
+const S = FRESH();
 let book = null, sel = null, W = 1086, H = 1448;
 let ui = { screen() {}, onWin() {} };
 
 const key = () => 'eb:' + book.id;
 export function save() { try { localStorage.setItem(key(), JSON.stringify(S)); } catch (e) {} }
 export function loadState(id) { try { const v = localStorage.getItem('eb:' + id); return v ? JSON.parse(v) : null; } catch (e) { return null; } }
-function resetState(v) { for (const k of Object.keys(S)) delete S[k]; Object.assign(S, { room: 0, f: {}, inv: [], hints: 0, t0: 0, maxDone: 0, playing: false }, v || {}); }
+function resetState(v) { for (const k of Object.keys(S)) delete S[k]; Object.assign(S, FRESH(), v || {}); }
 
 const room = () => book.rooms[S.room];
 const has = i => S.inv.includes(i);
@@ -24,6 +25,16 @@ function take(i) { S.inv = S.inv.filter(x => x !== i); if (sel === i) sel = null
 function say(t) { msgEl.classList.add('fade'); setTimeout(() => { msgEl.innerHTML = t; msgEl.classList.remove('fade'); }, 120); }
 const desc = i => typeof book.items[i].d === 'function' ? book.items[i].d() : book.items[i].d;
 const icon = i => `<img src="${book.asset(book.items[i].i)}" alt="">`;
+
+const NOPE = [
+  n => `Mit <b>${n}</b> kommst du hier nicht weiter.`,
+  n => `<b>${n}</b>? Das passt hier nicht.`,
+  n => `Du probierst es mit <b>${n}</b>. Nichts passiert.`,
+  n => `Das ergibt keinen Sinn – <b>${n}</b> hilft hier nicht.`
+];
+let nopeK = 0;
+const nope = n => NOPE[nopeK++ % NOPE.length](n);
+const pick = v => typeof v === 'function' ? v() : v;
 
 function cutStyle(src, [x, y, w, h]) {
   return `left:${x / W * 100}%;top:${y / H * 100}%;width:${w / W * 100}%;height:${h / H * 100}%;background-image:url(${src});background-size:${W / w * 100}% ${H / h * 100}%;background-position:${x / (W - w) * 100}% ${y / (H - h) * 100}%`;
@@ -57,9 +68,11 @@ hs.addEventListener('click', e => {
   const b = e.target.closest('.h'); if (!b) return;
   b.classList.remove('tap'); void b.offsetWidth; b.classList.add('tap');
   const h = room().hot.find(x => x.id === b.dataset.id); let t;
+  if (!S.seen.includes(h.id)) S.seen.push(h.id);
   if (sel) {
     const fn = h.use && h.use[sel];
-    if (fn) t = fn(); else { t = `Mit <b>${book.items[sel].n}</b> kommst du hier nicht weiter.`; sfx('no'); }
+    if (fn) t = fn();
+    else { t = pick(h.no && h.no[sel]) || (room().noUse && room().noUse(sel, h.id)) || nope(book.items[sel].n); sfx('no'); }
     sel = null; renderInv();
   } else { t = h.act(); sfx('click'); }
   if (t) say(t); render();
@@ -67,10 +80,14 @@ hs.addEventListener('click', e => {
 invEl.addEventListener('click', e => {
   const b = e.target.closest('.slot[data-i]'); if (!b) return; const i = b.dataset.i;
   if (!sel) { sel = i; renderInv(); say(`<b>${book.items[i].n}</b> ausgewählt. Tippe auf etwas im Raum oder auf einen anderen Gegenstand. Nochmal tippen zum Ansehen.`); sfx('click'); return; }
-  if (sel === i) { sel = null; renderInv(); if (book.items[i].paper) openPaper(i); else say(desc(i)); return; }
+  if (sel === i) { sel = null; renderInv(); if (book.items[i].paper) openPaper(i); else closeUp(i); return; }
   const c = room().combos.find(c => (c.a === sel && c.b === i) || (c.b === sel && c.a === i));
   if (c) { sel = null; const t = c.t(); renderInv(); say(t); sfx('unlock'); render(); }
-  else { say(`<b>${book.items[sel].n}</b> und <b>${book.items[i].n}</b> lassen sich nicht kombinieren.`); sfx('no'); sel = null; renderInv(); }
+  else {
+    const k = [sel, i].sort().join('+'), r = room();
+    say(pick(r.comboNo && r.comboNo[k]) || `<b>${book.items[sel].n}</b> und <b>${book.items[i].n}</b> lassen sich nicht kombinieren.`);
+    sfx('no'); sel = null; renderInv();
+  }
 });
 
 /* ---------- Dialoge ---------- */
@@ -78,6 +95,11 @@ export function closeModals() { let any = false; document.querySelectorAll('.mod
 document.querySelectorAll('[data-close]').forEach(b => b.onclick = () => b.closest('.modal').classList.remove('on'));
 function openPaperHTML(t, h) { $('pTitle').textContent = t; $('pText').innerHTML = h; $('mPaper').classList.add('on'); sfx('slide'); }
 function openPaper(i) { openPaperHTML(book.items[i].paper[0], book.items[i].paper[1]); }
+function closeUp(i) {
+  const it = book.items[i], big = book.asset('big/' + it.i.replace(/\.\w+$/, '.webp'));
+  dialog(it.n, `<div class="closeUp"><img src="${big}" alt="" onerror="this.onerror=null;this.src='${book.asset(it.i)}'"></div><p>${desc(i)}</p>`);
+  sfx('slide');
+}
 function dialog(title, html, closeLabel = 'Schließen') { $('dTitle').textContent = title; $('dBody').innerHTML = html; $('dClose').textContent = closeLabel; $('mDlg').classList.add('on'); return $('dBody'); }
 function closeDialog() { $('mDlg').classList.remove('on'); }
 
@@ -106,31 +128,69 @@ $('bLockOpen').onclick = () => {
   else { sfx('no'); const c = $('lockCard'); c.classList.remove('shake'); void c.offsetWidth; c.classList.add('shake'); say('Du ruckelst am Schloss. Es bleibt zu.'); }
 };
 
-// Hinweise gegen Werbung
-$('bHint').onclick = () => {
-  $('hintBody').innerHTML = '<p>Steckst du fest? Schau dir eine kurze Werbung an und erhalte einen Hinweis.</p><button class="btn pri" id="bAd">Werbung ansehen</button><br><button class="btn" id="bNo">Nein danke</button>';
-  $('mHint').classList.add('on');
+// Hinweise: room().hint() liefert einen Text ODER eine Liste [Schubs, Tipp, Lösung].
+// Bereits gelesene Stufen bleiben gratis sichtbar. Pro Kapitel ist ein Hinweis gratis.
+function hintSteps() { const h = room().hint(); return Array.isArray(h) ? h : [h]; }
+function showHints() {
+  const steps = hintSteps(), id = steps[0], lv = S.hintLv[id] || 0, more = lv < steps.length;
+  const read = steps.slice(0, lv).map((t, k) => `<p class="paper" style="margin:0 0 8px"><small style="display:block;font-style:normal;opacity:.7">Hinweis ${k + 1} von ${steps.length}</small>${t}</p>`).join('');
+  const btn = !more ? '' : S.freeHint
+    ? `<button class="btn pri" id="bHintGo">${lv ? 'Nächster Hinweis' : 'Hinweis ansehen'} (gratis)</button><p class="small">Ein Hinweis pro Kapitel ist kostenlos.</p>`
+    : `<button class="btn pri" id="bHintGo">${lv ? 'Nächster Hinweis' : 'Hinweis'}: kurze Werbung ansehen</button>`;
+  $('hintBody').innerHTML = (read || '<p>Steckst du fest? Hinweise kommen in Stufen: erst ein kleiner Schubs, am Ende die Lösung.</p>') + btn + '<br><button class="btn" id="bNo">' + (read ? 'Schließen' : 'Nein danke') + '</button>';
   $('bNo').onclick = () => $('mHint').classList.remove('on');
-  $('bAd').onclick = async () => {
-    const ok = await rewardedAd($('hintBody'));
-    if (!ok) { $('mHint').classList.remove('on'); return; }
-    S.hints++; save();
-    $('hintBody').innerHTML = `<p class="paper">${room().hint()}</p><br><button class="btn pri" id="bOk">Danke</button>`;
-    $('bOk').onclick = () => $('mHint').classList.remove('on');
+  const go = $('bHintGo'); if (!go) return;
+  go.onclick = async () => {
+    if (S.freeHint) S.freeHint = false;
+    else if (!(await rewardedAd($('hintBody')))) { $('mHint').classList.remove('on'); return; }
+    S.hintLv[id] = lv + 1; S.hints++; save(); showHints();
   };
+}
+$('bHint').onclick = () => { showHints(); $('mHint').classList.add('on'); };
+// Lupe: zeigt nur Stellen, die noch nicht untersucht wurden
+$('bLook').onclick = () => {
+  const fresh = [...hs.querySelectorAll('.h')].filter(h => !S.seen.includes(h.dataset.id));
+  if (!fresh.length) { say('Du hast hier schon alles untersucht. Vielleicht hilft einer deiner Gegenstände weiter?'); return; }
+  fresh.forEach(h => h.classList.add('show')); setTimeout(() => fresh.forEach(h => h.classList.remove('show')), 1400);
 };
-$('bLook').onclick = () => { hs.querySelectorAll('.h').forEach(h => h.classList.add('show')); setTimeout(() => hs.querySelectorAll('.h').forEach(h => h.classList.remove('show')), 1400); };
 $('bSnd').onclick = () => { sound.on = !sound.on; $('sndW').style.display = sound.on ? '' : 'none'; };
+
+/* ---------- Einführung (einmalig) ---------- */
+const TUT = [
+  ['#scene', 'Tippe auf Dinge im Raum, um sie zu untersuchen. Manches kannst du mitnehmen.'],
+  ['#inv', 'Gefundenes landet hier. Tippe einen Gegenstand an und danach auf eine Stelle im Raum, um ihn dort zu benutzen.'],
+  ['#inv', 'Zwei Gegenstände kombinieren: ersten antippen, dann den zweiten. Denselben zweimal antippen zeigt ihn dir aus der Nähe.'],
+  ['#bLook', 'Die Lupe zeigt dir Stellen, die du noch nicht untersucht hast.'],
+  ['#bHint', 'Kommst du nicht weiter? Hier gibt es Hinweise – erst einen kleinen Schubs, ganz am Ende die Lösung.']
+];
+function tutorial(force) {
+  let done = false; try { done = localStorage.getItem('eb:tutorial') === '1'; } catch (e) {}
+  if (done && !force) return;
+  let k = 0; const box = $('tut'), hole = $('tutHole'), txt = $('tutText');
+  const step = () => {
+    if (k >= TUT.length) { box.classList.remove('on'); try { localStorage.setItem('eb:tutorial', '1'); } catch (e) {} return; }
+    const [sel, t] = TUT[k], r = document.querySelector(sel).getBoundingClientRect(), pad = 6;
+    Object.assign(hole.style, { left: r.left - pad + 'px', top: r.top - pad + 'px', width: r.width + pad * 2 + 'px', height: r.height + pad * 2 + 'px' });
+    $('tutMsg').innerHTML = `<b>${k + 1} / ${TUT.length}</b> ${t}`;
+    const below = r.top + r.height / 2 < innerHeight / 2;
+    txt.style.top = below ? Math.min(r.bottom + 18, innerHeight - 170) + 'px' : ''; txt.style.bottom = below ? '' : Math.max(innerHeight - r.top + 18, 16) + 'px';
+    $('tutNext').textContent = k === TUT.length - 1 ? 'Los geht’s' : 'Weiter';
+  };
+  $('tutNext').onclick = () => { k++; step(); };
+  box.classList.add('on'); requestAnimationFrame(step);
+}
+export const showTutorial = () => tutorial(true);
 
 /* ---------- Ablauf ---------- */
 let ty = null;
 function intro() {
-  const r = room(), el = $('introText'); $('introTitle').textContent = `${r.chapter}: ${r.title}`; el.innerHTML = ''; let p = 0, c = 0; clearInterval(ty);
+  const r = room(), el = $('introText'); $('introTitle').textContent = `${r.chapter}: ${r.title}`;
+  const ii = $('introImg'); ii.hidden = !r.introImg; if (r.introImg) ii.src = r.introImg; el.innerHTML = ''; let p = 0, c = 0; clearInterval(ty);
   ui.screen('sIntro');
   ty = setInterval(() => { if (p >= r.intro.length) { clearInterval(ty); return; } if (c === 0) el.insertAdjacentHTML('beforeend', '<p></p>'); el.lastElementChild.textContent = r.intro[p].slice(0, ++c); if (c >= r.intro[p].length) { p++; c = 0; } }, 26);
 }
-$('bIntro').onclick = () => { clearInterval(ty); enterRoom(book.firstMsg); };
-function enterRoom(m) { sel = null; S.playing = true; loadRoom(); render(); renderInv(); ui.screen('sGame'); say(m); }
+$('bIntro').onclick = () => { clearInterval(ty); enterRoom(room().firstMsg || book.firstMsg); };
+function enterRoom(m) { sel = null; S.playing = true; loadRoom(); render(); renderInv(); ui.screen('sGame'); say(m); if (book.onEnter) book.onEnter(); tutorial(); }
 
 function win() {
   const r = room(), s = Math.max(1, Math.round((Date.now() - S.t0) / 60000));
@@ -151,7 +211,7 @@ export function startChapter(n) {
   const r = book.rooms[n]; S.room = n; S.f = {};
   if (r.keep) { S.inv = S.inv.filter(i => r.keep.includes(i)); r.keep.forEach(i => { if (!has(i)) S.inv.push(i); }); } else S.inv = [];
   if (r.onStart) r.onStart();
-  S.t0 = Date.now(); S.hints = 0; S.playing = false; save(); intro();
+  S.t0 = Date.now(); S.hints = 0; S.seen = []; S.hintLv = {}; S.freeHint = true; S.playing = false; save(); intro();
 }
 export function resume() { if (S.playing) enterRoom('Willkommen zurück.'); else startChapter(Math.min(S.maxDone || 0, book.rooms.length - 1)); }
 export function restartBook() { resetState({}); save(); startChapter(0); }

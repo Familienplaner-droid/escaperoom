@@ -10,6 +10,7 @@ const img=src=>`<img src="${A(src)}" alt="">`;
 /* ================= GEGENSTÄNDE ================= */
 
 const ITEMS = {
+ zettel1:{n:'Zettel',i:'nachricht.png',paper:['Ein zerknitterter Zettel','Mein liebes Mädchen,<br><br>hab keine Angst. Ich weiß, dass du dich an nichts erinnerst – nicht an dieses Haus und nicht an mich.<br><br>Ich habe dir einen Weg gebaut, Zimmer für Zimmer, so wie die Schatzsuchen, die du früher so geliebt hast. Am Ende wartet jemand auf dich.<br><br>Und denk daran, was ich dir immer gesagt habe: <b>Manche Dinge sieht man erst, wenn das Licht ausgeht.</b><br><br>– V.']},
  schuerhaken:{n:'Schürhaken',i:'poker.png',d:'Ein schwerer eiserner Schürhaken mit Messinggriff. Die Spitze ist gebogen und ziemlich dünn.'},
  lampeLeer:{n:'Taschenlampe (leer)',i:'lampeLeer.png',d:'Eine alte Taschenlampe. Das Batteriefach ist leer.'},
  batterien:{n:'Batterien',i:'batterien.png',d:'Zwei alte Batterien. Hoffentlich ist noch Saft drin.'},
@@ -58,7 +59,10 @@ const desc=i=>typeof ITEMS[i].d==='function'?ITEMS[i].d():ITEMS[i].d;
 /* ================= KAPITEL 1: ARBEITSZIMMER ================= */
 const R1 = {
  title:'Das Arbeitszimmer', chapter:'Kapitel 1', img:A('room.jpg'),
- intro:['Kopfschmerzen. Der Geruch von altem Papier und kaltem Rauch.','Du öffnest die Augen. Ein Arbeitszimmer, das du nie zuvor gesehen hast. Draußen rauscht das Meer.','Du weißt nicht, wie du hierhergekommen bist. Du weißt nicht einmal deinen Namen.','Die Tür ist verschlossen.'],
+ intro:['Kopfschmerzen. Der Geruch von altem Papier und kaltem Rauch.','Du öffnest die Augen. Ein Arbeitszimmer, das du nie zuvor gesehen hast. Draußen rauscht das Meer.','Du weißt nicht, wie du hierhergekommen bist. Du weißt nicht einmal deinen Namen.','Die Tür ist verschlossen. Aber in deiner Hand steckt ein zerknitterter Zettel.'],
+ onStart(){ give('zettel1'); },
+ firstMsg:'In deiner Hand: ein <b>Zettel</b>. Tippe ihn unten im Inventar zweimal an, um ihn zu lesen.',
+ comboNo:{'batterien+taschenuhr':'Eine mechanische Taschenuhr braucht keine Batterien.','messing+taschenuhr':'Die Uhr hat kein Schlüsselloch – nur einen Deckel, der klemmt.','lampe+taschenuhr':'Im Licht siehst du: Der Deckel ist nicht verschlossen, er klemmt nur.'},
  combos:[
   {a:'lampeLeer',b:'batterien',t:()=>{take('lampeLeer');take('batterien');give('lampe');return 'Du legst die Batterien ein. Klick – die Taschenlampe flackert auf!';}},
   {a:'taschenuhr',b:'schuerhaken',t:()=>{ if(S.f.watch) return 'Die Uhr ist schon offen.'; S.f.watch=1; give('zahnrad'); return 'Vorsichtig hebelst du mit der dünnen Spitze des Schürhakens den Rückdeckel auf. Ein <b>Zahnrad</b> fällt dir in die Hand!';}}
@@ -77,42 +81,45 @@ const R1 = {
   {id:'sextant',r:[108,340,82,88],act:()=>'Ein Sextant aus Messing. Damit bestimmten Seeleute ihre Position an den Sternen.'},
   {id:'karte',r:[0,432,145,115],act:()=>'Eine alte Seekarte. Eine kleine Insel ist rot umkringelt, daneben ein winziger Leuchtturm.'},
   {id:'fernrohr',r:[55,610,90,60],act:()=>'Ein Fernrohr. Die Linse ist zerkratzt.'},
-  {id:'bild',r:[296,148,294,310],vis:()=>!S.f.paint,act(){ S.f.paint=1;sfx('slide');return 'Das Gemälde hängt schief. Als du es geraderücken willst, klappt es zur Seite wie eine Tür – dahinter ist ein <b>Tresor</b>!';}},
-  {id:'tresor',r:[345,210,200,200],vis:()=>S.f.paint,act(){ if(S.f.safe) return 'Der Tresor ist leer.'; openSafe(); return 'Ein schwerer Tresor mit einem Zahlenschloss. Vier Ziffern.';}},
-  {id:'kamin',r:[238,515,372,330],act:()=>'Kalte Asche und verkohlte Scheite. Über der Feuerstelle gähnt der Schornstein, <b>stockdunkel</b>.'+(S.f.keySeen&&!S.f.key?' Oben glänzt der Schlüssel.':''),
+  {id:'bild',r:[296,148,294,310],vis:()=>!S.f.paint,no:{schuerhaken:'Ein Loch ins Gemälde? Lieber nicht.'},act(){ S.f.paint=1;sfx('slide');return 'Das Gemälde hängt schief. Als du es geraderücken willst, klappt es zur Seite wie eine Tür – dahinter ist ein <b>Tresor</b>!';}},
+  {id:'tresor',r:[345,210,200,200],vis:()=>S.f.paint,no:{schuerhaken:'Der Tresor ist aus dickem Stahl. Keine Chance.',messing:'Der Tresor hat kein Schlüsselloch – nur ein Zahlenschloss.',tagebuch:'Das Tagebuch verrät dir den Code nicht direkt. Aber es sagt dir, wo du suchen musst.'},act(){ if(S.f.safe) return 'Der Tresor ist leer.'; openSafe(); return 'Ein schwerer Tresor mit einem Zahlenschloss. Vier Ziffern.';}},
+  {id:'kamin',r:[238,515,372,330],no:{lampeLeer:'Du knipst die Taschenlampe an … nichts. Ohne Batterien bleibt sie dunkel.'},act:()=>'Kalte Asche und verkohlte Scheite. Über der Feuerstelle gähnt der Schornstein, <b>stockdunkel</b>.'+(S.f.keySeen&&!S.f.key?' Oben glänzt der Schlüssel.':''),
     use:{lampe(){ if(S.f.key) return 'Nur Ruß und Spinnweben.'; S.f.keySeen=1;flash();sfx('click');return 'Im Lichtkegel blitzt etwas: Ein <b>Schlüssel</b> hängt an einem Haken im Schornstein. Viel zu hoch zum Greifen.';},
          schuerhaken(){ if(!S.f.keySeen) return 'Du stocherst in der Asche. Nichts. Es ist zu dunkel, um weiter oben etwas zu erkennen.'; if(S.f.key) return 'Da ist nichts mehr.'; S.f.key=1;give('messing');return 'Du angelst mit dem Haken nach oben – klirr! Ein kleiner <b>Messingschlüssel</b> fällt in die Asche.';}}},
   {id:'besteck',r:[558,600,80,245],act(){ if(!S.f.poker){S.f.poker=1;give('schuerhaken');return 'Du ziehst den <b>Schürhaken</b> aus dem Kaminbesteck.';} return 'Schaufel, Zange, Besen. Den Schürhaken hast du schon.';}},
-  {id:'uhr',r:[645,212,148,625],act(){ if(S.f.clock){openClock(false);return 'Die Standuhr tickt wieder. Die Zeiger stehen auf <b>9:12</b>.';} return 'Eine prächtige Standuhr. Das Pendel hängt still, die Zeiger hängen schlaff herab. Durch die Glasscheibe siehst du: Im Uhrwerk <b>fehlt ein Zahnrad</b>.';},
+  {id:'uhr',r:[645,212,148,625],no:{batterien:'Die Standuhr ist rein mechanisch. Batterien helfen hier nicht.',schuerhaken:'Im feinen Uhrwerk herumstochern? Dann ist es ganz kaputt.',taschenuhr:'Zwei Uhren – aber keine Antwort. Vielleicht steckt in der kleinen etwas, das der großen fehlt?'},act(){ if(S.f.clock){openClock(false);return 'Die Standuhr tickt wieder. Die Zeiger stehen auf <b>9:12</b>.';} return 'Eine prächtige Standuhr. Das Pendel hängt still, die Zeiger hängen schlaff herab. Durch die Glasscheibe siehst du: Im Uhrwerk <b>fehlt ein Zahnrad</b>.';},
     use:{zahnrad(){ S.f.clock=1;take('zahnrad');sfx('chime');openClock(true);return 'Das Zahnrad rastet ein. Das Pendel beginnt zu schwingen, die Zeiger wirbeln herum … und bleiben auf <b>9:12</b> stehen.';}}},
   {id:'tuer',r:[812,225,274,605],act:()=>'Eine massive Eichentür. <b>Verschlossen.</b> Das Schlüsselloch ist groß und alt.',
+    no:{schuerhaken:'Die Tür aufbrechen? Massive Eiche. Da bricht eher der Schürhaken.',messing:'Viel zu klein für dieses große Schloss.',lampe:'Du leuchtest ins Schlüsselloch. Dahinter: nur Dunkelheit.',zettel1:'Du schiebst den Zettel unter der Tür durch … und ziehst ihn schnell wieder zurück. Du brauchst ihn noch.'},
     use:{tuerschluessel(){ S.f.door=1;take('tuerschluessel');sfx('door');setTimeout(win,1800);return 'Der Schlüssel dreht sich schwer im Schloss … die Tür schwingt knarrend auf. Warmes Licht fällt herein.';}}},
   {id:'pflanze',r:[975,450,111,440],act:()=>'Ein vertrockneter Gummibaum. Hier hat seit Monaten niemand mehr gegossen.'},
-  {id:'teppich',r:[745,945,341,400],act(){ if(!S.f.rug){S.f.rug=1;sfx('slide');return 'Du schlägst eine Ecke des Teppichs um. Darunter: ein <b>lockeres Dielenbrett</b>.';} return 'Ein schwerer Perserteppich. Er riecht nach Staub und Pfeifentabak.';}},
+  {id:'teppich',r:[745,945,341,400],act(){ if(S.f.rug) return 'Ein schwerer Perserteppich. Die Ecke ist umgeschlagen.'; if(!S.f.glow) return 'Ein schwerer Perserteppich. Er riecht nach Staub und Pfeifentabak.'; S.f.rug=1;sfx('slide');return 'Genau dort, wo im Dunkeln das Kreuz geleuchtet hat, schlägst du die Ecke um. Darunter: ein <b>lockeres Dielenbrett</b>.';}},
   {id:'diele',r:[750,948,115,62],vis:()=>S.f.rug,act:()=>S.f.board?'Ein leeres Loch im Boden.':'Das Brett wackelt, aber mit den Fingern bekommst du es nicht hoch. Du brauchst einen <b>Hebel</b>.',
     use:{schuerhaken(){ if(S.f.board) return 'Da ist nichts mehr.'; S.f.board=1;give('batterien');sfx('slide');return 'Du hebelst das Brett auf. Darunter liegen zwei <b>Batterien</b>!';}}},
   {id:'stuhl',r:[30,1180,500,268],act:()=>'Der Lederstuhl ist noch leicht eingedrückt. Hier hat jemand viele, viele Stunden gesessen.'},
   {id:'lade',r:[262,1084,440,86],act:()=>S.f.drawer?'Die Schublade ist leer.':'Die Schreibtischschublade ist abgeschlossen. Ein <b>kleines Messingschloss</b>.',
+    no:{tuerschluessel:'Viel zu groß für das zierliche Schloss.',schuerhaken:'Aufbrechen? Dieses schöne alte Möbelstück? Irgendetwas in dir sträubt sich dagegen.'},
     use:{messing(){ S.f.drawer=1;take('messing');give('tagebuch');give('taschenuhr');sfx('unlock');return 'Klick! Die Schublade gleitet auf. Darin: eine <b>Tagebuchseite</b> und eine <b>Taschenuhr</b>.';}}},
-  {id:'lampe',r:[10,700,220,270],act(){ S.f.dark=!S.f.dark;sfx('click');return S.f.dark?'Klick. Nur noch Kerzenschein.':'Klick. Warmes, grünes Licht.';}},
+  {id:'lampe',r:[10,700,220,270],act(){ S.f.dark=!S.f.dark;sfx('click'); if(S.f.dark&&!S.f.glow){ S.f.glow=1; return 'Klick. Nur noch Kerzenschein … und plötzlich <b>leuchtet etwas</b> schwach grünlich im Raum. Auf dem Teppich – und auf dem Globus!'; } return S.f.dark?'Klick. Nur noch Kerzenschein. Die grünlichen Zeichen leuchten wieder.':'Klick. Warmes, grünes Licht. Die leuchtenden Zeichen sind verschwunden.';}},
   {id:'grammo',r:[195,705,185,240],act(){ sfx('music');return 'Das Grammophon spielt eine knisternde Melodie. Sie kommt dir seltsam vertraut vor … als hättest du sie als Kind gehört.';}},
-  {id:'globus',r:[450,752,132,200],act:()=>'Ein alter Globus. Er dreht sich quietschend. Die Meere sind von Hand nachgezeichnet.'},
+  {id:'globus',r:[450,752,132,200],act:()=>S.f.dark?'Auf dem Globus leuchtet eine winzige Insel, mit Leuchtfarbe nachgemalt. Daneben, kaum lesbar: <b>„Morgenrot – hier wohnt Elena im Sommer“</b>.':S.f.glow?'Bei Licht sieht man die Leuchtfarbe kaum – nur eine winzige Insel, sorgfältig umrandet.':'Ein alter Globus. Er dreht sich quietschend. Die Meere sind von Hand nachgezeichnet.'},
   {id:'buch',r:[62,962,198,82],act(){ if(!S.f.book){S.f.book=1;give('lampeLeer');sfx('slide');return 'Ein dickes Buch: „Leuchttürme der Nordsee“. Du schlägst es auf – es ist <b>hohl</b>! Darin liegt eine Taschenlampe.';} return 'Das hohle Buch ist leer.';}}
  ],
  hint(){ const f=S.f;
-  if(!f.book) return 'Das dicke Buch auf dem Schreibtisch wirkt merkwürdig leicht.';
-  if(!f.poker) return 'Neben dem Kamin steht Kaminbesteck. Etwas davon ist nützlich.';
-  if(!f.rug) return 'Der Teppich liegt nicht ganz flach. Schau mal darunter.';
-  if(!f.board) return 'Das lockere Dielenbrett ließe sich mit dem Schürhaken aufhebeln.';
-  if(!has('lampe')&&!f.keySeen) return 'Die Taschenlampe braucht Strom. Tippe sie im Inventar an, dann die Batterien.';
-  if(!f.keySeen) return 'Im Kamin ist es zu dunkel. Wähle die Taschenlampe und tippe auf den Kamin.';
-  if(!f.key) return 'Der Schlüssel hängt zu hoch. Etwas Langes mit Haken könnte helfen.';
-  if(!f.drawer) return 'Ein kleiner Schlüssel passt zu einem kleinen Schloss. Schau dir den Schreibtisch an.';
-  if(!f.watch) return 'Der Rückdeckel der Taschenuhr klemmt. Kombiniere sie mit etwas Dünnem, Festem.';
-  if(!f.clock) return 'Das Zahnrad gehört in ein großes Uhrwerk.';
-  if(!f.paint) return 'Das Gemälde hängt schief. Was verbirgt sich wohl dahinter?';
-  if(!f.safe) return 'Die Standuhr zeigt jetzt die Uhrzeit aus dem Tagebuch. Gib sie vierstellig ein: erst Stunden, dann Minuten.';
-  return 'Du hast den Türschlüssel. Nichts wie raus hier!'; },
+  if(!f.book) return ['Auf dem Schreibtisch liegt ein Buch, das merkwürdig leicht aussieht.','Tippe auf das dicke Buch vorne links auf dem Schreibtisch.'];
+  if(!f.glow) return ['Lies Opas Zettel noch einmal. Was schreibt er über das Licht?','Manche Dinge sieht man erst im Dunkeln. Was spendet hier Licht?','Schalte die Schreibtischlampe aus: Tippe auf die Lampe und schau dich dann um.'];
+  if(!f.poker) return ['Neben dem Kamin steht etwas Nützliches.','Nimm den Schürhaken aus dem Kaminbesteck.'];
+  if(!f.rug) return ['Im Dunkeln hat etwas auf dem Teppich geleuchtet.','Tippe auf den Teppich, genau dort, wo das Kreuz war.'];
+  if(!f.board) return ['Unter dem Teppich wackelt ein Brett.','Du brauchst einen Hebel. Der Schürhaken passt.','Wähle den Schürhaken und tippe auf das Dielenbrett.'];
+  if(!has('lampe')&&!f.keySeen) return ['Die Taschenlampe braucht Strom.','Kombiniere Taschenlampe und Batterien im Inventar.'];
+  if(!f.keySeen) return ['Wo im Raum ist es so dunkel, dass man eine Lampe braucht?','Leuchte mit der Taschenlampe in den Kamin.'];
+  if(!f.key) return ['Der Schlüssel hängt zu hoch für deine Hände.','Etwas Langes mit einem Haken könnte helfen.','Benutze den Schürhaken am Kamin.'];
+  if(!f.drawer) return ['Ein kleiner Schlüssel passt zu einem kleinen Schloss.','Die Schublade des Schreibtischs ist abgeschlossen.'];
+  if(!f.watch) return ['Der Deckel der Taschenuhr klemmt.','Etwas Dünnes, Festes könnte ihn aufhebeln.','Kombiniere Taschenuhr und Schürhaken im Inventar.'];
+  if(!f.clock) return ['Das Zahnrad ist zu groß für die Taschenuhr.','Wo im Raum steht ein großes Uhrwerk?','Benutze das Zahnrad an der Standuhr.'];
+  if(!f.paint) return ['Hast du dir die Bilder im Raum genau angesehen?','Das Gemälde über dem Kamin hängt schief.'];
+  if(!f.safe) return ['Opa hat den Tresor auf eine besondere Uhrzeit eingestellt.','Lies die Tagebuchseite. Welchen Moment meint Opa? Die Standuhr zeigt ihn dir.','Der Code lautet 0912.'];
+  return ['Du hast den Türschlüssel.','Benutze ihn an der Tür.']; },
  end:['Kapitel 1 geschafft','Hinter der Tür liegt ein langer Flur im Kerzenlicht. Irgendwo tickt eine weitere Uhr. Und auf dem Foto stand ein Name, der sich anfühlt wie deiner: <b>Elena</b>. Aber warum hat dich dein Großvater hier eingeschlossen?'],
  ov(f){ return [`<defs>
   <linearGradient id="steel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6f777a"/><stop offset=".5" stop-color="#3f4547"/><stop offset="1" stop-color="#23282a"/></linearGradient>
@@ -145,7 +152,9 @@ const R1 = {
   <linearGradient id="beamF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffcf7a" stop-opacity=".45"/><stop offset="1" stop-color="#ffcf7a" stop-opacity="0"/></linearGradient>
  </defs>
  ${f.door?`<path d="M842 272h203v556H842z" fill="url(#hall)"/><path d="M842 272 800 250v600l42-22z" fill="#3a2010"/><path d="M842 828h203l41 172H700z" fill="url(#beamF)"/>`:''}
- ${f.dark?`<rect width="${W}" height="${H}" fill="#040a12" opacity=".62"/>`:`<rect width="${W}" height="${H}" fill="url(#lampG)" class="flicker"/>`}
+ ${f.dark?`<rect width="${W}" height="${H}" fill="#040a12" opacity=".62"/>
+  <defs><filter id="glowF" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+  <g filter="url(#glowF)" stroke="#b8ffcf" stroke-width="5" stroke-linecap="round" fill="none" class="flicker">${f.rug?'':'<path d="M790 962l36 30M826 962l-36 30"/>'}<circle cx="528" cy="846" r="7" fill="#b8ffcf" stroke-width="2"/><circle cx="528" cy="846" r="15" stroke-width="2"/></g>`:`<rect width="${W}" height="${H}" fill="url(#lampG)" class="flicker"/>`}
  <circle cx="279" cy="436" r="46" fill="url(#cand)" class="flicker"/><circle cx="581" cy="436" r="46" fill="url(#cand)" class="flicker" style="animation-delay:-1.3s"/>`]; }
 };
 

@@ -7,3 +7,9 @@
 - Raum-Koordinaten (Klickflächen, Overlays) sind Bildpixel des Raumbilds (Villa Morgenrot: 1086 × 1448).
 - Rätsel-Design-Regel: Jeder Code / jede Lösung braucht mindestens zwei Hinweise aus dem Raum. Keine Abkürzungen, kein Erraten durch Rückmeldung nach einzelnen Schritten.
 - Android-Projekt (`android/`) wird in CI erzeugt und ist nicht eingecheckt.
+
+## Buch-Konventionen
+- `hint()` gibt eine Liste `[Schubs, Tipp, Lösung]` zurück (oder einen einzelnen Text). Der erste Eintrag dient als Kennung der Stufe.
+- Eigene Antworten für falsche Benutzung: an der Klickfläche `no:{gegenstand:'Text'}`, für Kombinationen am Raum `comboNo:{'a+b':'Text'}` (Schlüssel alphabetisch sortiert).
+- Nahansicht-Bilder: `img/big/<name>.webp` (bis 480 px). Fehlt eins, wird das Inventar-Icon gezeigt.
+- Optionale Raum-Felder: `introImg`, `firstMsg`, `onStart`, `keep`.

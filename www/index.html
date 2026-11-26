@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#0b1416">
 <title>Escape-Bücher</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
@@ -34,6 +32,7 @@
 
 <!-- INTRO -->
 <section class="screen cover" id="sIntro">
+  <img id="introImg" alt="" hidden>
   <h2 id="introTitle" style="font-size:clamp(30px,8vw,44px)"></h2>
   <div id="introText"></div>
   <button class="btn pri" id="bIntro">Weiter</button>
@@ -80,6 +79,8 @@
 <div class="modal" id="mDlg"><div class="card"><h3 id="dTitle"></h3><div id="dBody"></div><button class="btn" id="dClose" data-close>Schließen</button></div></div>
 <div class="modal" id="mHint"><div class="card"><h3>Hinweis</h3><div id="hintBody"></div></div></div>
 <div class="modal" id="mConfirm"><div class="card"><h3 id="cTitle"></h3><p id="cText"></p><button class="btn pri" id="cYes"></button><br><button class="btn" data-close>Abbrechen</button></div></div>
+
+<div id="tut"><div id="tutHole"></div><div id="tutText"><span id="tutMsg"></span><button class="btn pri" id="tutNext">Weiter</button></div></div>
 
 <script type="module" src="js/app.js"></script>
 </body>
