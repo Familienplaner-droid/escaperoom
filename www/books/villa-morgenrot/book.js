@@ -68,7 +68,7 @@ const R1 = {
   {a:'taschenuhr',b:'schuerhaken',t:()=>{ if(S.f.watch) return 'Die Uhr ist schon offen.'; S.f.watch=1; give('zahnrad'); return 'Vorsichtig hebelst du mit der dünnen Spitze des Schürhakens den Rückdeckel auf. Ein <b>Zahnrad</b> fällt dir in die Hand!';}}
  ],
  cuts:[
-  {r:[296,148,294,310],kind:'hingeL',origin:'6% 50%',clip:'polygon(9.5% .6%,99.3% 11.9%,90.5% 99.6%,0 90.6%)',on:f=>f.paint},
+  {r:[296,148,294,310],kind:'liftOff',origin:'50% 50%',clip:'polygon(9.5% .6%,99.3% 11.9%,90.5% 99.6%,0 90.6%)',on:f=>f.paint},
   {r:[700,444,43,174],kind:'swing',origin:'50% 0',on:f=>f.clock}
  ],
  code:'0912',
@@ -80,8 +80,8 @@ const R1 = {
   {id:'sextant',r:[108,340,82,88],act:()=>'Ein Sextant aus Messing. Damit bestimmten Seeleute ihre Position an den Sternen.'},
   {id:'karte',r:[0,432,145,115],act:()=>'Eine alte Seekarte. Eine kleine Insel ist rot umkringelt, daneben ein winziger Leuchtturm.'},
   {id:'fernrohr',r:[55,610,90,60],act:()=>'Ein Fernrohr. Die Linse ist zerkratzt.'},
-  {id:'bild',r:[296,148,294,310],vis:()=>!S.f.paint,no:{schuerhaken:'Ein Loch ins Gemälde? Lieber nicht.'},act(){ S.f.paint=1;sfx('slide');return 'Das Gemälde hängt schief. Als du es geraderücken willst, klappt es zur Seite wie eine Tür – dahinter ist ein <b>Tresor</b>!';}},
-  {id:'tresor',r:[345,210,200,200],vis:()=>S.f.paint,no:{schuerhaken:'Der Tresor ist aus dickem Stahl. Keine Chance.',messing:'Der Tresor hat kein Schlüsselloch – nur ein Zahlenschloss.',tagebuch:'Das Tagebuch verrät dir den Code nicht direkt. Aber es sagt dir, wo du suchen musst.'},act(){ if(S.f.safe) return 'Der Tresor ist leer.'; openSafe(); return 'Ein schwerer Tresor mit einem Zahlenschloss. Vier Ziffern.';}},
+  {id:'bild',r:[296,148,294,310],vis:()=>!S.f.paint,no:{schuerhaken:'Ein Loch ins Gemälde? Lieber nicht.'},act(){ S.f.paint=1;sfx('slide');return 'Das Gemälde hängt schief. Als du es geraderücken willst, löst es sich vom Haken. Du hebst es ab und stellst es zur Seite – dahinter ist ein <b>Tresor</b>!';}},
+  {id:'tresor',r:[340,195,215,235],vis:()=>S.f.paint,no:{schuerhaken:'Der Tresor ist aus dickem Stahl. Keine Chance.',messing:'Der Tresor hat kein Schlüsselloch – nur ein Zahlenschloss.',tagebuch:'Das Tagebuch verrät dir den Code nicht direkt. Aber es sagt dir, wo du suchen musst.'},act(){ if(S.f.safe) return 'Der Tresor ist leer.'; openSafe(); return 'Ein schwerer Tresor mit einem Zahlenschloss. Vier Ziffern.';}},
   {id:'kamin',r:[238,515,372,330],no:{lampeLeer:'Du knipst die Taschenlampe an … nichts. Ohne Batterien bleibt sie dunkel.'},act:()=>'Kalte Asche und verkohlte Scheite. Über der Feuerstelle gähnt der Schornstein, <b>stockdunkel</b>.'+(S.f.keySeen&&!S.f.key?' Oben glänzt der Schlüssel.':''),
     use:{lampe(){ if(S.f.key) return 'Nur Ruß und Spinnweben.'; S.f.keySeen=1;flash();sfx('click');return 'Im Lichtkegel blitzt etwas: Ein <b>Schlüssel</b> hängt an einem Haken im Schornstein. Viel zu hoch zum Greifen.';},
          schuerhaken(){ if(!S.f.keySeen) return 'Du stocherst in der Asche. Nichts. Es ist zu dunkel, um weiter oben etwas zu erkennen.'; if(S.f.key) return 'Da ist nichts mehr.'; S.f.key=1;give('messing');return 'Du angelst mit dem Haken nach oben – klirr! Ein kleiner <b>Messingschlüssel</b> fällt in die Asche.';}}},
@@ -130,15 +130,10 @@ const R1 = {
  </defs>
  ${[['poker',f.poker,548,592,100,262],['book',f.book,28,950,275,112],['drawer',f.drawer,268,1066,414,128],['rug',f.rug,732,918,354,446]].filter(p=>p[1]).map(([n,,x,y,w,h])=>`<image href="${A('p_'+n+(f.dark?'_d':'')+'.webp')}" x="${x}" y="${y}" width="${w}" height="${h}"/>`).join('')}
  ${f.board?`<path d="M783 1036 806 1033 848 1103 810 1109z" fill="#0a0604"/><path d="M783 1036 806 1033 810 1040 787 1043z" fill="#2a1a0e"/>`:''}
- <g style="filter:brightness(${f.dark?.5:1})">
- ${f.paint?`<path d="M330 158 580 190 556 446 304 418z" fill="#0b0807"/><path d="M330 158 580 190 556 446 304 418z" fill="none" stroke="#000" stroke-width="18" opacity=".6"/>
-  ${f.safe?`<rect x="368" y="232" width="160" height="160" fill="#060505"/><rect x="380" y="320" width="70" height="10" fill="#3a2a17"/><path d="M368 232 318 218v188l50-14z" fill="url(#steel)" stroke="#111" stroke-width="3"/>`
-  :`<rect x="362" y="226" width="172" height="172" rx="8" fill="url(#steel)" stroke="#121516" stroke-width="5"/><rect x="374" y="238" width="148" height="148" rx="5" fill="none" stroke="#8a9295" stroke-width="2" opacity=".5"/><rect x="362" y="226" width="172" height="172" rx="8" filter="url(#grain)" fill="#000"/>
-   <circle cx="458" cy="312" r="34" fill="url(#dial)" stroke="#2b2111" stroke-width="4"/>${[...Array(12)].map((_,i)=>`<rect x="457" y="281" width="2" height="7" fill="#2b2111" transform="rotate(${i*30} 458 312)"/>`).join('')}
-   <circle cx="458" cy="312" r="10" fill="#3a2d16"/><path d="M386 290v44" stroke="#9aa3a6" stroke-width="8" stroke-linecap="round"/><rect x="398" y="360" width="50" height="16" rx="2" fill="#b8954c"/><text x="423" y="372" font-size="11" text-anchor="middle" fill="#3a2a17" font-family="Georgia">V. M.</text>`}`:''}
- ${f.clock?`<rect x="695" y="446" width="50" height="196" fill="url(#pendBg)"/><path d="M706 446v120M733 446v110" stroke="#8a6a35" stroke-width="2"/><circle cx="719" cy="355" r="25" fill="url(#face)"/>
-  <path d="M719 355v-16" stroke="#1a1209" stroke-width="4" stroke-linecap="round" transform="rotate(276 719 355)"/><path d="M719 355v-30" stroke="#1a1209" stroke-width="2.5" stroke-linecap="round" transform="rotate(72 719 355)"/><circle cx="719" cy="355" r="3.5" fill="#b8954c"/>`:''}
- </g>
+ ${f.paint?`<image href="${A((f.safe?'p_safeopen':'p_safe')+(f.dark?'_d':'')+'.webp')}" x="228" y="132" width="376" height="340"/>`:''}
+ ${f.clock?`<g style="filter:brightness(${f.dark?.6:1})"><image href="${A('uhr_mini.webp')}" x="678" y="317" width="81" height="81"/>
+  <image href="${A('uhr_stunde.webp')}" x="${718.5-3.05}" y="${357.5-22.3}" width="6.1" height="44.6" transform="rotate(276 718.5 357.5)"/>
+  <image href="${A('uhr_minute.webp')}" x="${718.5-2.6}" y="${357.5-34.15}" width="5.2" height="68.3" transform="rotate(72 718.5 357.5)"/></g>`:''}
  ${f.keySeen&&!f.key?`<g transform="rotate(20 430 612)"><path d="M430 586v14" stroke="#555" stroke-width="2"/><circle cx="430" cy="606" r="6" fill="none" stroke="#e0b04f" stroke-width="3"/><path d="M430 612v16M430 622h7M430 627h5" stroke="#e0b04f" stroke-width="3"/></g><circle class="glint" cx="436" cy="604" r="5" fill="#fff6d0"/>`:''}
  <ellipse id="gFlash" cx="425" cy="660" rx="120" ry="110" fill="url(#torch)" opacity="0"/>
  `,
@@ -470,16 +465,15 @@ function finale(){ sfx('door'); setTimeout(()=>{ say('Unten auf der Treppe: Schr
 
 /* ================= BUCH-EIGENE NAHANSICHTEN ================= */
 function openClock(spin){
- const Rn=['XII','I','II','III','IIII','V','VI','VII','VIII','IX','X','XI'];
- const body=dialog('Die Standuhr',`<svg id="clockBig" viewBox="0 0 200 200"><circle cx="100" cy="100" r="96" fill="#4a2c18"/><circle cx="100" cy="100" r="86" fill="#d9c7a0" stroke="#b8954c" stroke-width="5"/>
- ${Rn.map((r,i)=>{const a=i*30*Math.PI/180;return `<text x="${100+66*Math.sin(a)}" y="${106-66*Math.cos(a)}" font-family="Georgia" font-size="15" text-anchor="middle" fill="#2a1d10">${r}</text>`}).join('')}
- <path class="bH" d="M100 100v-38" stroke="#1a1209" stroke-width="6" stroke-linecap="round"/><path class="bM" d="M100 100v-60" stroke="#1a1209" stroke-width="3.5" stroke-linecap="round"/><circle cx="100" cy="100" r="6" fill="#b8954c"/></svg><p class="cTxt"></p>`);
- const txt=body.querySelector('.cTxt'), bH=body.querySelector('.bH'), bM=body.querySelector('.bM');
- txt.innerHTML=spin?'Tick … tack … Die Zeiger rasen herum.':'Die Zeiger stehen auf <b>9:12</b>.';
- const set=(h,m)=>{bH.setAttribute('transform',`rotate(${h} 100 100)`);bM.setAttribute('transform',`rotate(${m} 100 100)`);};
- if(!spin){set(276,72);return;}
- const t0=performance.now(),D=2200;
- const step=t=>{const p=Math.min(1,(t-t0)/D),e=1-(1-p)**3;set(300+(276+360-300)*e,200+(72+1440-200)*e);if(p<1)requestAnimationFrame(step);else txt.innerHTML='Dong. Dong. Dong. Die Zeiger bleiben auf <b>9:12</b> stehen.';};
+ const body=dialog('Die Standuhr',`<div class="clockFace"><img src="${A('uhr_zifferblatt.jpg')}" alt=""><img class="hand hH" src="${A('uhr_stunde.webp')}" alt="" style="width:6.4%;height:46.9%"><img class="hand hM" src="${A('uhr_minute.webp')}" alt="" style="width:5.5%;height:71.9%"></div><p class="cTxt"></p>`);
+ const txt=body.querySelector('.cTxt'), hH=body.querySelector('.hH'), hM=body.querySelector('.hM');
+ const set=(h,m)=>{ hH.style.transform=`translate(-50%,-50%) rotate(${h}deg)`; hM.style.transform=`translate(-50%,-50%) rotate(${m}deg)`; };
+ if(!spin){ set(276,72); txt.innerHTML='Die Zeiger stehen auf <b>9:12</b>.'; return; }
+ // Zeiger hängen erst schlaff herab, dann rasen sie los und bremsen auf 9:12 ab
+ txt.innerHTML='Das Zahnrad greift. Tick … tack …'; set(183,178);
+ const t0=performance.now(), D=3200, M0=178, M1=72+1440*2, H0=183, H1=276+360*2;
+ const ease=p=>p<.15?0:1-(1-(p-.15)/.85)**3;
+ const step=t=>{ const p=Math.min(1,(t-t0)/D), e=ease(p); set(H0+(H1-H0)*e, M0+(M1-M0)*e); if(p<1) requestAnimationFrame(step); else { set(276,72); txt.innerHTML='Dong. Dong. Dong. Die Zeiger bleiben auf <b>9:12</b> stehen.'; } };
  requestAnimationFrame(step);
 }
 function openScope(r,svg,txt,title){
