@@ -5,7 +5,7 @@
 @font-face{font-family:"Alegreya Sans";font-weight:500;font-style:normal;font-display:swap;src:url(../fonts/alegreya-sans-latin-500-normal.woff2) format("woff2")}
 @font-face{font-family:"Alegreya Sans";font-weight:700;font-style:normal;font-display:swap;src:url(../fonts/alegreya-sans-latin-700-normal.woff2) format("woff2")}
 
-:root{color-scheme:dark;--bg:#0b1416;--panel:#13201f;--ink:#efe4cf;--muted:#a8a08c;--amber:#f2b35b;--brass:#c99a4b;--line:#2a3a37}
+:root{--sat:max(env(safe-area-inset-top,0px),var(--safe-area-inset-top,0px));--sab:max(env(safe-area-inset-bottom,0px),var(--safe-area-inset-bottom,0px));color-scheme:dark;--bg:#0b1416;--panel:#13201f;--ink:#efe4cf;--muted:#a8a08c;--amber:#f2b35b;--brass:#c99a4b;--line:#2a3a37}
 *{box-sizing:border-box;min-width:0;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:16px/1.45 "Alegreya Sans",system-ui,sans-serif;overflow:hidden;user-select:none;-webkit-user-select:none}
 button{font:inherit;color:inherit;cursor:pointer}
@@ -13,7 +13,7 @@ button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 .screen{position:fixed;inset:0;display:none;flex-direction:column;align-items:center}
 .screen.on{display:flex}
 #app{max-width:560px;width:100%;height:100%;display:flex;flex-direction:column;margin:0 auto}
-header{display:flex;align-items:center;gap:6px;padding:8px 10px;padding-top:max(8px,env(safe-area-inset-top))}
+header{display:flex;align-items:center;gap:6px;padding:8px 10px;padding-top:max(8px,var(--sat))}
 header h1{flex:1;font:20px/1 "IM Fell English SC",serif;margin:0;color:var(--amber);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ib{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:var(--panel);display:grid;place-items:center}
 .ib svg{width:22px;height:22px}
@@ -45,7 +45,7 @@ header h1{flex:1;font:20px/1 "IM Fell English SC",serif;margin:0;color:var(--amb
 #msg{flex:1;min-height:72px;max-height:34vh;overflow-y:auto;margin:8px 10px 0;padding:10px 14px;border-radius:12px;background:var(--panel);border:1px solid var(--line);font-size:16px;transition:opacity .2s}
 #msg.fade{opacity:.2}
 #msg b{color:var(--amber);font-weight:700}
-#inv{display:flex;gap:8px;overflow-x:auto;padding:10px;padding-bottom:max(10px,env(safe-area-inset-bottom));scroll-snap-type:x mandatory}
+#inv{display:flex;gap:8px;overflow-x:auto;padding:10px;padding-bottom:max(10px,var(--sab));scroll-snap-type:x mandatory}
 .slot{flex:none;width:60px;height:60px;border-radius:12px;border:1px solid var(--line);background:#0f1a19;display:grid;place-items:center;scroll-snap-align:start;position:relative}
 .slot svg{width:42px;height:42px}
 .slot.sel{border-color:var(--amber);box-shadow:0 0 0 2px var(--amber),0 0 18px #f2b35b66}
@@ -53,7 +53,7 @@ header h1{flex:1;font:20px/1 "IM Fell English SC",serif;margin:0;color:var(--amb
 @keyframes pop{0%{transform:scale(.4)}70%{transform:scale(1.15)}100%{transform:scale(1)}}
 .slot.empty{opacity:.35}
 /* Titel / Intro / Ende */
-.cover{justify-content:center;text-align:center;padding:24px;background:radial-gradient(120% 80% at 50% 30%,#1d3533 0,#0b1416 70%)}
+.cover{justify-content:safe center;overflow-y:auto;text-align:center;padding:calc(20px + var(--sat)) 24px calc(20px + var(--sab));background:radial-gradient(120% 80% at 50% 30%,#1d3533 0,#0b1416 70%)}
 .cover h2{font:clamp(40px,11vw,60px)/1.02 "IM Fell English SC",serif;margin:0 0 6px;color:var(--amber);text-wrap:balance;text-shadow:0 0 30px #f2b35b55}
 .cover p{max-width:34ch;color:var(--muted);margin:6px auto 22px}
 .btn{min-height:50px;min-width:220px;padding:0 24px;margin:6px;border-radius:14px;border:1px solid var(--brass);background:linear-gradient(#2a3b37,#172422);font-weight:700;font-size:17px}
@@ -92,7 +92,7 @@ header h1{flex:1;font:20px/1 "IM Fell English SC",serif;margin:0;color:var(--amb
 .card{max-height:calc(100dvh - 36px);overflow-y:auto}
 /* Bücherregal */
 .lib{justify-content:flex-start;overflow-y:auto;background:radial-gradient(120% 60% at 50% 0,#1d3533 0,#0b1416 70%)}
-.libIn{width:100%;max-width:560px;padding:max(28px,env(safe-area-inset-top)) 18px max(28px,env(safe-area-inset-bottom))}
+.libIn{width:100%;max-width:560px;padding:max(28px,var(--sat)) 18px max(28px,var(--sab))}
 .libHead h1{font:clamp(34px,9vw,46px)/1.02 "IM Fell English SC",serif;color:var(--amber);margin:0}
 .libHead p{color:var(--muted);margin:6px 0 22px}
 .shelf{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
@@ -108,8 +108,8 @@ header h1{flex:1;font:20px/1 "IM Fell English SC",serif;margin:0;color:var(--amb
 .bookPage{justify-content:flex-start;overflow-y:auto}
 .bpHero{width:100%;max-width:560px;aspect-ratio:4/3;background:center/cover;position:relative;flex:none}
 .bpHero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0b141600 30%,#0b1416)}
-.bpBack{position:absolute;top:max(10px,env(safe-area-inset-top));left:10px;z-index:2}
-.bpIn{width:100%;max-width:560px;padding:0 18px max(28px,env(safe-area-inset-bottom));margin-top:-70px;position:relative;z-index:1}
+.bpBack{position:absolute;top:max(10px,var(--sat));left:10px;z-index:2}
+.bpIn{width:100%;max-width:560px;padding:0 18px max(28px,var(--sab));margin-top:-70px;position:relative;z-index:1}
 .bpIn h2{font:clamp(36px,10vw,50px)/1 "IM Fell English SC",serif;color:var(--amber);margin:0 0 4px}
 .bpGenre{font-size:14px;color:var(--brass);margin-bottom:10px}
 .bpIn>p{color:var(--muted);margin:0 0 18px}
@@ -126,7 +126,7 @@ header h1{flex:1;font:20px/1 "IM Fell English SC",serif;margin:0;color:var(--amb
 .closeUp{background:radial-gradient(closest-side,#2a3b37,#162523);border-radius:14px;padding:14px;margin-bottom:8px}
 .closeUp img{display:block;width:min(240px,70vw);height:min(240px,70vw);object-fit:contain;margin:0 auto;filter:drop-shadow(0 8px 14px #000b)}
 /* Intro-Bild */
-#introImg{width:min(78vw,340px);aspect-ratio:3/4;object-fit:cover;border-radius:6px;box-shadow:0 12px 40px #000a;margin-bottom:14px}
+#introImg{flex:none;width:min(78vw,340px,calc(40dvh * .75));aspect-ratio:3/4;object-fit:cover;border-radius:6px;box-shadow:0 12px 40px #000a;margin-bottom:14px}
 #sIntro{overflow-y:auto}
 /* Einführung */
 #tut{position:fixed;inset:0;z-index:20;display:none}
@@ -142,3 +142,7 @@ header h1{flex:1;font:20px/1 "IM Fell English SC",serif;margin:0;color:var(--amb
 .clockFace .hand{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);filter:drop-shadow(2px 3px 2px #0008)}
 .cut.liftOff{transition:transform .9s cubic-bezier(.3,.7,.3,1),opacity .6s .7s,filter .9s}
 .cut.liftOff.on{transform:translate(-4%,-6%) scale(1.06) rotate(-2deg);opacity:0;filter:drop-shadow(0 18px 18px #000)}
+/* Intro: Weiter-Knopf bleibt unten sichtbar und verdeckt keinen Text */
+#sIntro{padding-bottom:0}
+#introText{flex:none;min-height:0}
+.introBar{position:sticky;bottom:0;align-self:stretch;flex:none;margin-top:auto;padding:28px 0 calc(16px + var(--sab));background:linear-gradient(#0b141600,#0b1416 38%)}

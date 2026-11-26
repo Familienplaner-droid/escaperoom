@@ -191,7 +191,7 @@ function intro() {
   const r = room(), el = $('introText'); $('introTitle').textContent = `${r.chapter}: ${r.title}`;
   const ii = $('introImg'); ii.hidden = !r.introImg; if (r.introImg) ii.src = r.introImg; el.innerHTML = ''; let p = 0, c = 0; clearInterval(ty);
   ui.screen('sIntro');
-  ty = setInterval(() => { if (p >= r.intro.length) { clearInterval(ty); return; } if (c === 0) el.insertAdjacentHTML('beforeend', '<p></p>'); el.lastElementChild.textContent = r.intro[p].slice(0, ++c); if (c >= r.intro[p].length) { p++; c = 0; } }, 26);
+  ty = setInterval(() => { if (p >= r.intro.length) { clearInterval(ty); return; } if (c === 0) el.insertAdjacentHTML('beforeend', '<p></p>'); el.lastElementChild.textContent = r.intro[p].slice(0, ++c); $('sIntro').scrollTop = 1e6; if (c >= r.intro[p].length) { p++; c = 0; } }, 26);
 }
 $('bIntro').onclick = () => { clearInterval(ty); enterRoom(room().firstMsg || book.firstMsg); };
 function enterRoom(m) { sel = null; S.playing = true; loadRoom(); render(); renderInv(); ui.screen('sGame'); say(m); if (book.onEnter) book.onEnter(); tutorial(); }
