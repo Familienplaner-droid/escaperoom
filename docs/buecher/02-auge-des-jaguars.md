@@ -65,13 +65,14 @@ Finale: Kammer im ersten Sonnenstrahl, Sternkarte an der Wand.
 ### Kapitel 1 – Das Expeditionszelt (Mitternacht, Sturm; Kombinieren + Licht/Dunkel + Zahlencode)
 Start: Zelt fast dunkel, nur Blitze. Ziel: Röhre ins Funkgerät.
 1. Zeichenmappe auf Lous Feldbett → **Federmesser**.
-2. Pfosten → **Karbidlampe (leer)**.
+2. Grüne Blechkiste im Regal → **Karbidlampe (leer)**.
 3. Regal → **Karbiddose** (Deckel verrostet) · Dose + Federmesser → **Karbid**.
 4. Tisch → **Blechbecher** · Becher an die tropfende Stelle im Zeltdach → **Becher mit Regenwasser**.
-5. Lampe + Karbid → Lampe + Wasser → **brennende Karbidlampe** · an den Haken hängen → Zelt hell (Bildwechsel).
+5. Lampe + Karbid → Lampe + Wasser → **brennende Karbidlampe** (Funkenrad) · damit die große Sturmlaterne am Mast anzünden
+   (Petroleum drin, Streichhölzer nass) → Zelt hell (Bildwechsel).
 6. Im Hellen: unter dem Kissen von Amalias Feldbett → **Seite 1** (Skizze „mein Tempel“: drei Stufen, Jaguarkopf oben).
 7. Kartentisch (erst im Hellen lesbar) → Karte mit 9 Ruinen-Symbolen und Gradnetz (Minuten am Rand).
-8. Kiste: Deckel „N __ · W __“ → Code = Minuten des Jaguartempels, z. B. **4317**.
+8. Kiste (erst im Hellen): Deckel „N __ · W __“ → Code = Minuten des Jaguartempels, z. B. **4317**.
    *Hinweise:* Seite 1 (welche Ruine) + Karte (Zahlen) + Kistendeckel (Reihenfolge).
 9. Kiste → **Röhre** + **Kompass** · Röhre ins Funkgerät → Funkspruch „…Lou… Tempel… Sonnenaufgang…“ → Ende.
 Mit: Feldbuch, Federmesser, Kompass, Karbidlampe.
@@ -127,4 +128,11 @@ Jeder mitgebrachte Gegenstand kommt hier ein letztes Mal vor (Waage, Hebel, Lins
 - Abwechslung: K1 Kombinieren/Licht/Zahlencode · K2 Brückenbau/Symbolschloss · K3 Licht/Kalenderrad · K4 Spiegel · K5 Waage/Sternkarte.
 
 ## Stand
-Konzept ausgearbeitet, **wartet auf Freigabe** durch den Nutzer. Noch keine Bilder, kein Code.
+**Kapitel 1 fertig eingebaut** (28.11.2026), Durchspiel-Test `tools/playtest_jaguar.py` läuft fehlerfrei. Buch im Regal angemeldet.
+- Bilder in `www/books/auge-des-jaguars/img/`: zelt.jpg (hell), zelt_dunkel.jpg, p_kiste(_d).webp (Kiste offen, Overlay x0 y900 490×548),
+  intro1.jpg, karte.jpg (Karte ohne Beschriftung; Gitter/Ruinen als SVG in `openMap`), seite1_gross.webp, Icons + big/.
+- Cover ist vorläufig intro1.jpg.
+- **Fehlt:** Kiste offen und **leer** (hell + dunkel) – bis dahin liegen Röhre und Kompass nach dem Herausnehmen noch sichtbar im Stroh
+  (Overlay in `ov`: `f.inhalt` → `p_kiste_leer`).
+- Noch offen: Rückmeldung des Nutzers zu Kapitel 1, dann Kapitel 2 (Bild-Prompts).
+- Übersetzungen: noch keine (leere i18n-Dateien angelegt).
