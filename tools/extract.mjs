@@ -1,5 +1,5 @@
-import * as acorn from '/tmp/node_modules/acorn/dist/acorn.mjs';
-import * as walk from '/tmp/node_modules/acorn-walk/dist/walk.mjs';
+import * as acorn from 'acorn';
+import * as walk from 'acorn-walk';
 import fs from 'fs';
 const src=fs.readFileSync(process.argv[2],'utf8');
 const ast=acorn.parse(src,{ecmaVersion:'latest',sourceType:'module'});

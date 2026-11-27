@@ -15,6 +15,8 @@
   },
   "devDependencies": {
     "@capacitor/assets": "^4.0.0",
-    "@capacitor/cli": "^8.6.3"
+    "@capacitor/cli": "^8.6.3",
+    "acorn": "^8.19.0",
+    "acorn-walk": "^8.3.5"
   }
 }

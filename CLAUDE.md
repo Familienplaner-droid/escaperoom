@@ -1,5 +1,7 @@
 # Questory – Hinweise für die Arbeit an diesem Repo
 
+Neues Buch bauen? Erst `docs/NEUES-BUCH.md` lesen, dann das Konzept unter `docs/buecher/`.
+
 - Sprache im Spiel und in Commits: Deutsch.
 - Kein Build-Schritt: `www/` wird direkt ausgeliefert (ES-Module). Testen mit einem lokalen HTTP-Server (Module laden nicht über `file://`).
 - Engine (`www/js/engine.js`) bleibt buchneutral. Alles Geschichtenspezifische gehört in `www/books/<buch>/book.js`.

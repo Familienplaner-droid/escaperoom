@@ -1,8 +1,7 @@
 // Questory – App-Rahmen: Bücherregal, Buchseite, Navigation, Zurück-Taste.
-import { BOOKS } from '../books/index.js';
+import { BOOKS, BOOK_DIRS } from '../books/index.js';
 import { useBook, loadState, startChapter, resume, restartBook, leaveToBook, closeModals, state } from './engine.js';
 import { LANGS, getLang, setLang, initLang, tr, tf } from './i18n.js';
-const BOOK_DIRS = ['books/villa-morgenrot'];
 
 const $ = id => document.getElementById(id);
 let current = null, currentFactory = null, screenNow = 'sLib';
