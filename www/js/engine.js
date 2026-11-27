@@ -124,7 +124,15 @@ $('pad').addEventListener('click', e => {
 
 // Drehring-Schloss: openLock({title, vals, show, code, start, ok})
 let ring = [], LK = null;
-const drawRings = () => $('rings').innerHTML = ring.map((v, k) => `<div class="ring"><button data-r="${k}" data-d="-1" aria-label="hoch">▲</button><div class="sy">${LK.show(LK.vals[v])}</div><button data-r="${k}" data-d="1" aria-label="runter">▼</button></div>`).join('');
+const drawRings = () => {
+  // Mit skin: gemaltes Schloss, Symbole in den Fenstern, Pfeile darüber/darunter
+  if (LK.skin) {
+    $('rings').innerHTML = `<div class="lockSkin"><img src="${LK.skin.img}" alt="" style="transform:${LK.skin.zoom || 'none'}">${ring.map((v, k) => { const [x, y, w, h] = LK.skin.slots[k];
+      return `<div class="lsSym" style="left:${x}%;top:${y}%;width:${w}%;height:${h}%">${LK.show(LK.vals[v])}</div><button class="lsBtn" data-r="${k}" data-d="-1" aria-label="hoch" style="left:${x + w / 2}%;top:${y - 9}%">▲</button><button class="lsBtn" data-r="${k}" data-d="1" aria-label="runter" style="left:${x + w / 2}%;top:${y + h + 9}%">▼</button>`; }).join('')}</div>`;
+    return;
+  }
+  $('rings').innerHTML = ring.map((v, k) => `<div class="ring"><button data-r="${k}" data-d="-1" aria-label="hoch">▲</button><div class="sy">${LK.show(LK.vals[v])}</div><button data-r="${k}" data-d="1" aria-label="runter">▼</button></div>`).join('');
+};
 function openLock(cfg) { LK = cfg; ring = cfg.start.slice(); $('lockTitle').textContent = cfg.title; drawRings(); $('mLock').classList.add('on'); }
 $('rings').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const k = +b.dataset.r, n = LK.vals.length; ring[k] = (ring[k] + (+b.dataset.d) + n) % n; sfx('click'); drawRings(); });
 $('bLockOpen').onclick = () => {

@@ -174,3 +174,12 @@ header h1{flex:1;font:20px/1 "IM Fell English SC",serif;margin:0;color:var(--amb
 .sBook{position:absolute;border:0;padding:0;border-radius:4px;transition:transform .35s ease,box-shadow .35s;display:grid;place-items:center}
 .sBook.out{transform:translateY(-9%);box-shadow:0 12px 14px #000c}
 .sBook span{font:clamp(10px,2.9vw,14px)/1.05 "IM Fell English SC",serif;color:#f3d27a;text-shadow:0 1px 0 #3a2208,0 0 4px #000a;text-align:center;padding:2px}
+/* Gemaltes Schloss */
+.lockSkin{position:relative;width:min(320px,80vw);aspect-ratio:1;border-radius:12px;overflow:hidden;box-shadow:0 10px 26px #000a}
+.lockSkin>img{display:block;width:100%;height:100%}
+.lsSym{position:absolute;display:grid;place-items:center;opacity:.85;mix-blend-mode:multiply}
+.lsSym svg{width:88%;height:88%}
+.lsBtn{position:absolute;transform:translate(-50%,-50%);width:42px;height:34px;border-radius:10px;border:1px solid #c99a4b;background:#1b140cdd;color:#f2b35b;font-size:18px}
+/* Kreidewand */
+.chalkWall{position:relative;width:min(340px,84vw);aspect-ratio:4/3;margin:0 auto 6px;border-radius:10px;overflow:hidden;box-shadow:0 10px 26px #000a}
+.chalkWall img,.chalkWall svg{position:absolute;inset:0;width:100%;height:100%}

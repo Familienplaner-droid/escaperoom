@@ -231,9 +231,18 @@ const SYM_SVG={
  Leuchtturm:'<path d="M15 36l2.5-22h5L25 36zM16 14h8v-5h-8zM20 9V5M24 11l9-4M16 11l-9-4"/>'
 };
 const symIcon=(s,sz=40)=>`<svg viewBox="0 0 40 40" width="${sz}" height="${sz}" fill="none" stroke="#efe4cf" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${SYM_SVG[s]}</svg>`;
+function openChalk(){
+ const pos=[['Muschel',18,22],['Anker',43,22],['Fisch',68,22],['Stern',68,52],['Leuchtturm',43,52],['Möwe',18,52]];
+ dialog('Die Kreidezeichnung',`<div class="chalkWall"><img src="${A('kreide_wand.jpg')}" alt=""><svg viewBox="0 0 100 75" preserveAspectRatio="none"><defs><filter id="chalk2"><feTurbulence type="fractalNoise" baseFrequency="2.4" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale=".6"/></filter></defs>
+  <g filter="url(#chalk2)" fill="none" stroke="#f6f1e4" stroke-linecap="round" stroke-linejoin="round" opacity=".88">
+  ${pos.map(([n,x,y])=>`<g transform="translate(${x} ${y}) scale(.36)" stroke-width="2.6">${SYM_SVG[n]}</g>`).join('')}
+  <path stroke-width=".9" d="M34 29h6M38 27l2 2-2 2M59 29h6M63 27l2 2-2 2M83 36v11M81 45l2 2 2-2M66 59h-6M62 57l-2 2 2 2M41 59h-6M37 57l-2 2 2 2"/>
+  <path stroke-width=".7" d="M24 68.5q3-2 6 0t6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0"/>
+  <text x="50" y="73.6" text-anchor="middle" font-family="Comic Sans MS,cursive" font-size="4.6" fill="#f6f1e4" stroke="none">Der Weg zum Meer – Elena</text></g></svg></div>`);
+}
 const LOCK_CODE=['Möwe','Stern','Anker'];
 const R3 = {
- title:'Der Keller', chapter:'Kapitel 3', img:A('keller.jpg'), keep:['lampe','foto'],
+ title:'Der Keller', chapter:'Kapitel 3', img:A('keller.jpg'), imgFor:f=>A(f.gate?'keller_offen.jpg':f.lit?'keller_licht.jpg':'keller.jpg'), introImg:A('intro3.jpg'), keep:['lampe','foto'],
  soon:'Kapitel 4: Das Bootshaus – kommt bald',
  onStart(){ S.inv=S.inv.map(i=>i==='lampe'?'lampeLeer':i); },
  intro:['Die Wendeltreppe führt tief hinab. Es riecht nach Salz, Moos und altem Holz.','Auf der letzten Stufe flackert die Taschenlampe – und erlischt. Die Batterien sind leer.','Nur der Mond scheint durch ein vergittertes Fenster. Irgendwo hinter einem Gittertor rauscht das Meer.'],
@@ -242,11 +251,11 @@ const R3 = {
   {a:'schnur',b:'magnet',t:()=>{ take('schnur'); take('magnet'); give('magnetangel'); return 'Du knotest die Schnur fest um den Magneten. Fertig ist eine <b>Magnetangel</b>!'; }},
   {a:'flasche',b:'korkenzieher',t:()=>{ take('flasche'); take('korkenzieher'); give('nachricht'); return 'Du drehst den Korkenzieher hinein – plopp! Mit spitzen Fingern ziehst du die Papierrolle aus der Flasche: eine <b>Nachricht von Opa</b>.'; }}
  ],
- cuts:[ {r:[258,392,292,585],kind:'hingeL',origin:'0 50%',on:f=>f.gate} ],
+ cuts:[],
  hot:[
   {id:'treppe',r:[70,30,200,270],act:()=>'Die Wendeltreppe nach oben. Das Regal hat sich hinter dir wieder geschlossen – zurück geht es nicht.'},
   {id:'tor',r:[258,392,292,585],vis:()=>!S.f.gate,act:()=>'Ein schweres Gittertor. Dahinter ein Tunnel, aus dem kalte Meeresluft weht. Ein großes <b>Vorhängeschloss</b> hält es verschlossen.'},
-  {id:'schloss',r:[440,655,80,100],no:{schuerhaken:'Das Schloss ist massiv.',kurbel:'Du schlägst mit der Kurbel aufs Schloss. Es klirrt. Es bleibt zu.',korkenzieher:'Mit dem Korkenzieher im Schloss herumbohren? Das klappt nur im Film.',magnetangel:'Der Magnet klebt am Schloss. Sonst passiert nichts.'},vis:()=>!S.f.gate,act(){ if(!S.f.lit) return 'Zu dunkel. Du ertastest <b>drei Drehringe</b> mit eingravierten Zeichen, aber erkennen kannst du nichts.'; openLock({title:'Das Vorhängeschloss',vals:SYM,show:x=>symIcon(x,44),code:LOCK_CODE,start:[3,4,5],ok(){ S.f.gate=1; sfx('door'); say('Klack! Das Schloss springt auf. Das Gittertor schwingt quietschend zur Seite.'); render(); setTimeout(win,2600); }}); return 'Drei Drehringe mit Symbolen. Erst wenn alle richtig stehen, springt das Schloss auf.'; }},
+  {id:'schloss',r:[440,655,80,100],no:{schuerhaken:'Das Schloss ist massiv.',kurbel:'Du schlägst mit der Kurbel aufs Schloss. Es klirrt. Es bleibt zu.',korkenzieher:'Mit dem Korkenzieher im Schloss herumbohren? Das klappt nur im Film.',magnetangel:'Der Magnet klebt am Schloss. Sonst passiert nichts.'},vis:()=>!S.f.gate,act(){ if(!S.f.lit) return 'Zu dunkel. Du ertastest <b>drei Drehringe</b> mit eingravierten Zeichen, aber erkennen kannst du nichts.'; openLock({title:'Das Vorhängeschloss',skin:{img:A('schloss_nah.jpg'),zoom:'scale(1.5) translateY(-4%)',slots:[[24.1, 53.6, 13.4, 13.4], [43.4, 53.6, 13.4, 13.4], [62.8, 53.6, 13.4, 13.4]]},vals:SYM,show:x=>symIcon(x,44).replace('stroke="#efe4cf"','stroke="#3a2608"'),code:LOCK_CODE,start:[3,4,5],ok(){ S.f.gate=1; sfx('door'); say('Klack! Das Schloss springt auf. Das Gittertor schwingt quietschend zur Seite.'); render(); setTimeout(win,2600); }}); return 'Drei Drehringe mit Symbolen. Erst wenn alle richtig stehen, springt das Schloss auf.'; }},
   {id:'fenster',r:[920,45,130,210],act:()=>'Ein kleines vergittertes Fenster. Der Mond steht genau dahinter. Draußen hörst du die Brandung.'},
   {id:'weinregal',r:[0,150,245,530],act:()=>'Staubige Weinflaschen, manche älter als du. Auf einem Etikett: „Für Elenas Hochzeit – nicht vorher öffnen!“'},
   {id:'flasche',r:[48,492,115,60],no:{korkenzieher:'Nimm die Flasche erst einmal aus dem Regal.'},act(){ if(!S.f.flasche){ S.f.flasche=1; give('flasche'); return 'Eine Flasche liegt anders als die anderen. Darin steckt eine <b>Papierrolle</b>! Du nimmst die <b>Flaschenpost</b>. Der Korken sitzt fest.'; } return 'Leere Fächer, viele Spinnweben.'; }},
@@ -266,7 +275,7 @@ const R3 = {
         lampeLeer(){ return 'Die Taschenlampe ist tot. Hier hilft nur Feuer.'; }}},
   {id:'marken',r:[595,545,70,230],act:()=>'Kleine Kerben in der Säule, jede mit Datum: „Elena, 5 J.“ – „6 J.“ – „7 J.“ … die letzte ganz oben: „Elena, 12 J.“ Du legst die Hand darauf. Sie passt genau unter die Kerbe.'},
   {id:'leine',r:[712,368,374,72],vis:()=>!S.f.schnur,act(){ S.f.schnur=1; give('schnur'); return 'Du knotest die Wäscheleine los und wickelst die <b>Schnur</b> auf.'; }},
-  {id:'wand',r:[732,440,160,235],act:()=>S.f.lit?'Eine Kinderzeichnung in Kreide: ein Weg aus sechs Zeichen, mit Pfeilen verbunden. Oben <b>Muschel → Anker → Fisch</b>, dann ein Pfeil nach unten, und unten zurück: <b>Stern → Leuchtturm → Möwe</b>. Darunter: „Der Weg zum Meer – von Elena“.':'Die Wand liegt im Schatten.'},
+  {id:'wand',r:[732,440,160,235],act(){ if(!S.f.lit) return 'Die Wand liegt im Schatten.'; openChalk(); return 'Eine Kinderzeichnung in Kreide: ein Weg aus sechs Zeichen. Darunter: „Der Weg zum Meer – von Elena“.'; }},
   {id:'glaeser',r:[895,425,191,240],act:()=>'Einmachgläser. Auf einem Etikett in Kinderschrift: „Brombeermarmelade – Elena &amp; Opa“.'},
   {id:'rad',r:[770,680,316,350],act:()=>'Opas altes Fahrrad. Am Lenker klebt ein verblasster Aufkleber: ein Seepferdchen.'},
   {id:'kasten',r:[745,945,175,132],act(){ if(!S.f.magnet){ S.f.magnet=1; give('magnet'); return 'Du klappst die Werkzeugkiste auf. Zwischen Schrauben und Nägeln: ein <b>Hufeisenmagnet</b>. An ihm klebt eine ganze Traube Nägel.'; } return 'Schrauben, Nägel, ein Zollstock.'; }},
@@ -289,9 +298,8 @@ const R3 = {
  end:['Kapitel 3 geschafft','Das Schloss springt auf. Quietschend schwingt das Gittertor zur Seite. Der Tunnel führt abwärts, das Rauschen wird lauter – und am Ende schimmert Licht.<br><br>Ein Bootshaus. Und darin, du bist ganz sicher: das große Boot, das ihr damals zusammen bauen wolltet.'],
  ov(f){ return [`<defs><filter id="chalk"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter>
   <radialGradient id="tun" cx=".5" cy=".55" r=".5"><stop offset="0" stop-color="#ffd890" stop-opacity=".7"/><stop offset="1" stop-color="#ffd890" stop-opacity="0"/></radialGradient></defs>
- ${f.gate?`<ellipse cx="405" cy="700" rx="110" ry="160" fill="url(#tun)" class="flicker"/>`:''}
- ${f.schnur?`<image href="${A('k_ohneleine.jpg')}" x="700" y="360" width="386" height="110"/>`:''}
- ${f.kurbel?`<image href="${A('k_ohnezahnrad.jpg')}" x="880" y="1218" width="100" height="100"/>`:''}
+ ${f.schnur?`<image href="${A(f.lit?'k_ohneleine_l.jpg':'k_ohneleine.jpg')}" x="700" y="360" width="386" height="110"/>`:''}
+ ${f.kurbel?`<image href="${A(f.lit?'k_ohnezahnrad_l.jpg':'k_ohnezahnrad.jpg')}" x="880" y="1218" width="100" height="100"/>`:''}
  ${f.lit?`<g filter="url(#chalk)" fill="none" stroke="#efe9da" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" opacity=".85">
    ${[['Muschel',740,444],['Anker',792,444],['Fisch',844,444],['Stern',844,524],['Leuchtturm',792,524],['Möwe',740,524]].map(([n,x,y])=>`<g transform="translate(${x} ${y})" stroke-width="2.8">${SYM_SVG[n]}</g>`).join('')}
    <path d="M781 464h9M786 460l4 4-4 4M833 464h9M838 460l4 4-4 4"/>
@@ -303,7 +311,7 @@ const R3 = {
   <radialGradient id="dk" cx="160" cy="160" r="1100" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#02060c" stop-opacity="0"/><stop offset=".25" stop-color="#02060c" stop-opacity=".35"/><stop offset="1" stop-color="#02060c" stop-opacity=".62"/></radialGradient>
   <radialGradient id="lan" cx="676" cy="470" r="700" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffcf7a" stop-opacity=".5"/><stop offset=".4" stop-color="#ffb35a" stop-opacity=".15"/><stop offset="1" stop-color="#ffb35a" stop-opacity="0"/></radialGradient>
  </defs>
- ${f.lit?`<rect width="${W}" height="${H}" fill="#02060c" opacity=".12"/><rect width="${W}" height="${H}" fill="url(#lan)" class="flicker"/><ellipse cx="676" cy="468" rx="14" ry="22" fill="#ffe6a8" opacity=".9" class="flicker"/>`
+ ${f.lit?`<rect width="${W}" height="${H}" fill="url(#lan)" opacity=".35" class="flicker"/>`
   :`<rect width="${W}" height="${H}" fill="url(#dk)"/>`}`]; }
 };
 /* ================= KAPITEL 4: BOOTSHAUS ================= */
