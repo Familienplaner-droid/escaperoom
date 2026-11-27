@@ -321,6 +321,7 @@ const R4 = {
  title:'Das Bootshaus', chapter:'Kapitel 4', img:A('bootshaus.jpg'), keep:['foto'],
  soon:'Kapitel 5: Der Leuchtturm – kommt bald',
  intro:['Der Tunnel wird breiter, die Luft salziger. Dann stehst du auf knarrenden Planken: Opas Bootshaus.','Im Wasser schaukelt ein kleines Segelboot. Du weißt es sofort: Das habt ihr zusammen gebaut.','Durchs Fenster siehst du den Leuchtturm. Sein Licht blinkt – aber nicht gleichmäßig. Als würde es dir etwas sagen.'],
+ comboNo:{'hammer+kupfer':'Das Blech ist schon flach genug.','kupfer+pinsel':'Ein trockener Pinsel bringt nichts. Erst braucht er Teer.','hammer+naegel':'Erst brauchst du etwas, das du festnageln kannst – und den richtigen Ort.'},
  combos:[ {a:'teerpinsel',b:'kupfer',t:()=>{ take('teerpinsel'); take('kupfer'); give('teerblech'); return 'Du streichst das Kupferschild dick mit Teer ein. Jetzt ist es ein wasserdichter Flicken: <b>geteertes Blech</b>.'; }} ],
  cuts:[ {r:[295,340,490,362],kind:'lift',clip:'polygon(0 0,44.2% 0,44.2% 99.8%,50.2% 99.8%,50.2% 0,100% 0,100% 100%,0 100%)',on:f=>f.gate} ],
  hot:[
@@ -348,30 +349,30 @@ const R4 = {
   {id:'regal',r:[0,555,185,240],act:()=>'Farbdosen, Lack, Werkzeug. Alles riecht nach Teer und Salz.'},
   {id:'pinsel',r:[84,668,62,108],vis:()=>!S.f.pinsel,act(){ S.f.pinsel=1; give('pinsel'); return 'Du nimmst den <b>Pinsel</b> aus dem Regal. Die Borsten sind trocken und sauber.'; }},
   {id:'naegel',r:[0,722,78,72],act(){ if(!S.f.naegelGenommen){ S.f.naegelGenommen=1; give('naegel'); return 'Eine Dose voller <b>Nägel</b>. Die kannst du brauchen.'; } return 'Die Dose ist leer.'; }},
-  {id:'fass',r:[8,820,172,272],act:()=>'Ein Fass voll zähem, schwarzem <b>Teer</b>. Es riecht scharf. Mit den Fingern willst du da nicht hineinfassen.',
+  {id:'fass',r:[8,820,172,272],no:{teerblech:'Das Blech ist schon geteert.',hammer:'Das Fass ist aus dickem Holz. Lieber nicht.'},act:()=>'Ein Fass voll zähem, schwarzem <b>Teer</b>. Es riecht scharf. Mit den Fingern willst du da nicht hineinfassen.',
    use:{ pinsel(){ take('pinsel'); give('teerpinsel'); return 'Du tauchst den Pinsel tief in den Teer. Jetzt tropft er schwarz und glänzend: ein <b>Teerpinsel</b>.'; },
          kupfer(){ return 'Ins Fass tauchen? Dann klebst du selbst fest. Besser mit etwas auftragen.'; } }},
-  {id:'fenster',r:[893,256,175,238],act(){ openScope([960,300,110,110],`<circle class="morse" cx="64" cy="51" r="7" fill="#fff6d0"/><circle class="morse" cx="64" cy="51" r="22" fill="#fff6d0" opacity=".35"/>`,'Das Leuchtfeuer blinkt: kurz und lang, in einem Muster, das sich immer wiederholt. Dazwischen eine lange Pause.','Der Leuchtturm'); return 'Du beobachtest das Licht des Leuchtturms. Kurz … lang … Pause … Es ist ein Muster!'; }},
-  {id:'winde',r:[800,505,286,392],act(){ if(S.f.gate) return 'Die Winde steht still. Das Tor ist oben.'; if(!S.f.lock) return 'Eine schwere Seilwinde für das Wassertor. Die Kette ist mit einem <b>Buchstabenschloss</b> gesichert – so lässt sich die Kurbel nicht drehen.'; S.f.gate=1; sfx('door'); return 'Du stemmst dich gegen die Kurbel. Kette um Kette rasselt auf die Trommel … und das Wassertor hebt sich! Kalte Seeluft strömt herein.'; }},
-  {id:'schloss',r:[855,715,80,92],vis:()=>!S.f.lock,act(){ openLock({title:'Das Buchstabenschloss',vals:ABC,show:c=>`<span style="font:700 34px/1 Georgia,serif;color:#f2b35b">${c}</span>`,code:['M','U','T'],start:[11,4,14],ok(){ S.f.lock=1; say('Klick! Das Schloss springt auf, die Kette ist frei. Jetzt kannst du die Winde drehen.'); render(); }}); return 'Ein Schloss mit drei Buchstabenringen.'; }},
-  {id:'leine',r:[555,850,245,220],act:()=>S.f.cut?'Nur noch ein Stummel hängt am Bug.':'Eine dicke Leine hält das Boot am Poller. Der Knoten ist nass, verquollen und bombenfest.',
+  {id:'fenster',r:[893,256,175,238],act(){ openScope([960,300,110,110],`<circle class="morse" cx="64" cy="51" r="3.2" fill="#fff6d0"/><circle class="morse" cx="64" cy="51" r="10" fill="#fff6d0" fill-opacity=".3"/>`,'Das Leuchtfeuer blinkt: kurz und lang, in einem Muster, das sich immer wiederholt. Dazwischen eine lange Pause.','Der Leuchtturm'); return 'Du beobachtest das Licht des Leuchtturms. Kurz … lang … Pause … Es ist ein Muster!'; }},
+  {id:'winde',r:[800,505,286,392],no:{hammer:'Die Winde ist blockiert, weil die Kette verschlossen ist.',bootshaken:'Die Winde bewegt sich keinen Millimeter. Die Kette ist verschlossen.'},act(){ if(S.f.gate) return 'Die Winde steht still. Das Tor ist oben.'; if(!S.f.lock) return 'Eine schwere Seilwinde für das Wassertor. Die Kette ist mit einem <b>Buchstabenschloss</b> gesichert – so lässt sich die Kurbel nicht drehen.'; S.f.gate=1; sfx('door'); return 'Du stemmst dich gegen die Kurbel. Kette um Kette rasselt auf die Trommel … und das Wassertor hebt sich! Kalte Seeluft strömt herein.'; }},
+  {id:'schloss',r:[855,715,80,92],no:{hammer:'Du hämmerst aufs Schloss. Es ist robuster als du dachtest.',messer:'Die Klinge rutscht ab. Das Schloss braucht den richtigen Code.',bootshaken:'Mit dem Bootshaken die Kette aufhebeln? Keine Chance.'},vis:()=>!S.f.lock,act(){ openLock({title:'Das Buchstabenschloss',skin:{img:A('schloss_nah.jpg'),zoom:'scale(1.5) translateY(-4%)',slots:[[24.0,53.6,13.4,13.4],[43.4,53.6,13.4,13.4],[62.8,53.6,13.4,13.4]]},vals:ABC,show:c=>`<span style="font:700 clamp(22px,7vw,30px)/1 Georgia,serif;color:#3a2608">${c}</span>`,code:['M','U','T'],start:[11,4,14],ok(){ S.f.lock=1; say('Klick! Das Schloss springt auf, die Kette ist frei. Jetzt kannst du die Winde drehen.'); render(); }}); return 'Ein Schloss mit drei Buchstabenringen.'; }},
+  {id:'leine',r:[555,850,245,220],no:{hammer:'Auf ein Seil hämmern bringt nichts.',bootshaken:'Mit dem Haken bekommst du den nassen Knoten auch nicht auf.'},act:()=>S.f.cut?'Nur noch ein Stummel hängt am Bug.':'Eine dicke Leine hält das Boot am Poller. Der Knoten ist nass, verquollen und bombenfest.',
    use:{ messer(){ S.f.cut=1; sfx('slide'); return 'Mit ein paar kräftigen Schnitten ist die Leine durch. Das Boot treibt ein Stück vom Steg weg.'; } }},
   {id:'plane',r:[0,1095,650,330],act(){ if(!S.f.plane){ S.f.plane=1; give('bootshaken'); sfx('slide'); return 'Du schlägst die Plane zurück. Darunter liegt ein langer <b>Bootshaken</b>.'; } return 'Eine alte Segeltuchplane. Darunter nur noch Staub.'; }},
   {id:'tisch',r:[835,1090,251,358],act:()=>'Ein wackeliger Hocker-Tisch. Auf der Kante: Kerben, wie die Striche einer Strichliste.'},
   {id:'logbuch',r:[866,962,220,128],act(){ openLog(); return 'Opas Logbuch. Der letzte Eintrag ist von gestern.'; }}
  ],
  hint(){ const f=S.f;
-  if(!f.plane) return 'Unter der Plane im Vordergrund liegt etwas Langes.';
-  if(!f.hammer) return 'Der Bootshaken reicht bis zum Dachbalken hinauf.';
-  if(!f.messer) return 'Im Fischernetz hat sich etwas verheddert. Auch dafür ist der Bootshaken gut.';
-  if(!f.schild) return 'Das Kupferschild an der Wand wäre ein guter Flicken. Der Hammer hat eine Klaue.';
-  if(!has('teerpinsel')&&!has('teerblech')&&!f.blech) return 'Das Blech muss wasserdicht werden. Tauche den Pinsel ins Teerfass.';
-  if(has('teerpinsel')) return 'Kombiniere den Teerpinsel mit dem Kupferschild.';
-  if(!f.leck) return f.blech?'Jetzt den Flicken mit Hammer und Nägeln festmachen. Die Nägel stehen im Regal.':'Leg das geteerte Blech auf das Loch im Boot.';
-  if(!f.lock){ if(!f.h4){ f.h4=1; return 'Beobachte das Licht des Leuchtturms durchs Fenster. Opas Logbuch hilft beim Übersetzen.'; } return 'Das Licht morst: – –  |  · · –  |  –  … das ergibt M, U, T.'; }
-  if(!f.gate) return 'Das Schloss ist offen. Dreh die Winde.';
-  if(!f.cut) return 'Die Leine ist zu fest verknotet. Schneide sie durch.';
-  return 'Alles bereit. Steig ins Boot!'; },
+  if(!f.plane) return ['Unter der Plane im Vordergrund zeichnet sich etwas Langes ab.','Tippe auf die Plane.'];
+  if(!f.hammer) return ['Hoch oben auf dem Balken liegt Werkzeug.','Der Bootshaken reicht bis hinauf.','Benutze den Bootshaken am Dachbalken.'];
+  if(!f.messer) return ['Im Fischernetz an der Wand blitzt etwas.','Auch dafür ist der Bootshaken gut.'];
+  if(!f.schild) return ['Das Boot braucht einen Flicken. Was an der Wand ist groß und aus Metall?','Das Kupferschild sitzt mit Nägeln fest. Der Hammer hat eine Klaue.'];
+  if(!has('teerpinsel')&&!has('teerblech')&&!f.blech) return ['Kupfer allein ist nicht dicht. Was dichtet Boote ab?','Im Fass ist Teer. Mit den Fingern willst du da nicht hinein.','Tauche den Pinsel ins Teerfass.'];
+  if(has('teerpinsel')) return ['Der Teer muss auf das Blech.','Kombiniere Teerpinsel und Kupferschild im Inventar.'];
+  if(!f.leck) return f.blech?['Der Flicken muss festgemacht werden.','Du brauchst Nägel und etwas zum Einschlagen. Die Nägel stehen im Regal.','Nimm die Nägel und benutze dann den Hammer am Boot.']:['Das geteerte Blech gehört aufs Loch.','Benutze das geteerte Blech am Boot.'];
+  if(!f.lock) return ['Das Licht des Leuchtturms blinkt nicht zufällig.','Schau durchs Fenster und lies in Opas Logbuch auf dem Tisch nach.','Lang-lang, kurz-kurz-lang, lang: Das sind M, U und T.'];
+  if(!f.gate) return ['Das Schloss ist offen.','Dreh die Winde.'];
+  if(!f.cut) return ['Das Boot ist noch festgemacht. Der Knoten ist zu fest.','Schneide die Leine mit dem Messer durch.'];
+  return ['Alles bereit.','Steig ins Boot.']; },
  end:['Kapitel 4 geschafft','Das kleine Boot gleitet hinaus in die Bucht. Der Mond malt einen silbernen Weg aufs Wasser. Vor dir blinkt der Leuchtturm – und jetzt verstehst du jedes Zeichen: <b>M – U – T</b>.<br><br>Am Fuß des Leuchtturms schwenkt jemand eine Laterne. Du winkst zurück.'],
  ov(f){ return [`<defs>
   <linearGradient id="nightSea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1a2e"/><stop offset=".55" stop-color="#1c3550"/><stop offset=".56" stop-color="#0b2233"/><stop offset="1" stop-color="#06131c"/></linearGradient>
@@ -381,7 +382,7 @@ const R4 = {
   <circle cx="420" cy="430" r="40" fill="url(#moonG)" opacity=".6"/><circle cx="420" cy="430" r="14" fill="#fffbe8"/>
   <path d="M420 585v180" stroke="#fffbe8" stroke-width="10" stroke-dasharray="6 9" opacity=".35"/>
   <path d="M640 585l20-8 40 2 25 6z" fill="#0a1218"/><path d="M684 580l4-52h8l4 52z" fill="#d9d2c0"/><path d="M685 552h14M686 565h12" stroke="#b33b2e" stroke-width="5"/>
-  <circle class="morse" cx="692" cy="524" r="5" fill="#fff6d0"/><circle class="morse" cx="692" cy="524" r="16" fill="#fff6d0" opacity=".35"/>
+  <circle class="morse" cx="692" cy="524" r="5" fill="#fff6d0"/><circle class="morse" cx="692" cy="524" r="16" fill="#fff6d0" fill-opacity=".3"/>
   ${[[340,380],[372,402],[455,372],[600,395],[640,370],[730,410],[760,388]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="1.4" fill="#fff" opacity=".7"/>`).join('')}
   <clipPath id="mastClip"><rect x="511" y="340" width="30" height="432"/><path d="M352 775Q378 698 520 694Q664 698 704 775Z"/></clipPath><image href="${A('bootshaus.jpg')}" x="0" y="0" width="${W}" height="${H}" clip-path="url(#mastClip)"/>`:''}
  ${f.hammer?`<image href="${A('b_hammer.jpg')}" x="490" y="25" width="200" height="90"/>`:''}
@@ -392,7 +393,7 @@ const R4 = {
  ${f.leck?[[456,876],[528,866],[460,902],[530,892]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="2.6" fill="#c9b27a"/>`).join(''):''}`,
  `<defs><radialGradient id="lantG"><stop offset="0" stop-color="#ffcf7a" stop-opacity=".45"/><stop offset="1" stop-color="#ffcf7a" stop-opacity="0"/></radialGradient></defs>
  <circle cx="207" cy="262" r="90" fill="url(#lantG)" class="flicker"/><circle cx="866" cy="262" r="90" fill="url(#lantG)" class="flicker" style="animation-delay:-1.1s"/>
- <circle class="morse" cx="1025" cy="352" r="9" fill="#fff6d0"/><circle class="morse" cx="1025" cy="352" r="28" fill="#fff6d0" opacity=".35"/>`]; }
+ <circle class="morse" cx="1025" cy="352" r="9" fill="#fff6d0"/><circle class="morse" cx="1025" cy="352" r="28" fill="#fff6d0" fill-opacity=".3"/>`]; }
 };
 /* ================= KAPITEL 5: LEUCHTTURM ================= */
 const KAL_CODE=['2','6','1','1'];
