@@ -1,4 +1,4 @@
-# Escape-Bücher – Hinweise für die Arbeit an diesem Repo
+# Questory – Hinweise für die Arbeit an diesem Repo
 
 - Sprache im Spiel und in Commits: Deutsch.
 - Kein Build-Schritt: `www/` wird direkt ausgeliefert (ES-Module). Testen mit einem lokalen HTTP-Server (Module laden nicht über `file://`).

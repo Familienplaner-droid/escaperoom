@@ -1,6 +1,6 @@
 {
-  "appId": "de.escapebuecher.app",
-  "appName": "Escape-Bücher",
+  "appId": "de.questory.app",
+  "appName": "Questory",
   "webDir": "www",
   "android": {
     "backgroundColor": "#0b1416"

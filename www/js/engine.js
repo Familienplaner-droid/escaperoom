@@ -1,4 +1,4 @@
-// Escape-Bücher – Spiel-Engine
+// Questory – Spiel-Engine
 // Kümmert sich um Raum, Klickflächen, Inventar, Kombinieren, Schlösser,
 // Hinweise, Töne und Spielstand. Inhalte kommen komplett aus den Büchern.
 import { sfx, tone, sound } from './audio.js';

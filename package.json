@@ -2,7 +2,7 @@
   "name": "escape-buecher",
   "version": "0.1.0",
   "private": true,
-  "description": "Escape-Bücher: Rätselabenteuer im Escape-Room-Stil als Android-App",
+  "description": "Questory: Rätselabenteuer im Escape-Room-Stil als Android-App",
   "scripts": {
     "serve": "npx --yes http-server www -p 8080 -c-1",
     "android:add": "cap add android",

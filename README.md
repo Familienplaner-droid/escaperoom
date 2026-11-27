@@ -1,4 +1,4 @@
-# Escape-Bücher
+# Questory
 
 Rätselabenteuer im Escape-Room-Stil als App. Jede Geschichte ist ein „Buch“ mit mehreren Kapiteln (Räumen). Man untersucht Gegenstände, kombiniert sie im Inventar und knackt Schlösser, um weiterzukommen.
 

@@ -1,4 +1,4 @@
-// Escape-Bücher – App-Rahmen: Bücherregal, Buchseite, Navigation, Zurück-Taste.
+// Questory – App-Rahmen: Bücherregal, Buchseite, Navigation, Zurück-Taste.
 import { BOOKS } from '../books/index.js';
 import { useBook, loadState, startChapter, resume, restartBook, leaveToBook, closeModals, state } from './engine.js';
 import { LANGS, getLang, setLang, initLang, tr, tf } from './i18n.js';
