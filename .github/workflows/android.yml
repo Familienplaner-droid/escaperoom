@@ -32,6 +32,8 @@ jobs:
       - name: Android-Projekt erzeugen
         run: |
           npx cap add android
+          # App-Icon und Startbild aus assets/ erzeugen (sobald vorhanden)
+          if [ -f assets/icon-only.png ]; then npx capacitor-assets generate --android; fi
           npx cap sync android
 
       - name: APK bauen
