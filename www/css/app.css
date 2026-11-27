@@ -167,3 +167,10 @@ header h1{flex:1;font:20px/1 "IM Fell English SC",serif;margin:0;color:var(--amb
 @keyframes cdrop{from{transform:translateY(-30%);opacity:0}to{transform:none;opacity:1}}
 .cBoard .sqHit{position:absolute;border:0;padding:0;background:none;z-index:30;border-radius:3px}
 .cBoard .sqHit:active{background:#f2b35b44}
+/* Regalfach mit Büchern */
+.shelf2{position:relative;width:min(340px,82vw);aspect-ratio:3/2;margin:22px auto 10px;border-radius:8px;box-shadow:0 10px 26px #000a}
+.shelf2>img{display:block;width:100%;height:100%;border-radius:8px}
+.shelf2>i{position:absolute;background:#0a0604;border-radius:4px;box-shadow:inset 0 6px 10px #000}
+.sBook{position:absolute;border:0;padding:0;border-radius:4px;transition:transform .35s ease,box-shadow .35s;display:grid;place-items:center}
+.sBook.out{transform:translateY(-9%);box-shadow:0 12px 14px #000c}
+.sBook span{font:clamp(10px,2.9vw,14px)/1.05 "IM Fell English SC",serif;color:#f3d27a;text-shadow:0 1px 0 #3a2208,0 0 4px #000a;text-align:center;padding:2px}

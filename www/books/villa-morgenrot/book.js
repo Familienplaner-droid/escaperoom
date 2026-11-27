@@ -520,16 +520,21 @@ function openChess(canPlace){
   setTimeout(()=>{ qd.innerHTML=''; sfx('no'); },1300);
  });
 }
+// Regalfach-Bild 1536×1024: Buchrücken (x, Breite) und Titel. Titel als Goldschrift darübergelegt.
+const SHELF=[[105,226,'Die Insel'],[343,226,'Das Licht'],[580,213,'Der Turm'],[800,212,'Das Meer'],[1025,212,'Der Sturm'],[1240,209,'Der Hafen']];
+const SY=65, SH=897;
 function openBooks(){
  let pulled=[];
- const body=dialog('Das mittlere Regal',`<p class="small" style="margin-top:0">Tippe Bücher an, um sie herauszuziehen. Nach dem vierten Buch zeigt sich, ob die Reihenfolge stimmt.</p><div class="books">${BOOKS.map((b,k)=>`<button class="book" data-b="${k}" style="width:calc(var(--bh) * ${(b.r[2]/b.r[3]).toFixed(3)} + 6px)"><div style="${cutStyle(room().img,b.r).replace(/left:[^;]+;top:[^;]+;width:[^;]+;height:[^;]+;/,'')}"></div><span>${b.t}</span></button>`).join('')}</div>`,'Zurück');
- const wrap=body.querySelector('.books');
+ const src=A('regal_buecher.jpg');
+ const books=SHELF.map(([x,w,t],k)=>`<button class="sBook" data-b="${k}" aria-label="${t}" style="left:${x/15.36}%;width:${w/15.36}%;top:${SY/10.24}%;height:${SH/10.24}%;background-image:url(${src});background-size:${1536/w*100}% ${1024/SH*100}%;background-position:${x/(1536-w)*100}% ${SY/(1024-SH)*100}%"><span>${t.replace(' ','<br>')}</span></button>`).join('');
+ const body=dialog('Das mittlere Regal',`<p class="small" style="margin-top:0">Tippe Bücher an, um sie herauszuziehen. Nach dem vierten Buch zeigt sich, ob die Reihenfolge stimmt.</p><div class="shelf2"><img src="${src}" alt="">${SHELF.map(([x,w])=>`<i style="left:${x/15.36}%;width:${w/15.36}%;top:${SY/10.24}%;height:${SH/10.24}%"></i>`).join('')}${books}</div>`,'Zurück');
+ const wrap=body.querySelector('.shelf2');
  wrap.addEventListener('click',e=>{
-  const b=e.target.closest('.book'); if(!b||b.classList.contains('out')) return;
-  b.classList.add('out'); sfx('slide'); pulled.push(BOOKS[b.dataset.b].t);
+  const b=e.target.closest('.sBook'); if(!b||b.classList.contains('out')) return;
+  b.classList.add('out'); sfx('slide'); pulled.push(SHELF[b.dataset.b][2]);
   if(pulled.length<4) return;
-  if(pulled.join()!==BOOK_ORDER.join()){ setTimeout(()=>{ sfx('no'); wrap.querySelectorAll('.book').forEach(x=>x.classList.remove('out')); pulled=[]; say('Du hast vier Bücher gezogen … nichts passiert. Klack – alle rutschen zurück an ihren Platz.'); },700); return; }
-  setTimeout(()=>{ closeDialog(); S.f.door=1; sfx('door'); say('Ein tiefes Grollen … das ganze Regal schwingt zur Seite!'); render(); setTimeout(win,2600); },700);
+  if(pulled.join()!==BOOK_ORDER.join()){ setTimeout(()=>{ sfx('no'); wrap.querySelectorAll('.sBook').forEach(x=>x.classList.remove('out')); pulled=[]; say('Du hast vier Bücher gezogen … nichts passiert. Klack – alle rutschen zurück an ihren Platz.'); },800); return; }
+  setTimeout(()=>{ closeDialog(); S.f.door=1; sfx('door'); say('Ein tiefes Grollen … das ganze Regal schwingt zur Seite!'); render(); setTimeout(win,2600); },800);
  });
 }
 
