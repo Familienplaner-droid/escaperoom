@@ -392,14 +392,18 @@ const R4 = {
 };
 /* ================= KAPITEL 5: LEUCHTTURM ================= */
 const KAL_CODE=['2','6','1','1'];
+function openCalendar(){
+ dialog('Opas Kalender',`<div class="calPage"><img src="${A('kalender.jpg')}" alt=""><div class="calIn"><div class="calM">November</div>${kalender()}<div class="calNote">Elena kommt heim!</div></div></div><p>Jeden Tag ein Strich. Nur ein Tag ist rot umkreist.</p>`);
+ sfx('slide');
+}
 function kalender(){
  let g='<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;font:600 14px/1 ui-monospace,monospace;font-style:normal;text-align:center">'+['Mo','Di','Mi','Do','Fr','Sa','So'].map(d=>`<span style="opacity:.6">${d}</span>`).join('')+'<span></span><span></span><span></span><span></span><span></span>';
- for(let d=1;d<=30;d++){ g+= d<26?`<span style="position:relative;padding:5px 0;color:#7a6a52">${d}<i style="position:absolute;left:10%;right:10%;top:50%;border-top:2px solid #6b2a1a;transform:rotate(-20deg)"></i></span>`
-  : d===26?`<span style="padding:5px 0;color:#a3221a;font-weight:800;outline:2px solid #a3221a;border-radius:50%">${d}</span>`:`<span style="padding:5px 0">${d}</span>`; }
+ for(let d=1;d<=30;d++){ g+= d<26?`<span style="position:relative;padding:5px 0;color:#5a4630">${d}<i style="position:absolute;left:10%;right:10%;top:50%;border-top:2px solid #3a2410;transform:rotate(-20deg)"></i></span>`
+  : d===26?`<span style="padding:5px 0;color:#a3221a;font-weight:800;outline:2px solid #a3221a;border-radius:50%">${d}</span>`:`<span style="padding:5px 0;color:#3a2410">${d}</span>`; }
  return g+'</div>';
 }
 const R5 = {
- title:'Der Leuchtturm', chapter:'Kapitel 5', img:A('leuchtturm.jpg'), keep:['foto'],
+ title:'Der Leuchtturm', chapter:'Kapitel 5', img:A('leuchtturm.jpg'), imgFor:f=>A(f.fire?'lt_feuer.jpg':f.lit?'lt_licht.jpg':'leuchtturm.jpg'), introImg:A('intro5.jpg'), keep:['foto'],
  soon:'Ende. Danke fürs Spielen!', endImg:A('finale.jpg'), last:true,
  intro:['Das Boot schrammt gegen die Felsen. Du springst an Land, der Wind reißt an deinen Haaren.','Die Tür des Leuchtturms steht offen. Du steigst die Wendeltreppe hinauf, Stufe um Stufe, bis ganz nach oben.','Doch der Laternenraum ist dunkel. Das Leuchtfeuer ist im Sturm erloschen. Und von Opa keine Spur.'],
  comboNo:{'docht+feuerzeugAn':'Den Docht jetzt schon anzünden? Er muss erst in den Brenner.','docht+kanister':'Den Docht tränken? Das erledigt der Tank im Brenner von selbst.'},
@@ -408,7 +412,7 @@ const R5 = {
   {a:'feuerzeug',b:'kanisterT',t:()=>{ take('feuerzeug'); give('feuerzeugAn'); return 'Du füllst etwas Petroleum ins Feuerzeug. Ratsch – es brennt!'; }},
   {a:'kanister',b:'trichter',t:()=>{ take('kanister'); take('trichter'); give('kanisterT'); return 'Du steckst den Trichter auf den Kanister. Jetzt kannst du gießen, ohne zu kleckern.'; }}
  ],
- cuts:[],
+ cuts:[ {r:[395,655,305,225],kind:'reveal',src:A('lt_zahn.jpg'),on:f=>f.g1&&f.g2&&!f.fire} ],
  hot:[
   {id:'sturm',r:[780,130,300,320],act:()=>'Draußen tobt der Sturm. Blitze zucken über dem Wasser. Kein Schiff würde heute Nacht ohne Licht sicher heimfinden.'},
   {id:'villa',r:[232,330,110,95],act:()=>'Drüben auf der Klippe: die Villa Morgenrot. In einem einzigen Fenster brennt Licht – im Arbeitszimmer.'},
@@ -417,7 +421,7 @@ const R5 = {
   {id:'wandlampe',r:[108,160,135,145],act:()=>S.f.lit?'Die kleine Wandlampe brennt warm und ruhig.':'Eine kleine Wandlampe aus Messing. Sie ist aus. Es ist so dunkel, dass du kaum etwas erkennst.',
    use:{ feuerzeugAn(){ if(S.f.lit) return 'Sie brennt schon.'; S.f.lit=1; sfx('unlock'); return 'Die Wandlampe flammt auf. Warmes Licht fällt in den Raum – und an der Wand daneben hängt ein <b>Kalender</b>.'; },
          feuerzeug(){ sfx('no'); return 'Ratsch, ratsch – nur Funken. Das Feuerzeug ist leer, es braucht Brennstoff.'; } }},
-  {id:'wand',r:[150,320,82,180],act(){ if(!S.f.lit) return 'An der Wand hängt etwas Helles. Im Dunkeln kannst du es nicht erkennen.'; openPaperHTML('Opas Kalender','<div style="text-align:center;font:700 20px Georgia,serif;font-style:normal;margin-bottom:8px">November</div>'+kalender()+'<br>Jeden Tag ein Strich. Nur ein Tag ist rot umkreist. Daneben, in Opas Schrift: <b>„Elena kommt heim!“</b>'); return 'Opas Kalender.'; }},
+  {id:'wand',r:[128,345,95,210],act(){ if(!S.f.lit) return 'An der Wand hängt etwas Helles. Im Dunkeln kannst du es nicht erkennen.'; openCalendar(); return 'Opas Kalender.'; }},
   {id:'kanister',r:[284,760,100,200],vis:()=>!S.f.kan,act(){ S.f.kan=1; give('kanister'); return 'Ein schwerer <b>Petroleumkanister</b>. Er gluckert – noch gut halb voll.'; }},
   {id:'trichter',r:[966,440,100,140],vis:()=>!S.f.tri,act(){ S.f.tri=1; give('trichter'); return 'Du nimmst den <b>Trichter</b> vom Haken.'; }},
   {id:'linse',r:[350,90,440,450],act:()=>S.f.fire?'Das Leuchtfeuer brennt. Die Linse bündelt die Flamme zu einem gewaltigen Strahl.':'Die riesige Linse des Leuchtfeuers. In ihrer Mitte sitzt der Brenner.'},
@@ -431,10 +435,10 @@ const R5 = {
    use:{ zahnradGross(){ S.f.g1=1; take('zahnradGross'); sfx('click'); return 'Das große Messingzahnrad passt genau auf die große Achse.'; },
          zahnradKlein(){ S.f.g2=1; take('zahnradKlein'); sfx('click'); return 'Das kleine Zahnrad rutscht mit seinem eckigen Loch auf die Vierkantachse. Klack.'; } }},
   {id:'kurbel',r:[690,705,135,135],act(){ const f=S.f; if(f.rot) return 'Das Drehwerk läuft von allein weiter.'; if(!f.g1||!f.g2){ sfx('no'); return 'Du drehst die Kurbel – sie läuft leer. Im Drehwerk fehlen noch Zahnräder.'; } f.rot=1; sfx('slide'); if(f.fire){ setTimeout(finale,400); return 'Du kurbelst mit aller Kraft. Langsam, dann immer schneller beginnt sich die Linse zu drehen – und mit ihr der Lichtstrahl!'; } return 'Du kurbelst. Die Zahnräder greifen, die Linse beginnt sich zu drehen. Aber noch ist sie dunkel.'; }},
-  {id:'kiste',r:[790,665,290,250],no:{feuerzeugAn:'Die Kiste anzünden? Dann verbrennt, was darin ist.',zahnradGross:'Die Kiste hat kein Getriebe – nur ein Zahlenschloss.'},act(){ if(S.f.chest) return 'Die Seekiste ist leer – bis auf eine Kinderzeichnung von einem Leuchtturm.'; if(!S.f.lit) return 'Eine Seekiste mit einem Zahlenschloss. Es ist zu dunkel, um die Ziffern zu lesen.'; openLock({title:'Opas Seekiste',vals:['0','1','2','3','4','5','6','7','8','9'],show:c=>`<span style="font:700 34px/1 Georgia,serif;color:#f2b35b">${c}</span>`,code:KAL_CODE,start:[0,0,0,0],ok(){ S.f.chest=1; give('docht'); give('zahnradGross'); give('brief5'); say('Klack! Der Deckel springt auf. Darin: ein neuer <b>Docht</b>, ein großes <b>Zahnrad</b> und ein <b>Brief</b> mit rotem Band.'); render(); }}); return 'Auf dem Deckel ist eingeritzt: <b>„Der Tag, an dem sie heimkommt – TT MM“</b>.'; }},
+  {id:'kiste',r:[790,665,290,250],no:{feuerzeugAn:'Die Kiste anzünden? Dann verbrennt, was darin ist.',zahnradGross:'Die Kiste hat kein Getriebe – nur ein Zahlenschloss.'},act(){ if(S.f.chest) return 'Die Seekiste ist leer – bis auf eine Kinderzeichnung von einem Leuchtturm.'; if(!S.f.lit) return 'Eine Seekiste mit einem Zahlenschloss. Es ist zu dunkel, um die Ziffern zu lesen.'; openLock({title:'Opas Seekiste',skin:{img:A('kiste_schloss.jpg'),slots:[[20.9,44.1,11,9.2],[36.8,44.1,11,9.2],[52.6,44.1,11,9.2],[68.6,44.1,11,9.2]]},vals:['0','1','2','3','4','5','6','7','8','9'],show:c=>`<span style="font:700 clamp(22px,7vw,30px)/1 Georgia,serif;color:#3a2608">${c}</span>`,code:KAL_CODE,start:[0,0,0,0],ok(){ S.f.chest=1; give('docht'); give('zahnradGross'); give('brief5'); say('Klack! Der Deckel springt auf. Darin: ein neuer <b>Docht</b>, ein großes <b>Zahnrad</b> und ein <b>Brief</b> mit rotem Band.'); render(); }}); return 'Auf dem Deckel ist eingeritzt: <b>„Der Tag, an dem sie heimkommt – TT MM“</b>.'; }},
   {id:'werkzeug',r:[905,850,180,145],act(){ if(!S.f.tool){ S.f.tool=1; give('zahnradKlein'); return 'Im Werkzeugkasten, zwischen Schraubenschlüsseln und Ölkännchen: ein kleines, öliges <b>Zahnrad</b> mit eckigem Loch.'; } return 'Schraubenschlüssel, Zangen, ein Lappen voller Öl.'; }},
   {id:'zettel',r:[885,1045,150,75],act(){ openPaperHTML('Ein Zettel von Opa','Elena,<br><br>den letzten Schritt musst du allein gehen, mein Mädchen. Das Leuchtfeuer ist im Sturm ausgegangen.<br><br><b>Mach das Licht wieder an – dann komme ich.</b><br><br>Opa'); return 'Ein Zettel, in Opas Handschrift.'; }},
-  {id:'treppe',r:[0,990,520,458],act:()=>'Die Wendeltreppe hinunter. Unten ist nur das Rauschen des Meeres. Noch nicht.'}
+  {id:'treppe',r:[0,990,520,458],act(){ if(S.f.fire&&S.f.rot){ setTimeout(win,300); return 'Opa steht oben an der Treppe und breitet die Arme aus.'; } return 'Die Wendeltreppe hinunter. Unten ist nur das Rauschen des Meeres. Noch nicht.'; }}
  ],
  hint(){ const f=S.f;
   if(!f.jacke) return ['Hier hängt etwas, das nach Opa riecht.','Schau in die Taschen der Seemannsjacke.'];
@@ -453,19 +457,18 @@ const R5 = {
   <radialGradient id="lensG" cx="575" cy="420" r="260" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff4c0" stop-opacity=".95"/><stop offset=".25" stop-color="#ffd27a" stop-opacity=".55"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
   <linearGradient id="rayG" x1="0" x2="1"><stop offset="0" stop-color="#fff2c0" stop-opacity=".7"/><stop offset="1" stop-color="#fff2c0" stop-opacity="0"/></linearGradient>
  </defs>
- ${f.lit?`<g transform="translate(150 322)"><rect width="78" height="108" rx="2" fill="#e8dcc0"/><rect width="78" height="20" fill="#a3221a"/>${[...Array(20)].map((_,i)=>`<path d="M${6+(i%5)*14} ${30+Math.floor(i/5)*18}l8 -8" stroke="#6b2a1a" stroke-width="1.6"/>`).join('')}<circle cx="27" cy="98" r="7" fill="none" stroke="#a3221a" stroke-width="2"/><circle cx="39" cy="-2" r="3" fill="#333"/></g>`:''}
- ${f.g1?`<image class="${f.rot?'spinR':''}" href="${A('zahnradGross_s.png')}" x="478" y="718" width="96" height="96"/>`:''}
- ${f.g2?`<image class="${f.rot?'spinL':''}" href="${A('zahnradKlein_s.png')}" x="604" y="712" width="48" height="48"/>`:''}
- ${f.kan?`<image href="${A('t_kanister.jpg')}" x="270" y="750" width="130" height="230"/>`:''}
- ${f.tri?`<image href="${A('t_trichter.jpg')}" x="955" y="425" width="120" height="170"/>`:''}
+ ${f.g1&&!(f.g2&&!f.fire)?`<image class="${f.rot?'spinR':''}" href="${A('zahnradGross_s.png')}" x="478" y="718" width="96" height="96"/>`:''}
+ ${f.g2&&!(f.g1&&!f.fire)?`<image class="${f.rot?'spinL':''}" href="${A('zahnradKlein_s.png')}" x="604" y="712" width="48" height="48"/>`:''}
+ ${f.kan?`<image href="${A('t_kanister'+(f.fire?'_f':f.lit?'_l':'')+'.jpg')}" x="270" y="750" width="130" height="230"/>`:''}
+ ${f.tri?`<image href="${A('t_trichter'+(f.fire?'_f':f.lit?'_l':'')+'.jpg')}" x="955" y="425" width="120" height="170"/>`:''}
  ${f.wick&&!f.fire?`<rect x="565" y="440" width="12" height="16" fill="#efe4cf"/>`:''}
- ${f.fire?`<circle cx="575" cy="420" r="260" fill="url(#lensG)" class="flicker"/><ellipse cx="572" cy="430" rx="14" ry="30" fill="#fffbe0"/>
+ ${f.fire?`<circle cx="575" cy="420" r="220" fill="url(#lensG)" opacity=".35" class="flicker"/>
   <g class="${f.rot?'raySpin':''}"><path d="M575 420 1086 330v180z" fill="url(#rayG)"/><path d="M575 420 64 330v180z" fill="url(#rayG)" transform="rotate(180 575 420) scale(1 1)" opacity="0"/></g>`:''}`,
  `<defs><radialGradient id="wl" cx="175" cy="255" r="420" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffcf7a" stop-opacity=".5"/><stop offset=".35" stop-color="#ffb35a" stop-opacity=".15"/><stop offset="1" stop-color="#ffb35a" stop-opacity="0"/></radialGradient></defs>
- ${f.lit?`<rect width="${W}" height="${H}" fill="url(#wl)" class="flicker"/><ellipse cx="190" cy="262" rx="22" ry="16" fill="#ffe6a8" opacity=".9" class="flicker"/>`:`<rect width="${W}" height="${H}" fill="#02060c" opacity=".55"/>`}
- ${f.fire?`<rect width="${W}" height="${H}" fill="#ffcf7a" opacity=".08"/>`:''}`]; }
+ ${f.lit?`<rect width="${W}" height="${H}" fill="url(#wl)" opacity=".4" class="flicker"/>`:`<rect width="${W}" height="${H}" fill="#02060c" opacity=".55"/>`}
+`]; }
 };
-function finale(){ sfx('door'); setTimeout(()=>{ say('Unten auf der Treppe: Schritte. Langsam. Schwer. Vertraut …'); tone(90,.4,'triangle',.12); tone(90,.4,'triangle',.12,.9); tone(90,.4,'triangle',.12,1.8); setTimeout(win,3400); },1800); }
+function finale(){ sfx('door'); setTimeout(()=>{ say('Unten auf der Treppe: Schritte. Langsam. Schwer. Vertraut …'); tone(90,.4,'triangle',.12); tone(90,.4,'triangle',.12,.9); tone(90,.4,'triangle',.12,1.8); setTimeout(()=>{ const b=dialog('',`<img class="opaImg" src="${A('opa.jpg')}" alt=""><p>„Hallo, Kapitänin“, sagt Opa Viktor leise.</p>`,'Weiter'); document.getElementById('dClose').addEventListener('click',()=>setTimeout(win,200),{once:true}); sfx('chime'); },3400); },1800); }
 
 /* ================= BUCH-EIGENE NAHANSICHTEN ================= */
 function openClock(spin){
