@@ -237,6 +237,7 @@ const R3 = {
  soon:'Kapitel 4: Das Bootshaus – kommt bald',
  onStart(){ S.inv=S.inv.map(i=>i==='lampe'?'lampeLeer':i); },
  intro:['Die Wendeltreppe führt tief hinab. Es riecht nach Salz, Moos und altem Holz.','Auf der letzten Stufe flackert die Taschenlampe – und erlischt. Die Batterien sind leer.','Nur der Mond scheint durch ein vergittertes Fenster. Irgendwo hinter einem Gittertor rauscht das Meer.'],
+ comboNo:{'flasche+magnet':'Glas ist nicht magnetisch.','flasche+kurbel':'Die Flasche zerschlagen? Dann zerreißt vielleicht auch das Papier.','lampeLeer+streich':'Eine Taschenlampe zündet man nicht an.'},
  combos:[
   {a:'schnur',b:'magnet',t:()=>{ take('schnur'); take('magnet'); give('magnetangel'); return 'Du knotest die Schnur fest um den Magneten. Fertig ist eine <b>Magnetangel</b>!'; }},
   {a:'flasche',b:'korkenzieher',t:()=>{ take('flasche'); take('korkenzieher'); give('nachricht'); return 'Du drehst den Korkenzieher hinein – plopp! Mit spitzen Fingern ziehst du die Papierrolle aus der Flasche: eine <b>Nachricht von Opa</b>.'; }}
@@ -245,12 +246,12 @@ const R3 = {
  hot:[
   {id:'treppe',r:[70,30,200,270],act:()=>'Die Wendeltreppe nach oben. Das Regal hat sich hinter dir wieder geschlossen – zurück geht es nicht.'},
   {id:'tor',r:[258,392,292,585],vis:()=>!S.f.gate,act:()=>'Ein schweres Gittertor. Dahinter ein Tunnel, aus dem kalte Meeresluft weht. Ein großes <b>Vorhängeschloss</b> hält es verschlossen.'},
-  {id:'schloss',r:[440,655,80,100],vis:()=>!S.f.gate,act(){ if(!S.f.lit) return 'Zu dunkel. Du ertastest <b>drei Drehringe</b> mit eingravierten Zeichen, aber erkennen kannst du nichts.'; openLock({title:'Das Vorhängeschloss',vals:SYM,show:x=>symIcon(x,44),code:LOCK_CODE,start:[3,4,5],ok(){ S.f.gate=1; sfx('door'); say('Klack! Das Schloss springt auf. Das Gittertor schwingt quietschend zur Seite.'); render(); setTimeout(win,2600); }}); return 'Drei Drehringe mit Symbolen. Erst wenn alle richtig stehen, springt das Schloss auf.'; }},
+  {id:'schloss',r:[440,655,80,100],no:{schuerhaken:'Das Schloss ist massiv.',kurbel:'Du schlägst mit der Kurbel aufs Schloss. Es klirrt. Es bleibt zu.',korkenzieher:'Mit dem Korkenzieher im Schloss herumbohren? Das klappt nur im Film.',magnetangel:'Der Magnet klebt am Schloss. Sonst passiert nichts.'},vis:()=>!S.f.gate,act(){ if(!S.f.lit) return 'Zu dunkel. Du ertastest <b>drei Drehringe</b> mit eingravierten Zeichen, aber erkennen kannst du nichts.'; openLock({title:'Das Vorhängeschloss',vals:SYM,show:x=>symIcon(x,44),code:LOCK_CODE,start:[3,4,5],ok(){ S.f.gate=1; sfx('door'); say('Klack! Das Schloss springt auf. Das Gittertor schwingt quietschend zur Seite.'); render(); setTimeout(win,2600); }}); return 'Drei Drehringe mit Symbolen. Erst wenn alle richtig stehen, springt das Schloss auf.'; }},
   {id:'fenster',r:[920,45,130,210],act:()=>'Ein kleines vergittertes Fenster. Der Mond steht genau dahinter. Draußen hörst du die Brandung.'},
   {id:'weinregal',r:[0,150,245,530],act:()=>'Staubige Weinflaschen, manche älter als du. Auf einem Etikett: „Für Elenas Hochzeit – nicht vorher öffnen!“'},
-  {id:'flasche',r:[48,492,115,60],act(){ if(!S.f.flasche){ S.f.flasche=1; give('flasche'); return 'Eine Flasche liegt anders als die anderen. Darin steckt eine <b>Papierrolle</b>! Du nimmst die <b>Flaschenpost</b>. Der Korken sitzt fest.'; } return 'Leere Fächer, viele Spinnweben.'; }},
+  {id:'flasche',r:[48,492,115,60],no:{korkenzieher:'Nimm die Flasche erst einmal aus dem Regal.'},act(){ if(!S.f.flasche){ S.f.flasche=1; give('flasche'); return 'Eine Flasche liegt anders als die anderen. Darin steckt eine <b>Papierrolle</b>! Du nimmst die <b>Flaschenpost</b>. Der Korken sitzt fest.'; } return 'Leere Fächer, viele Spinnweben.'; }},
   {id:'werkzeug',r:[0,690,200,300],act:()=>'Zangen, Hammer, Säge, Stechbeitel – alles ordentlich an seinem Platz. Opa war gründlich.'},
-  {id:'boot',r:[200,808,178,290],act(){
+  {id:'boot',r:[200,808,178,290],no:{magnetangel:'Das Boot ist aus Holz. Da hält kein Magnet.',korkenzieher:'Am Boot ist nichts zu entkorken.'},act(){
     if(!S.f.vise) return 'Ein kleines Holzboot steckt fest im <b>Schraubstock</b>. Die <b>Kurbel</b> des Schraubstocks fehlt – so bekommst du ihn nicht auf.';
     if(!S.f.streich){ S.f.streich=1; openPaper('bootNah'); give('streich'); return 'Unter dem Rumpf ist ein kleines Fach. Darin, in Wachspapier gewickelt: <b>Streichhölzer</b> – trocken!'; }
     openPaper('bootNah'); return 'Leo. Natürlich.'; },
@@ -260,7 +261,7 @@ const R3 = {
   {id:'kiste',r:[195,1222,130,226],act(){ if(!S.f.lit) return 'Unter der Werkbank ist es <b>pechschwarz</b>. Du traust dich nicht, blind hineinzugreifen.'; if(!S.f.kork){ S.f.kork=1; give('korkenzieher'); return 'Im Laternenlicht siehst du es: In der Kiste unter der Werkbank liegt ein <b>Korkenzieher</b>.'; } return 'Holzreste und ein paar krumme Nägel.'; }},
   {id:'seil',r:[360,1250,68,135],act:()=>'Ein dickes Schiffstau. Völlig verrottet und viel zu schwer.'},
   {id:'saeule',r:[555,270,175,810],act:()=>'Eine dicke Steinsäule, feucht und kühl. Moos wächst am Sockel.'},
-  {id:'laterne',r:[622,300,100,245],act:()=>S.f.lit?'Die Laterne brennt ruhig und warm.':'Eine alte <b>Petroleumlaterne</b>. Es schwappt noch Petroleum darin. Du bräuchtest etwas zum <b>Anzünden</b>.',
+  {id:'laterne',r:[622,300,100,245],no:{magnet:'Der Magnet klebt an der eisernen Laterne. Licht macht das keins.'},act:()=>S.f.lit?'Die Laterne brennt ruhig und warm.':'Eine alte <b>Petroleumlaterne</b>. Es schwappt noch Petroleum darin. Du bräuchtest etwas zum <b>Anzünden</b>.',
    use:{streich(){ S.f.lit=1; take('streich'); sfx('unlock'); return 'Ritsch – das Streichholz flammt auf. Die Laterne fängt Feuer, warmes Licht flutet den Keller. Und an der Wand neben der Säule erscheint etwas: eine <b>Kreidezeichnung</b>!';},
         lampeLeer(){ return 'Die Taschenlampe ist tot. Hier hilft nur Feuer.'; }}},
   {id:'marken',r:[595,545,70,230],act:()=>'Kleine Kerben in der Säule, jede mit Datum: „Elena, 5 J.“ – „6 J.“ – „7 J.“ … die letzte ganz oben: „Elena, 12 J.“ Du legst die Hand darauf. Sie passt genau unter die Kerbe.'},
@@ -269,21 +270,22 @@ const R3 = {
   {id:'glaeser',r:[895,425,191,240],act:()=>'Einmachgläser. Auf einem Etikett in Kinderschrift: „Brombeermarmelade – Elena &amp; Opa“.'},
   {id:'rad',r:[770,680,316,350],act:()=>'Opas altes Fahrrad. Am Lenker klebt ein verblasster Aufkleber: ein Seepferdchen.'},
   {id:'kasten',r:[745,945,175,132],act(){ if(!S.f.magnet){ S.f.magnet=1; give('magnet'); return 'Du klappst die Werkzeugkiste auf. Zwischen Schrauben und Nägeln: ein <b>Hufeisenmagnet</b>. An ihm klebt eine ganze Traube Nägel.'; } return 'Schrauben, Nägel, ein Zollstock.'; }},
-  {id:'pfuetze',r:[715,1095,371,280],act:()=>S.f.kurbel?'Dunkles, eiskaltes Wasser. Ganz still.':'In der überfluteten Ecke glänzt <b>etwas Metallisches</b> unter Wasser. Es ist eiskalt und tiefer als gedacht – mit der Hand kommst du nicht heran.',
+  {id:'pfuetze',r:[715,1095,371,280],no:{schnur:'Ohne etwas, das hängen bleibt, angelst du nur Wasser.',lampeLeer:'Die Taschenlampe ist leer. Und nass würde sie auch nicht besser.'},act:()=>S.f.kurbel?'Dunkles, eiskaltes Wasser. Ganz still.':'In der überfluteten Ecke glänzt <b>etwas Metallisches</b> unter Wasser. Es ist eiskalt und tiefer als gedacht – mit der Hand kommst du nicht heran.',
    use:{magnetangel(){ if(S.f.kurbel) return 'Da unten ist nichts mehr.'; S.f.kurbel=1; take('magnetangel'); give('kurbel'); sfx('slide'); return 'Du lässt die Magnetangel ins Wasser hinab … klack! Etwas bleibt hängen. Du ziehst eine tropfnasse eiserne <b>Kurbel</b> heraus.'; },
         magnet(){ return 'Der Magnet würde es anziehen – aber du müsstest dafür ins eiskalte Wasser greifen. Gäbe es nur eine Möglichkeit, ihn hinabzulassen …'; }}}
  ],
  hint(){ const f=S.f;
-  if(!f.schnur||!f.magnet) return !f.schnur?'Die Wäscheleine an der Wand könnte nützlich sein.':'Schau in die Werkzeugkiste.';
-  if(!f.kurbel&&!has('magnetangel')) return 'Schnur und Magnet ergeben zusammen ein Werkzeug. Kombiniere sie im Inventar.';
-  if(!f.kurbel) return 'In der Pfütze liegt etwas aus Eisen. Angle danach.';
-  if(!f.vise) return 'Die Kurbel gehört zum Schraubstock an der Werkbank.';
-  if(!f.streich) return 'Sieh dir das kleine Boot genauer an.';
-  if(!f.lit) return 'Mit den Streichhölzern kannst du die Laterne an der Säule anzünden.';
-  if(!f.kork) return 'Im Licht kannst du endlich unter die Werkbank schauen.';
-  if(!has('nachricht')) return 'Öffne die Flaschenpost mit dem Korkenzieher.';
-  if(!f.hint3){ f.hint3=1; return 'Folge dem Weg an der Wand rückwärts, so wie Opa es beschreibt: ein Zeichen nehmen, eins überspringen.'; }
-  return 'Rückwärts gelesen: Möwe, Leuchtturm, Stern, Fisch, Anker, Muschel. Jedes zweite davon: Möwe, Stern, Anker.'; },
+  if(!f.schnur) return ['Hier unten hängt etwas, das man gut gebrauchen kann.','An der Wand ist eine Wäscheleine gespannt.','Tippe auf die Wäscheleine.'];
+  if(!f.magnet) return ['In einer Werkzeugkiste findet sich oft Nützliches.','Schau in die Werkzeugkiste auf dem Boden.'];
+  if(!f.kurbel&&!has('magnetangel')) return ['Mit der Schnur allein fängst du nichts. Mit dem Magneten allein kommst du nicht ins Wasser.','Kombiniere Schnur und Magnet im Inventar.'];
+  if(!f.kurbel) return ['In der Pfütze glänzt etwas aus Metall.','Angle danach: Magnetangel auf die Pfütze.'];
+  if(!f.vise) return ['Wozu gehört eine eiserne Kurbel mit zwei Kugeln?','Der Schraubstock an der Werkbank hat keine Kurbel.'];
+  if(!f.streich) return ['Das Boot ist jetzt frei.','Tippe das Boot an und schau es dir genau an.'];
+  if(!f.lit) return ['Es ist dunkel. Was hier unten könnte brennen?','An der Säule hängt eine Laterne.','Benutze die Streichhölzer an der Laterne.'];
+  if(!f.kork) return ['Im Licht kannst du endlich in die dunklen Ecken sehen.','Unter der Werkbank steht eine Kiste.'];
+  if(!f.flasche) return ['Eine der Weinflaschen ist anders als die anderen.','Tippe auf die Flasche mit dem Papier darin, im Weinregal.'];
+  if(!has('nachricht')) return ['Der Korken sitzt fest.','Öffne die Flaschenpost mit dem Korkenzieher.'];
+  return ['Opas Nachricht und die Kreidezeichnung gehören zusammen.','Lies die Zeichnung rückwärts und nimm nur jedes zweite Zeichen.','Rückwärts: Möwe, Leuchtturm, Stern, Fisch, Anker, Muschel. Jedes zweite: Möwe, Stern, Anker.']; },
  end:['Kapitel 3 geschafft','Das Schloss springt auf. Quietschend schwingt das Gittertor zur Seite. Der Tunnel führt abwärts, das Rauschen wird lauter – und am Ende schimmert Licht.<br><br>Ein Bootshaus. Und darin, du bist ganz sicher: das große Boot, das ihr damals zusammen bauen wolltet.'],
  ov(f){ return [`<defs><filter id="chalk"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3"/></filter>
   <radialGradient id="tun" cx=".5" cy=".55" r=".5"><stop offset="0" stop-color="#ffd890" stop-opacity=".7"/><stop offset="1" stop-color="#ffd890" stop-opacity="0"/></radialGradient></defs>
