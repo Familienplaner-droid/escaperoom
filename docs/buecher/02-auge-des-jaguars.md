@@ -114,7 +114,7 @@ Mit: Feldbuch, Federmesser, Kompass, Machete, Kalebasse (leer), Fackel, Kristall
 Amalia hinter Steingitter (hat die Jaguarfigur von einer Waage genommen → Gitter fiel). Steinwaage mit leerer Schale, Hebel. Jaguarstatue ohne Auge. Ostwand mit verstopftem Spalt.
 1. Amalia sprechen → sie reicht **Seite 5** durch die Stäbe: Fundliste „Jaguarfigur: 15 Lot“.
 2. Gegenstände in die Waagschale legen (antippen nimmt sie zurück), Hebel ziehen. Nur bei genau 15 hebt sich das Gitter, sonst rutscht alles zurück.
-   *Hinweise:* Fundliste (15) + Packliste im Feldbuch (Gewichte). Lösung z. B. Machete 8 + Fackel 5 + Kompass 2. Danach rastet das Gitter ein, Lou nimmt alles zurück.
+   *Hinweise:* Fundliste (15) + Packliste im Feldbuch (Gewichte). Einzige Lösung: Machete 8 + Fackel 5 + Kompass 2. Danach rastet das Gitter ein, Lou nimmt alles zurück.
 3. Kristalllinse in die Augenhöhle der Statue · Machete am Spalt (Hebel) → Stein fällt.
 4. Erster Sonnenstrahl → Linse wirft Sternkarte an die Wand. Amalia: „Zeichne sie, Lou! Find das Zeichen, das im Osten stand.“
 5. Sternkarte (eigene Oberfläche): ca. 40 Lichtpunkte; die Sterne der Schildkröte antippen (Vorlage: Lous Zeichnung aus Kap. 3) → Finale.
@@ -123,7 +123,7 @@ Jeder mitgebrachte Gegenstand kommt hier ein letztes Mal vor (Waage, Hebel, Lins
 
 ### Regel-Check
 - Jede Code-/Schlosslösung hat ≥ 2 Fundstellen (siehe *Hinweise*). Prüfung immer erst nach vollständiger Eingabe.
-- Gegenstände: alle werden benutzt (Federmesser K1+K5, Kompass K3+K5, Karbidlampe K1+K3, Machete K2–K5, Kalebasse K2+K4+K5, Fackel K3–K5).
+- Gegenstände: alle werden benutzt (Federmesser K1+K5, Kompass K3+K5, Karbidlampe K1+K3, Machete K2–K5, Kalebasse K2+K4, Fackel K3–K5).
 - Abwechslung: K1 Kombinieren/Licht/Zahlencode · K2 Brückenbau/Symbolschloss · K3 Licht/Kalenderrad · K4 Spiegel · K5 Waage/Sternkarte.
 
 ## Stand
