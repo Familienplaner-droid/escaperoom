@@ -318,12 +318,19 @@ const R3 = {
 const MORSE={A:'.-',B:'-...',C:'-.-.',D:'-..',E:'.',F:'..-.',G:'--.',H:'....',I:'..',J:'.---',K:'-.-',L:'.-..',M:'--',N:'-.',O:'---',P:'.--.',Q:'--.-',R:'.-.',S:'...',T:'-',U:'..-',V:'...-',W:'.--',X:'-..-',Y:'-.--',Z:'--..'};
 const ABC=Object.keys(MORSE);
 const R4 = {
- title:'Das Bootshaus', chapter:'Kapitel 4', img:A('bootshaus.jpg'), keep:['foto'],
+ title:'Das Bootshaus', chapter:'Kapitel 4', img:A('bootshaus.jpg'), introImg:A('intro4.jpg'), keep:['foto'],
  soon:'Kapitel 5: Der Leuchtturm – kommt bald',
  intro:['Der Tunnel wird breiter, die Luft salziger. Dann stehst du auf knarrenden Planken: Opas Bootshaus.','Im Wasser schaukelt ein kleines Segelboot. Du weißt es sofort: Das habt ihr zusammen gebaut.','Durchs Fenster siehst du den Leuchtturm. Sein Licht blinkt – aber nicht gleichmäßig. Als würde es dir etwas sagen.'],
  comboNo:{'hammer+kupfer':'Das Blech ist schon flach genug.','kupfer+pinsel':'Ein trockener Pinsel bringt nichts. Erst braucht er Teer.','hammer+naegel':'Erst brauchst du etwas, das du festnageln kannst – und den richtigen Ort.'},
  combos:[ {a:'teerpinsel',b:'kupfer',t:()=>{ take('teerpinsel'); take('kupfer'); give('teerblech'); return 'Du streichst das Kupferschild dick mit Teer ein. Jetzt ist es ein wasserdichter Flicken: <b>geteertes Blech</b>.'; }} ],
- cuts:[ {r:[295,340,490,362],kind:'lift',clip:'polygon(0 0,44.2% 0,44.2% 99.8%,50.2% 99.8%,50.2% 0,100% 0,100% 100%,0 100%)',on:f=>f.gate} ],
+ cuts:[
+  {r:[280,320,520,690],kind:'reveal slow',src:A('bh_tor.jpg'),on:f=>f.gate},
+  {r:[490,22,210,95],kind:'reveal',src:A('bh_zustand.jpg'),on:f=>f.hammer},
+  {r:[25,262,215,180],kind:'reveal',src:A('bh_zustand.jpg'),on:f=>f.schild},
+  {r:[0,1070,680,378],kind:'reveal',src:A('bh_zustand.jpg'),on:f=>f.plane},
+  {r:[410,830,160,140],kind:'reveal',src:A('bh_zustand.jpg'),on:f=>f.blech},
+  {r:[540,830,270,220],kind:'reveal',src:A('bh_zustand.jpg'),on:f=>f.cut}
+ ],
  hot:[
   {id:'tor',r:[295,340,490,430],act:()=>S.f.gate?'Das Wassertor ist offen. Dahinter: die Bucht, der Mond – und der Leuchtturm.':'Ein riesiges hölzernes Wassertor. Dahinter liegt das offene Meer. Ketten führen von den Torflügeln hinauf zur Decke – und hinüber zur <b>Winde</b>.'},
   {id:'wasser',r:[175,760,180,270],act:()=>'Schwarzes, kaltes Wasser. Es schwappt leise gegen die Planken.'},
@@ -332,7 +339,7 @@ const R4 = {
     const miss=[]; if(!f.leck) miss.push(f.blech?'Der Flicken liegt nur lose auf dem Loch – er muss noch <b>festgenagelt</b> werden.':'Am Bug klafft ein <b>Loch im Rumpf</b>. So würdest du sinken.');
     if(!f.cut) miss.push('Das Boot ist mit einer dicken Leine am Poller <b>festgemacht</b>.'); if(!f.gate) miss.push('Und das <b>Wassertor</b> ist zu.');
     return 'Euer Boot. Auf der Bank ist ein Herz eingeritzt: „E + Opa“. '+miss.join(' '); },
-   use:{ teerblech(){ S.f.blech=1; take('teerblech'); return 'Du drückst das geteerte Blech auf das Loch. Es passt genau – aber es hält noch nicht.'; },
+   use:{ teerblech(){ S.f.blech=1; take('teerblech'); return 'Du drückst das geteerte Blech auf das Loch und steckst ein paar Nägel locker in die Ecken. Es passt genau – aber festgeschlagen ist es noch nicht.'; },
          kupfer(){ return 'Das Blech würde das Loch abdecken – aber es ist nicht wasserdicht. Da fehlt etwas, das abdichtet.'; },
          naegel(){ return S.f.blech?'Nägel hast du – aber womit willst du sie einschlagen?':'Erst brauchst du etwas, das das Loch abdeckt.'; },
          hammer(){ if(!S.f.blech) return 'Mit dem Hammer allein flickst du kein Loch.'; if(!has('naegel')) return 'Du brauchst noch <b>Nägel</b>, um den Flicken festzumachen.'; S.f.leck=1; take('naegel'); sfx('unlock'); return 'Tock, tock, tock – Nagel um Nagel schlägst du den Flicken fest. Das Leck ist dicht!'; } }},
@@ -378,19 +385,7 @@ const R4 = {
   <linearGradient id="nightSea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1a2e"/><stop offset=".55" stop-color="#1c3550"/><stop offset=".56" stop-color="#0b2233"/><stop offset="1" stop-color="#06131c"/></linearGradient>
   <radialGradient id="moonG"><stop offset="0" stop-color="#fffbe8"/><stop offset="1" stop-color="#fffbe8" stop-opacity="0"/></radialGradient>
  </defs>
- ${f.gate?`<rect x="300" y="345" width="480" height="425" fill="url(#nightSea)"/>
-  <circle cx="420" cy="430" r="40" fill="url(#moonG)" opacity=".6"/><circle cx="420" cy="430" r="14" fill="#fffbe8"/>
-  <path d="M420 585v180" stroke="#fffbe8" stroke-width="10" stroke-dasharray="6 9" opacity=".35"/>
-  <path d="M640 585l20-8 40 2 25 6z" fill="#0a1218"/><path d="M684 580l4-52h8l4 52z" fill="#d9d2c0"/><path d="M685 552h14M686 565h12" stroke="#b33b2e" stroke-width="5"/>
-  <circle class="morse" cx="692" cy="524" r="5" fill="#fff6d0"/><circle class="morse" cx="692" cy="524" r="16" fill="#fff6d0" fill-opacity=".3"/>
-  ${[[340,380],[372,402],[455,372],[600,395],[640,370],[730,410],[760,388]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="1.4" fill="#fff" opacity=".7"/>`).join('')}
-  <clipPath id="mastClip"><rect x="511" y="340" width="30" height="432"/><path d="M352 775Q378 698 520 694Q664 698 704 775Z"/></clipPath><image href="${A('bootshaus.jpg')}" x="0" y="0" width="${W}" height="${H}" clip-path="url(#mastClip)"/>`:''}
- ${f.hammer?`<image href="${A('b_hammer.jpg')}" x="490" y="25" width="200" height="90"/>`:''}
- ${f.schild?`<image href="${A('b_schild.jpg')}" x="30" y="282" width="200" height="140"/>`:''}
- ${f.plane?`<image href="${A('b_stange.jpg')}" x="525" y="1225" width="130" height="90"/>`:''}
- ${f.cut?`<image href="${A('b_leine.jpg')}" x="530" y="780" width="220" height="260"/>`:''}
- ${f.blech?`<image href="${A('teerblech.png')}" x="446" y="862" width="92" height="46" transform="rotate(-12 492 885)"/>`:''}
- ${f.leck?[[456,876],[528,866],[460,902],[530,892]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="2.6" fill="#c9b27a"/>`).join(''):''}`,
+ ${f.gate?`<circle class="morse" cx="692" cy="524" r="5" fill="#fff6d0"/><circle class="morse" cx="692" cy="524" r="16" fill="#fff6d0" fill-opacity=".3"/>`:''}`,
  `<defs><radialGradient id="lantG"><stop offset="0" stop-color="#ffcf7a" stop-opacity=".45"/><stop offset="1" stop-color="#ffcf7a" stop-opacity="0"/></radialGradient></defs>
  <circle cx="207" cy="262" r="90" fill="url(#lantG)" class="flicker"/><circle cx="866" cy="262" r="90" fill="url(#lantG)" class="flicker" style="animation-delay:-1.1s"/>
  <circle class="morse" cx="1025" cy="352" r="9" fill="#fff6d0"/><circle class="morse" cx="1025" cy="352" r="28" fill="#fff6d0" fill-opacity=".3"/>`]; }
