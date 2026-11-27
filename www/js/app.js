@@ -1,6 +1,8 @@
 // Escape-Bücher – App-Rahmen: Bücherregal, Buchseite, Navigation, Zurück-Taste.
 import { BOOKS } from '../books/index.js';
 import { useBook, loadState, startChapter, resume, restartBook, leaveToBook, closeModals, state } from './engine.js';
+import { LANGS, getLang, setLang, initLang, tr, tf } from './i18n.js';
+const BOOK_DIRS = ['books/villa-morgenrot'];
 
 const $ = id => document.getElementById(id);
 let current = null, currentFactory = null, screenNow = 'sLib';
@@ -28,10 +30,10 @@ const hooks = { screen, onWin() {} };
 function renderShelf() {
   $('shelf').innerHTML = BOOKS.map((f, k) => {
     const b = info(f), st = loadState(b.id) || {}, done = st.maxDone || 0, n = b.rooms.length;
-    return `<button class="bk" data-k="${k}"><div class="bkCover" style="background-image:url(${b.cover})"><b>${b.title}</b></div>
-      <div class="bkMeta">${b.genre} · ${done >= n ? 'Abgeschlossen' : done ? `${done} von ${n} Kapiteln` : `${n} Kapitel`}</div>
+    return `<button class="bk" data-k="${k}"><div class="bkCover" style="background-image:url(${b.cover})"><b>${tr(b.title)}</b></div>
+      <div class="bkMeta">${tr(b.genre)} · ${done >= n ? tr('Abgeschlossen') : done ? tf('{0} von {1} Kapiteln', done, n) : tf('{0} Kapitel', n)}</div>
       <div class="bkBar"><i style="width:${done / n * 100}%"></i></div></button>`;
-  }).join('') + `<div class="bk soon"><div class="bkCover">Weitere Geschichten folgen</div><div class="bkMeta">Bald im Regal</div></div>`;
+  }).join('') + `<div class="bk soon"><div class="bkCover">${tr('Weitere Geschichten folgen')}</div><div class="bkMeta">${tr('Bald im Regal')}</div></div>`;
 }
 $('shelf').addEventListener('click', e => { const b = e.target.closest('.bk[data-k]'); if (b) openBook(BOOKS[+b.dataset.k]); });
 
@@ -40,13 +42,13 @@ function openBook(factory) {
   currentFactory = factory; current = useBook(factory, hooks);
   const b = current, n = b.rooms.length, done = state.maxDone || 0;
   $('bpHero').style.backgroundImage = `url(${b.cover})`;
-  $('bpTitle').textContent = b.title; $('bpGenre').textContent = `${b.genre} · ${n} Kapitel`; $('bpTag').textContent = b.tagline;
+  $('bpTitle').textContent = tr(b.title); $('bpGenre').textContent = `${tr(b.genre)} · ${tf('{0} Kapitel', n)}`; $('bpTag').textContent = tr(b.tagline);
   const fresh = !state.playing && done === 0;
-  $('bPlay').innerHTML = fresh ? 'Spiel beginnen' : done >= n && !state.playing ? 'Nochmal von vorne' : `Weiterspielen – ${b.rooms[state.playing ? state.room : Math.min(done, n - 1)].chapter}`;
+  $('bPlay').innerHTML = fresh ? tr('Spiel beginnen') : done >= n && !state.playing ? tr('Nochmal von vorne') : tf('Weiterspielen – {0}', tr(b.rooms[state.playing ? state.room : Math.min(done, n - 1)].chapter));
   $('bRestart').hidden = fresh || (done >= n && !state.playing);
   $('chapList').innerHTML = b.rooms.map((r, k) => {
     const open = k <= done, isDone = k < done;
-    return `<li><button data-c="${k}" ${open ? '' : 'disabled'}><span class="n">${k + 1}</span><span class="t">${open ? r.title : 'Noch verschlossen'}<small>${isDone ? 'Geschafft' : open ? 'Bereit' : 'Schließe das vorherige Kapitel ab'}</small></span>${isDone ? ICON.done : open ? ICON.play : ICON.lock}</button></li>`;
+    return `<li><button data-c="${k}" ${open ? '' : 'disabled'}><span class="n">${k + 1}</span><span class="t">${tr(open ? r.title : 'Noch verschlossen')}<small>${tr(isDone ? 'Geschafft' : open ? 'Bereit' : 'Schließe das vorherige Kapitel ab')}</small></span>${isDone ? ICON.done : open ? ICON.play : ICON.lock}</button></li>`;
   }).join('');
   screen('sBook');
 }
@@ -63,7 +65,7 @@ $('bGameBack').onclick = () => { leaveToBook(); openBook(currentFactory); };
 $('bToBook').onclick = () => openBook(currentFactory);
 
 function confirmBox(title, text, yes, fn) {
-  $('cTitle').textContent = title; $('cText').textContent = text; $('cYes').textContent = yes;
+  $('cTitle').textContent = tr(title); $('cText').textContent = tr(text); $('cYes').textContent = tr(yes);
   $('cYes').onclick = () => { $('mConfirm').classList.remove('on'); fn(); };
   $('mConfirm').classList.add('on');
 }
@@ -78,4 +80,20 @@ function back() {
 const App = window.Capacitor?.Plugins?.App;
 if (App) App.addListener('backButton', () => { if (!back()) App.exitApp(); });
 
+/* ---------- Sprache ---------- */
+function showLang() { $('langCode').textContent = getLang(); }
+$('bLang').onclick = () => {
+  const d = document.getElementById('mDlg');
+  document.getElementById('dTitle').textContent = tr('Sprache');
+  document.getElementById('dBody').innerHTML = `<div class="langList">${Object.entries(LANGS).map(([k, v]) => `<button data-l="${k}" class="${k === getLang() ? 'on' : ''}">${v}</button>`).join('')}</div><br>`;
+  document.getElementById('dClose').textContent = tr('Schließen');
+  d.classList.add('on');
+  document.querySelector('.langList').onclick = async e => {
+    const b = e.target.closest('button[data-l]'); if (!b) return;
+    await setLang(b.dataset.l, BOOK_DIRS); d.classList.remove('on'); showLang(); renderShelf();
+  };
+};
+
+await initLang(BOOK_DIRS);
+showLang();
 renderShelf();

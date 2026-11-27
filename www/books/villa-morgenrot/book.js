@@ -2,7 +2,7 @@
 // Jedes Buch ist eine Funktion, die die Engine-Schnittstelle (api) bekommt
 // und Gegenstände, Kapitel (rooms) und Metadaten zurückgibt.
 export default function villaMorgenrot(api){
-const {S,give,take,has,say,sfx,tone,render,win,openLock,openSafe,openPaper,openPaperHTML,flash,cutStyle,room,dialog,closeDialog}=api;
+const {tr,tf,lang,S,give,take,has,say,sfx,tone,render,win,openLock,openSafe,openPaper,openPaperHTML,flash,cutStyle,room,dialog,closeDialog}=api;
 const BASE='books/villa-morgenrot/img/';
 const A=name=>BASE+name;
 const W=1086, H=1448;
@@ -361,7 +361,7 @@ const R4 = {
          kupfer(){ return 'Ins Fass tauchen? Dann klebst du selbst fest. Besser mit etwas auftragen.'; } }},
   {id:'fenster',r:[893,256,175,238],act(){ openScope([960,300,110,110],`<circle class="morse" cx="64" cy="51" r="3.2" fill="#fff6d0"/><circle class="morse" cx="64" cy="51" r="10" fill="#fff6d0" fill-opacity=".3"/>`,'Das Leuchtfeuer blinkt: kurz und lang, in einem Muster, das sich immer wiederholt. Dazwischen eine lange Pause.','Der Leuchtturm'); return 'Du beobachtest das Licht des Leuchtturms. Kurz … lang … Pause … Es ist ein Muster!'; }},
   {id:'winde',r:[800,505,286,392],no:{hammer:'Die Winde ist blockiert, weil die Kette verschlossen ist.',bootshaken:'Die Winde bewegt sich keinen Millimeter. Die Kette ist verschlossen.'},act(){ if(S.f.gate) return 'Die Winde steht still. Das Tor ist oben.'; if(!S.f.lock) return 'Eine schwere Seilwinde für das Wassertor. Die Kette ist mit einem <b>Buchstabenschloss</b> gesichert – so lässt sich die Kurbel nicht drehen.'; S.f.gate=1; sfx('door'); return 'Du stemmst dich gegen die Kurbel. Kette um Kette rasselt auf die Trommel … und das Wassertor hebt sich! Kalte Seeluft strömt herein.'; }},
-  {id:'schloss',r:[855,715,80,92],no:{hammer:'Du hämmerst aufs Schloss. Es ist robuster als du dachtest.',messer:'Die Klinge rutscht ab. Das Schloss braucht den richtigen Code.',bootshaken:'Mit dem Bootshaken die Kette aufhebeln? Keine Chance.'},vis:()=>!S.f.lock,act(){ openLock({title:'Das Buchstabenschloss',skin:{img:A('schloss_nah.jpg'),zoom:'scale(1.5) translateY(-4%)',slots:[[24.0,53.6,13.4,13.4],[43.4,53.6,13.4,13.4],[62.8,53.6,13.4,13.4]]},vals:ABC,show:c=>`<span style="font:700 clamp(22px,7vw,30px)/1 Georgia,serif;color:#3a2608">${c}</span>`,code:['M','U','T'],start:[11,4,14],ok(){ S.f.lock=1; say('Klick! Das Schloss springt auf, die Kette ist frei. Jetzt kannst du die Winde drehen.'); render(); }}); return 'Ein Schloss mit drei Buchstabenringen.'; }},
+  {id:'schloss',r:[855,715,80,92],no:{hammer:'Du hämmerst aufs Schloss. Es ist robuster als du dachtest.',messer:'Die Klinge rutscht ab. Das Schloss braucht den richtigen Code.',bootshaken:'Mit dem Bootshaken die Kette aufhebeln? Keine Chance.'},vis:()=>!S.f.lock,act(){ openLock({title:'Das Buchstabenschloss',skin:msgWord().length===4?{img:A('kiste_schloss.jpg'),slots:[[20.9,44.1,11,9.2],[36.8,44.1,11,9.2],[52.6,44.1,11,9.2],[68.6,44.1,11,9.2]]}:{img:A('schloss_nah.jpg'),zoom:'scale(1.5) translateY(-4%)',slots:[[24.0,53.6,13.4,13.4],[43.4,53.6,13.4,13.4],[62.8,53.6,13.4,13.4]]},vals:ABC,show:c=>`<span style="font:700 clamp(22px,7vw,30px)/1 Georgia,serif;color:#3a2608">${c}</span>`,code:msgWord().split(''),start:[11,4,14,18].slice(0,msgWord().length),ok(){ S.f.lock=1; say('Klick! Das Schloss springt auf, die Kette ist frei. Jetzt kannst du die Winde drehen.'); render(); }}); return 'Ein Schloss mit drei Buchstabenringen.'; }},
   {id:'leine',r:[555,850,245,220],no:{hammer:'Auf ein Seil hämmern bringt nichts.',bootshaken:'Mit dem Haken bekommst du den nassen Knoten auch nicht auf.'},act:()=>S.f.cut?'Nur noch ein Stummel hängt am Bug.':'Eine dicke Leine hält das Boot am Poller. Der Knoten ist nass, verquollen und bombenfest.',
    use:{ messer(){ S.f.cut=1; sfx('slide'); return 'Mit ein paar kräftigen Schnitten ist die Leine durch. Das Boot treibt ein Stück vom Steg weg.'; } }},
   {id:'plane',r:[0,1095,650,330],act(){ if(!S.f.plane){ S.f.plane=1; give('bootshaken'); sfx('slide'); return 'Du schlägst die Plane zurück. Darunter liegt ein langer <b>Bootshaken</b>.'; } return 'Eine alte Segeltuchplane. Darunter nur noch Staub.'; }},
@@ -397,7 +397,7 @@ function openCalendar(){
  sfx('slide');
 }
 function kalender(){
- let g='<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;font:600 14px/1 ui-monospace,monospace;font-style:normal;text-align:center">'+['Mo','Di','Mi','Do','Fr','Sa','So'].map(d=>`<span style="opacity:.6">${d}</span>`).join('')+'<span></span><span></span><span></span><span></span><span></span>';
+ let g='<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;font:600 14px/1 ui-monospace,monospace;font-style:normal;text-align:center">'+tr('Mo Di Mi Do Fr Sa So').split(' ').map(d=>`<span style="opacity:.6">${d}</span>`).join('')+'<span></span><span></span><span></span><span></span><span></span>';
  for(let d=1;d<=30;d++){ g+= d<26?`<span style="position:relative;padding:5px 0;color:#5a4630">${d}<i style="position:absolute;left:10%;right:10%;top:50%;border-top:2px solid #3a2410;transform:rotate(-20deg)"></i></span>`
   : d===26?`<span style="padding:5px 0;color:#a3221a;font-weight:800;outline:2px solid #a3221a;border-radius:50%">${d}</span>`:`<span style="padding:5px 0;color:#3a2410">${d}</span>`; }
  return g+'</div>';
@@ -431,7 +431,7 @@ const R5 = {
          docht(){ if(S.f.wick) return 'Der neue Docht steckt schon.'; S.f.wick=1; take('docht'); return 'Du ziehst den verkohlten Rest heraus und fädelst den <b>neuen Docht</b> ein.'; },
          feuerzeug(){ sfx('no'); return 'Nur Funken. Das Feuerzeug ist leer.'; },
          feuerzeugAn(){ const f=S.f; if(f.fire) return 'Es brennt schon.'; if(!f.tank) return 'Kein Petroleum im Tank. Da brennt nichts.'; if(!f.wick) return 'Der alte Docht ist völlig verkohlt. So hält keine Flamme.'; f.fire=1; sfx('chime'); if(f.rot){ setTimeout(finale,400); return 'Fuhh! Die Flamme schießt hoch, die Linse glüht auf. Der Lichtstrahl dreht sich hinaus über das Meer …'; } return 'Fuhh! Die Flamme schießt hoch, die Linse glüht auf! Aber der Strahl steht still. <b>Ein Leuchtturm, der sich nicht dreht, ist kein Leuchtturm.</b>'; } }},
-  {id:'drehwerk',r:[400,650,290,215],no:{kanister:'Ölen ist eine gute Idee – aber hier fehlen Zahnräder, kein Öl.',feuerzeugAn:'Die Flamme gehört oben in den Brenner.'},act(){ const f=S.f; if(f.rot) return 'Die Zahnräder greifen sauber ineinander und drehen sich gleichmäßig.'; const n=(f.g1?0:1)+(f.g2?0:1); return n?`Das Drehwerk unter der Linse. Auf ${n===2?'zwei Achsen':'einer Achse'} fehlt ein Zahnrad${n===2?' – eine große und eine kleine Achse':''}.`:'Alle Zahnräder sitzen. Jetzt braucht es Kraft – die Kurbel.'; },
+  {id:'drehwerk',r:[400,650,290,215],no:{kanister:'Ölen ist eine gute Idee – aber hier fehlen Zahnräder, kein Öl.',feuerzeugAn:'Die Flamme gehört oben in den Brenner.'},act(){ const f=S.f; if(f.rot) return 'Die Zahnräder greifen sauber ineinander und drehen sich gleichmäßig.'; const n=(f.g1?0:1)+(f.g2?0:1); return n===2?'Das Drehwerk unter der Linse. Auf zwei Achsen fehlt ein Zahnrad – eine große und eine kleine Achse.':n===1?'Das Drehwerk unter der Linse. Auf einer Achse fehlt noch ein Zahnrad.':'Alle Zahnräder sitzen. Jetzt braucht es Kraft – die Kurbel.'; },
    use:{ zahnradGross(){ S.f.g1=1; take('zahnradGross'); sfx('click'); return 'Das große Messingzahnrad passt genau auf die große Achse.'; },
          zahnradKlein(){ S.f.g2=1; take('zahnradKlein'); sfx('click'); return 'Das kleine Zahnrad rutscht mit seinem eckigen Loch auf die Vierkantachse. Klack.'; } }},
   {id:'kurbel',r:[690,705,135,135],act(){ const f=S.f; if(f.rot) return 'Das Drehwerk läuft von allein weiter.'; if(!f.g1||!f.g2){ sfx('no'); return 'Du drehst die Kurbel – sie läuft leer. Im Drehwerk fehlen noch Zahnräder.'; } f.rot=1; sfx('slide'); if(f.fire){ setTimeout(finale,400); return 'Du kurbelst mit aller Kraft. Langsam, dann immer schneller beginnt sich die Linse zu drehen – und mit ihr der Lichtstrahl!'; } return 'Du kurbelst. Die Zahnräder greifen, die Linse beginnt sich zu drehen. Aber noch ist sie dunkel.'; }},
@@ -475,12 +475,12 @@ function openClock(spin){
  const body=dialog('Die Standuhr',`<div class="clockFace"><img src="${A('uhr_zifferblatt.jpg')}" alt=""><img class="hand hH" src="${A('uhr_stunde.webp')}" alt="" style="width:6.4%;height:46.9%"><img class="hand hM" src="${A('uhr_minute.webp')}" alt="" style="width:5.5%;height:71.9%"></div><p class="cTxt"></p>`);
  const txt=body.querySelector('.cTxt'), hH=body.querySelector('.hH'), hM=body.querySelector('.hM');
  const set=(h,m)=>{ hH.style.transform=`translate(-50%,-50%) rotate(${h}deg)`; hM.style.transform=`translate(-50%,-50%) rotate(${m}deg)`; };
- if(!spin){ set(276,72); txt.innerHTML='Die Zeiger stehen auf <b>9:12</b>.'; return; }
+ if(!spin){ set(276,72); txt.innerHTML=tr('Die Zeiger stehen auf <b>9:12</b>.'); return; }
  // Zeiger hängen erst schlaff herab, dann rasen sie los und bremsen auf 9:12 ab
- txt.innerHTML='Das Zahnrad greift. Tick … tack …'; set(183,178);
+ txt.innerHTML=tr('Das Zahnrad greift. Tick … tack …'); set(183,178);
  const t0=performance.now(), D=3200, M0=178, M1=72+1440*2, H0=183, H1=276+360*2;
  const ease=p=>p<.15?0:1-(1-(p-.15)/.85)**3;
- const step=t=>{ const p=Math.min(1,(t-t0)/D), e=ease(p); set(H0+(H1-H0)*e, M0+(M1-M0)*e); if(p<1) requestAnimationFrame(step); else { set(276,72); txt.innerHTML='Dong. Dong. Dong. Die Zeiger bleiben auf <b>9:12</b> stehen.'; } };
+ const step=t=>{ const p=Math.min(1,(t-t0)/D), e=ease(p); set(H0+(H1-H0)*e, M0+(M1-M0)*e); if(p<1) requestAnimationFrame(step); else { set(276,72); txt.innerHTML=tr('Dong. Dong. Dong. Die Zeiger bleiben auf <b>9:12</b> stehen.'); } };
  requestAnimationFrame(step);
 }
 function openScope(r,svg,txt,title){
@@ -491,10 +491,15 @@ function openLog(){
  openPaperHTML('Opas Logbuch',img('logbuch.png').replace('<img','<img style="max-width:110px;margin:0 auto 10px"')+'<b>Letzter Eintrag:</b> Elena kommt heute nach Hause. Ich warte am Leuchtturm. Wenn sie im Bootshaus steht, schicke ich ihr mit dem Licht das, was sie jetzt am meisten braucht. Als Kind hat sie das Morsen schneller gelernt als ich.<br><br><b>Morsetafel</b> (· kurz, – lang)<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px 10px;font:600 15px/1.5 ui-monospace,monospace;margin-top:6px;font-style:normal">'+ABC.map(c=>`<span>${c} ${MORSE[c].replace(/\./g,'·').replace(/-/g,'–')}</span>`).join('')+'</div>');
 }
 /* Morse-Blinken: M U T in Endlosschleife */
-const MSG='MUT', UNIT=330; const mSeq=[]; let mOn=false;
-[...MSG].forEach((c,ci)=>{ [...MORSE[c]].forEach((d,di)=>{ mSeq.push([1,d==='.'?1:3]); mSeq.push([0,di<MORSE[c].length-1?1:(ci<MSG.length-1?3:10)]); }); });
+// Opas Morsewort hängt von der Sprache ab (der Spieler muss es mit der Morsetafel entziffern)
+const WORD={de:'MUT',en:'HOPE',fr:'FOI',es:'AMOR',pt:'AMOR'};
+const msgWord=()=>WORD[lang()]||WORD.en;
+const UNIT=330; let mOn=false, mFor='', mSeq=[];
+function buildSeq(){ const MSG=msgWord(); if(mFor===MSG) return; mFor=MSG; mSeq=[];
+ [...MSG].forEach((c,ci)=>{ [...MORSE[c]].forEach((d,di)=>{ mSeq.push([1,d==='.'?1:3]); mSeq.push([0,di<MORSE[c].length-1?1:(ci<MSG.length-1?3:10)]); }); }); }
+buildSeq();
 function morseTick(){ document.querySelectorAll('.morse').forEach(e=>e.style.opacity=mOn?'1':'0'); }
-(function loop(i){ const [on,len]=mSeq[i]; mOn=!!on; morseTick(); setTimeout(()=>loop((i+1)%mSeq.length),len*UNIT); })(0);
+(function loop(i){ buildSeq(); i%=mSeq.length; const [on,len]=mSeq[i]; mOn=!!on; morseTick(); setTimeout(()=>loop((i+1)%mSeq.length),len*UNIT); })(0);
 /* Schach: Matt in einem Zug. Schwarz: Kg8, Bauern f7 g7 h7, Springer c6, Läufer b7. Weiß: Kg1, Bauern f2 g2 h2. */
 const CHESS={g8:'♚',f7:'♟',g7:'♟',h7:'♟',c6:'♞',b7:'♝',g1:'♔',f2:'♙',g2:'♙',h2:'♙'};
 const CHESS_WHY={d8:'Der schwarze Springer auf c6 springt auf d8 und schlägt deine Dame.',b8:'Der schwarze Springer auf c6 schlägt deine Dame auf b8.',c8:'Der schwarze Läufer auf b7 schlägt deine Dame auf c8.',a8:'Der schwarze Läufer auf b7 schlägt deine Dame auf a8.',f8:'Der schwarze König schlägt die Dame einfach selbst – sie steht direkt neben ihm.'};
@@ -522,12 +527,12 @@ function openChess(canPlace){
  const msg=body.querySelector('.cMsg'), qd=body.querySelector('.cQ');
  body.querySelector('.cBoard').addEventListener('click',e=>{
   const b=e.target.closest('.sqHit'); if(!b) return; const sq=b.dataset.sq;
-  if(Date.now()<chessLock){ msg.textContent='Der Mechanismus unter dem Brett spannt sich noch … warte einen Moment.'; return; }
-  if(CHESS[sq]){ msg.textContent='Da steht schon eine Figur.'; sfx('no'); return; }
+  if(Date.now()<chessLock){ msg.textContent=tr('Der Mechanismus unter dem Brett spannt sich noch … warte einen Moment.'); return; }
+  if(CHESS[sq]){ msg.textContent=tr('Da steht schon eine Figur.'); sfx('no'); return; }
   qd.innerHTML=pieceHTML('♕',files.indexOf(sq[0]),8-+sq[1],' drop'); sfx('click');
   if(sq==='e8'){ setTimeout(()=>{ closeDialog(); S.f.fach=1; take('dame'); give('rostig'); sfx('unlock'); say('Schach auf der letzten Reihe – und der König kann nirgends hin. <b>Matt!</b> Klack – an der Tischkante springt ein <b>Geheimfach</b> auf. Darin: ein <b>rostiger Aufziehschlüssel</b>.'); render(); },1100); return; }
   chessLock=Date.now()+4000;
-  msg.innerHTML=(CHESS_WHY[sq]||'Kein Schachmatt. Der schwarze König ist nicht einmal bedroht.')+' <i>Die Dame rutscht zurück.</i>';
+  msg.innerHTML=tr(CHESS_WHY[sq]||'Kein Schachmatt. Der schwarze König ist nicht einmal bedroht.')+tr(' <i>Die Dame rutscht zurück.</i>');
   setTimeout(()=>{ qd.innerHTML=''; sfx('no'); },1300);
  });
 }

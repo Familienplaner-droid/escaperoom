@@ -1,0 +1,659 @@
+0|Un billet froissé
+1|Ma chère petite,<br><br>n’aie pas peur. Je sais que tu ne te souviens de rien – ni de cette maison, ni de moi.<br><br>Je t’ai construit un chemin, pièce après pièce, comme les chasses au trésor que tu adorais quand tu étais petite. Quelqu’un t’attend au bout.<br><br>Et souviens-toi de ce que je t’ai toujours dit : <b>Certaines choses ne se voient que lorsque la lumière s’éteint.</b><br><br>– V.
+2|Tisonnier
+3|Un lourd tisonnier en fer avec une poignée en laiton. La pointe est recourbée et assez fine.
+4|Lampe de poche (vide)
+5|Une vieille lampe de poche. Le compartiment à piles est vide.
+6|Deux vieilles piles. Pourvu qu’il leur reste un peu de jus.
+7|Elle éclaire ! Faiblement, mais ça suffit.
+8|Clé en laiton
+9|Une petite clé délicate. Trop petite pour une porte.
+10|La montre de gousset ouverte. À l’intérieur est gravé : « Pour V. – le temps nous appartient. »
+11|Une vieille montre de gousset rayée. Elle est arrêtée. Le couvercle arrière est coincé – impossible de l’ouvrir à mains nues.
+12|Un fin engrenage en laiton. Trop grand pour la montre – il appartient à un mécanisme plus grand.
+13|12 mars<br><br>Aujourd’hui est née ma petite Elena. J’ai arrêté la grande horloge à cet instant précis, j’en ai retiré un engrenage et je l’ai caché dans ma montre de gousset. Ainsi l’horloge retient ce moment pour toujours – dès qu’elle repartira, elle le montrera.<br><br>J’ai réglé mon coffre-fort exactement sur cette heure-là.<br><br>– V.
+14|Clé de la porte
+15|Une grande clé en laiton, richement ornée.
+16|Vieille photo
+17|Le phare de Morgenrot, par une nuit de tempête. Au dos, d’une écriture tremblante :<br><br><b>« Pour Elena. Si tu lis ceci, tu es enfin chez toi. – Papi Viktor »</b>
+18|Dame blanche
+19|Une pièce d’échecs en ivoire, la dame blanche. Elle a une fine fêlure.
+20|Clé de remontage rouillée
+21|Une petite clé de remontage à ailettes. Complètement rouillée – elle ne tourne pas d’un millimètre.
+22|Burette d’huile
+23|Une burette en laiton. Il reste un peu d’huile dedans.
+24|Clé de remontage huilée
+25|Fraîchement huilée, la clé de remontage brille à nouveau. Elle devrait tourner maintenant.
+26|Clé de la vitrine
+27|Une jolie clé en argent. Sur l’étiquette, de l’écriture de Papi : « Vitrine ».
+28|Un bout de vieille ficelle de chanvre, long de quelques mètres.
+29|Un puissant aimant en fer à cheval. Il attire tout ce qui est en fer.
+30|Un aimant au bout d’une ficelle. Parfait pour pêcher du fer.
+31|Une manivelle en fer avec deux boules aux extrémités, toute trempée. On dirait qu’elle appartient à un étau.
+32|Allumettes
+33|Une boîte d’allumettes enveloppée dans du papier ciré. Sèches !
+34|Un vieux tire-bouchon à manche en bois.
+35|Une bouteille verte avec un rouleau de papier à l’intérieur. Le bouchon est coincé – impossible de le retirer avec les doigts.
+36|Le message de Papi
+37|Elena,<br><br>ici en bas, nous avons travaillé chaque hiver sur ton petit bateau. Tu te souviens comment tu l’as appelé ?<br><br>Le chemin vers la mer, tu l’as dessiné toi-même sur le mur. Mais tu le lisais toujours <b>à l’envers</b> – en sautillant comme sur les pierres de la plage : <b>un signe pris, un signe sauté.</b> Trois sauts, et tu étais arrivée.<br><br>Papi
+38|Le bateau d’Elena
+40|Sur la coque, d’une écriture d’enfant maladroite : <b>« Leo »</b>.<br><br>Leo … c’était le vieux chien de Papi. Et tu as donné son nom à ton bateau. Le souvenir est soudain là, chaud et lumineux : un grand chien hirsute qui court à côté de toi sur la plage.
+41|Une longue perche en bois avec un crochet en laiton. On peut atteindre loin avec.
+42|Un vieux marteau arrache-clou. Pour enfoncer des clous – et pour les retirer.
+43|Clous
+44|Une boîte pleine de clous rouillés mais solides.
+45|Une plaque en cuivre, un peu tordue. Assez grande pour le trou dans le bateau – mais pas étanche.
+46|Un vieux pinceau plat aux poils propres.
+47|Le pinceau dégouline de goudron noir.
+48|Plaque goudronnée
+49|La plaque en cuivre, enduite d’une épaisse couche de goudron. Une rustine étanche.
+50|Un couteau pliant à manche en bois. La lame est rouillée, mais tranchante.
+51|Le vieux briquet tempête de Papi. Il fait des étincelles, mais il est vide – pas de combustible.
+52|Briquet allumé
+53|Le briquet, fraîchement rempli de pétrole. La flamme vacille courageusement.
+54|Un lourd bidon, encore à moitié plein de pétrole. L’ouverture est large.
+55|Bidon avec entonnoir
+56|Bidon et entonnoir – de quoi verser aussi dans de petites ouvertures.
+57|Un vieil entonnoir en fer-blanc avec un anneau pour l’accrocher.
+58|Une mèche de lampe neuve et large, en coton.
+59|Grand engrenage
+60|Un lourd engrenage en laiton à six rayons.
+61|Petit engrenage
+62|Un petit engrenage en acier avec un trou carré. Huileux.
+63|La dernière lettre de Papi
+64|Mon Elena,<br><br>tu as fait tout le chemin. Par le bureau, où, enfant, tu construisais des cabanes sous la table. Par la bibliothèque, où je te lisais L’Île au trésor. Par la cave, où Leo dormait à côté de toi pendant que nous bricolions le bateau.<br><br>Les souvenirs sont comme la lumière d’un phare. Parfois une tempête l’éteint. Mais on peut la rallumer.<br><br>La fleur séchée vient de la plage – tu me l’as offerte quand tu avais six ans.<br><br>Avec tout mon amour,<br>ton Papi Viktor
+65|La lettre de Papi
+66|Ma chère Elena,<br><br>si tu lis ces lignes, mon plan a fonctionné. Depuis ton accident, tu ne te souviens de rien – ni de moi, ni de Morgenrot, ni de nos étés au phare.<br><br>Les médecins disent que les souvenirs reviennent à travers les lieux. Alors je t’ai construit un chemin, pièce après pièce, énigme après énigme – comme quand tu étais petite.<br><br>N’aie pas peur. Je t’attends au phare.<br><br>Le chemin pour descendre, tu le connais : <b>… puis la lumière, et enfin la tour.</b><br><br>Ton Papi Viktor
+67|Le Bureau
+68|Chapitre 1
+69|Mal de tête. Une odeur de vieux papier et de fumée froide.
+70|Tu ouvres les yeux. Un bureau que tu n’as jamais vu. Dehors, la mer gronde.
+71|Tu ne sais pas comment tu es arrivée ici. Tu ne connais même pas ton propre nom.
+72|La porte est verrouillée. Mais dans ta main, il y a un billet froissé.
+73|Dans ta main : un <b>billet</b>. Touche-le deux fois dans l’inventaire en bas pour le lire.
+74|Une montre de gousset mécanique n’a pas besoin de piles.
+75|La montre n’a pas de serrure – juste un couvercle coincé.
+76|À la lumière, tu vois : le couvercle n’est pas verrouillé, il est juste coincé.
+77|Tu mets les piles. Clic – la lampe de poche s’allume en vacillant !
+78|La montre est déjà ouverte.
+79|Avec précaution, tu fais levier sur le couvercle avec la pointe fine du tisonnier. Un <b>engrenage</b> tombe dans ta main !
+81|Le coffre-fort s’ouvre ! À l’intérieur : une <b>clé de porte</b> et une <b>vieille photo</b>.
+82|Des livres sur la navigation, les phares et la marine. Quelqu’un ici aimait la mer.
+83|Un bateau en bouteille. Sur sa minuscule poupe, on lit : <b>« Morgenrot »</b>.
+84|Un nautile. Il sent encore un peu le sel.
+85|Un sextant en laiton. Les marins s’en servaient pour se repérer grâce aux étoiles.
+86|Une vieille carte marine. Une petite île est entourée de rouge, avec un minuscule phare à côté.
+87|Une longue-vue. La lentille est rayée.
+88|Faire un trou dans le tableau ? Mieux vaut pas.
+89|Le tableau est de travers. Quand tu veux le redresser, il se décroche. Tu le soulèves et le poses à côté – derrière se trouve un <b>coffre-fort</b> !
+90|Le coffre-fort est en acier épais. Aucune chance.
+91|Le coffre-fort n’a pas de serrure – seulement un cadenas à code.
+92|Le journal ne te donne pas le code directement. Mais il te dit où chercher.
+93|Le coffre-fort est vide.
+94|Un lourd coffre-fort à code. Quatre chiffres.
+95|Tu allumes la lampe de poche … rien. Sans piles, elle reste éteinte.
+96|Des cendres froides et des bûches calcinées. Au-dessus du foyer, le conduit de cheminée s’ouvre, <b>noir comme de l’encre</b>.
+97| Là-haut, la clé brille.
+98|Rien que de la suie et des toiles d’araignée.
+99|Quelque chose brille dans le faisceau : une <b>clé</b> pend à un crochet dans la cheminée. Bien trop haut pour l’attraper.
+100|Tu fouilles dans les cendres. Rien. Il fait trop sombre pour voir plus haut.
+101|Il n’y a plus rien.
+102|Tu pêches vers le haut avec le crochet – cling ! Une petite <b>clé en laiton</b> tombe dans les cendres.
+103|Tu retires le <b>tisonnier</b> du serviteur de cheminée.
+104|Pelle, pince, balayette. Tu as déjà le tisonnier.
+105|L’horloge est purement mécanique. Les piles n’y servent à rien.
+106|Fouiller dans ce mécanisme délicat ? Il serait cassé pour de bon.
+107|Deux horloges – mais pas de réponse. Peut-être que la petite contient ce qui manque à la grande ?
+108|L’horloge tictaque de nouveau. Les aiguilles indiquent <b>9:12</b>.
+109|Une magnifique horloge comtoise. Le balancier est immobile, les aiguilles pendent mollement. À travers la vitre, tu vois : il <b>manque un engrenage</b> dans le mécanisme.
+110|L’engrenage s’enclenche. Le balancier se met à osciller, les aiguilles tournoient … et s’arrêtent sur <b>9:12</b>.
+111|Une porte en chêne massif. <b>Verrouillée.</b> La serrure est grande et ancienne.
+112|Forcer la porte ? Du chêne massif. C’est plutôt le tisonnier qui casserait.
+113|Bien trop petite pour cette grande serrure.
+114|Tu éclaires le trou de la serrure. Derrière : seulement l’obscurité.
+115|Tu glisses le billet sous la porte … et tu le récupères vite. Tu en as encore besoin.
+116|La clé tourne lourdement dans la serrure … la porte s’ouvre en grinçant. Une lumière chaude entre.
+117|Un caoutchouc desséché. Personne ne l’a arrosé depuis des mois.
+118|Un lourd tapis persan. Le coin est replié.
+119|Un lourd tapis persan. Il sent la poussière et le tabac à pipe.
+120|Juste là où la croix brillait dans le noir, tu replies le coin. En dessous : une <b>latte de plancher branlante</b>.
+121|Un trou vide dans le plancher.
+122|La latte bouge, mais tu n’arrives pas à la soulever avec les doigts. Il te faut un <b>levier</b>.
+123|Tu soulèves la latte. En dessous, il y a deux <b>piles</b> !
+124|Le fauteuil en cuir est encore un peu creusé. Quelqu’un s’est assis ici pendant de très longues heures.
+125|Le tiroir est vide.
+126|Le tiroir du bureau est fermé à clé. Une <b>petite serrure en laiton</b>.
+127|Bien trop grande pour cette serrure délicate.
+128|Le forcer ? Ce beau meuble ancien ? Quelque chose en toi s’y refuse.
+129|Clic ! Le tiroir s’ouvre. À l’intérieur : une <b>page de journal</b> et une <b>montre de gousset</b>.
+130|Clic. Plus que la lueur des bougies … et soudain, <b>quelque chose brille</b> d’un vert pâle dans la pièce. Sur le tapis – et sur le globe !
+131|Clic. Plus que la lueur des bougies. Les signes verdâtres brillent de nouveau.
+132|Clic. Une lumière verte et chaude. Les signes lumineux ont disparu.
+133|Le gramophone joue une mélodie grésillante. Elle te semble étrangement familière … comme si tu l’avais entendue enfant.
+134|Sur le globe brille une minuscule île, repassée à la peinture phosphorescente. À côté, à peine lisible : <b>« Morgenrot – Elena vit ici l’été »</b>.
+135|À la lumière, on voit à peine la peinture phosphorescente – juste une minuscule île, soigneusement entourée.
+136|Un vieux globe. Il tourne en grinçant. Les mers ont été repassées à la main.
+137|Un gros livre : « Les phares de la mer du Nord ». Tu l’ouvres – il est <b>creux</b> ! À l’intérieur, il y a une lampe de poche.
+138|Le livre creux est vide.
+139|Sur le bureau, il y a un livre qui a l’air étrangement léger.
+140|Touche le gros livre à l’avant gauche du bureau.
+141|Relis le billet de Papi. Que dit-il à propos de la lumière ?
+142|Certaines choses ne se voient que dans le noir. Qu’est-ce qui éclaire ici ?
+143|Éteins la lampe de bureau : touche la lampe, puis regarde autour de toi.
+144|À côté de la cheminée, il y a quelque chose d’utile.
+145|Prends le tisonnier dans le serviteur de cheminée.
+146|Dans le noir, quelque chose a brillé sur le tapis.
+147|Touche le tapis, exactement là où était la croix.
+148|Une latte bouge sous le tapis.
+149|Il te faut un levier. Le tisonnier fera l’affaire.
+150|Sélectionne le tisonnier et touche la latte du plancher.
+151|La lampe de poche a besoin d’énergie.
+152|Combine la lampe de poche et les piles dans l’inventaire.
+153|Où dans la pièce fait-il si sombre qu’il faudrait une lampe ?
+154|Éclaire la cheminée avec la lampe de poche.
+155|La clé est trop haut pour tes mains.
+156|Quelque chose de long avec un crochet pourrait aider.
+157|Utilise le tisonnier sur la cheminée.
+158|Une petite clé va avec une petite serrure.
+159|Le tiroir du bureau est fermé à clé.
+160|Le couvercle de la montre est coincé.
+161|Quelque chose de fin et de solide pourrait le soulever.
+162|Combine la montre de gousset et le tisonnier dans l’inventaire.
+163|L’engrenage est trop grand pour la montre.
+164|Où dans la pièce y a-t-il un grand mécanisme d’horlogerie ?
+165|Utilise l’engrenage sur l’horloge.
+166|As-tu bien regardé les tableaux de la pièce ?
+167|Le tableau au-dessus de la cheminée est de travers.
+168|Papi a réglé le coffre-fort sur une heure particulière.
+169|Lis la page de journal. De quel moment parle Papi ? L’horloge te le montrera.
+170|Le code est 0912.
+171|Tu as la clé de la porte.
+172|Utilise-la sur la porte.
+173|Chapitre 1 terminé
+174|Derrière la porte s’étend un long couloir éclairé de bougies. Quelque part, une autre horloge tictaque. Et sur la photo, il y avait un nom qui te semble être le tien : <b>Elena</b>. Mais pourquoi ton grand-père t’a-t-il enfermée ici ?
+175|L’Île
+176|La Lumière
+177|La Tour
+178|La Mer
+179|La Tempête
+180|Le Port
+181|La Bibliothèque
+182|Chapitre 2
+183|Le couloir se termine par une lourde double porte. Derrière : une bibliothèque si haute que les étagères disparaissent dans l’obscurité.
+184|Par la fenêtre, tu le vois – le phare du tableau. Là-haut, une lumière brille.
+185|Derrière toi, la porte se referme. Évidemment.
+186|Une pièce d’échecs et une clé. Joli, mais inutile ensemble.
+187|Tu éclaires l’enveloppe par transparence … ce serait plus simple de l’ouvrir.
+188|Tu verses de l’huile sur la clé rouillée et tu la frottes. Elle brille de nouveau !
+190|Récits de voyage, histoires de marins, registres de navires. Sur un dos de livre, d’une écriture d’enfant : « Le livre d’Elena – pas touche ! »
+191|L’étagère du haut. Bien trop haute – et complètement dans le noir.
+192|Là-haut, il n’y a plus que de la poussière. Et de petites traces de pas dans la poussière … comme des chaussures d’enfant.
+193|Tu grimpes à l’échelle. L’étagère du haut est <b>plongée dans le noir</b> – tu ne vois pas ta main devant tes yeux.
+194|Il n’y a plus rien là-haut.
+195|Tu grimpes et éclaires l’étagère du haut. Entre les toiles d’araignée se trouve une petite <b>burette d’huile</b>.
+196|Un buste en bronze. Un monsieur sévère aux boucles. Quelqu’un lui a dessiné une moustache – au crayon.
+197|Une sphère armillaire. Les anneaux montrent la course des étoiles. Elle tourne, mais rien ne se passe.
+198|À la lumière, tu lis les titres : « L’Île », « La Lumière », « La Tour », « La Mer », « La Tempête », « Le Port ».
+199|Quatre livres somptueusement dorés, avec des livres ordinaires entre eux. Tu essaies d’en tirer un – il est <b>bloqué</b>, comme verrouillé par-derrière.
+200|Les livres peuvent maintenant être tirés un peu. Mais dans quel ordre ?
+201|Les échecs pour capitaines
+202|Entre des livres sur les phares se cache un mince cahier. Une page est cornée :<br><br><b>Le mat du couloir</b><br>Un roi caché derrière ses propres pions n’a pas d’air pour respirer. Un échec sur sa dernière rangée – et c’est fini.<br><br>Mais attention : si un cavalier ou un fou garde la case, ta dame sera tout simplement prise.<br><br><i>Dans la marge, au crayon :</i> « À huit ans, Elena était meilleure que moi à ce jeu. V. »
+203|Un cahier sur les échecs, avec une page cornée.
+204|Un petit globe. L’île de Morgenrot est marquée d’une croix.
+205|Deux petits flacons de sable. Sur les étiquettes : « Plage, 2009 » et « Plage, 2010 ».
+206|Un petit coffre. Vide – à part une moitié d’étoile de mer séchée.
+207|Dehors, la mer se déchaîne. Sur la falaise se dresse le phare. Son faisceau balaie l’eau, encore et encore.
+208|De lourds rideaux de velours. Ils sentent le sel et la poussière.
+209|Au pied du phare se tient une silhouette avec une lanterne. Elle agite la lumière – trois fois. Comme pour te saluer.
+210|Tu regardes le phare à travers la longue-vue …
+211|La clé de remontage ne va pas dans la serrure de la vitrine.
+212|Tu éclaires l’intérieur : tout au fond, une enveloppe porte ton nom. « Pour Elena ».
+213|Des coquillages, des coraux, une ammonite. Tu as déjà la lettre.
+214|Une vitrine avec des coquillages, des coraux et des fossiles. Tout au fond, il y a une <b>enveloppe</b>. La porte vitrée est <b>fermée à clé</b>.
+215|La petite clé va. La porte vitrée s’ouvre – tu prends la <b>lettre</b>. Sur l’enveloppe : « Pour Elena ». Au même instant, quelque chose fait clic dans l’étagère du milieu – comme si un verrou s’était ouvert.
+216|Bien trop fine pour le trou de remontage.
+217|Quelques gouttes dans le trou de remontage … mais il faut encore tourner toi-même. Avec une clé.
+218|Tu tends la dame au perroquet. Il te regarde de ses yeux de verre. Aucune réaction.
+219|Le perroquet fredonne doucement … la mélodie du gramophone du bureau ! Ton cœur bat fort. Tu la connais. D’avant.
+220|Un <b>perroquet</b> mécanique en laiton dans une cage dorée. Dans son dos, il y a un petit <b>trou pour le remonter</b>.
+221|La clé va, mais elle est si rouillée qu’elle ne tourne pas d’un millimètre.
+222|Cric-cric-cric. Le perroquet se gonfle et croasse : <b>« Crrrk ! D’abord la mer, puis la tempête … Crrrk ! »</b> Puis une petite <b>clé</b> tombe de son bec.
+223|Le clair de lune dessine la croix de la fenêtre sur le sol.
+224|Tu tâtonnes entre les coussins du fauteuil … et tu en sors une pièce d’échecs : la <b>dame blanche</b>.
+225|Un fauteuil à oreilles usé. Une couverture est posée dessus, comme si quelqu’un venait d’y lire.
+226|Une lampe à huile. Elle brûle – quelqu’un l’a allumée récemment.
+227|Sur le guéridon, un livre usé : « L’Île au trésor ». Une dédicace : « À lire à voix haute jusqu’à ce qu’elle s’endorme. V. »
+228|La dame blanche est en e8. Échec et mat. Le compartiment secret est ouvert.
+229|Une partie d’échecs commencée. Un billet est coincé sous l’échiquier : <b>« Les blancs jouent et font mat. Place bien la dame – et la table s’ouvrira. V. »</b> La dame blanche manque.
+230|Tu cherches en vain une serrure sur la table d’échecs.
+231|À la lumière, tu vois : sous le bord de la table, il y a une fine rainure. Il y a un compartiment !
+232|La dame est déjà en place.
+233|Où mettre la dame ? Le billet de Papi : « Les blancs jouent et font mat. »
+234|Quelqu’un a lu ici récemment. Peut-être que quelque chose s’est perdu.
+235|Touche le fauteuil à oreilles et tâtonne entre les coussins.
+236|Un billet est coincé sous la table d’échecs. Que demande Papi ?
+237|Dans l’étagère du milieu, il y a un cahier sur les échecs. Lis la page cornée.
+238|Le roi noir est en g8, enfermé par ses pions. Le cavalier et le fou gardent b8, c8, a8 et d8.
+239|Place la dame en e8. Échec et mat.
+240|Tout en haut de l’étagère de gauche, il fait noir comme dans un four.
+241|Emporte de la lumière en haut de l’échelle.
+242|Sélectionne la lampe de poche et touche l’échelle.
+243|La clé de remontage est complètement rouillée.
+244|L’huile dissout la rouille.
+245|Combine la burette et la clé rouillée dans l’inventaire.
+246|Qui a ici un trou pour être remonté ?
+247|Le perroquet mécanique dans la cage.
+248|La petite clé a une étiquette. Qu’y a-t-il écrit ?
+249|Elle ouvre la vitrine sous la fenêtre.
+250|Le perroquet connaît le début de la comptine, la lettre de Papi la fin.
+251|Lis la lettre et souviens-toi du perroquet. Quels quatre livres correspondent ?
+252|Tire dans l’étagère du milieu : La Mer, La Tempête, La Lumière, La Tour.
+253|Chapitre 2 terminé
+254|L’étagère pivote. Derrière, un escalier de pierre descend en colimaçon dans les profondeurs. Un air froid et salé monte – et quelque part en bas, la mer gronde.<br><br>Papi Viktor t’attend au phare. Et tu te souviens : d’un été. D’une voix qui lit à haute voix.
+255|Mouette
+256|Le dessin à la craie
+257|La Cave
+258|Chapitre 3
+259|Chapitre 4 : Le Hangar à bateaux – bientôt
+260|L’escalier en colimaçon descend profondément. Ça sent le sel, la mousse et le vieux bois.
+261|Sur la dernière marche, la lampe de poche vacille – et s’éteint. Les piles sont vides.
+262|Seule la lune brille à travers une fenêtre grillagée. Quelque part derrière une grille, la mer gronde.
+263|Le verre n’est pas magnétique.
+264|Casser la bouteille ? Le papier pourrait se déchirer aussi.
+265|On n’allume pas une lampe de poche avec une allumette.
+266|Tu noues solidement la ficelle autour de l’aimant. Et voilà une <b>canne à aimant</b> !
+267|Tu enfonces le tire-bouchon – pop ! Du bout des doigts, tu sors le rouleau de papier de la bouteille : un <b>message de Papi</b>.
+268|L’escalier en colimaçon vers le haut. L’étagère s’est refermée derrière toi – impossible de revenir.
+269|Une lourde grille. Derrière, un tunnel d’où souffle un air marin froid. Un gros <b>cadenas</b> la tient fermée.
+270|Le cadenas est massif.
+271|Tu frappes le cadenas avec la manivelle. Ça résonne. Il reste fermé.
+272|Fouiller le cadenas avec un tire-bouchon ? Ça ne marche qu’au cinéma.
+273|L’aimant colle au cadenas. Rien d’autre ne se passe.
+274|Trop sombre. Tu sens <b>trois molettes</b> avec des signes gravés, mais tu ne distingues rien.
+275|Le Cadenas
+277|Clac ! Le cadenas s’ouvre. La grille pivote en grinçant.
+278|Trois molettes avec des symboles. Le cadenas ne s’ouvre que lorsqu’elles sont toutes bien placées.
+279|Une petite fenêtre grillagée. La lune est juste derrière. Dehors, tu entends le ressac.
+280|Des bouteilles de vin poussiéreuses, certaines plus vieilles que toi. Sur une étiquette : « Pour le mariage d’Elena – ne pas ouvrir avant ! »
+281|Sors d’abord la bouteille du casier.
+282|Une bouteille n’est pas couchée comme les autres. Il y a un <b>rouleau de papier</b> dedans ! Tu prends la <b>bouteille à la mer</b>. Le bouchon est coincé.
+283|Des casiers vides, beaucoup de toiles d’araignée.
+284|Pinces, marteau, scie, ciseaux à bois – tout est bien rangé. Papi était méticuleux.
+285|Le bateau est en bois. Un aimant n’y tient pas.
+286|Il n’y a rien à déboucher sur le bateau.
+287|Un petit bateau en bois est coincé dans l’<b>étau</b>. La <b>manivelle</b> de l’étau manque – impossible de l’ouvrir ainsi.
+288|Sous la coque, il y a un petit compartiment. À l’intérieur, enveloppées dans du papier ciré : des <b>allumettes</b> – sèches !
+289|Leo. Évidemment.
+290|La manivelle va ! Tu desserres l’étau et en sors le petit bateau. Touche-le pour le regarder de plus près.
+291|Un rabot, une boîte de clous, des copeaux de bois frais. Comme si quelqu’un avait encore travaillé ici hier.
+292|Un vieux chiffon de lin, plein de taches de peinture rouge et bleue. Les couleurs du bateau.
+293|Sous l’établi, il fait <b>noir comme dans un four</b>. Tu n’oses pas y mettre la main à l’aveugle.
+294|À la lumière de la lanterne, tu le vois : dans la caisse sous l’établi, il y a un <b>tire-bouchon</b>.
+295|Des chutes de bois et quelques clous tordus.
+296|Une grosse amarre. Complètement pourrie et bien trop lourde.
+297|Un gros pilier de pierre, humide et froid. De la mousse pousse à sa base.
+298|L’aimant colle à la lanterne en fer. Ça ne fait pas de lumière.
+299|La lanterne brûle calmement et chaudement.
+300|Une vieille <b>lampe à pétrole</b>. Il reste du pétrole qui clapote dedans. Il te faudrait de quoi l’<b>allumer</b>.
+301|Crrrt – l’allumette s’enflamme. La lanterne prend feu, une lumière chaude inonde la cave. Et sur le mur à côté du pilier, quelque chose apparaît : un <b>dessin à la craie</b> !
+302|La lampe de poche est morte. Ici, seul le feu peut aider.
+303|De petites encoches dans le pilier, chacune avec une date : « Elena, 5 ans » – « 6 ans » – « 7 ans » … la dernière tout en haut : « Elena, 12 ans ». Tu poses ta main dessus. Elle arrive pile sous l’encoche.
+304|Tu dénoues la corde à linge et enroules la <b>ficelle</b>.
+305|Le mur est dans l’ombre.
+306|Un dessin d’enfant à la craie : un chemin de six signes. En dessous : « Le chemin vers la mer – par Elena ».
+307|Des bocaux. Sur une étiquette, d’une écriture d’enfant : « Confiture de mûres – Elena &amp; Papi ».
+308|Le vieux vélo de Papi. Sur le guidon, un autocollant délavé : un hippocampe.
+309|Tu ouvres la boîte à outils. Entre vis et clous : un <b>aimant en fer à cheval</b>. Toute une grappe de clous y est collée.
+310|Des vis, des clous, un mètre pliant.
+311|Sans rien qui accroche, tu ne pêches que de l’eau.
+312|La lampe de poche est vide. Et mouillée, elle ne serait pas meilleure.
+313|Une eau sombre et glacée. Parfaitement calme.
+314|Dans le coin inondé, <b>quelque chose de métallique</b> brille sous l’eau. C’est glacé et plus profond que prévu – impossible de l’atteindre avec la main.
+315|Il n’y a plus rien là-dessous.
+316|Tu descends la canne à aimant dans l’eau … clac ! Quelque chose accroche. Tu sors une <b>manivelle</b> en fer toute dégoulinante.
+317|L’aimant l’attirerait – mais il faudrait plonger la main dans l’eau glacée. S’il y avait seulement un moyen de le descendre …
+318|Il y a ici quelque chose de suspendu qui pourrait servir.
+319|Une corde à linge est tendue le long du mur.
+320|Touche la corde à linge.
+321|Une boîte à outils contient souvent quelque chose d’utile.
+322|Regarde dans la boîte à outils posée par terre.
+323|Avec la ficelle seule, tu n’attrapes rien. Avec l’aimant seul, tu n’atteins pas l’eau.
+324|Combine la ficelle et l’aimant dans l’inventaire.
+325|Quelque chose en métal brille dans la flaque.
+326|Pêche-le : utilise la canne à aimant sur la flaque.
+327|À quoi appartient une manivelle en fer avec deux boules ?
+328|L’étau sur l’établi n’a pas de manivelle.
+329|Le bateau est libre maintenant.
+330|Touche le bateau et regarde-le de près.
+331|Il fait noir. Qu’est-ce qui pourrait brûler ici ?
+332|Une lanterne est accrochée au pilier.
+333|Utilise les allumettes sur la lanterne.
+334|Avec la lumière, tu peux enfin voir dans les coins sombres.
+335|Il y a une caisse sous l’établi.
+336|L’une des bouteilles de vin n’est pas comme les autres.
+337|Touche la bouteille avec le papier dedans, dans le casier à vin.
+338|Le bouchon est coincé.
+339|Ouvre la bouteille à la mer avec le tire-bouchon.
+340|Le message de Papi et le dessin à la craie vont ensemble.
+341|Lis le dessin à l’envers et ne prends qu’un signe sur deux.
+342|À l’envers : mouette, phare, étoile, poisson, ancre, coquillage. Un sur deux : mouette, étoile, ancre.
+343|Chapitre 3 terminé
+344|Le cadenas s’ouvre. La grille pivote en grinçant. Le tunnel descend, le grondement s’amplifie – et au bout, une lumière scintille.<br><br>Un hangar à bateaux. Et dedans, tu en es sûre : le grand bateau que vous vouliez construire ensemble.
+345|Le Hangar à bateaux
+346|Chapitre 4
+347|Chapitre 5 : Le Phare – bientôt
+348|Le tunnel s’élargit, l’air devient plus salé. Puis tu te retrouves sur des planches qui craquent : le hangar à bateaux de Papi.
+349|Un petit voilier se balance sur l’eau. Tu le sais tout de suite : vous l’avez construit ensemble.
+350|Par la fenêtre, tu vois le phare. Sa lumière clignote – mais pas régulièrement. Comme s’il voulait te dire quelque chose.
+351|La plaque est déjà assez plate.
+352|Un pinceau sec ne sert à rien. Il lui faut d’abord du goudron.
+353|Il te faut d’abord quelque chose à clouer – et le bon endroit.
+354|Tu enduis la plaque en cuivre d’une épaisse couche de goudron. C’est maintenant une rustine étanche : une <b>plaque goudronnée</b>.
+355|La porte d’eau est ouverte. Au-delà : la baie, la lune – et le phare.
+356|Une immense porte d’eau en bois. Au-delà, c’est la pleine mer. Des chaînes montent des battants jusqu’au plafond – et rejoignent le <b>treuil</b>.
+357|Une eau noire et froide. Elle clapote doucement contre les planches.
+358|Tu montes dans le bateau, tu te repousses du ponton … et tu glisses vers la mer. En direction du phare.
+359|La rustine est juste posée sur le trou – il faut encore la <b>clouer</b>.
+360|À la proue, il y a un <b>trou dans la coque</b>. Comme ça, tu coulerais.
+361|Le bateau est <b>amarré</b> à la bitte par une grosse corde.
+362|Et la <b>porte d’eau</b> est fermée.
+363|Votre bateau. Un cœur est gravé sur le banc : « E + Papi ».
+364|Tu appuies la plaque goudronnée sur le trou et plantes quelques clous sans les enfoncer dans les coins. Elle s’ajuste parfaitement – mais elle n’est pas encore clouée.
+365|La plaque couvrirait le trou – mais elle n’est pas étanche. Il manque quelque chose pour la rendre étanche.
+366|Tu as des clous – mais avec quoi les enfoncer ?
+367|Il te faut d’abord quelque chose pour couvrir le trou.
+368|Un marteau seul ne bouche aucun trou.
+369|Il te faut encore des <b>clous</b> pour fixer la rustine.
+370|Toc, toc, toc – clou après clou, tu fixes la rustine. La fuite est colmatée !
+371|Sur la poutre du toit, il y a un <b>marteau</b>. Bien trop haut pour l’attraper.
+372|Tu pousses vers le haut avec la gaffe – le marteau bascule, tombe … et tu le rattrapes !
+373|Une lampe à pétrole. Elle brûle – quelqu’un est passé récemment.
+374|Encore une lanterne allumée. Papi savait que tu viendrais.
+375|Une vieille <b>plaque en cuivre</b>, clouée aux quatre coins. L’inscription est effacée depuis longtemps. Impossible de la retirer à mains nues.
+376|Avec le pied-de-biche du marteau, tu arraches les clous. La <b>plaque en cuivre</b> est à toi.
+377|Un vieux filet de pêche plein de trous.
+378|Un vieux filet de pêche. Tout en haut, quelque chose s’y est emmêlé – ça brille comme du métal. Trop haut et trop emmêlé pour tes mains.
+379|Plus rien n’y est accroché.
+380|Tu accroches la gaffe au filet et tires fort. Quelque chose tombe en cliquetant sur les planches : un <b>couteau de marin</b>.
+381|Deux vieilles rames. Sur l’une, d’une écriture d’enfant : « Capitaine Elena ».
+382|Des cordages enroulés. Bien lovés, comme Papi te l’a appris.
+383|Pots de peinture, vernis, outils. Tout sent le goudron et le sel.
+384|Tu prends le <b>pinceau</b> sur l’étagère. Les poils sont secs et propres.
+385|Une boîte pleine de <b>clous</b>. Ils pourraient servir.
+386|La boîte est vide.
+387|La plaque est déjà goudronnée.
+388|Le tonneau est en bois épais. Mieux vaut pas.
+389|Un tonneau plein de <b>goudron</b> noir et épais. L’odeur est âcre. Tu ne veux pas y mettre les doigts.
+390|Tu trempes le pinceau profondément dans le goudron. Maintenant il dégouline, noir et brillant : un <b>pinceau à goudron</b>.
+391|La tremper dans le tonneau ? Tu resterais collée toi aussi. Mieux vaut l’étaler avec quelque chose.
+392|Le feu du phare clignote : court et long, selon un motif qui se répète sans cesse. Avec une longue pause entre deux.
+393|Le Phare
+394|Tu observes la lumière du phare. Court … long … pause … C’est un motif !
+395|Le treuil est bloqué parce que la chaîne est cadenassée.
+396|Le treuil ne bouge pas d’un millimètre. La chaîne est cadenassée.
+397|Le treuil est immobile. La porte est levée.
+398|Un lourd treuil pour la porte d’eau. La chaîne est bloquée par un <b>cadenas à lettres</b> – la manivelle ne tourne pas.
+399|Tu pèses de tout ton poids sur la manivelle. Maillon après maillon, la chaîne s’enroule sur le tambour … et la porte d’eau se lève ! Un air marin froid s’engouffre.
+400|Tu frappes le cadenas au marteau. Il est plus solide que tu ne pensais.
+401|La lame glisse. Le cadenas a besoin du bon code.
+402|Forcer la chaîne avec la gaffe ? Aucune chance.
+403|Le cadenas à lettres
+404|Clic ! Le cadenas s’ouvre, la chaîne est libre. Tu peux maintenant tourner le treuil.
+405|Un cadenas à trois anneaux de lettres.
+406|Taper sur une corde ne sert à rien.
+407|Avec le crochet, tu ne défais pas non plus le nœud mouillé.
+408|Il ne reste qu’un bout de corde à la proue.
+409|Une grosse corde retient le bateau à la bitte. Le nœud est mouillé, gonflé et indéfaisable.
+410|En quelques coups énergiques, la corde est tranchée. Le bateau s’éloigne un peu du ponton.
+411|Tu rabats la bâche. Dessous, il y a une longue <b>gaffe</b>.
+412|Une vieille bâche en toile. Dessous, il n’y a plus que de la poussière.
+413|Un tabouret-table bancal. Sur le bord : des encoches, comme les traits d’un décompte.
+414|Le journal de bord de Papi. La dernière entrée date d’hier.
+415|Sous la bâche au premier plan, on devine quelque chose de long.
+416|Touche la bâche.
+417|Tout en haut sur la poutre, il y a un outil.
+418|La gaffe atteint jusque là-haut.
+419|Utilise la gaffe sur la poutre du toit.
+420|Quelque chose brille dans le filet de pêche au mur.
+421|La gaffe sert aussi à ça.
+422|Le bateau a besoin d’une rustine. Qu’est-ce qui, au mur, est grand et en métal ?
+423|La plaque en cuivre est tenue par des clous. Le marteau a un arrache-clou.
+424|Le cuivre seul n’est pas étanche. Avec quoi rend-on les bateaux étanches ?
+425|Il y a du goudron dans le tonneau. Tu ne veux pas y mettre les doigts.
+426|Trempe le pinceau dans le tonneau de goudron.
+427|Le goudron doit aller sur la plaque.
+428|Combine le pinceau à goudron et la plaque en cuivre dans l’inventaire.
+429|La rustine doit être fixée.
+430|Il te faut des clous et de quoi les enfoncer. Les clous sont sur l’étagère.
+431|Prends les clous, puis utilise le marteau sur le bateau.
+432|La plaque goudronnée va sur le trou.
+433|Utilise la plaque goudronnée sur le bateau.
+434|La lumière du phare ne clignote pas au hasard.
+435|Regarde par la fenêtre et consulte le journal de bord de Papi sur la table.
+436|Court-court-long-court, long-long-long, court-court : ce sont F, O et I.
+437|Le cadenas est ouvert.
+438|Tourne le treuil.
+439|Le bateau est encore amarré. Le nœud est trop serré.
+440|Coupe la corde avec le couteau.
+441|Tout est prêt.
+442|Monte dans le bateau.
+443|Chapitre 4 terminé
+444|Le petit bateau glisse dans la baie. La lune dessine un chemin d’argent sur l’eau. Devant toi, le phare clignote – et maintenant tu comprends chaque signal : <b>F – O – I</b>.<br><br>Au pied du phare, quelqu’un agite une lanterne. Tu lui fais signe en retour.
+445|Le calendrier de Papi
+446|Chapitre 5
+447|Fin. Merci d’avoir joué !
+448|Le bateau racle contre les rochers. Tu sautes à terre, le vent tire sur tes cheveux.
+449|La porte du phare est ouverte. Tu montes l’escalier en colimaçon, marche après marche, jusqu’en haut.
+450|Mais la salle de la lanterne est sombre. Le feu s’est éteint dans la tempête. Et aucune trace de Papi.
+451|Allumer la mèche maintenant ? Elle doit d’abord aller dans le brûleur.
+452|Imbiber la mèche ? Le réservoir du brûleur s’en charge tout seul.
+453|Tu verses un peu de pétrole dans le briquet. Crrrt – une petite flamme courageuse !
+454|Tu remplis le briquet d’un peu de pétrole. Crrrt – il brûle !
+455|Tu mets l’entonnoir sur le bidon. Maintenant tu peux verser sans en mettre partout.
+456|Dehors, la tempête fait rage. Des éclairs zèbrent l’eau. Aucun navire ne trouverait cette nuit le chemin du port sans lumière.
+457|Là-bas, sur la falaise : la Villa Morgenrot. Une seule fenêtre est éclairée – celle du bureau.
+458|Les vagues frappent les rochers. En bas, votre petit bateau se balance.
+459|La veste de marin de Papi. Elle sent le tabac à pipe et le sel – elle sent lui. Dans la poche, il y a un <b>briquet tempête</b>.
+460|La casquette à l’ancre dorée. Papi la portait toujours de travers.
+461|La petite applique brûle chaudement et calmement.
+462|Une petite applique murale en laiton. Elle est éteinte. Il fait si sombre que tu ne distingues presque rien.
+463|Elle brûle déjà.
+464|L’applique s’allume. Une lumière chaude emplit la pièce – et au mur, à côté, il y a un <b>calendrier</b>.
+465|Crrt, crrt – seulement des étincelles. Le briquet est vide, il lui faut du combustible.
+466|Quelque chose de clair est accroché au mur. Dans le noir, tu ne peux pas le distinguer.
+467|Le calendrier de Papi.
+468|Un lourd <b>bidon de pétrole</b>. Il clapote – encore à moitié plein.
+469|Tu décroches l’<b>entonnoir</b>.
+470|Le feu du phare brûle. La lentille concentre la flamme en un faisceau gigantesque.
+471|L’immense lentille du phare. Le brûleur se trouve en son centre.
+472|Un entonnoir seul ne verse rien. Il te faut encore du pétrole.
+473|L’engrenage va dans le mécanisme en dessous, pas dans le brûleur.
+474|La flamme brûle, claire et calme.
+475|Le réservoir est plein.
+476|Le réservoir est <b>vide</b>.
+477|Une mèche neuve est dans le brûleur.
+478|La mèche est <b>carbonisée</b> et s’effrite au moindre contact.
+479|Le brûleur du phare.
+480|L’ouverture de remplissage est minuscule. Sans entonnoir, tu renverserais tout – et du pétrole à côté d’une flamme, ce n’est pas une bonne idée.
+481|Le réservoir est déjà plein.
+482|Glou, glou, glou – à travers l’entonnoir, tu remplis le réservoir à ras bord.
+483|La mèche neuve est déjà en place.
+484|Tu retires le reste carbonisé et enfiles la <b>mèche neuve</b>.
+485|Seulement des étincelles. Le briquet est vide.
+486|Il brûle déjà.
+487|Pas de pétrole dans le réservoir. Rien ne peut brûler.
+488|La vieille mèche est complètement carbonisée. Aucune flamme ne tiendrait.
+489|Fouf ! La flamme jaillit, la lentille s’embrase. Le faisceau tourne au-dessus de la mer …
+490|Fouf ! La flamme jaillit, la lentille s’embrase ! Mais le faisceau reste immobile. <b>Un phare qui ne tourne pas n’est pas un phare.</b>
+491|Huiler est une bonne idée – mais ici, ce sont des engrenages qui manquent, pas de l’huile.
+492|La flamme doit aller en haut, dans le brûleur.
+493|Les engrenages s’emboîtent parfaitement et tournent régulièrement.
+494|Le mécanisme de rotation sous la lentille. Sur deux axes, il manque un engrenage – un grand axe et un petit.
+495|Le mécanisme de rotation sous la lentille. Il manque encore un engrenage sur un axe.
+496|Tous les engrenages sont en place. Maintenant, il faut de la force – la manivelle.
+497|Le grand engrenage en laiton s’ajuste parfaitement sur le grand axe.
+498|Le petit engrenage glisse avec son trou carré sur l’axe carré. Clac.
+499|Le mécanisme continue de tourner tout seul.
+500|Tu tournes la manivelle – elle tourne dans le vide. Il manque encore des engrenages.
+501|Tu tournes la manivelle de toutes tes forces. Lentement, puis de plus en plus vite, la lentille se met à tourner – et le faisceau avec elle !
+502|Tu tournes la manivelle. Les engrenages s’enclenchent, la lentille se met à tourner. Mais elle est encore sombre.
+503|Mettre le feu au coffre ? Ce qu’il contient brûlerait.
+504|Le coffre n’a pas d’engrenage – seulement un cadenas à chiffres.
+505|Le coffre de marin est vide – à part un dessin d’enfant représentant un phare.
+506|Un coffre de marin avec un cadenas à chiffres. Il fait trop sombre pour lire les chiffres.
+507|Le coffre de marin de Papi
+508|Clac ! Le couvercle s’ouvre. À l’intérieur : une <b>mèche</b> neuve, un grand <b>engrenage</b> et une <b>lettre</b> nouée d’un ruban rouge.
+509|Gravé sur le couvercle : <b>« Le jour où elle rentre – JJ MM »</b>.
+510|Dans la boîte à outils, entre des clés plates et une burette : un petit <b>engrenage</b> huileux avec un trou carré.
+511|Des clés plates, des pinces, un chiffon plein d’huile.
+512|Un billet de Papi
+513|Elena,<br><br>le dernier pas, tu dois le faire seule, ma petite. Le feu du phare s’est éteint dans la tempête.<br><br><b>Rallume la lumière – et je viendrai.</b><br><br>Papi
+514|Un billet, de l’écriture de Papi.
+515|Papi se tient en haut de l’escalier et ouvre les bras.
+516|L’escalier en colimaçon vers le bas. En bas, il n’y a que le bruit de la mer. Pas encore.
+517|Il y a ici quelque chose qui sent Papi.
+518|Fouille les poches de la veste de marin.
+519|Le briquet ne fait que des étincelles. Il lui faut du combustible.
+520|Un bidon rouge est posé par terre.
+521|Tu as maintenant une flamme. Comment éclairer toute la pièce ?
+522|Allume la petite applique murale.
+523|Le briquet est vide.
+524|Combine le briquet et le bidon dans l’inventaire.
+525|Le coffre veut une date. Qu’est-ce qui est écrit sur le couvercle ?
+526|À côté de l’applique, il y a le calendrier de Papi. Un jour est entouré.
+527|Le 26 novembre : 2 6 1 1.
+528|Il manque deux engrenages au mécanisme. Tu en as un.
+529|Le petit est dans la boîte à outils.
+530|Les engrenages vont sous la lentille.
+531|Utilise les deux engrenages sur le mécanisme.
+532|Le réservoir du brûleur est vide.
+533|Utilise le bidon avec l’entonnoir sur le brûleur.
+534|L’ouverture du brûleur est minuscule.
+535|Combine le bidon et l’entonnoir.
+536|La vieille mèche est carbonisée.
+537|Mets la mèche neuve dans le brûleur.
+538|Un phare doit briller – et tourner.
+539|Allume le brûleur avec le briquet et tourne la manivelle.
+540|La lumière reste immobile.
+541|Tourne la manivelle du mécanisme.
+542|Il ne manque plus qu’une chose : la flamme.
+543|Allume le brûleur avec le briquet allumé.
+544|À la maison
+545|Des pas dans l’escalier. Lents, lourds, familiers. Puis il apparaît dans l’embrasure : barbe blanche, casquette de travers sur la tête.<br><br>« Bonjour, Capitaine », dit doucement Papi Viktor.<br><br>Et tu te souviens. De tout.<br><br>Quand la tempête est passée, vous êtes tous les deux là-haut sur la galerie. Le soleil se lève sur la mer, et en bas, dans la baie, votre petit bateau se balance.
+546|En bas, dans l’escalier : des pas. Lents. Lourds. Familiers …
+547|L’horloge
+548|Les aiguilles indiquent <b>9:12</b>.
+549|L’engrenage s’enclenche. Tic … tac …
+550|Dong. Dong. Dong. Les aiguilles s’arrêtent sur <b>9:12</b>.
+551|À travers la longue-vue
+552|Le journal de bord de Papi
+554|<b>Dernière entrée :</b> Elena rentre à la maison aujourd’hui. Je l’attends au phare. Quand elle sera dans le hangar à bateaux, je lui enverrai avec la lumière ce dont elle a le plus besoin maintenant. Enfant, elle a appris le morse plus vite que moi.<br><br><b>Alphabet morse</b> (· court, – long)<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px 10px;font:600 15px/1.5 ui-monospace,monospace;margin-top:6px;font-style:normal">
+555|Le cavalier noir en c6 saute en d8 et prend ta dame.
+556|Le cavalier noir en c6 prend ta dame en b8.
+557|Le fou noir en b7 prend ta dame en c8.
+558|Le fou noir en b7 prend ta dame en a8.
+559|Le roi noir prend tout simplement la dame lui-même – elle est juste à côté de lui.
+560|La partie d’échecs de Papi
+561|Touche la case où doit aller la dame blanche.
+562|Les blancs jouent. La dame blanche manque.
+563|Retour
+564|Le mécanisme sous l’échiquier se réarme encore … attends un instant.
+565|Il y a déjà une pièce là.
+566|Échec sur la dernière rangée – et le roi n’a nulle part où aller. <b>Mat !</b> Clac – au bord de la table, un <b>compartiment secret</b> s’ouvre. À l’intérieur : une <b>clé de remontage rouillée</b>.
+567|Pas d’échec et mat. Le roi noir n’est même pas menacé.
+568| <i>La dame glisse en arrière.</i>
+569|L’étagère du milieu
+570|Tu as tiré quatre livres … rien ne se passe. Clac – ils reprennent tous leur place.
+571|Un grondement sourd … toute l’étagère pivote !
+572|Villa Morgenrot
+573|Une maison au bord de la mer. Un grand-père qui attend. Et un souvenir que tu reconquiers, pièce après pièce.
+574|Où suis-je ? Touche les objets de la pièce pour les examiner.
+@Zettel|Billet
+@Batterien|Piles
+@Taschenlampe|Lampe de poche
+@Taschenuhr|Montre de gousset
+@Zahnrad|Engrenage
+@Tagebuchseite|Page de journal
+@Schnur|Ficelle
+@Hufeisenmagnet|Aimant en fer à cheval
+@Magnetangel|Canne à aimant
+@Kurbel|Manivelle
+@Korkenzieher|Tire-bouchon
+@Flaschenpost|Bouteille à la mer
+@Bootshaken|Gaffe
+@Hammer|Marteau
+@Kupferschild|Plaque en cuivre
+@Pinsel|Pinceau
+@Teerpinsel|Pinceau à goudron
+@Seemannsmesser|Couteau de marin
+@Sturmfeuerzeug|Briquet tempête
+@Petroleumkanister|Bidon de pétrole
+@Trichter|Entonnoir
+@Docht|Mèche
+@Mystery|Mystère
+@November|Novembre
+@Mo Di Mi Do Fr Sa So|Lu Ma Me Je Ve Sa Di
+@Elena kommt heim!|Elena rentre !
+@Jeden Tag ein Strich. Nur ein Tag ist rot umkreist.|Chaque jour barré d’un trait. Un seul jour est entouré de rouge.
+@„Hallo, Kapitänin“, sagt Opa Viktor leise.|« Bonjour, Capitaine », dit doucement Papi Viktor.
+@Der Weg zum Meer – Elena|Le chemin vers la mer – Elena
+@Tippe Bücher an, um sie herauszuziehen. Nach dem vierten Buch zeigt sich, ob die Reihenfolge stimmt.|Touche les livres pour les tirer. Après le quatrième livre, tu verras si l’ordre est le bon.
+#Escape-Bücher|Livres-Évasion
+#Wähle eine Geschichte. Jede ist ein Rätselabenteuer zum Mitnehmen.|Choisis une histoire. Chacune est une aventure à énigmes à emporter partout.
+#Von vorne beginnen|Recommencer
+#Weiter|Continuer
+#Zur Kapitelübersicht|Vers les chapitres
+#Schließen|Fermer
+#Tresor|Coffre-fort
+#Zurück|Retour
+#Öffnen|Ouvrir
+#Hinweis|Indice
+#Abbrechen|Annuler
+#Sprache|Langue
+#Zurück zum Bücherregal|Retour à la bibliothèque
+#Interessante Stellen zeigen|Montrer les endroits intéressants
+#Ton an oder aus|Son activé ou coupé
+#Mit <b>{0}</b> kommst du hier nicht weiter.|<b>{0}</b> ne t’aidera pas ici.
+#<b>{0}</b>? Das passt hier nicht.|<b>{0}</b> ? Ça ne va pas ici.
+#Du probierst es mit <b>{0}</b>. Nichts passiert.|Tu essaies avec <b>{0}</b>. Rien ne se passe.
+#Das ergibt keinen Sinn – <b>{0}</b> hilft hier nicht.|Ça n’a pas de sens – <b>{0}</b> ne sert à rien ici.
+#<b>{0}</b> ausgewählt. Tippe auf etwas im Raum oder auf einen anderen Gegenstand. Nochmal tippen zum Ansehen.|<b>{0}</b> sélectionné. Touche quelque chose dans la pièce ou un autre objet. Touche-le encore pour le regarder.
+#<b>{0}</b> und <b>{1}</b> lassen sich nicht kombinieren.|<b>{0}</b> et <b>{1}</b> ne peuvent pas être combinés.
+#Du ruckelst am Schloss. Es bleibt zu.|Tu secoues le cadenas. Il reste fermé.
+#Hinweis {0} von {1}|Indice {0} sur {1}
+#{0} (gratis)|{0} (gratuit)
+#Nächster Hinweis|Indice suivant
+#Hinweis ansehen|Voir l’indice
+#Ein Hinweis pro Kapitel ist kostenlos.|Un indice par chapitre est gratuit.
+#{0}: kurze Werbung ansehen|{0} : regarder une courte pub
+#Steckst du fest? Hinweise kommen in Stufen: erst ein kleiner Schubs, am Ende die Lösung.|Tu bloques ? Les indices arrivent par étapes : d’abord un petit coup de pouce, la solution tout à la fin.
+#Nein danke|Non merci
+#Du hast hier schon alles untersucht. Vielleicht hilft einer deiner Gegenstände weiter?|Tu as déjà tout examiné ici. Peut-être qu’un de tes objets t’aidera ?
+#Tippe auf Dinge im Raum, um sie zu untersuchen. Manches kannst du mitnehmen.|Touche les objets de la pièce pour les examiner. Certains peuvent être emportés.
+#Gefundenes landet hier. Tippe einen Gegenstand an und danach auf eine Stelle im Raum, um ihn dort zu benutzen.|Ce que tu trouves arrive ici. Touche un objet, puis un endroit de la pièce pour l’y utiliser.
+#Zwei Gegenstände kombinieren: ersten antippen, dann den zweiten. Denselben zweimal antippen zeigt ihn dir aus der Nähe.|Combiner deux objets : touche le premier, puis le second. Toucher deux fois le même le montre de près.
+#Die Lupe zeigt dir Stellen, die du noch nicht untersucht hast.|La loupe te montre les endroits que tu n’as pas encore examinés.
+#Kommst du nicht weiter? Hier gibt es Hinweise – erst einen kleinen Schubs, ganz am Ende die Lösung.|Tu bloques ? Ici, il y a des indices – d’abord un petit coup de pouce, la solution tout à la fin.
+#Los geht’s|C’est parti
+#Willkommen zurück.|Bon retour.
+#Zeit: ca. {0} Min · Hinweise: {1}|Temps : env. {0} min · Indices : {1}
+#Weiter zu {0}|Continuer vers {0}
+#Hier läuft später die Werbung (AdMob)|Une publicité s’affichera ici (AdMob)
+#Abgeschlossen|Terminé
+#{0} von {1} Kapiteln|{0} chapitres sur {1}
+#{0} Kapitel|{0} chapitres
+#Weitere Geschichten folgen|D’autres histoires arrivent
+#Bald im Regal|Bientôt sur l’étagère
+#Spiel beginnen|Commencer
+#Nochmal von vorne|Rejouer
+#Weiterspielen – {0}|Continuer – {0}
+#Noch verschlossen|Encore verrouillé
+#Geschafft|Terminé
+#Bereit|Prêt
+#Schließe das vorherige Kapitel ab|Termine le chapitre précédent
+#Von vorne beginnen?|Recommencer ?
+#Dein Fortschritt in diesem Buch wird gelöscht.|Ta progression dans ce livre sera effacée.
+#Ja, neu beginnen|Oui, recommencer
+#Kapitel wechseln?|Changer de chapitre ?
+#Dein Fortschritt im laufenden Kapitel geht verloren.|Ta progression dans le chapitre en cours sera perdue.
+#Kapitel starten|Lancer le chapitre

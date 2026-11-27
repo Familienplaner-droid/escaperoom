@@ -1,0 +1,659 @@
+0|Um bilhete amassado
+1|Minha querida,<br><br>não tenha medo. Eu sei que você não se lembra de nada – nem desta casa, nem de mim.<br><br>Construí um caminho para você, cômodo por cômodo, igual às caças ao tesouro que você tanto amava quando era pequena. No fim, alguém está esperando por você.<br><br>E lembre do que eu sempre dizia: <b>Algumas coisas só se veem quando a luz se apaga.</b><br><br>– V.
+2|Atiçador
+3|Um atiçador de ferro pesado com cabo de latão. A ponta é curva e bem fina.
+4|Lanterna (vazia)
+5|Uma lanterna velha. O compartimento das pilhas está vazio.
+6|Duas pilhas velhas. Tomara que ainda tenham carga.
+7|Ela acende! Fraca, mas dá para o gasto.
+8|Chave de latão
+9|Uma chave pequena e delicada. Pequena demais para uma porta.
+10|O relógio de bolso aberto. Dentro está gravado: “Para V. – o tempo é nosso.”
+11|Um relógio de bolso velho e arranhado. Está parado. A tampa de trás está emperrada – não abre só com os dedos.
+12|Uma engrenagem fina de latão. Grande demais para o relógio de bolso – pertence a um mecanismo maior.
+13|12 de março<br><br>Hoje nasceu minha pequena Elena. Exatamente nesse instante parei o grande relógio de pé, tirei uma engrenagem e a escondi no meu relógio de bolso. Assim o relógio guarda esse momento para sempre – assim que voltar a funcionar, ele vai mostrá-lo.<br><br>Ajustei meu cofre exatamente para esse horário.<br><br>– V.
+14|Chave da porta
+15|Uma chave grande de latão, cheia de ornamentos.
+16|Foto antiga
+17|O farol de Morgenrot numa noite de tempestade. No verso, com letra trêmula:<br><br><b>“Para Elena. Se você está lendo isto, finalmente está em casa. – Vovô Viktor”</b>
+18|Rainha branca
+19|Uma peça de xadrez de marfim, a rainha branca. Tem uma rachadura fina.
+20|Chave de corda enferrujada
+21|Uma pequena chave de corda com cabo de borboleta. Totalmente enferrujada – não gira nem um milímetro.
+22|Almotolia
+23|Uma almotolia de latão. Ainda tem um pouco de óleo dentro.
+24|Chave de corda lubrificada
+25|Recém-lubrificada, a chave de corda brilha de novo. Agora deve girar.
+26|Chave da vitrine
+27|Uma chavinha de prata. Na etiqueta, com a letra do vovô: “Vitrine”.
+28|Um pedaço de barbante velho de cânhamo, com alguns metros.
+29|Um ímã de ferradura forte. Atrai tudo o que é de ferro.
+30|Um ímã preso num barbante. Perfeito para pescar ferro.
+31|Uma manivela de ferro com duas bolas nas pontas, pingando. Parece pertencer a uma morsa.
+32|Fósforos
+33|Uma caixa de fósforos embrulhada em papel encerado. Secos!
+34|Um saca-rolhas antigo com cabo de madeira.
+35|Uma garrafa verde com um rolo de papel dentro. A rolha está presa – não sai com os dedos.
+36|A mensagem do vovô
+37|Elena,<br><br>aqui embaixo, todo inverno, a gente trabalhava no seu barquinho. Lembra que nome você deu a ele?<br><br>O caminho para o mar você mesma desenhou na parede. Mas você sempre o lia <b>de trás para frente</b> – pulando como nas pedras da praia: <b>um sinal sim, o outro não.</b> Três pulos e você chegava.<br><br>Vovô
+38|O barco de Elena
+40|No casco, com letra de criança torta: <b>“Leo”</b>.<br><br>Leo … era o nome do velho cachorro do vovô. E você deu o nome dele ao seu barco. A lembrança surge de repente, quente e clara: um cachorro grande e peludo correndo ao seu lado na praia.
+41|Uma vara longa de madeira com um gancho de latão. Com ela dá para alcançar longe.
+42|Um martelo de unha velho. Para pregar pregos – e para tirá-los.
+43|Pregos
+44|Uma lata cheia de pregos enferrujados, mas firmes.
+45|Uma placa de cobre, um pouco torta. Grande o bastante para o buraco no barco – mas não é à prova d’água.
+46|Um pincel chato velho com cerdas limpas.
+47|O pincel pinga piche preto.
+48|Placa com piche
+49|A placa de cobre, coberta com uma camada grossa de piche. Um remendo à prova d’água.
+50|Um canivete com cabo de madeira. A lâmina está enferrujada, mas afiada.
+51|O velho isqueiro à prova de vento do vovô. Solta faíscas, mas está vazio – sem combustível.
+52|Isqueiro aceso
+53|O isqueiro, recém-abastecido com querosene. A chama tremula, valente.
+54|Um galão pesado, ainda pela metade de querosene. A abertura é larga.
+55|Galão com funil
+56|Galão e funil – assim dá para despejar até em aberturas pequenas.
+57|Um funil velho de lata com uma argola para pendurar.
+58|Um pavio de lampião novo e largo, de algodão.
+59|Engrenagem grande
+60|Uma engrenagem pesada de latão com seis raios.
+61|Engrenagem pequena
+62|Uma pequena engrenagem de aço com um furo quadrado. Oleosa.
+63|A última carta do vovô
+64|Minha Elena,<br><br>você fez todo o caminho. Pelo escritório, onde você construía cabanas debaixo da escrivaninha quando era criança. Pela biblioteca, onde eu lia A Ilha do Tesouro para você. Pelo porão, onde o Leo dormia ao seu lado enquanto a gente consertava o barco.<br><br>As lembranças são como a luz de um farol. Às vezes uma tempestade a apaga. Mas dá para acendê-la de novo.<br><br>A flor seca é da praia – você me deu quando tinha seis anos.<br><br>Com amor,<br>seu Vovô Viktor
+65|A carta do vovô
+66|Minha querida Elena,<br><br>se você está lendo estas linhas, meu plano deu certo. Desde o seu acidente, você não se lembra de nada – nem de mim, nem de Morgenrot, nem dos nossos verões no farol.<br><br>Os médicos dizem que as lembranças voltam pelos lugares. Então construí um caminho para você, cômodo por cômodo, enigma por enigma – como quando você era pequena.<br><br>Não tenha medo. Estou esperando no farol.<br><br>O caminho para baixo você conhece: <b>… depois a luz, e por fim a torre.</b><br><br>Seu Vovô Viktor
+67|O Escritório
+68|Capítulo 1
+69|Dor de cabeça. Cheiro de papel velho e fumaça fria.
+70|Você abre os olhos. Um escritório que você nunca viu. Lá fora, o mar ruge.
+71|Você não sabe como chegou aqui. Nem sabe o próprio nome.
+72|A porta está trancada. Mas na sua mão há um bilhete amassado.
+73|Na sua mão: um <b>bilhete</b>. Toque nele duas vezes no inventário abaixo para ler.
+74|Um relógio de bolso mecânico não precisa de pilhas.
+75|O relógio não tem fechadura – só uma tampa emperrada.
+76|Na luz você vê: a tampa não está trancada, só emperrada.
+77|Você coloca as pilhas. Clique – a lanterna acende piscando!
+78|O relógio já está aberto.
+79|Com cuidado, você força a tampa com a ponta fina do atiçador. Uma <b>engrenagem</b> cai na sua mão!
+81|O cofre se abre! Dentro: uma <b>chave da porta</b> e uma <b>foto antiga</b>.
+82|Livros sobre navegação, faróis e viagens marítimas. Alguém aqui amava o mar.
+83|Um navio na garrafa. Na popa minúscula está escrito: <b>“Morgenrot”</b>.
+84|Um náutilo. Ainda cheira um pouco a sal.
+85|Um sextante de latão. Os marinheiros o usavam para se orientar pelas estrelas.
+86|Uma carta náutica antiga. Uma pequena ilha está circulada em vermelho, com um farolzinho ao lado.
+87|Uma luneta. A lente está arranhada.
+88|Fazer um buraco no quadro? Melhor não.
+89|O quadro está torto. Quando você tenta endireitá-lo, ele se solta do gancho. Você o tira e o deixa de lado – atrás dele há um <b>cofre</b>!
+90|O cofre é de aço grosso. Sem chance.
+91|O cofre não tem fechadura – só um segredo numérico.
+92|O diário não diz o código diretamente. Mas diz onde procurar.
+93|O cofre está vazio.
+94|Um cofre pesado com segredo numérico. Quatro dígitos.
+95|Você liga a lanterna … nada. Sem pilhas ela continua apagada.
+96|Cinzas frias e lenha carbonizada. Acima da lareira, a chaminé se abre, <b>escura como breu</b>.
+97| Lá em cima a chave brilha.
+98|Só fuligem e teias de aranha.
+99|Algo brilha no feixe de luz: uma <b>chave</b> pendurada num gancho dentro da chaminé. Alta demais para alcançar.
+100|Você mexe nas cinzas. Nada. Está escuro demais para ver mais acima.
+101|Não sobrou nada aí.
+102|Você pesca para cima com o gancho – plim! Uma pequena <b>chave de latão</b> cai nas cinzas.
+103|Você tira o <b>atiçador</b> do kit da lareira.
+104|Pá, tenaz, vassourinha. O atiçador você já tem.
+105|O relógio de pé é puramente mecânico. Pilhas não ajudam aqui.
+106|Mexer no delicado mecanismo? Aí ele quebra de vez.
+107|Dois relógios – mas nenhuma resposta. Talvez o pequeno guarde algo que falta ao grande?
+108|O relógio de pé está tiquetaqueando de novo. Os ponteiros marcam <b>9:12</b>.
+109|Um magnífico relógio de pé. O pêndulo está parado, os ponteiros caídos. Pelo vidro você vê: <b>falta uma engrenagem</b> no mecanismo.
+110|A engrenagem se encaixa. O pêndulo começa a balançar, os ponteiros giram … e param em <b>9:12</b>.
+111|Uma porta maciça de carvalho. <b>Trancada.</b> A fechadura é grande e antiga.
+112|Arrombar a porta? Carvalho maciço. O atiçador quebraria antes.
+113|Pequena demais para esta fechadura grande.
+114|Você ilumina o buraco da fechadura. Do outro lado: só escuridão.
+115|Você passa o bilhete por baixo da porta … e o puxa de volta depressa. Você ainda precisa dele.
+116|A chave gira pesada na fechadura … a porta se abre rangendo. Uma luz quente entra.
+117|Uma figueira seca. Ninguém rega há meses.
+118|Um tapete persa pesado. A ponta está dobrada.
+119|Um tapete persa pesado. Cheira a poeira e tabaco de cachimbo.
+120|Exatamente onde a cruz brilhava no escuro, você dobra a ponta. Embaixo: uma <b>tábua solta</b>.
+121|Um buraco vazio no chão.
+122|A tábua balança, mas você não consegue levantá-la com os dedos. Você precisa de uma <b>alavanca</b>.
+123|Você levanta a tábua. Embaixo há duas <b>pilhas</b>!
+124|A poltrona de couro ainda está um pouco afundada. Alguém passou muitas, muitas horas sentado aqui.
+125|A gaveta está vazia.
+126|A gaveta da escrivaninha está trancada. Uma <b>pequena fechadura de latão</b>.
+127|Grande demais para a fechadura delicada.
+128|Arrombar? Este lindo móvel antigo? Algo dentro de você se recusa.
+129|Clique! A gaveta desliza. Dentro: uma <b>página de diário</b> e um <b>relógio de bolso</b>.
+130|Clique. Só a luz das velas … e de repente <b>algo brilha</b> num verde fraco no cômodo. No tapete – e no globo!
+131|Clique. Só luz de velas. As marcas esverdeadas brilham de novo.
+132|Clique. Luz quente e verde. As marcas brilhantes sumiram.
+133|O gramofone toca uma melodia chiada. Ela parece estranhamente familiar … como se você a tivesse ouvido quando criança.
+134|No globo brilha uma ilha minúscula, contornada com tinta fosforescente. Ao lado, quase ilegível: <b>“Morgenrot – aqui Elena mora no verão”</b>.
+135|Com luz quase não se vê a tinta fosforescente – só uma ilha minúscula, cuidadosamente contornada.
+136|Um globo antigo. Gira rangendo. Os mares foram retocados à mão.
+137|Um livro grosso: “Faróis do Mar do Norte”. Você o abre – ele é <b>oco</b>! Dentro há uma lanterna.
+138|O livro oco está vazio.
+139|Na escrivaninha há um livro que parece estranhamente leve.
+140|Toque no livro grosso na frente, à esquerda da escrivaninha.
+141|Leia de novo o bilhete do vovô. O que ele diz sobre a luz?
+142|Algumas coisas só se veem no escuro. O que ilumina aqui?
+143|Apague o abajur da escrivaninha: toque no abajur e depois olhe em volta.
+144|Ao lado da lareira há algo útil.
+145|Pegue o atiçador do kit da lareira.
+146|No escuro, algo brilhou no tapete.
+147|Toque no tapete, bem onde estava a cruz.
+148|Debaixo do tapete uma tábua balança.
+149|Você precisa de uma alavanca. O atiçador serve.
+150|Selecione o atiçador e toque na tábua.
+151|A lanterna precisa de energia.
+152|Combine a lanterna e as pilhas no inventário.
+153|Onde no cômodo está tão escuro que seria preciso uma lanterna?
+154|Ilumine a lareira com a lanterna.
+155|A chave está alta demais para as suas mãos.
+156|Algo comprido com um gancho poderia ajudar.
+157|Use o atiçador na lareira.
+158|Uma chave pequena combina com uma fechadura pequena.
+159|A gaveta da escrivaninha está trancada.
+160|A tampa do relógio de bolso está emperrada.
+161|Algo fino e firme poderia forçá-la.
+162|Combine o relógio de bolso e o atiçador no inventário.
+163|A engrenagem é grande demais para o relógio de bolso.
+164|Onde no cômodo há um grande mecanismo de relógio?
+165|Use a engrenagem no relógio de pé.
+166|Você olhou bem os quadros do cômodo?
+167|O quadro acima da lareira está torto.
+168|O vovô ajustou o cofre para um horário especial.
+169|Leia a página do diário. Que momento o vovô quer dizer? O relógio de pé vai mostrar.
+170|O código é 0912.
+171|Você tem a chave da porta.
+172|Use-a na porta.
+173|Capítulo 1 concluído
+174|Atrás da porta há um longo corredor à luz de velas. Em algum lugar, outro relógio tiquetaqueia. E na foto havia um nome que parece ser o seu: <b>Elena</b>. Mas por que seu avô trancou você aqui?
+175|A Ilha
+176|A Luz
+177|A Torre
+178|O Mar
+179|A Tempestade
+180|O Porto
+181|A Biblioteca
+182|Capítulo 2
+183|O corredor termina numa pesada porta dupla. Atrás dela: uma biblioteca tão alta que as estantes somem na escuridão.
+184|Pela janela você o vê – o farol do quadro. Lá em cima, uma luz está acesa.
+185|Atrás de você, a porta se fecha. Claro.
+186|Uma peça de xadrez e uma chave. Bonitas, mas inúteis juntas.
+187|Você ilumina o envelope contra a luz … seria mais fácil simplesmente abri-lo.
+188|Você pinga óleo na chave enferrujada e a esfrega. Ela brilha de novo!
+190|Relatos de viagem, histórias de marinheiro, registros de navios. Numa lombada está escrito, com letra de criança: “Livro da Elena – não mexa!”
+191|A prateleira de cima. Alta demais – e totalmente no escuro.
+192|Lá em cima só sobrou poeira. E pequenas pegadas na poeira … como de sapatos de criança.
+193|Você sobe a escada. A prateleira de cima está <b>escura como breu</b> – você não enxerga nem a própria mão.
+194|Não sobrou nada lá em cima.
+195|Você sobe e ilumina a prateleira de cima. Entre as teias de aranha há uma pequena <b>almotolia</b>.
+196|Um busto de bronze. Um senhor severo de cachos. Alguém desenhou um bigode nele – a lápis.
+197|Uma esfera armilar. Os anéis mostram o caminho das estrelas. Ela gira, mas nada acontece.
+198|Na luz você lê os títulos: “A Ilha”, “A Luz”, “A Torre”, “O Mar”, “A Tempestade”, “O Porto”.
+199|Quatro livros com belas gravações douradas, e livros comuns entre eles. Você tenta puxar um – está <b>travado</b>, como se tivesse um ferrolho atrás.
+200|Agora os livros podem ser puxados um pouco. Mas em que ordem?
+201|Xadrez para capitães
+202|Entre livros sobre faróis há um caderninho fino. Uma página tem a ponta dobrada:<br><br><b>O mate do corredor</b><br>Um rei escondido atrás dos próprios peões não tem ar para respirar. Um xeque na última fileira – e acabou.<br><br>Mas cuidado: se um cavalo ou um bispo vigia a casa, sua rainha simplesmente será capturada.<br><br><i>Na margem, a lápis:</i> “Aos oito anos, Elena fazia isso melhor do que eu. V.”
+203|Um caderninho de xadrez com uma ponta dobrada.
+204|Um pequeno globo. A ilha de Morgenrot está marcada com uma cruz.
+205|Dois frasquinhos com areia. Nas etiquetas: “Praia, 2009” e “Praia, 2010”.
+206|Um pequeno baú. Vazio – exceto por metade de uma estrela-do-mar seca.
+207|Lá fora o mar está bravo. No penhasco está o farol. Seu facho de luz varre a água, sem parar.
+208|Cortinas pesadas de veludo. Cheiram a sal e poeira.
+209|Ao pé do farol há uma figura com um lampião. Ela balança a luz – três vezes. Como se cumprimentasse você.
+210|Você olha o farol pela luneta …
+211|A chave de corda não serve na fechadura da vitrine.
+212|Você ilumina o interior: bem no fundo há um envelope com o seu nome. “Para Elena”.
+213|Conchas, corais, uma amonite. A carta você já tem.
+214|Uma vitrine com conchas, corais e fósseis. Bem no fundo há um <b>envelope</b>. A porta de vidro está <b>trancada</b>.
+215|A chavinha serve. A porta de vidro se abre – você tira a <b>carta</b>. No envelope está escrito: “Para Elena”. No mesmo instante algo faz clique na estante do meio – como se um ferrolho tivesse se soltado.
+216|Delicada demais para o furo da corda.
+217|Algumas gotas no furo da corda … mas girar, você mesma tem que girar. Com uma chave.
+218|Você mostra a rainha ao papagaio. Ele olha para você com olhos de vidro. Nenhuma reação.
+219|O papagaio cantarola baixinho … a melodia do gramofone do escritório! Seu coração dispara. Você a conhece. De antigamente.
+220|Um <b>papagaio</b> mecânico de latão numa gaiola dourada. Nas costas há um pequeno <b>furo para dar corda</b>.
+221|A chave serve, mas está tão enferrujada que não gira nem um milímetro.
+222|Cric-cric-cric. O papagaio se estufa e grasna: <b>“Crrrá! Primeiro o mar, depois a tempestade … Crrrá!”</b> Então cai do bico uma pequena <b>chave</b>.
+223|A luz da lua desenha a cruz da janela no chão.
+224|Você tateia entre as almofadas da poltrona … e tira uma peça de xadrez: a <b>rainha branca</b>.
+225|Uma poltrona de orelhas gasta. Há uma manta sobre ela, como se alguém tivesse acabado de ler aqui.
+226|Um lampião a óleo. Está aceso – alguém o acendeu há pouco.
+227|Na mesinha há um livro muito manuseado: “A Ilha do Tesouro”. Uma dedicatória: “Ler em voz alta até ela dormir. V.”
+228|A rainha branca está em e8. Xeque-mate. O compartimento secreto está aberto.
+229|Uma partida de xadrez começada. Debaixo do tabuleiro há um bilhete: <b>“As brancas jogam e dão mate. Coloque a rainha no lugar certo – e a mesa se abrirá. V.”</b> Falta a rainha branca.
+230|Você procura em vão uma fechadura na mesa de xadrez.
+231|Na luz você vê: sob a borda da mesa há uma fenda fina. Há um compartimento!
+232|A rainha já está no lugar.
+233|Onde colocar a rainha? O bilhete do vovô: “As brancas jogam e dão mate.”
+234|Alguém estava lendo aqui há pouco. Talvez tenha perdido alguma coisa.
+235|Toque na poltrona de orelhas e tateie entre as almofadas.
+236|Há um bilhete preso debaixo da mesa de xadrez. O que o vovô pede?
+237|Na estante do meio há um caderninho de xadrez. Leia a página com a ponta dobrada.
+238|O rei preto está em g8, preso pelos próprios peões. O cavalo e o bispo vigiam b8, c8, a8 e d8.
+239|Coloque a rainha em e8. Xeque-mate.
+240|Lá no alto da estante da esquerda está escuro como breu.
+241|Leve luz ao subir a escada.
+242|Selecione a lanterna e toque na escada.
+243|A chave de corda está toda enferrujada.
+244|Óleo solta a ferrugem.
+245|Combine a almotolia e a chave enferrujada no inventário.
+246|Quem aqui tem um furo para dar corda?
+247|O papagaio mecânico na gaiola.
+248|A chavinha tem uma etiqueta. O que está escrito?
+249|Ela abre a vitrine embaixo da janela.
+250|O papagaio sabe o começo da rima, a carta do vovô sabe o fim.
+251|Leia a carta e lembre do papagaio. Quais quatro livros combinam?
+252|Puxe na estante do meio: O Mar, A Tempestade, A Luz, A Torre.
+253|Capítulo 2 concluído
+254|A estante gira para o lado. Atrás dela, uma escada de pedra desce em espiral para as profundezas. Um ar frio e salgado sobe – e em algum lugar lá embaixo o mar ruge.<br><br>Vovô Viktor está esperando no farol. E você se lembra: de um verão. De uma voz que lê em voz alta.
+255|Gaivota
+256|O desenho de giz
+257|O Porão
+258|Capítulo 3
+259|Capítulo 4: O Galpão de Barcos – em breve
+260|A escada em caracol desce fundo. Cheira a sal, musgo e madeira velha.
+261|No último degrau a lanterna pisca – e se apaga. As pilhas acabaram.
+262|Só a lua brilha por uma janela gradeada. Em algum lugar atrás de um portão de grade, o mar ruge.
+263|Vidro não é magnético.
+264|Quebrar a garrafa? O papel também poderia rasgar.
+265|Não se acende uma lanterna com fogo.
+266|Você amarra bem o barbante em volta do ímã. Pronto: uma <b>vara com ímã</b>!
+267|Você gira o saca-rolhas – pop! Com a ponta dos dedos você tira o rolo de papel da garrafa: uma <b>mensagem do vovô</b>.
+268|A escada em caracol para cima. A estante se fechou atrás de você – não dá para voltar.
+269|Um pesado portão de grade. Atrás dele, um túnel de onde sopra um ar frio do mar. Um grande <b>cadeado</b> o mantém fechado.
+270|O cadeado é maciço.
+271|Você bate no cadeado com a manivela. Ressoa. Continua fechado.
+272|Fuçar no cadeado com um saca-rolhas? Isso só funciona no cinema.
+273|O ímã gruda no cadeado. Mais nada acontece.
+274|Escuro demais. Você sente <b>três rodas</b> com sinais gravados, mas não distingue nada.
+275|O Cadeado
+277|Clac! O cadeado se abre. O portão gira rangendo.
+278|Três rodas com símbolos. Só quando todas estiverem certas o cadeado vai abrir.
+279|Uma janelinha gradeada. A lua está bem atrás dela. Lá fora você ouve a rebentação.
+280|Garrafas de vinho empoeiradas, algumas mais velhas que você. Numa etiqueta: “Para o casamento da Elena – não abrir antes!”
+281|Tire primeiro a garrafa da adega.
+282|Uma garrafa está deitada diferente das outras. Há um <b>rolo de papel</b> dentro! Você pega a <b>mensagem na garrafa</b>. A rolha está presa.
+283|Nichos vazios, muitas teias de aranha.
+284|Alicates, martelo, serrote, formões – tudo arrumado no lugar. O vovô era caprichoso.
+285|O barco é de madeira. Ímã não gruda.
+286|Não há nada para desarrolhar no barco.
+287|Um barquinho de madeira está preso na <b>morsa</b>. Falta a <b>manivela</b> da morsa – assim você não consegue abri-la.
+288|Debaixo do casco há um pequeno compartimento. Dentro, embrulhados em papel encerado: <b>fósforos</b> – secos!
+289|Leo. Claro.
+290|A manivela serve! Você abre a morsa e tira o barquinho. Toque nele para olhar de perto.
+291|Uma plaina, uma lata de pregos, serragem fresca. Como se alguém tivesse trabalhado aqui ontem mesmo.
+292|Um pano de linho velho, cheio de manchas de tinta vermelha e azul. As cores do barco.
+293|Debaixo da bancada está <b>escuro como breu</b>. Você não tem coragem de enfiar a mão às cegas.
+294|Na luz do lampião você vê: na caixa debaixo da bancada há um <b>saca-rolhas</b>.
+295|Restos de madeira e alguns pregos tortos.
+296|Uma corda grossa de navio. Totalmente podre e pesada demais.
+297|Uma coluna grossa de pedra, úmida e fria. Na base cresce musgo.
+298|O ímã gruda no lampião de ferro. Isso não faz luz.
+299|O lampião queima tranquilo e quente.
+300|Um velho <b>lampião de querosene</b>. Ainda há querosene balançando dentro. Você precisaria de algo para <b>acendê-lo</b>.
+301|Risc – o fósforo se acende. O lampião pega fogo, uma luz quente inunda o porão. E na parede ao lado da coluna aparece algo: um <b>desenho de giz</b>!
+302|A lanterna morreu. Aqui só o fogo ajuda.
+303|Pequenos entalhes na coluna, cada um com uma data: “Elena, 5 anos” – “6 anos” – “7 anos” … o último lá em cima: “Elena, 12 anos”. Você coloca a mão ali. Ela cabe exatamente embaixo do entalhe.
+304|Você desamarra o varal e enrola o <b>barbante</b>.
+305|A parede está na sombra.
+306|Um desenho de criança em giz: um caminho de seis sinais. Embaixo: “O caminho para o mar – da Elena”.
+307|Potes de conserva. Numa etiqueta, com letra de criança: “Geleia de amora – Elena &amp; Vovô”.
+308|A velha bicicleta do vovô. No guidão, um adesivo desbotado: um cavalo-marinho.
+309|Você abre a caixa de ferramentas. Entre parafusos e pregos: um <b>ímã de ferradura</b>. Há um cacho inteiro de pregos grudado nele.
+310|Parafusos, pregos, um metro dobrável.
+311|Sem algo que grude, você só pesca água.
+312|A lanterna está vazia. E molhada não ia melhorar.
+313|Água escura e gelada. Totalmente parada.
+314|No canto alagado, <b>algo metálico</b> brilha debaixo d’água. Está gelado e mais fundo do que parecia – com a mão você não alcança.
+315|Não sobrou nada lá embaixo.
+316|Você desce a vara com ímã na água … clac! Algo grudou. Você puxa uma <b>manivela</b> de ferro pingando.
+317|O ímã atrairia – mas você teria que enfiar a mão na água gelada. Se ao menos houvesse um jeito de descê-lo …
+318|Aqui embaixo há algo pendurado que pode ser bem útil.
+319|Há um varal esticado na parede.
+320|Toque no varal.
+321|Numa caixa de ferramentas costuma haver algo útil.
+322|Olhe na caixa de ferramentas no chão.
+323|Só com o barbante você não pesca nada. Só com o ímã você não alcança a água.
+324|Combine o barbante e o ímã no inventário.
+325|Algo de metal brilha na poça.
+326|Pesque: use a vara com ímã na poça.
+327|A que pertence uma manivela de ferro com duas bolas?
+328|A morsa na bancada não tem manivela.
+329|Agora o barco está livre.
+330|Toque no barco e olhe bem de perto.
+331|Está escuro. O que aqui embaixo poderia queimar?
+332|Há um lampião pendurado na coluna.
+333|Use os fósforos no lampião.
+334|Com luz você finalmente vê os cantos escuros.
+335|Há uma caixa debaixo da bancada.
+336|Uma das garrafas de vinho é diferente das outras.
+337|Toque na garrafa com o papel dentro, na adega.
+338|A rolha está presa.
+339|Abra a mensagem na garrafa com o saca-rolhas.
+340|A mensagem do vovô e o desenho de giz andam juntos.
+341|Leia o desenho de trás para frente e pegue só um sinal a cada dois.
+342|De trás para frente: gaivota, farol, estrela, peixe, âncora, concha. Um a cada dois: gaivota, estrela, âncora.
+343|Capítulo 3 concluído
+344|O cadeado se abre. Rangendo, o portão gira para o lado. O túnel desce, o barulho fica mais forte – e no fim brilha uma luz.<br><br>Um galpão de barcos. E lá dentro, você tem certeza: o grande barco que vocês sempre quiseram construir juntos.
+345|O Galpão de Barcos
+346|Capítulo 4
+347|Capítulo 5: O Farol – em breve
+348|O túnel se alarga, o ar fica mais salgado. Então você pisa em tábuas que rangem: o galpão de barcos do vovô.
+349|Um pequeno veleiro balança na água. Você sabe na hora: vocês o construíram juntos.
+350|Pela janela você vê o farol. A luz pisca – mas não de forma regular. Como se quisesse dizer algo.
+351|A placa já está plana o bastante.
+352|Um pincel seco não adianta. Primeiro ele precisa de piche.
+353|Primeiro você precisa de algo para pregar – e do lugar certo.
+354|Você passa uma camada grossa de piche na placa de cobre. Agora é um remendo à prova d’água: uma <b>placa com piche</b>.
+355|A comporta está aberta. Além dela: a baía, a lua – e o farol.
+356|Uma enorme comporta de madeira. Além dela está o mar aberto. Correntes vão das folhas da comporta até o teto – e até o <b>guincho</b>.
+357|Água preta e fria. Bate de leve nas tábuas.
+358|Você entra no barco, se afasta do cais … e desliza para o mar. Rumo ao farol.
+359|O remendo só está apoiado sobre o buraco – ainda precisa ser <b>pregado</b>.
+360|Na proa há um <b>buraco no casco</b>. Assim você afundaria.
+361|O barco está <b>amarrado</b> ao cabeço com uma corda grossa.
+362|E a <b>comporta</b> está fechada.
+363|O barco de vocês. No banco há um coração entalhado: “E + Vovô”.
+364|Você aperta a placa com piche sobre o buraco e espeta alguns pregos soltos nos cantos. Encaixa perfeitamente – mas ainda não está pregada.
+365|A placa cobriria o buraco – mas não é à prova d’água. Falta algo para vedar.
+366|Pregos você tem – mas com o que vai pregá-los?
+367|Primeiro você precisa de algo para cobrir o buraco.
+368|Só com o martelo você não tapa buraco nenhum.
+369|Você ainda precisa de <b>pregos</b> para fixar o remendo.
+370|Toc, toc, toc – prego por prego você fixa o remendo. O vazamento está vedado!
+371|Em cima da viga do telhado há um <b>martelo</b>. Alto demais para alcançar.
+372|Você cutuca para cima com o croque – o martelo tomba, cai … e você o pega!
+373|Um lampião de querosene. Está aceso – alguém esteve aqui há pouco.
+374|Mais um lampião aceso. O vovô sabia que você viria.
+375|Uma velha <b>placa de cobre</b>, pregada nos quatro cantos. A inscrição apagou há muito tempo. Com as mãos você não consegue tirá-la.
+376|Com a unha do martelo você arranca os pregos. A <b>placa de cobre</b> é sua.
+377|Uma rede de pesca velha, cheia de furos.
+378|Uma rede de pesca velha. Lá no alto, algo se enroscou nela – brilha como metal. Alto demais e enroscado demais para as suas mãos.
+379|Não há mais nada preso nela.
+380|Você engancha o croque na rede e puxa com força. Algo cai tilintando nas tábuas: um <b>canivete de marinheiro</b>.
+381|Dois remos velhos. Num deles, com letra de criança: “Capitã Elena”.
+382|Cabos enrolados. Bem aduchados, como o vovô te ensinou.
+383|Latas de tinta, verniz, ferramentas. Tudo cheira a piche e sal.
+384|Você pega o <b>pincel</b> da prateleira. As cerdas estão secas e limpas.
+385|Uma lata cheia de <b>pregos</b>. Podem ser úteis.
+386|A lata está vazia.
+387|A placa já tem piche.
+388|O barril é de madeira grossa. Melhor não.
+389|Um barril cheio de <b>piche</b> preto e grosso. O cheiro é forte. Você não quer enfiar os dedos aí.
+390|Você mergulha o pincel fundo no piche. Agora ele pinga preto e brilhante: um <b>pincel com piche</b>.
+391|Mergulhar no barril? Aí você também ficaria grudada. Melhor passar com alguma coisa.
+392|A luz do farol pisca: curto e longo, num padrão que se repete sem parar. Com uma pausa longa no meio.
+393|O Farol
+394|Você observa a luz do farol. Curto … longo … pausa … É um padrão!
+395|O guincho está travado porque a corrente tem um cadeado.
+396|O guincho não se mexe nem um milímetro. A corrente tem um cadeado.
+397|O guincho está parado. A comporta está erguida.
+398|Um guincho pesado para a comporta. A corrente está presa com um <b>cadeado de letras</b> – assim a manivela não gira.
+399|Você joga todo o seu peso na manivela. Elo por elo a corrente se enrola no tambor … e a comporta sobe! Um ar frio do mar entra.
+400|Você martela o cadeado. Ele é mais resistente do que você pensava.
+401|A lâmina escorrega. O cadeado precisa do código certo.
+402|Forçar a corrente com o croque? Sem chance.
+403|O cadeado de letras
+404|Clique! O cadeado se abre, a corrente está livre. Agora você pode girar o guincho.
+405|Um cadeado com quatro anéis de letras.
+406|Martelar uma corda não adianta nada.
+407|Com o gancho você também não desfaz o nó molhado.
+408|Só um toco de corda pende da proa.
+409|Uma corda grossa prende o barco ao cabeço. O nó está molhado, inchado e duríssimo.
+410|Com alguns cortes fortes a corda se parte. O barco se afasta um pouco do cais.
+411|Você puxa a lona. Embaixo há um longo <b>croque</b>.
+412|Uma velha lona. Embaixo só sobrou poeira.
+413|Uma mesinha-banco bamba. Na borda: entalhes, como os risquinhos de uma contagem.
+414|O diário de bordo do vovô. A última anotação é de ontem.
+415|Debaixo da lona em primeiro plano dá para ver o contorno de algo comprido.
+416|Toque na lona.
+417|Lá em cima, na viga, há uma ferramenta.
+418|O croque alcança até lá em cima.
+419|Use o croque na viga do telhado.
+420|Algo brilha na rede de pesca da parede.
+421|O croque também serve para isso.
+422|O barco precisa de um remendo. O que na parede é grande e de metal?
+423|A placa de cobre está presa com pregos. O martelo tem unha.
+424|Cobre sozinho não veda. Com o que se vedam barcos?
+425|No barril há piche. Você não quer enfiar os dedos aí.
+426|Mergulhe o pincel no barril de piche.
+427|O piche tem que ir na placa.
+428|Combine o pincel com piche e a placa de cobre no inventário.
+429|O remendo precisa ser fixado.
+430|Você precisa de pregos e de algo para pregá-los. Os pregos estão na prateleira.
+431|Pegue os pregos e depois use o martelo no barco.
+432|A placa com piche vai no buraco.
+433|Use a placa com piche no barco.
+434|A luz do farol não pisca por acaso.
+435|Olhe pela janela e consulte o diário de bordo do vovô na mesa.
+436|Curto-longo, longo-longo, longo-longo-longo, curto-longo-curto: são A, M, O e R.
+437|O cadeado está aberto.
+438|Gire o guincho.
+439|O barco ainda está amarrado. O nó está apertado demais.
+440|Corte a corda com o canivete.
+441|Tudo pronto.
+442|Entre no barco.
+443|Capítulo 4 concluído
+444|O barquinho desliza para a baía. A lua pinta um caminho de prata na água. À sua frente o farol pisca – e agora você entende cada sinal: <b>A – M – O – R</b>.<br><br>Ao pé do farol alguém balança um lampião. Você acena de volta.
+445|O calendário do vovô
+446|Capítulo 5
+447|Fim. Obrigado por jogar!
+448|O barco raspa nas pedras. Você pula para a terra, o vento puxa seu cabelo.
+449|A porta do farol está aberta. Você sobe a escada em caracol, degrau por degrau, até o topo.
+450|Mas a sala da lanterna está escura. A luz do farol se apagou na tempestade. E nem sinal do vovô.
+451|Acender o pavio agora? Primeiro ele tem que ir para o queimador.
+452|Encharcar o pavio? O tanque do queimador faz isso sozinho.
+453|Você pinga um pouco de querosene no isqueiro. Risc – uma pequena chama valente!
+454|Você enche o isqueiro com um pouco de querosene. Risc – acendeu!
+455|Você encaixa o funil no galão. Agora dá para despejar sem derramar.
+456|Lá fora a tempestade ruge. Relâmpagos cortam a água. Nenhum navio acharia o caminho de casa esta noite sem luz.
+457|Lá no penhasco: a Villa Morgenrot. Só uma janela está acesa – a do escritório.
+458|As ondas batem nas pedras. Lá embaixo, o barquinho de vocês balança.
+459|A jaqueta de marinheiro do vovô. Cheira a tabaco de cachimbo e sal – cheira a ele. No bolso há um <b>isqueiro à prova de vento</b>.
+460|O boné com a âncora dourada. O vovô sempre o usava torto.
+461|A pequena arandela queima quente e tranquila.
+462|Uma pequena arandela de latão. Está apagada. Está tão escuro que você quase não vê nada.
+463|Já está acesa.
+464|A arandela se acende. Uma luz quente enche a sala – e na parede, ao lado, há um <b>calendário</b>.
+465|Risc, risc – só faíscas. O isqueiro está vazio, precisa de combustível.
+466|Há algo claro pendurado na parede. No escuro você não consegue ver.
+467|O calendário do vovô.
+468|Um pesado <b>galão de querosene</b>. Faz glu-glu – ainda está pela metade.
+469|Você tira o <b>funil</b> do gancho.
+470|A luz do farol está acesa. A lente concentra a chama num facho gigantesco.
+471|A enorme lente do farol. No centro fica o queimador.
+472|Um funil sozinho não despeja nada. Você ainda precisa de querosene.
+473|A engrenagem vai no mecanismo de baixo, não no queimador.
+474|A chama queima clara e tranquila.
+475|O tanque está cheio.
+476|O tanque está <b>vazio</b>.
+477|Há um pavio novo no queimador.
+478|O pavio está <b>carbonizado</b> e se desfaz ao toque.
+479|O queimador do farol.
+480|A abertura de abastecimento é minúscula. Sem funil você derramaria tudo – e querosene perto de uma chama não é uma boa ideia.
+481|O tanque já está cheio.
+482|Glu, glu, glu – pelo funil você enche o tanque até a borda.
+483|O pavio novo já está no lugar.
+484|Você tira o resto carbonizado e coloca o <b>pavio novo</b>.
+485|Só faíscas. O isqueiro está vazio.
+486|Já está aceso.
+487|Não há querosene no tanque. Nada vai queimar.
+488|O pavio velho está todo carbonizado. Assim nenhuma chama se mantém.
+489|Fuuu! A chama sobe, a lente se acende. O facho gira sobre o mar …
+490|Fuuu! A chama sobe, a lente se acende! Mas o facho está parado. <b>Um farol que não gira não é um farol.</b>
+491|Lubrificar é uma boa ideia – mas aqui faltam engrenagens, não óleo.
+492|A chama vai lá em cima, no queimador.
+493|As engrenagens se encaixam direitinho e giram por igual.
+494|O mecanismo de rotação sob a lente. Em dois eixos falta uma engrenagem – um eixo grande e um pequeno.
+495|O mecanismo de rotação sob a lente. Ainda falta uma engrenagem num eixo.
+496|Todas as engrenagens estão no lugar. Agora é preciso força – a manivela.
+497|A grande engrenagem de latão encaixa perfeitamente no eixo grande.
+498|A engrenagem pequena desliza com o furo quadrado no eixo quadrado. Clac.
+499|O mecanismo continua girando sozinho.
+500|Você gira a manivela – ela gira em falso. Ainda faltam engrenagens no mecanismo.
+501|Você gira a manivela com toda a força. Devagar, depois cada vez mais rápido, a lente começa a girar – e com ela o facho de luz!
+502|Você gira a manivela. As engrenagens engatam, a lente começa a girar. Mas ainda está apagada.
+503|Pôr fogo no baú? O que está dentro iria queimar.
+504|O baú não tem engrenagens – só um cadeado de números.
+505|O baú de marinheiro está vazio – exceto por um desenho de criança de um farol.
+506|Um baú de marinheiro com cadeado de números. Está escuro demais para ler os dígitos.
+507|O baú de marinheiro do vovô
+508|Clac! A tampa se abre. Dentro: um <b>pavio</b> novo, uma grande <b>engrenagem</b> e uma <b>carta</b> com uma fita vermelha.
+509|Entalhado na tampa: <b>“O dia em que ela volta para casa – DD MM”</b>.
+510|Na caixa de ferramentas, entre chaves inglesas e uma almotolia: uma pequena <b>engrenagem</b> oleosa com furo quadrado.
+511|Chaves inglesas, alicates, um pano cheio de óleo.
+512|Um bilhete do vovô
+513|Elena,<br><br>o último passo você precisa dar sozinha, minha menina. A luz do farol se apagou na tempestade.<br><br><b>Acenda a luz de novo – e eu virei.</b><br><br>Vovô
+514|Um bilhete com a letra do vovô.
+515|O vovô está no alto da escada e abre os braços.
+516|A escada em caracol para baixo. Lá embaixo só se ouve o mar. Ainda não.
+517|Aqui há algo pendurado que tem o cheiro do vovô.
+518|Olhe nos bolsos da jaqueta de marinheiro.
+519|O isqueiro só solta faíscas. Precisa de combustível.
+520|Há um galão vermelho no chão.
+521|Agora você tem uma chama. Como conseguir luz para a sala toda?
+522|Acenda a pequena arandela.
+523|O isqueiro está vazio.
+524|Combine o isqueiro e o galão no inventário.
+525|O baú quer uma data. O que está escrito na tampa?
+526|Ao lado da arandela está o calendário do vovô. Um dia está circulado.
+527|26 de novembro: 2 6 1 1.
+528|Faltam duas engrenagens no mecanismo. Uma você já tem.
+529|A pequena está na caixa de ferramentas.
+530|As engrenagens vão embaixo da lente.
+531|Use as duas engrenagens no mecanismo.
+532|O tanque do queimador está vazio.
+533|Use o galão com funil no queimador.
+534|A abertura do queimador é minúscula.
+535|Combine o galão e o funil.
+536|O pavio velho está carbonizado.
+537|Coloque o pavio novo no queimador.
+538|Um farol precisa brilhar – e girar.
+539|Acenda o queimador com o isqueiro e gire a manivela.
+540|A luz está parada.
+541|Gire a manivela do mecanismo.
+542|Só falta uma coisa: a chama.
+543|Acenda o queimador com o isqueiro aceso.
+544|Em casa
+545|Passos na escada. Lentos, pesados, familiares. Então ele aparece na porta: barba branca, o boné torto na cabeça.<br><br>“Olá, Capitã”, diz o Vovô Viktor baixinho.<br><br>E você se lembra. De tudo.<br><br>Quando a tempestade passa, vocês estão juntos lá em cima, na galeria. O sol nasce sobre o mar, e lá embaixo, na baía, o barquinho de vocês balança.
+546|Lá embaixo na escada: passos. Lentos. Pesados. Familiares …
+547|O relógio de pé
+548|Os ponteiros marcam <b>9:12</b>.
+549|A engrenagem engata. Tic … tac …
+550|Dong. Dong. Dong. Os ponteiros param em <b>9:12</b>.
+551|Pela luneta
+552|O diário de bordo do vovô
+554|<b>Última anotação:</b> Elena volta para casa hoje. Estou esperando no farol. Quando ela estiver no galpão de barcos, vou mandar para ela, com a luz, aquilo de que ela mais precisa agora. Quando criança, ela aprendeu código Morse mais rápido do que eu.<br><br><b>Código Morse</b> (· curto, – longo)<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px 10px;font:600 15px/1.5 ui-monospace,monospace;margin-top:6px;font-style:normal">
+555|O cavalo preto em c6 pula para d8 e captura sua rainha.
+556|O cavalo preto em c6 captura sua rainha em b8.
+557|O bispo preto em b7 captura sua rainha em c8.
+558|O bispo preto em b7 captura sua rainha em a8.
+559|O rei preto simplesmente captura a rainha ele mesmo – ela está bem ao lado dele.
+560|A partida de xadrez do vovô
+561|Toque na casa para onde a rainha branca deve ir.
+562|As brancas jogam. Falta a rainha branca.
+563|Voltar
+564|O mecanismo sob o tabuleiro ainda está se rearmando … espere um momento.
+565|Já há uma peça aí.
+566|Xeque na última fileira – e o rei não tem para onde ir. <b>Mate!</b> Clac – na borda da mesa abre-se um <b>compartimento secreto</b>. Dentro: uma <b>chave de corda enferrujada</b>.
+567|Não é xeque-mate. O rei preto nem está ameaçado.
+568| <i>A rainha desliza de volta.</i>
+569|A estante do meio
+570|Você puxou quatro livros … nada acontece. Clac – todos voltam para o lugar.
+571|Um ronco profundo … a estante inteira gira para o lado!
+572|Villa Morgenrot
+573|Uma casa à beira-mar. Um avô que espera. E uma lembrança que você recupera, cômodo por cômodo.
+574|Onde estou? Toque nas coisas do cômodo para examiná-las.
+@Zettel|Bilhete
+@Batterien|Pilhas
+@Taschenlampe|Lanterna
+@Taschenuhr|Relógio de bolso
+@Zahnrad|Engrenagem
+@Tagebuchseite|Página de diário
+@Schnur|Barbante
+@Hufeisenmagnet|Ímã de ferradura
+@Magnetangel|Vara com ímã
+@Kurbel|Manivela
+@Korkenzieher|Saca-rolhas
+@Flaschenpost|Mensagem na garrafa
+@Bootshaken|Croque
+@Hammer|Martelo
+@Kupferschild|Placa de cobre
+@Pinsel|Pincel
+@Teerpinsel|Pincel com piche
+@Seemannsmesser|Canivete de marinheiro
+@Sturmfeuerzeug|Isqueiro à prova de vento
+@Petroleumkanister|Galão de querosene
+@Trichter|Funil
+@Docht|Pavio
+@Mystery|Mistério
+@November|Novembro
+@Mo Di Mi Do Fr Sa So|Seg Ter Qua Qui Sex Sáb Dom
+@Elena kommt heim!|Elena volta para casa!
+@Jeden Tag ein Strich. Nur ein Tag ist rot umkreist.|Um risco a cada dia. Só um dia está circulado em vermelho.
+@„Hallo, Kapitänin“, sagt Opa Viktor leise.|“Olá, Capitã”, diz o Vovô Viktor baixinho.
+@Der Weg zum Meer – Elena|O caminho para o mar – Elena
+@Tippe Bücher an, um sie herauszuziehen. Nach dem vierten Buch zeigt sich, ob die Reihenfolge stimmt.|Toque nos livros para puxá-los. Depois do quarto livro você vai saber se a ordem está certa.
+#Escape-Bücher|Livros de Fuga
+#Wähle eine Geschichte. Jede ist ein Rätselabenteuer zum Mitnehmen.|Escolha uma história. Cada uma é uma aventura de enigmas para levar com você.
+#Von vorne beginnen|Recomeçar
+#Weiter|Continuar
+#Zur Kapitelübersicht|Ir para os capítulos
+#Schließen|Fechar
+#Tresor|Cofre
+#Zurück|Voltar
+#Öffnen|Abrir
+#Hinweis|Dica
+#Abbrechen|Cancelar
+#Sprache|Idioma
+#Zurück zum Bücherregal|Voltar à estante
+#Interessante Stellen zeigen|Mostrar pontos interessantes
+#Ton an oder aus|Som ligado ou desligado
+#Mit <b>{0}</b> kommst du hier nicht weiter.|Com <b>{0}</b> você não avança aqui.
+#<b>{0}</b>? Das passt hier nicht.|<b>{0}</b>? Isso não combina aqui.
+#Du probierst es mit <b>{0}</b>. Nichts passiert.|Você tenta com <b>{0}</b>. Nada acontece.
+#Das ergibt keinen Sinn – <b>{0}</b> hilft hier nicht.|Não faz sentido – <b>{0}</b> não ajuda aqui.
+#<b>{0}</b> ausgewählt. Tippe auf etwas im Raum oder auf einen anderen Gegenstand. Nochmal tippen zum Ansehen.|<b>{0}</b> selecionado. Toque em algo no cômodo ou em outro objeto. Toque de novo para ver de perto.
+#<b>{0}</b> und <b>{1}</b> lassen sich nicht kombinieren.|<b>{0}</b> e <b>{1}</b> não podem ser combinados.
+#Du ruckelst am Schloss. Es bleibt zu.|Você sacode o cadeado. Continua fechado.
+#Hinweis {0} von {1}|Dica {0} de {1}
+#{0} (gratis)|{0} (grátis)
+#Nächster Hinweis|Próxima dica
+#Hinweis ansehen|Ver dica
+#Ein Hinweis pro Kapitel ist kostenlos.|Uma dica por capítulo é grátis.
+#{0}: kurze Werbung ansehen|{0}: assistir a um anúncio curto
+#Steckst du fest? Hinweise kommen in Stufen: erst ein kleiner Schubs, am Ende die Lösung.|Travou? As dicas vêm em etapas: primeiro um empurrãozinho, a solução só no fim.
+#Nein danke|Não, obrigado
+#Du hast hier schon alles untersucht. Vielleicht hilft einer deiner Gegenstände weiter?|Você já examinou tudo aqui. Talvez um dos seus objetos ajude?
+#Tippe auf Dinge im Raum, um sie zu untersuchen. Manches kannst du mitnehmen.|Toque nas coisas do cômodo para examiná-las. Algumas você pode levar.
+#Gefundenes landet hier. Tippe einen Gegenstand an und danach auf eine Stelle im Raum, um ihn dort zu benutzen.|O que você encontra vem para cá. Toque num objeto e depois num lugar do cômodo para usá-lo ali.
+#Zwei Gegenstände kombinieren: ersten antippen, dann den zweiten. Denselben zweimal antippen zeigt ihn dir aus der Nähe.|Combinar dois objetos: toque no primeiro, depois no segundo. Tocar duas vezes no mesmo mostra ele de perto.
+#Die Lupe zeigt dir Stellen, die du noch nicht untersucht hast.|A lupa mostra os lugares que você ainda não examinou.
+#Kommst du nicht weiter? Hier gibt es Hinweise – erst einen kleinen Schubs, ganz am Ende die Lösung.|Não está avançando? Aqui há dicas – primeiro um empurrãozinho, a solução só no fim.
+#Los geht’s|Vamos lá
+#Willkommen zurück.|Bem-vinda de volta.
+#Zeit: ca. {0} Min · Hinweise: {1}|Tempo: cerca de {0} min · Dicas: {1}
+#Weiter zu {0}|Continuar para o {0}
+#Hier läuft später die Werbung (AdMob)|Aqui aparecerá um anúncio (AdMob)
+#Abgeschlossen|Concluído
+#{0} von {1} Kapiteln|{0} de {1} capítulos
+#{0} Kapitel|{0} capítulos
+#Weitere Geschichten folgen|Mais histórias em breve
+#Bald im Regal|Em breve na estante
+#Spiel beginnen|Começar a jogar
+#Nochmal von vorne|Jogar de novo
+#Weiterspielen – {0}|Continuar – {0}
+#Noch verschlossen|Ainda trancado
+#Geschafft|Concluído
+#Bereit|Pronto
+#Schließe das vorherige Kapitel ab|Conclua o capítulo anterior
+#Von vorne beginnen?|Recomeçar?
+#Dein Fortschritt in diesem Buch wird gelöscht.|Seu progresso neste livro será apagado.
+#Ja, neu beginnen|Sim, recomeçar
+#Kapitel wechseln?|Trocar de capítulo?
+#Dein Fortschritt im laufenden Kapitel geht verloren.|Seu progresso no capítulo atual será perdido.
+#Kapitel starten|Começar capítulo

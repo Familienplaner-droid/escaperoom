@@ -3,6 +3,7 @@
 // Hinweise, Töne und Spielstand. Inhalte kommen komplett aus den Büchern.
 import { sfx, tone, sound } from './audio.js';
 import { rewardedAd } from './ads.js';
+import { tr, tf, getLang } from './i18n.js';
 
 const $ = id => document.getElementById(id);
 const hs = $('hs'), msgEl = $('msg'), invEl = $('inv'), ov = $('ov'), ov2 = $('ov2'), cutsEl = $('cuts');
@@ -22,18 +23,19 @@ const room = () => book.rooms[S.room];
 const has = i => S.inv.includes(i);
 function give(i) { if (!has(i)) { S.inv.push(i); sfx('pick'); renderInv(i); } }
 function take(i) { S.inv = S.inv.filter(x => x !== i); if (sel === i) sel = null; renderInv(); }
-function say(t) { msgEl.classList.add('fade'); setTimeout(() => { msgEl.innerHTML = t; msgEl.classList.remove('fade'); }, 120); }
+function say(t) { msgEl.classList.add('fade'); setTimeout(() => { msgEl.innerHTML = tr(t); msgEl.classList.remove('fade'); }, 120); }
 const desc = i => typeof book.items[i].d === 'function' ? book.items[i].d() : book.items[i].d;
 const icon = i => `<img src="${book.asset(book.items[i].i)}" alt="">`;
 
 const NOPE = [
-  n => `Mit <b>${n}</b> kommst du hier nicht weiter.`,
-  n => `<b>${n}</b>? Das passt hier nicht.`,
-  n => `Du probierst es mit <b>${n}</b>. Nichts passiert.`,
-  n => `Das ergibt keinen Sinn – <b>${n}</b> hilft hier nicht.`
+  n => tf('Mit <b>{0}</b> kommst du hier nicht weiter.', n),
+  n => tf('<b>{0}</b>? Das passt hier nicht.', n),
+  n => tf('Du probierst es mit <b>{0}</b>. Nichts passiert.', n),
+  n => tf('Das ergibt keinen Sinn – <b>{0}</b> hilft hier nicht.', n)
 ];
 let nopeK = 0;
 const nope = n => NOPE[nopeK++ % NOPE.length](n);
+const nm = i => tr(book.items[i].n);
 const pick = v => typeof v === 'function' ? v() : v;
 
 function cutStyle(src, [x, y, w, h]) {
@@ -44,7 +46,7 @@ let curImg = '';
 const imgOf = r => r.imgFor ? r.imgFor(S.f) : r.img;
 function loadRoom() {
   const r = room(); curImg = imgOf(r);
-  $('roomImg').src = curImg; $('roomTitle').textContent = r.title;
+  $('roomImg').src = curImg; $('roomTitle').textContent = tr(r.title);
   ov.setAttribute('viewBox', `0 0 ${W} ${H}`); ov2.setAttribute('viewBox', `0 0 ${W} ${H}`);
   $('scene').style.aspectRatio = `${W}/${H}`;
   cutsEl.innerHTML = r.cuts.map((c, k) => `<div class="cut ${c.kind}" data-k="${k}" style="${cutStyle(c.src || curImg, c.r)};${c.origin ? 'transform-origin:' + c.origin + ';' : ''}${c.clip ? 'clip-path:' + c.clip : ''}"></div>`).join('');
@@ -62,7 +64,7 @@ function renderInv(fresh) {
   const slots = Math.max(8, S.inv.length);
   invEl.innerHTML = [...Array(slots)].map((_, k) => {
     const i = S.inv[k];
-    return i ? `<button class="slot${sel === i ? ' sel' : ''}${fresh === i ? ' new' : ''}" data-i="${i}" aria-label="${book.items[i].n}">${icon(i)}</button>` : '<div class="slot empty"></div>';
+    return i ? `<button class="slot${sel === i ? ' sel' : ''}${fresh === i ? ' new' : ''}" data-i="${i}" aria-label="${nm(i)}">${icon(i)}</button>` : '<div class="slot empty"></div>';
   }).join('');
   save();
 }
@@ -76,20 +78,20 @@ hs.addEventListener('click', e => {
   if (sel) {
     const fn = h.use && h.use[sel];
     if (fn) t = fn();
-    else { t = pick(h.no && h.no[sel]) || (room().noUse && room().noUse(sel, h.id)) || nope(book.items[sel].n); sfx('no'); }
+    else { t = pick(h.no && h.no[sel]) || (room().noUse && room().noUse(sel, h.id)) || nope(nm(sel)); sfx('no'); }
     sel = null; renderInv();
   } else { t = h.act(); sfx('click'); }
   if (t) say(t); render();
 });
 invEl.addEventListener('click', e => {
   const b = e.target.closest('.slot[data-i]'); if (!b) return; const i = b.dataset.i;
-  if (!sel) { sel = i; renderInv(); say(`<b>${book.items[i].n}</b> ausgewählt. Tippe auf etwas im Raum oder auf einen anderen Gegenstand. Nochmal tippen zum Ansehen.`); sfx('click'); return; }
+  if (!sel) { sel = i; renderInv(); say(tf('<b>{0}</b> ausgewählt. Tippe auf etwas im Raum oder auf einen anderen Gegenstand. Nochmal tippen zum Ansehen.', nm(i))); sfx('click'); return; }
   if (sel === i) { sel = null; renderInv(); if (book.items[i].paper) openPaper(i); else closeUp(i); return; }
   const c = room().combos.find(c => (c.a === sel && c.b === i) || (c.b === sel && c.a === i));
   if (c) { sel = null; const t = c.t(); renderInv(); say(t); sfx('unlock'); render(); }
   else {
     const k = [sel, i].sort().join('+'), r = room();
-    say(pick(r.comboNo && r.comboNo[k]) || `<b>${book.items[sel].n}</b> und <b>${book.items[i].n}</b> lassen sich nicht kombinieren.`);
+    say(pick(r.comboNo && r.comboNo[k]) || tf('<b>{0}</b> und <b>{1}</b> lassen sich nicht kombinieren.', nm(sel), nm(i)));
     sfx('no'); sel = null; renderInv();
   }
 });
@@ -97,14 +99,14 @@ invEl.addEventListener('click', e => {
 /* ---------- Dialoge ---------- */
 export function closeModals() { let any = false; document.querySelectorAll('.modal.on').forEach(m => { m.classList.remove('on'); any = true; }); return any; }
 document.querySelectorAll('[data-close]').forEach(b => b.onclick = () => b.closest('.modal').classList.remove('on'));
-function openPaperHTML(t, h) { $('pTitle').textContent = t; $('pText').innerHTML = h; $('mPaper').classList.add('on'); sfx('slide'); }
+function openPaperHTML(t, h) { $('pTitle').textContent = tr(t); $('pText').innerHTML = tr(h); $('mPaper').classList.add('on'); sfx('slide'); }
 function openPaper(i) { openPaperHTML(book.items[i].paper[0], book.items[i].paper[1]); }
 function closeUp(i) {
   const it = book.items[i], big = book.asset('big/' + it.i.replace(/\.\w+$/, '.webp'));
-  dialog(it.n, `<div class="closeUp"><img src="${big}" alt="" onerror="this.onerror=null;this.src='${book.asset(it.i)}'"></div><p>${desc(i)}</p>`);
+  dialog(nm(i), `<div class="closeUp"><img src="${big}" alt="" onerror="this.onerror=null;this.src='${book.asset(it.i)}'"></div><p>${desc(i)}</p>`);
   sfx('slide');
 }
-function dialog(title, html, closeLabel = 'Schließen') { $('dTitle').textContent = title; $('dBody').innerHTML = html; $('dClose').textContent = closeLabel; $('mDlg').classList.add('on'); return $('dBody'); }
+function dialog(title, html, closeLabel = 'Schließen') { $('dTitle').textContent = tr(title); $('dBody').innerHTML = tr(html); $('dClose').textContent = tr(closeLabel); $('mDlg').classList.add('on'); return $('dBody'); }
 function closeDialog() { $('mDlg').classList.remove('on'); }
 
 // Zahlen-Tastenfeld (Tresor): nutzt room().code und room().onCode()
@@ -133,11 +135,11 @@ const drawRings = () => {
   }
   $('rings').innerHTML = ring.map((v, k) => `<div class="ring"><button data-r="${k}" data-d="-1" aria-label="hoch">▲</button><div class="sy">${LK.show(LK.vals[v])}</div><button data-r="${k}" data-d="1" aria-label="runter">▼</button></div>`).join('');
 };
-function openLock(cfg) { LK = cfg; ring = cfg.start.slice(); $('lockTitle').textContent = cfg.title; drawRings(); $('mLock').classList.add('on'); }
+function openLock(cfg) { LK = cfg; ring = cfg.start.slice(); $('lockTitle').textContent = tr(cfg.title); drawRings(); $('mLock').classList.add('on'); }
 $('rings').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const k = +b.dataset.r, n = LK.vals.length; ring[k] = (ring[k] + (+b.dataset.d) + n) % n; sfx('click'); drawRings(); });
 $('bLockOpen').onclick = () => {
   if (ring.map(v => LK.vals[v]).join() === LK.code.join()) { $('mLock').classList.remove('on'); sfx('unlock'); LK.ok(); }
-  else { sfx('no'); const c = $('lockCard'); c.classList.remove('shake'); void c.offsetWidth; c.classList.add('shake'); say('Du ruckelst am Schloss. Es bleibt zu.'); }
+  else { sfx('no'); const c = $('lockCard'); c.classList.remove('shake'); void c.offsetWidth; c.classList.add('shake'); say(tr('Du ruckelst am Schloss. Es bleibt zu.')); }
 };
 
 // Hinweise: room().hint() liefert einen Text ODER eine Liste [Schubs, Tipp, Lösung].
@@ -145,11 +147,11 @@ $('bLockOpen').onclick = () => {
 function hintSteps() { const h = room().hint(); return Array.isArray(h) ? h : [h]; }
 function showHints() {
   const steps = hintSteps(), id = steps[0], lv = S.hintLv[id] || 0, more = lv < steps.length;
-  const read = steps.slice(0, lv).map((t, k) => `<p class="paper" style="margin:0 0 8px"><small style="display:block;font-style:normal;opacity:.7">Hinweis ${k + 1} von ${steps.length}</small>${t}</p>`).join('');
+  const read = steps.slice(0, lv).map((t, k) => `<p class="paper" style="margin:0 0 8px"><small style="display:block;font-style:normal;opacity:.7">${tf('Hinweis {0} von {1}', k + 1, steps.length)}</small>${tr(t)}</p>`).join('');
   const btn = !more ? '' : S.freeHint
-    ? `<button class="btn pri" id="bHintGo">${lv ? 'Nächster Hinweis' : 'Hinweis ansehen'} (gratis)</button><p class="small">Ein Hinweis pro Kapitel ist kostenlos.</p>`
-    : `<button class="btn pri" id="bHintGo">${lv ? 'Nächster Hinweis' : 'Hinweis'}: kurze Werbung ansehen</button>`;
-  $('hintBody').innerHTML = (read || '<p>Steckst du fest? Hinweise kommen in Stufen: erst ein kleiner Schubs, am Ende die Lösung.</p>') + btn + '<br><button class="btn" id="bNo">' + (read ? 'Schließen' : 'Nein danke') + '</button>';
+    ? `<button class="btn pri" id="bHintGo">${tf('{0} (gratis)', tr(lv ? 'Nächster Hinweis' : 'Hinweis ansehen'))}</button><p class="small">${tr('Ein Hinweis pro Kapitel ist kostenlos.')}</p>`
+    : `<button class="btn pri" id="bHintGo">${tf('{0}: kurze Werbung ansehen', tr(lv ? 'Nächster Hinweis' : 'Hinweis'))}</button>`;
+  $('hintBody').innerHTML = (read || '<p>' + tr('Steckst du fest? Hinweise kommen in Stufen: erst ein kleiner Schubs, am Ende die Lösung.') + '</p>') + btn + '<br><button class="btn" id="bNo">' + tr(read ? 'Schließen' : 'Nein danke') + '</button>';
   $('bNo').onclick = () => $('mHint').classList.remove('on');
   const go = $('bHintGo'); if (!go) return;
   go.onclick = async () => {
@@ -162,7 +164,7 @@ $('bHint').onclick = () => { showHints(); $('mHint').classList.add('on'); };
 // Lupe: zeigt nur Stellen, die noch nicht untersucht wurden
 $('bLook').onclick = () => {
   const fresh = [...hs.querySelectorAll('.h')].filter(h => !S.seen.includes(h.dataset.id));
-  if (!fresh.length) { say('Du hast hier schon alles untersucht. Vielleicht hilft einer deiner Gegenstände weiter?'); return; }
+  if (!fresh.length) { say(tr('Du hast hier schon alles untersucht. Vielleicht hilft einer deiner Gegenstände weiter?')); return; }
   fresh.forEach(h => h.classList.add('show')); setTimeout(() => fresh.forEach(h => h.classList.remove('show')), 1400);
 };
 $('bSnd').onclick = () => { sound.on = !sound.on; $('sndW').style.display = sound.on ? '' : 'none'; };
@@ -183,10 +185,10 @@ function tutorial(force) {
     if (k >= TUT.length) { box.classList.remove('on'); try { localStorage.setItem('eb:tutorial', '1'); } catch (e) {} return; }
     const [sel, t] = TUT[k], r = document.querySelector(sel).getBoundingClientRect(), pad = 6;
     Object.assign(hole.style, { left: r.left - pad + 'px', top: r.top - pad + 'px', width: r.width + pad * 2 + 'px', height: r.height + pad * 2 + 'px' });
-    $('tutMsg').innerHTML = `<b>${k + 1} / ${TUT.length}</b> ${t}`;
+    $('tutMsg').innerHTML = `<b>${k + 1} / ${TUT.length}</b> ${tr(t)}`;
     const below = r.top + r.height / 2 < innerHeight / 2;
     txt.style.top = below ? Math.min(r.bottom + 18, innerHeight - 170) + 'px' : ''; txt.style.bottom = below ? '' : Math.max(innerHeight - r.top + 18, 16) + 'px';
-    $('tutNext').textContent = k === TUT.length - 1 ? 'Los geht’s' : 'Weiter';
+    $('tutNext').textContent = tr(k === TUT.length - 1 ? 'Los geht’s' : 'Weiter');
   };
   $('tutNext').onclick = () => { k++; step(); };
   box.classList.add('on'); requestAnimationFrame(step);
@@ -196,23 +198,24 @@ export const showTutorial = () => tutorial(true);
 /* ---------- Ablauf ---------- */
 let ty = null;
 function intro() {
-  const r = room(), el = $('introText'); $('introTitle').textContent = `${r.chapter}: ${r.title}`;
+  const r = room(), el = $('introText'); $('introTitle').textContent = `${tr(r.chapter)}: ${tr(r.title)}`;
+  const lines = r.intro.map(tr);
   const ii = $('introImg'); ii.hidden = !r.introImg; if (r.introImg) ii.src = r.introImg; el.innerHTML = ''; let p = 0, c = 0; clearInterval(ty);
   ui.screen('sIntro');
-  ty = setInterval(() => { if (p >= r.intro.length) { clearInterval(ty); return; } if (c === 0) el.insertAdjacentHTML('beforeend', '<p></p>'); el.lastElementChild.textContent = r.intro[p].slice(0, ++c); $('sIntro').scrollTop = 1e6; if (c >= r.intro[p].length) { p++; c = 0; } }, 26);
+  ty = setInterval(() => { if (p >= lines.length) { clearInterval(ty); return; } if (c === 0) el.insertAdjacentHTML('beforeend', '<p></p>'); el.lastElementChild.textContent = lines[p].slice(0, ++c); $('sIntro').scrollTop = 1e6; if (c >= lines[p].length) { p++; c = 0; } }, 26);
 }
 $('bIntro').onclick = () => { clearInterval(ty); enterRoom(room().firstMsg || book.firstMsg); };
 function enterRoom(m) { sel = null; S.playing = true; loadRoom(); render(); renderInv(); ui.screen('sGame'); say(m); if (book.onEnter) book.onEnter(); tutorial(); }
 
 function win() {
   const r = room(), s = Math.max(1, Math.round((Date.now() - S.t0) / 60000));
-  $('endTitle').textContent = r.end[0];
+  $('endTitle').textContent = tr(r.end[0]);
   const ei = $('endImg'); ei.hidden = !r.endImg; if (r.endImg) ei.src = r.endImg;
-  $('endText').innerHTML = r.end[1];
-  $('endStats').textContent = `Zeit: ca. ${s} Min · Hinweise: ${S.hints}`;
+  $('endText').innerHTML = tr(r.end[1]);
+  $('endStats').textContent = tf('Zeit: ca. {0} Min · Hinweise: {1}', s, S.hints);
   const next = book.rooms[S.room + 1];
-  $('bNext').hidden = !next; $('bNext').textContent = next ? `Weiter zu ${next.chapter}` : '';
-  $('endSoon').textContent = next ? '' : (r.soon || '');
+  $('bNext').hidden = !next; $('bNext').textContent = next ? tf('Weiter zu {0}', tr(next.chapter)) : '';
+  $('endSoon').textContent = next ? '' : tr(r.soon || '');
   S.maxDone = Math.max(S.maxDone || 0, S.room + 1); S.playing = false; S.f.done = 1; save();
   ui.screen('sEnd'); ui.onWin();
 }
@@ -230,7 +233,7 @@ export function restartBook() { resetState({}); save(); startChapter(0); }
 export function leaveToBook() { clearInterval(ty); save(); }
 
 // Buch laden: die Buch-Funktion bekommt die Engine-Schnittstelle
-const api = { S, give, take, has, say, sfx, tone, render, win, openLock, openSafe, openPaper, openPaperHTML, flash, cutStyle, room, dialog, closeDialog };
+const api = { tr, tf, lang: getLang, S, give, take, has, say, sfx, tone, render, win, openLock, openSafe, openPaper, openPaperHTML, flash, cutStyle, room, dialog, closeDialog };
 const cache = new Map();
 export function useBook(factory, hooks) {
   if (!cache.has(factory)) cache.set(factory, factory(api));

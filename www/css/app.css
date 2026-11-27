@@ -192,3 +192,10 @@ header h1{flex:1;font:20px/1 "IM Fell English SC",serif;margin:0;color:var(--amb
 .calNote{margin-top:10px;text-align:right;font:italic 15px Georgia,serif;color:#a3221a;transform:rotate(-4deg)}
 /* Opa */
 .opaImg{display:block;width:min(300px,76vw);aspect-ratio:3/4;object-fit:cover;margin:0 auto 6px;border-radius:6px;box-shadow:0 10px 30px #000a}
+/* Sprachwahl */
+.libIn{position:relative}
+.langBtn{position:absolute;right:18px;top:max(28px,var(--sat));width:auto;padding:0 10px;gap:6px;display:flex;align-items:center;font-weight:700;font-size:14px;text-transform:uppercase}
+.libHead h1{padding-right:84px}
+.langList{display:grid;gap:8px}
+.langList button{min-height:48px;border-radius:12px;border:1px solid var(--line);background:#22322f;font-size:17px}
+.langList button.on{border-color:var(--amber);box-shadow:0 0 0 2px var(--amber)}

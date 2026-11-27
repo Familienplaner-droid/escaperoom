@@ -12,20 +12,21 @@
 <!-- BÜCHERREGAL -->
 <section class="screen lib on" id="sLib">
  <div class="libIn">
-  <div class="libHead"><h1>Escape-Bücher</h1><p>Wähle eine Geschichte. Jede ist ein Rätselabenteuer zum Mitnehmen.</p></div>
+  <button class="ib langBtn" id="bLang" aria-label="Sprache" data-i18n-aria="Sprache"><svg viewBox="0 0 24 24" fill="none" stroke="#efe4cf" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg><span id="langCode"></span></button>
+  <div class="libHead"><h1 data-i18n="Escape-Bücher">Escape-Bücher</h1><p data-i18n="Wähle eine Geschichte. Jede ist ein Rätselabenteuer zum Mitnehmen.">Wähle eine Geschichte. Jede ist ein Rätselabenteuer zum Mitnehmen.</p></div>
   <div class="shelf" id="shelf"></div>
  </div>
 </section>
 
 <!-- BUCHSEITE -->
 <section class="screen bookPage" id="sBook">
- <div class="bpHero" id="bpHero"><button class="ib bpBack" id="bBookBack" aria-label="Zurück zum Bücherregal"><svg viewBox="0 0 24 24" fill="none" stroke="#efe4cf" stroke-width="2.4" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button></div>
+ <div class="bpHero" id="bpHero"><button class="ib bpBack" id="bBookBack" aria-label="Zurück zum Bücherregal" data-i18n-aria="Zurück zum Bücherregal"><svg viewBox="0 0 24 24" fill="none" stroke="#efe4cf" stroke-width="2.4" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button></div>
  <div class="bpIn">
   <h2 id="bpTitle"></h2>
   <div class="bpGenre" id="bpGenre"></div>
   <p id="bpTag"></p>
   <button class="btn pri" id="bPlay"></button>
-  <button class="btn" id="bRestart">Von vorne beginnen</button>
+  <button class="btn" id="bRestart" data-i18n="Von vorne beginnen">Von vorne beginnen</button>
   <ul class="chap" id="chapList"></ul>
  </div>
 </section>
@@ -35,18 +36,18 @@
   <img id="introImg" alt="" hidden>
   <h2 id="introTitle" style="font-size:clamp(30px,8vw,44px)"></h2>
   <div id="introText"></div>
-  <div class="introBar"><button class="btn pri" id="bIntro">Weiter</button></div>
+  <div class="introBar"><button class="btn pri" id="bIntro" data-i18n="Weiter">Weiter</button></div>
 </section>
 
 <!-- SPIEL -->
 <section class="screen" id="sGame">
  <div id="app">
   <header>
-    <button class="ib" id="bGameBack" aria-label="Zur Kapitelübersicht"><svg viewBox="0 0 24 24" fill="none" stroke="#efe4cf" stroke-width="2.4" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="ib" id="bGameBack" aria-label="Zur Kapitelübersicht" data-i18n-aria="Zur Kapitelübersicht"><svg viewBox="0 0 24 24" fill="none" stroke="#efe4cf" stroke-width="2.4" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
     <h1 id="roomTitle"></h1>
-    <button class="ib" id="bLook" aria-label="Interessante Stellen zeigen"><svg viewBox="0 0 24 24" fill="none" stroke="#efe4cf" stroke-width="2"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg></button>
-    <button class="ib" id="bHint" aria-label="Hinweis"><svg viewBox="0 0 24 24" fill="none" stroke="#f2b35b" stroke-width="2"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></button>
-    <button class="ib" id="bSnd" aria-label="Ton an oder aus"><svg viewBox="0 0 24 24" fill="none" stroke="#efe4cf" stroke-width="2"><path d="M4 9h4l5-4v14l-5-4H4z"/><path id="sndW" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></button>
+    <button class="ib" id="bLook" aria-label="Interessante Stellen zeigen" data-i18n-aria="Interessante Stellen zeigen"><svg viewBox="0 0 24 24" fill="none" stroke="#efe4cf" stroke-width="2"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg></button>
+    <button class="ib" id="bHint" aria-label="Hinweis" data-i18n-aria="Hinweis"><svg viewBox="0 0 24 24" fill="none" stroke="#f2b35b" stroke-width="2"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></button>
+    <button class="ib" id="bSnd" aria-label="Ton an oder aus" data-i18n-aria="Ton an oder aus"><svg viewBox="0 0 24 24" fill="none" stroke="#efe4cf" stroke-width="2"><path d="M4 9h4l5-4v14l-5-4H4z"/><path id="sndW" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></button>
   </header>
   <div id="stage"><div id="scene">
    <img class="room" id="roomImg" alt="">
@@ -66,21 +67,21 @@
   <p id="endText"></p>
   <p class="small" id="endStats"></p>
   <div class="endBtns">
-   <button class="btn pri" id="bNext">Weiter</button>
-   <button class="btn" id="bToBook">Zur Kapitelübersicht</button>
+   <button class="btn pri" id="bNext" data-i18n="Weiter">Weiter</button>
+   <button class="btn" id="bToBook" data-i18n="Zur Kapitelübersicht">Zur Kapitelübersicht</button>
   </div>
   <p class="small" id="endSoon"></p>
 </section>
 
 <!-- DIALOGE -->
-<div class="modal" id="mPaper"><div class="card"><h3 id="pTitle"></h3><div class="paper" id="pText"></div><br><button class="btn" data-close>Schließen</button></div></div>
-<div class="modal" id="mSafe"><div class="card" id="safeCard"><h3>Tresor</h3><div id="code"><span></span><span></span><span></span><span></span></div><div id="pad"></div><br><button class="btn" data-close>Zurück</button></div></div>
-<div class="modal" id="mLock"><div class="card" id="lockCard"><h3 id="lockTitle"></h3><div id="rings" style="display:flex;gap:10px;justify-content:center;margin:10px 0 16px"></div><button class="btn pri" id="bLockOpen">Öffnen</button><br><button class="btn" data-close>Zurück</button></div></div>
-<div class="modal" id="mDlg"><div class="card"><h3 id="dTitle"></h3><div id="dBody"></div><button class="btn" id="dClose" data-close>Schließen</button></div></div>
-<div class="modal" id="mHint"><div class="card"><h3>Hinweis</h3><div id="hintBody"></div></div></div>
-<div class="modal" id="mConfirm"><div class="card"><h3 id="cTitle"></h3><p id="cText"></p><button class="btn pri" id="cYes"></button><br><button class="btn" data-close>Abbrechen</button></div></div>
+<div class="modal" id="mPaper"><div class="card"><h3 id="pTitle"></h3><div class="paper" id="pText"></div><br><button class="btn" data-close data-i18n="Schließen">Schließen</button></div></div>
+<div class="modal" id="mSafe"><div class="card" id="safeCard"><h3 data-i18n="Tresor">Tresor</h3><div id="code"><span></span><span></span><span></span><span></span></div><div id="pad"></div><br><button class="btn" data-close data-i18n="Zurück">Zurück</button></div></div>
+<div class="modal" id="mLock"><div class="card" id="lockCard"><h3 id="lockTitle"></h3><div id="rings" style="display:flex;gap:10px;justify-content:center;margin:10px 0 16px"></div><button class="btn pri" id="bLockOpen" data-i18n="Öffnen">Öffnen</button><br><button class="btn" data-close data-i18n="Zurück">Zurück</button></div></div>
+<div class="modal" id="mDlg"><div class="card"><h3 id="dTitle"></h3><div id="dBody"></div><button class="btn" id="dClose" data-close data-i18n="Schließen">Schließen</button></div></div>
+<div class="modal" id="mHint"><div class="card"><h3 data-i18n="Hinweis">Hinweis</h3><div id="hintBody"></div></div></div>
+<div class="modal" id="mConfirm"><div class="card"><h3 id="cTitle"></h3><p id="cText"></p><button class="btn pri" id="cYes"></button><br><button class="btn" data-close data-i18n="Abbrechen">Abbrechen</button></div></div>
 
-<div id="tut"><div id="tutHole"></div><div id="tutText"><span id="tutMsg"></span><button class="btn pri" id="tutNext">Weiter</button></div></div>
+<div id="tut"><div id="tutHole"></div><div id="tutText"><span id="tutMsg"></span><button class="btn pri" id="tutNext" data-i18n="Weiter">Weiter</button></div></div>
 
 <script type="module" src="js/app.js"></script>
 </body>

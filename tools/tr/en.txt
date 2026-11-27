@@ -1,0 +1,659 @@
+0|A crumpled note
+1|My dear girl,<br><br>don’t be afraid. I know you don’t remember anything – not this house, and not me.<br><br>I have built you a path, room by room, just like the treasure hunts you loved so much when you were little. Someone is waiting for you at the end.<br><br>And remember what I always told you: <b>Some things you only see once the light goes out.</b><br><br>– V.
+2|Fire poker
+3|A heavy iron fire poker with a brass handle. The tip is bent and quite thin.
+4|Flashlight (empty)
+5|An old flashlight. The battery compartment is empty.
+6|Two old batteries. Hopefully there’s still some juice left.
+7|It works! Faint, but good enough.
+8|Brass key
+9|A small, delicate key. Too small for a door.
+10|The opened pocket watch. Engraved inside: “For V. – time belongs to us.”
+11|An old, scratched pocket watch. It has stopped. The back cover is stuck tight – you can’t open it with your bare fingers.
+12|A fine brass gear. Too big for the pocket watch – it belongs in a larger clockwork.
+13|March 12th<br><br>Today my little Elena was born. At that very moment I stopped the big grandfather clock, took out a gear and hid it in my pocket watch. That way the clock holds on to the moment forever – as soon as it runs again, it will show it.<br><br>I set my safe to exactly that time.<br><br>– V.
+14|Door key
+15|A large, ornate brass key.
+16|Old photo
+17|The Morgenrot lighthouse on a stormy night. On the back, in shaky handwriting:<br><br><b>“For Elena. If you’re reading this, you are home at last. – Grandpa Viktor”</b>
+18|White queen
+19|An ivory chess piece, the white queen. It has a fine crack.
+20|Rusty winding key
+21|A small winding key with a butterfly handle. Completely rusted – it won’t turn a millimeter.
+22|Oil can
+23|A brass oil can. There’s still a little oil inside.
+24|Oiled winding key
+25|Freshly oiled, the winding key shines again. Now it should turn.
+26|Cabinet key
+27|A dainty silver key. The tag says, in Grandpa’s handwriting: “Cabinet”.
+28|A piece of old hemp string, a few meters long.
+29|A strong horseshoe magnet. It attracts anything made of iron.
+30|A magnet on a string. Perfect for fishing for iron.
+31|An iron crank with two ball ends, dripping wet. It looks like it belongs to a vise.
+32|Matches
+33|A box of matches wrapped in wax paper. Dry!
+34|An old corkscrew with a wooden handle.
+35|A green bottle with a rolled-up paper inside. The cork is stuck fast – you can’t get it out with your fingers.
+36|Grandpa’s message
+37|Elena,<br><br>down here we worked on your little boat every winter. Do you remember what you named it?<br><br>You painted the way to the sea on the wall yourself. But you always read it <b>backwards</b> – hopping along like over the stones on the beach: <b>take one sign, skip one.</b> Three hops, and you were there.<br><br>Grandpa
+38|Elena’s boat
+40|On the hull, in wobbly child’s handwriting: <b>“Leo”</b>.<br><br>Leo … that was Grandpa’s old dog. And you named your boat after him. The memory is suddenly there, warm and bright: a big, shaggy dog running beside you on the beach.
+41|A long wooden pole with a brass hook. You can reach far with it.
+42|An old claw hammer. For driving nails in – and pulling them out.
+43|Nails
+44|A tin full of rusty but sturdy nails.
+45|A copper sign, slightly bent. Big enough for the hole in the boat – but not watertight.
+46|An old flat paintbrush with clean bristles.
+47|The brush is dripping with black tar.
+48|Tarred plate
+49|The copper sign, thickly coated with tar. A watertight patch.
+50|A folding knife with a wooden handle. The blade is rusty but sharp.
+51|Grandpa’s old storm lighter. It sparks, but it’s empty – no fuel.
+52|Burning lighter
+53|The lighter, freshly filled with kerosene. The flame flickers bravely.
+54|A heavy can, still half full of kerosene. The opening is wide.
+55|Can with funnel
+56|Can and funnel – now you can pour into small openings too.
+57|An old tin funnel with a hanging ring.
+58|A new, wide cotton lamp wick.
+59|Large gear
+60|A heavy brass gear with six spokes.
+61|Small gear
+62|A small steel gear with a square hole. Oily.
+63|Grandpa’s last letter
+64|My Elena,<br><br>you’ve made it all the way. Through the study, where you built caves under the desk as a child. Through the library, where I read Treasure Island to you. Through the cellar, where Leo slept beside you while we tinkered with the boat.<br><br>Memories are like a lighthouse beam. Sometimes a storm puts it out. But it can be lit again.<br><br>The dried flower is from the beach – you gave it to me when you were six.<br><br>With love,<br>your Grandpa Viktor
+65|Grandpa’s letter
+66|My dear Elena,<br><br>if you are reading these lines, my plan has worked. Since your accident you remember nothing – not me, not Morgenrot, not our summers at the lighthouse.<br><br>The doctors say memories come back through places. So I built you a path, room by room, riddle by riddle – just like when you were little.<br><br>Don’t be afraid. I am waiting at the lighthouse.<br><br>You know the way down: <b>… then the light, and last the tower.</b><br><br>Your Grandpa Viktor
+67|The Study
+68|Chapter 1
+69|A headache. The smell of old paper and cold smoke.
+70|You open your eyes. A study you have never seen before. Outside, the sea is roaring.
+71|You don’t know how you got here. You don’t even know your own name.
+72|The door is locked. But in your hand there is a crumpled note.
+73|In your hand: a <b>note</b>. Tap it twice in the inventory below to read it.
+74|A mechanical pocket watch doesn’t need batteries.
+75|The watch has no keyhole – just a cover that’s stuck.
+76|In the light you can see: the cover isn’t locked, it’s just stuck.
+77|You put in the batteries. Click – the flashlight flickers on!
+78|The watch is already open.
+79|Carefully you pry the back cover open with the thin tip of the poker. A <b>gear</b> drops into your hand!
+81|The safe springs open! Inside: a <b>door key</b> and an <b>old photo</b>.
+82|Books about seafaring, lighthouses and navigation. Someone here loved the sea.
+83|A ship in a bottle. On its tiny stern it says: <b>“Morgenrot”</b>.
+84|A nautilus shell. It still smells a little of salt.
+85|A brass sextant. Sailors used it to find their position by the stars.
+86|An old sea chart. A small island is circled in red, with a tiny lighthouse next to it.
+87|A telescope. The lens is scratched.
+88|Poke a hole in the painting? Better not.
+89|The painting hangs crooked. When you try to straighten it, it comes off its hook. You lift it down and set it aside – behind it is a <b>safe</b>!
+90|The safe is made of thick steel. No chance.
+91|The safe has no keyhole – just a combination lock.
+92|The diary doesn’t tell you the code directly. But it tells you where to look.
+93|The safe is empty.
+94|A heavy safe with a combination lock. Four digits.
+95|You switch on the flashlight … nothing. Without batteries it stays dark.
+96|Cold ashes and charred logs. Above the hearth the chimney yawns, <b>pitch dark</b>.
+97| The key glints up there.
+98|Only soot and cobwebs.
+99|Something flashes in the beam: a <b>key</b> hangs on a hook inside the chimney. Far too high to reach.
+100|You poke around in the ashes. Nothing. It’s too dark to see anything further up.
+101|There’s nothing left there.
+102|You fish upward with the hook – clink! A small <b>brass key</b> drops into the ashes.
+103|You pull the <b>fire poker</b> out of the fireplace set.
+104|Shovel, tongs, brush. You already have the poker.
+105|The grandfather clock is purely mechanical. Batteries won’t help here.
+106|Poke around in the delicate clockwork? Then it’ll be broken for good.
+107|Two clocks – but no answer. Maybe the small one holds something the big one is missing?
+108|The grandfather clock is ticking again. The hands point to <b>9:12</b>.
+109|A magnificent grandfather clock. The pendulum hangs still, the hands droop limply. Through the glass you can see: the clockwork is <b>missing a gear</b>.
+110|The gear clicks into place. The pendulum begins to swing, the hands whirl around … and stop at <b>9:12</b>.
+111|A solid oak door. <b>Locked.</b> The keyhole is big and old.
+112|Break the door open? Solid oak. The poker would break first.
+113|Far too small for this big lock.
+114|You shine the light into the keyhole. Behind it: only darkness.
+115|You slide the note under the door … and quickly pull it back. You still need it.
+116|The key turns heavily in the lock … the door creaks open. Warm light falls in.
+117|A dried-up rubber plant. Nobody has watered it in months.
+118|A heavy Persian rug. The corner is folded back.
+119|A heavy Persian rug. It smells of dust and pipe tobacco.
+120|Right where the cross glowed in the dark, you fold back the corner. Underneath: a <b>loose floorboard</b>.
+121|An empty hole in the floor.
+122|The board wobbles, but you can’t lift it with your fingers. You need a <b>lever</b>.
+123|You pry the board up. Underneath are two <b>batteries</b>!
+124|The leather chair still has a slight dent. Someone sat here for many, many hours.
+125|The drawer is empty.
+126|The desk drawer is locked. A <b>small brass lock</b>.
+127|Far too big for the delicate lock.
+128|Force it open? This beautiful old piece of furniture? Something inside you refuses.
+129|Click! The drawer slides open. Inside: a <b>diary page</b> and a <b>pocket watch</b>.
+130|Click. Only candlelight now … and suddenly <b>something glows</b> faintly green in the room. On the rug – and on the globe!
+131|Click. Only candlelight. The greenish marks glow again.
+132|Click. Warm, green light. The glowing marks have vanished.
+133|The gramophone plays a crackling melody. It feels strangely familiar … as if you heard it as a child.
+134|On the globe a tiny island glows, traced in luminous paint. Next to it, barely legible: <b>“Morgenrot – Elena lives here in summer”</b>.
+135|In the light you can hardly see the luminous paint – just a tiny island, carefully outlined.
+136|An old globe. It turns with a squeak. The seas have been traced by hand.
+137|A thick book: “Lighthouses of the North Sea”. You open it – it’s <b>hollow</b>! Inside lies a flashlight.
+138|The hollow book is empty.
+139|On the desk lies a book that looks strangely light.
+140|Tap the thick book at the front left of the desk.
+141|Read Grandpa’s note again. What does he say about the light?
+142|Some things you only see in the dark. What gives light in here?
+143|Switch off the desk lamp: tap the lamp and then look around.
+144|Next to the fireplace there’s something useful.
+145|Take the poker from the fireplace set.
+146|Something on the rug glowed in the dark.
+147|Tap the rug, right where the cross was.
+148|A board wobbles under the rug.
+149|You need a lever. The poker will do.
+150|Select the poker and tap the floorboard.
+151|The flashlight needs power.
+152|Combine the flashlight and batteries in your inventory.
+153|Where in the room is it so dark that you’d need a lamp?
+154|Shine the flashlight into the fireplace.
+155|The key hangs too high for your hands.
+156|Something long with a hook might help.
+157|Use the poker on the fireplace.
+158|A small key fits a small lock.
+159|The desk drawer is locked.
+160|The pocket watch’s cover is stuck.
+161|Something thin and sturdy could pry it open.
+162|Combine the pocket watch and poker in your inventory.
+163|The gear is too big for the pocket watch.
+164|Where in the room is there a big clockwork?
+165|Use the gear on the grandfather clock.
+166|Have you looked closely at the pictures in the room?
+167|The painting above the fireplace hangs crooked.
+168|Grandpa set the safe to a special time.
+169|Read the diary page. Which moment does Grandpa mean? The grandfather clock will show it to you.
+170|The code is 0912.
+171|You have the door key.
+172|Use it on the door.
+173|Chapter 1 complete
+174|Behind the door lies a long, candlelit hallway. Somewhere another clock is ticking. And the photo showed a name that feels like your own: <b>Elena</b>. But why did your grandfather lock you in here?
+175|The Island
+176|The Light
+177|The Tower
+178|The Sea
+179|The Storm
+180|The Harbor
+181|The Library
+182|Chapter 2
+183|The hallway ends at a heavy double door. Behind it: a library so tall that the shelves vanish into darkness.
+184|Through the window you see it – the lighthouse from the painting. Up there, a light is burning.
+185|Behind you the door falls shut. Of course.
+186|A chess piece and a key. Pretty, but useless together.
+187|You shine the light through the envelope … reading is easier if you just open it.
+188|You drip oil onto the rusty key and rub it clean. It shines again!
+190|Travel journals, sailors’ yarns, ship registers. One spine says, in a child’s handwriting: “Elena’s book – hands off!”
+191|The top shelf. Far too high – and completely dark.
+192|Only dust up there now. And small footprints in the dust … like a child’s shoes.
+193|You climb up the ladder. The top shelf lies <b>pitch dark</b> before you – you can’t see your hand in front of your face.
+194|There’s nothing left up there.
+195|You climb up and shine the light into the top shelf. Among the cobwebs stands a small <b>oil can</b>.
+196|A bronze bust. A stern gentleman with curls. Someone has drawn a mustache on him – in pencil.
+197|An armillary sphere. The rings show the paths of the stars. It turns, but nothing happens.
+198|In the light you can read the titles: “The Island”, “The Light”, “The Tower”, “The Sea”, “The Storm”, “The Harbor”.
+199|Four books with splendid gold embossing, ordinary ones in between. You try to pull one out – it’s <b>stuck fast</b>, as if bolted from behind.
+200|The books can now be pulled out a little. But in which order?
+201|Chess for Captains
+202|Between books about lighthouses there’s a thin booklet. One page has a dog-ear:<br><br><b>The Back-Rank Mate</b><br>A king hiding behind his own pawns has no room to breathe. A check on his last rank – and it’s over.<br><br>But beware: if a knight or a bishop guards the square, your queen will simply be captured.<br><br><i>In the margin, in pencil:</i> “Elena was better at this at eight than I am. V.”
+203|A booklet about chess, with a dog-ear.
+204|A small globe. The island of Morgenrot is marked with a cross.
+205|Two little bottles of sand. The labels say: “Beach, 2009” and “Beach, 2010”.
+206|A small chest. Empty – except for half a dried starfish.
+207|Outside the sea is raging. On the cliff stands the lighthouse. Its beam sweeps over the water, again and again.
+208|Heavy velvet curtains. They smell of salt and dust.
+209|At the foot of the lighthouse stands a figure with a lantern. It swings the light – three times. As if greeting you.
+210|You look through the telescope toward the lighthouse …
+211|The winding key doesn’t fit the cabinet lock.
+212|You shine the light inside: at the very back lies an envelope with your name on it. “For Elena”.
+213|Shells, corals, an ammonite. You already have the letter.
+214|A display cabinet with shells, corals and fossils. At the very back lies an <b>envelope</b>. The glass door is <b>locked</b>.
+215|The little key fits. The glass door swings open – you take out the <b>letter</b>. The envelope says: “For Elena”. At the same moment something clicks in the middle bookshelf – as if a bolt had come loose.
+216|Far too dainty for the winding hole.
+217|A few drops into the winding hole … but you still have to turn it yourself. With a key.
+218|You hold the queen out to the parrot. It looks at you with glass eyes. No reaction.
+219|The parrot hums softly … the melody from the gramophone in the study! Your heart is pounding. You know it. From long ago.
+220|A mechanical brass <b>parrot</b> in a golden cage. In its back is a small <b>winding keyhole</b>.
+221|The key fits, but it’s so rusty it won’t turn a millimeter.
+222|Rrrk-rrrk-rrrk. The parrot puffs itself up and squawks: <b>“Squawk! First the sea, then the storm … Squawk!”</b> Then a small <b>key</b> drops from its beak.
+223|Moonlight paints the window cross on the floor.
+224|You feel between the cushions of the wingback chair … and pull out a chess piece: the <b>white queen</b>.
+225|A worn wingback chair. A blanket lies over it, as if someone had been reading here just now.
+226|An oil lamp. It’s burning – someone lit it recently.
+227|On the side table lies a well-thumbed book: “Treasure Island”. A dedication: “To be read aloud until she falls asleep. V.”
+228|The white queen stands on e8. Checkmate. The secret compartment is open.
+229|An unfinished game of chess. A note is tucked under the board: <b>“White to move and mate. Place the queen correctly – then the table will open. V.”</b> The white queen is missing.
+230|You look in vain for a keyhole on the chess table.
+231|In the light you can see: under the edge of the table there’s a fine seam. There’s a compartment!
+232|The queen is already in place.
+233|Where should the queen go? Grandpa’s note: “White to move and mate.”
+234|Someone was reading here recently. Maybe something got lost.
+235|Tap the wingback chair and feel between the cushions.
+236|A note is tucked under the chess table. What does Grandpa ask?
+237|In the middle shelf there’s a booklet about chess. Read the page with the dog-ear.
+238|The black king is on g8, trapped by his own pawns. The knight and bishop guard b8, c8, a8 and d8.
+239|Put the queen on e8. Checkmate.
+240|At the very top of the left shelf it’s pitch dark.
+241|Take a light up the ladder.
+242|Select the flashlight and tap the ladder.
+243|The winding key is completely rusted.
+244|Oil loosens rust.
+245|Combine the oil can and the rusty key in your inventory.
+246|Who here has a winding keyhole?
+247|The mechanical parrot in the cage.
+248|The little key has a tag. What does it say?
+249|It fits the display cabinet under the window.
+250|The parrot knows the beginning of the rhyme, Grandpa’s letter the end.
+251|Read the letter and remember the parrot. Which four books fit?
+252|Pull from the middle shelf: The Sea, The Storm, The Light, The Tower.
+253|Chapter 2 complete
+254|The shelf swings aside. Behind it a stone staircase winds down into the depths. Cold, salty air rises up – and somewhere down there the sea is roaring.<br><br>Grandpa Viktor is waiting at the lighthouse. And you remember: a summer. A voice reading aloud.
+255|Seagull
+256|The Chalk Drawing
+257|The Cellar
+258|Chapter 3
+259|Chapter 4: The Boathouse – coming soon
+260|The spiral staircase leads deep down. It smells of salt, moss and old wood.
+261|On the last step the flashlight flickers – and dies. The batteries are empty.
+262|Only the moon shines through a barred window. Somewhere behind an iron gate the sea is roaring.
+263|Glass isn’t magnetic.
+264|Smash the bottle? Then the paper might tear too.
+265|You don’t light a flashlight.
+266|You tie the string tightly around the magnet. And there it is: a <b>magnet rod</b>!
+267|You twist in the corkscrew – pop! With your fingertips you pull the paper roll out of the bottle: a <b>message from Grandpa</b>.
+268|The spiral staircase up. The shelf has closed behind you – there’s no going back.
+269|A heavy iron gate. Behind it a tunnel, from which cold sea air blows. A big <b>padlock</b> keeps it shut.
+270|The lock is solid.
+271|You bash the lock with the crank. It clangs. It stays shut.
+272|Drill around in the lock with a corkscrew? That only works in movies.
+273|The magnet sticks to the lock. Nothing else happens.
+274|Too dark. You feel <b>three dials</b> with engraved signs, but you can’t make anything out.
+275|The Padlock
+277|Clack! The lock springs open. The iron gate swings aside with a squeak.
+278|Three dials with symbols. Only when all are set correctly will the lock spring open.
+279|A small barred window. The moon is right behind it. Outside you hear the surf.
+280|Dusty wine bottles, some older than you. One label says: “For Elena’s wedding – do not open before!”
+281|Take the bottle out of the rack first.
+282|One bottle lies differently from the others. There’s a <b>paper roll</b> inside! You take the <b>message in a bottle</b>. The cork is stuck.
+283|Empty slots, lots of cobwebs.
+284|Pliers, hammer, saw, chisels – everything neatly in its place. Grandpa was thorough.
+285|The boat is made of wood. A magnet won’t stick.
+286|There’s nothing to uncork on the boat.
+287|A little wooden boat is stuck fast in the <b>vise</b>. The vise’s <b>crank</b> is missing – you can’t open it like this.
+288|Under the hull is a small compartment. Inside, wrapped in wax paper: <b>matches</b> – dry!
+289|Leo. Of course.
+290|The crank fits! You open the vise and lift out the little boat. Tap it to take a closer look.
+291|A plane, a tin of nails, fresh wood shavings. As if someone was working here only yesterday.
+292|An old linen cloth, full of red and blue paint splotches. The colors of the boat.
+293|Under the workbench it’s <b>pitch black</b>. You don’t dare reach in blindly.
+294|In the lantern light you see it: in the crate under the workbench lies a <b>corkscrew</b>.
+295|Scraps of wood and a few bent nails.
+296|A thick ship’s rope. Completely rotten and far too heavy.
+297|A thick stone pillar, damp and cool. Moss grows at its base.
+298|The magnet sticks to the iron lantern. That doesn’t make any light.
+299|The lantern burns calmly and warmly.
+300|An old <b>kerosene lantern</b>. There’s still kerosene sloshing inside. You’d need something to <b>light</b> it.
+301|Scritch – the match flares up. The lantern catches fire, warm light floods the cellar. And on the wall next to the pillar something appears: a <b>chalk drawing</b>!
+302|The flashlight is dead. Only fire will help here.
+303|Small notches in the pillar, each with a date: “Elena, 5 y.” – “6 y.” – “7 y.” … the last one at the very top: “Elena, 12 y.” You put your hand on it. It fits exactly under the notch.
+304|You untie the clothesline and wind up the <b>string</b>.
+305|The wall lies in shadow.
+306|A child’s chalk drawing: a path of six signs. Underneath: “The way to the sea – by Elena”.
+307|Preserving jars. One label in a child’s handwriting: “Blackberry jam – Elena &amp; Grandpa”.
+308|Grandpa’s old bicycle. A faded sticker on the handlebar: a seahorse.
+309|You open the toolbox. Among screws and nails: a <b>horseshoe magnet</b>. A whole cluster of nails is stuck to it.
+310|Screws, nails, a folding ruler.
+311|Without something that sticks, all you’ll catch is water.
+312|The flashlight is empty. And getting wet won’t make it better.
+313|Dark, icy water. Perfectly still.
+314|In the flooded corner <b>something metallic</b> glints under the water. It’s ice-cold and deeper than you thought – you can’t reach it with your hand.
+315|There’s nothing left down there.
+316|You lower the magnet rod into the water … clack! Something sticks. You pull out a dripping iron <b>crank</b>.
+317|The magnet would attract it – but you’d have to reach into the icy water. If only there were a way to lower it …
+318|Something hangs down here that could come in handy.
+319|A clothesline is stretched along the wall.
+320|Tap the clothesline.
+321|A toolbox often holds something useful.
+322|Look in the toolbox on the floor.
+323|With the string alone you catch nothing. With the magnet alone you can’t reach into the water.
+324|Combine the string and magnet in your inventory.
+325|Something metal glints in the puddle.
+326|Fish for it: use the magnet rod on the puddle.
+327|What does an iron crank with two balls belong to?
+328|The vise on the workbench has no crank.
+329|The boat is free now.
+330|Tap the boat and look at it closely.
+331|It’s dark. What down here could burn?
+332|A lantern hangs on the pillar.
+333|Use the matches on the lantern.
+334|With the light you can finally see into the dark corners.
+335|There’s a crate under the workbench.
+336|One of the wine bottles is different from the others.
+337|Tap the bottle with the paper in it, in the wine rack.
+338|The cork is stuck.
+339|Open the message in a bottle with the corkscrew.
+340|Grandpa’s message and the chalk drawing belong together.
+341|Read the drawing backwards and take only every second sign.
+342|Backwards: seagull, lighthouse, star, fish, anchor, shell. Every second one: seagull, star, anchor.
+343|Chapter 3 complete
+344|The lock springs open. With a squeak the iron gate swings aside. The tunnel leads downward, the roaring grows louder – and at the end light shimmers.<br><br>A boathouse. And inside, you’re quite sure: the big boat you two always wanted to build together.
+345|The Boathouse
+346|Chapter 4
+347|Chapter 5: The Lighthouse – coming soon
+348|The tunnel widens, the air grows saltier. Then you’re standing on creaking planks: Grandpa’s boathouse.
+349|A little sailboat bobs in the water. You know it at once: you built it together.
+350|Through the window you see the lighthouse. Its light is blinking – but not evenly. As if it were telling you something.
+351|The plate is already flat enough.
+352|A dry brush is no use. First it needs tar.
+353|First you need something to nail down – and the right place for it.
+354|You coat the copper sign thickly with tar. Now it’s a watertight patch: a <b>tarred plate</b>.
+355|The water gate is open. Beyond it: the bay, the moon – and the lighthouse.
+356|A huge wooden water gate. Beyond it lies the open sea. Chains run from the gate doors up to the ceiling – and over to the <b>winch</b>.
+357|Black, cold water. It laps softly against the planks.
+358|You climb into the boat, push off from the dock … and glide out onto the sea. Toward the lighthouse.
+359|The patch is only lying loosely on the hole – it still needs to be <b>nailed down</b>.
+360|At the bow gapes a <b>hole in the hull</b>. You’d sink like this.
+361|The boat is <b>moored</b> to the bollard with a thick rope.
+362|And the <b>water gate</b> is closed.
+363|Your boat. A heart is carved into the bench: “E + Grandpa”.
+364|You press the tarred plate onto the hole and stick a few nails loosely into the corners. It fits perfectly – but it isn’t nailed down yet.
+365|The plate would cover the hole – but it isn’t watertight. Something to seal it is missing.
+366|You have nails – but what will you drive them in with?
+367|First you need something to cover the hole.
+368|A hammer alone won’t patch a hole.
+369|You still need <b>nails</b> to fix the patch.
+370|Tock, tock, tock – nail by nail you hammer the patch down. The leak is sealed!
+371|On top of the roof beam lies a <b>hammer</b>. Far too high to reach.
+372|You poke upward with the boat hook – the hammer tips, falls … and you catch it!
+373|A kerosene lantern. It’s burning – someone was here recently.
+374|Another burning lantern. Grandpa knew you were coming.
+375|An old <b>copper sign</b>, nailed down at all four corners. The lettering has long since weathered away. You can’t get it off with your bare hands.
+376|With the claw of the hammer you pull out the nails. The <b>copper sign</b> is yours.
+377|An old fishing net full of holes.
+378|An old fishing net. High up, something is tangled in it – it glints like metal. Too high and too knotted for your hands.
+379|Nothing is caught in it anymore.
+380|You hook the boat hook into the net and pull hard. Something clatters onto the planks: a <b>sailor’s knife</b>.
+381|Two old oars. On one, in a child’s handwriting: “Captain Elena”.
+382|Coiled rope. Neatly coiled, just as Grandpa taught you.
+383|Paint tins, varnish, tools. Everything smells of tar and salt.
+384|You take the <b>paintbrush</b> from the shelf. The bristles are dry and clean.
+385|A tin full of <b>nails</b>. You can use those.
+386|The tin is empty.
+387|The plate is already tarred.
+388|The barrel is made of thick wood. Better not.
+389|A barrel full of thick, black <b>tar</b>. It smells sharp. You don’t want to stick your fingers in there.
+390|You dip the brush deep into the tar. Now it drips black and glossy: a <b>tar brush</b>.
+391|Dip it into the barrel? Then you’ll be stuck yourself. Better to apply it with something.
+392|The beacon blinks: short and long, in a pattern that keeps repeating. With a long pause in between.
+393|The Lighthouse
+394|You watch the lighthouse’s light. Short … long … pause … It’s a pattern!
+395|The winch is blocked because the chain is locked.
+396|The winch won’t move a millimeter. The chain is locked.
+397|The winch stands still. The gate is up.
+398|A heavy winch for the water gate. The chain is secured with a <b>letter lock</b> – so the crank won’t turn.
+399|You throw your weight against the crank. Link by link the chain rattles onto the drum … and the water gate rises! Cold sea air streams in.
+400|You hammer at the lock. It’s sturdier than you thought.
+401|The blade slips. The lock needs the right code.
+402|Pry open the chain with the boat hook? No chance.
+403|The Letter Lock
+404|Click! The lock springs open, the chain is free. Now you can turn the winch.
+405|A lock with four letter rings.
+406|Hammering a rope won’t do anything.
+407|The hook won’t undo the wet knot either.
+408|Only a stub hangs from the bow.
+409|A thick rope holds the boat to the bollard. The knot is wet, swollen and rock-solid.
+410|With a few strong cuts the rope is through. The boat drifts a little away from the dock.
+411|You pull back the tarp. Underneath lies a long <b>boat hook</b>.
+412|An old canvas tarp. Only dust underneath now.
+413|A wobbly stool-table. On its edge: notches, like the marks of a tally.
+414|Grandpa’s logbook. The last entry is from yesterday.
+415|Under the tarp in the foreground there’s the outline of something long.
+416|Tap the tarp.
+417|High up on the beam lies a tool.
+418|The boat hook reaches all the way up.
+419|Use the boat hook on the roof beam.
+420|Something glints in the fishing net on the wall.
+421|The boat hook is good for that too.
+422|The boat needs a patch. What on the wall is big and made of metal?
+423|The copper sign is held by nails. The hammer has a claw.
+424|Copper alone isn’t watertight. What do people seal boats with?
+425|There’s tar in the barrel. You don’t want to put your fingers in there.
+426|Dip the brush into the tar barrel.
+427|The tar has to go on the plate.
+428|Combine the tar brush and copper sign in your inventory.
+429|The patch needs to be fastened.
+430|You need nails and something to drive them in. The nails are on the shelf.
+431|Take the nails, then use the hammer on the boat.
+432|The tarred plate goes on the hole.
+433|Use the tarred plate on the boat.
+434|The lighthouse’s light isn’t blinking at random.
+435|Look through the window and check Grandpa’s logbook on the table.
+436|Short-short-short-short, long-long-long, short-long-long-short, short: that’s H, O, P and E.
+437|The lock is open.
+438|Turn the winch.
+439|The boat is still moored. The knot is too tight.
+440|Cut the rope with the knife.
+441|Everything’s ready.
+442|Get into the boat.
+443|Chapter 4 complete
+444|The little boat glides out into the bay. The moon paints a silver path on the water. Ahead the lighthouse blinks – and now you understand every sign: <b>H – O – P – E</b>.<br><br>At the foot of the lighthouse someone swings a lantern. You wave back.
+445|Grandpa’s Calendar
+446|Chapter 5
+447|The End. Thank you for playing!
+448|The boat scrapes against the rocks. You jump ashore, the wind tugging at your hair.
+449|The lighthouse door stands open. You climb the spiral staircase, step by step, all the way to the top.
+450|But the lantern room is dark. The beacon has gone out in the storm. And no sign of Grandpa.
+451|Light the wick now? It has to go into the burner first.
+452|Soak the wick? The tank in the burner takes care of that by itself.
+453|You drip some kerosene into the lighter. Scritch – a small, brave flame!
+454|You pour some kerosene into the lighter. Scritch – it’s burning!
+455|You put the funnel on the can. Now you can pour without spilling.
+456|Outside the storm is raging. Lightning flashes over the water. No ship would find its way home safely tonight without a light.
+457|Over there on the cliff: Villa Morgenrot. A light is burning in a single window – in the study.
+458|The waves crash against the rocks. Below, your little boat is rocking.
+459|Grandpa’s sailor’s jacket. It smells of pipe tobacco and salt – of him. In the pocket there’s a <b>storm lighter</b>.
+460|The cap with the golden anchor. Grandpa always wore it crooked.
+461|The little wall lamp burns warmly and calmly.
+462|A small brass wall lamp. It’s off. It’s so dark you can hardly see anything.
+463|It’s already burning.
+464|The wall lamp flares up. Warm light fills the room – and on the wall next to it hangs a <b>calendar</b>.
+465|Scritch, scritch – only sparks. The lighter is empty, it needs fuel.
+466|Something pale hangs on the wall. You can’t make it out in the dark.
+467|Grandpa’s calendar.
+468|A heavy <b>kerosene can</b>. It sloshes – still a good half full.
+469|You take the <b>funnel</b> off its hook.
+470|The beacon is burning. The lens bundles the flame into a mighty beam.
+471|The huge lens of the beacon. The burner sits in its center.
+472|A funnel alone doesn’t pour anything. You still need kerosene.
+473|The gear belongs in the mechanism below, not in the burner.
+474|The flame burns bright and steady.
+475|The tank is full.
+476|The tank is <b>empty</b>.
+477|A new wick is in the burner.
+478|The wick is <b>charred</b> and crumbles at a touch.
+479|The beacon’s burner.
+480|The filler opening is tiny. Without a funnel you’d spill everything – and kerosene next to a flame isn’t a good idea.
+481|The tank is already full.
+482|Glug, glug, glug – through the funnel you fill the tank to the brim.
+483|The new wick is already in.
+484|You pull out the charred remains and thread in the <b>new wick</b>.
+485|Only sparks. The lighter is empty.
+486|It’s already burning.
+487|No kerosene in the tank. Nothing will burn.
+488|The old wick is completely charred. No flame will hold like this.
+489|Whoosh! The flame shoots up, the lens glows. The beam turns out over the sea …
+490|Whoosh! The flame shoots up, the lens glows! But the beam stands still. <b>A lighthouse that doesn’t turn isn’t a lighthouse.</b>
+491|Oiling is a good idea – but gears are missing here, not oil.
+492|The flame belongs up in the burner.
+493|The gears mesh cleanly and turn evenly.
+494|The rotation mechanism under the lens. On two axles a gear is missing – one large and one small axle.
+495|The rotation mechanism under the lens. One axle is still missing a gear.
+496|All the gears are in place. Now it takes strength – the crank.
+497|The large brass gear fits the large axle perfectly.
+498|The small gear slides onto the square axle with its square hole. Click.
+499|The mechanism keeps running on its own.
+500|You turn the crank – it spins freely. Gears are still missing from the mechanism.
+501|You crank with all your strength. Slowly, then faster and faster, the lens begins to turn – and with it the beam!
+502|You crank. The gears engage, the lens begins to turn. But it’s still dark.
+503|Set the chest on fire? Then whatever is inside will burn.
+504|The chest has no gearbox – just a combination lock.
+505|The sea chest is empty – except for a child’s drawing of a lighthouse.
+506|A sea chest with a combination lock. It’s too dark to read the digits.
+507|Grandpa’s Sea Chest
+508|Clack! The lid springs open. Inside: a new <b>wick</b>, a large <b>gear</b> and a <b>letter</b> with a red ribbon.
+509|Carved into the lid: <b>“The day she comes home – DD MM”</b>.
+510|In the toolbox, between wrenches and an oil can: a small, oily <b>gear</b> with a square hole.
+511|Wrenches, pliers, a rag full of oil.
+512|A note from Grandpa
+513|Elena,<br><br>you have to take the last step on your own, my girl. The beacon went out in the storm.<br><br><b>Light it again – and I will come.</b><br><br>Grandpa
+514|A note in Grandpa’s handwriting.
+515|Grandpa stands at the top of the stairs and opens his arms.
+516|The spiral staircase down. Below there’s only the sound of the sea. Not yet.
+517|Something hangs here that smells of Grandpa.
+518|Check the pockets of the sailor’s jacket.
+519|The lighter only sparks. It needs fuel.
+520|A red can stands on the floor.
+521|Now you have a flame. Where can you get light for the whole room?
+522|Light the small wall lamp.
+523|The lighter is empty.
+524|Combine the lighter and the can in your inventory.
+525|The sea chest wants a date. What’s written on the lid?
+526|Grandpa’s calendar hangs next to the wall lamp. One day is circled.
+527|November 26th: 2 6 1 1.
+528|Two gears are missing from the mechanism. You have one.
+529|The small one is in the toolbox.
+530|The gears go under the lens.
+531|Use both gears on the mechanism.
+532|The burner’s tank is empty.
+533|Use the can with the funnel on the burner.
+534|The opening on the burner is tiny.
+535|Combine the can and the funnel.
+536|The old wick is charred.
+537|Put the new wick into the burner.
+538|A lighthouse must burn – and turn.
+539|Light the burner with the lighter and turn the crank.
+540|The light stands still.
+541|Turn the crank on the mechanism.
+542|Only one thing is missing: the flame.
+543|Light the burner with the burning lighter.
+544|Home
+545|Footsteps on the stairs. Slow, heavy, familiar. Then he stands in the doorway: white beard, cap crooked on his head.<br><br>“Hello, Captain,” Grandpa Viktor says softly.<br><br>And you remember. Everything.<br><br>When the storm has passed, you stand together up on the gallery. The sun rises over the sea, and down in the bay your little boat is rocking.
+546|Down on the stairs: footsteps. Slow. Heavy. Familiar …
+547|The Grandfather Clock
+548|The hands point to <b>9:12</b>.
+549|The gear engages. Tick … tock …
+550|Dong. Dong. Dong. The hands stop at <b>9:12</b>.
+551|Through the Telescope
+552|Grandpa’s Logbook
+554|<b>Last entry:</b> Elena comes home today. I’m waiting at the lighthouse. When she stands in the boathouse, I’ll send her with the light what she needs most right now. As a child she learned Morse code faster than I did.<br><br><b>Morse code</b> (· short, – long)<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px 10px;font:600 15px/1.5 ui-monospace,monospace;margin-top:6px;font-style:normal">
+555|The black knight on c6 jumps to d8 and captures your queen.
+556|The black knight on c6 captures your queen on b8.
+557|The black bishop on b7 captures your queen on c8.
+558|The black bishop on b7 captures your queen on a8.
+559|The black king simply captures the queen himself – she’s right next to him.
+560|Grandpa’s Chess Game
+561|Tap the square the white queen should go to.
+562|White to move. The white queen is missing.
+563|Back
+564|The mechanism under the board is still resetting … wait a moment.
+565|There’s already a piece there.
+566|Check on the last rank – and the king has nowhere to go. <b>Mate!</b> Clack – a <b>secret compartment</b> springs open at the edge of the table. Inside: a <b>rusty winding key</b>.
+567|Not checkmate. The black king isn’t even in check.
+568| <i>The queen slides back.</i>
+569|The Middle Shelf
+570|You’ve pulled four books … nothing happens. Clack – they all slide back into place.
+571|A deep rumble … the whole shelf swings aside!
+572|Villa Morgenrot
+573|A house by the sea. A grandfather who waits. And a memory you win back, room by room.
+574|Where am I? Tap things in the room to examine them.
+@Zettel|Note
+@Batterien|Batteries
+@Taschenlampe|Flashlight
+@Taschenuhr|Pocket watch
+@Zahnrad|Gear
+@Tagebuchseite|Diary page
+@Schnur|String
+@Hufeisenmagnet|Horseshoe magnet
+@Magnetangel|Magnet rod
+@Kurbel|Crank
+@Korkenzieher|Corkscrew
+@Flaschenpost|Message in a bottle
+@Bootshaken|Boat hook
+@Hammer|Hammer
+@Kupferschild|Copper sign
+@Pinsel|Paintbrush
+@Teerpinsel|Tar brush
+@Seemannsmesser|Sailor’s knife
+@Sturmfeuerzeug|Storm lighter
+@Petroleumkanister|Kerosene can
+@Trichter|Funnel
+@Docht|Wick
+@Mystery|Mystery
+@November|November
+@Mo Di Mi Do Fr Sa So|Mo Tu We Th Fr Sa Su
+@Elena kommt heim!|Elena comes home!
+@Jeden Tag ein Strich. Nur ein Tag ist rot umkreist.|A line through every day. Only one day is circled in red.
+@„Hallo, Kapitänin“, sagt Opa Viktor leise.|“Hello, Captain,” Grandpa Viktor says softly.
+@Der Weg zum Meer – Elena|The way to the sea – Elena
+#Escape-Bücher|Escape Books
+#Wähle eine Geschichte. Jede ist ein Rätselabenteuer zum Mitnehmen.|Choose a story. Each one is a puzzle adventure to take with you.
+#Von vorne beginnen|Start over
+#Weiter|Continue
+#Zur Kapitelübersicht|To the chapters
+#Schließen|Close
+#Tresor|Safe
+#Zurück|Back
+#Öffnen|Open
+#Hinweis|Hint
+#Abbrechen|Cancel
+#Sprache|Language
+#Zurück zum Bücherregal|Back to the bookshelf
+#Interessante Stellen zeigen|Show interesting spots
+#Ton an oder aus|Sound on or off
+#Mit <b>{0}</b> kommst du hier nicht weiter.|<b>{0}</b> won’t get you anywhere here.
+#<b>{0}</b>? Das passt hier nicht.|<b>{0}</b>? That doesn’t fit here.
+#Du probierst es mit <b>{0}</b>. Nichts passiert.|You try the <b>{0}</b>. Nothing happens.
+#Das ergibt keinen Sinn – <b>{0}</b> hilft hier nicht.|That makes no sense – <b>{0}</b> doesn’t help here.
+#<b>{0}</b> ausgewählt. Tippe auf etwas im Raum oder auf einen anderen Gegenstand. Nochmal tippen zum Ansehen.|<b>{0}</b> selected. Tap something in the room or another item. Tap again to look at it.
+#<b>{0}</b> und <b>{1}</b> lassen sich nicht kombinieren.|<b>{0}</b> and <b>{1}</b> can’t be combined.
+#Du ruckelst am Schloss. Es bleibt zu.|You rattle the lock. It stays shut.
+#Hinweis {0} von {1}|Hint {0} of {1}
+#{0} (gratis)|{0} (free)
+#Nächster Hinweis|Next hint
+#Hinweis ansehen|Show hint
+#Ein Hinweis pro Kapitel ist kostenlos.|One hint per chapter is free.
+#{0}: kurze Werbung ansehen|{0}: watch a short ad
+#Steckst du fest? Hinweise kommen in Stufen: erst ein kleiner Schubs, am Ende die Lösung.|Stuck? Hints come in steps: first a little nudge, the solution at the very end.
+#Nein danke|No thanks
+#Du hast hier schon alles untersucht. Vielleicht hilft einer deiner Gegenstände weiter?|You’ve already examined everything here. Maybe one of your items will help?
+#Tippe auf Dinge im Raum, um sie zu untersuchen. Manches kannst du mitnehmen.|Tap things in the room to examine them. Some you can take with you.
+#Gefundenes landet hier. Tippe einen Gegenstand an und danach auf eine Stelle im Raum, um ihn dort zu benutzen.|Whatever you find ends up here. Tap an item, then a spot in the room to use it there.
+#Zwei Gegenstände kombinieren: ersten antippen, dann den zweiten. Denselben zweimal antippen zeigt ihn dir aus der Nähe.|To combine two items: tap the first, then the second. Tapping the same one twice shows it up close.
+#Die Lupe zeigt dir Stellen, die du noch nicht untersucht hast.|The magnifying glass shows you spots you haven’t examined yet.
+#Kommst du nicht weiter? Hier gibt es Hinweise – erst einen kleinen Schubs, ganz am Ende die Lösung.|Stuck? Here you get hints – first a little nudge, the solution at the very end.
+#Los geht’s|Let’s go
+#Willkommen zurück.|Welcome back.
+#Zeit: ca. {0} Min · Hinweise: {1}|Time: about {0} min · Hints: {1}
+#Weiter zu {0}|Continue to {0}
+#Hier läuft später die Werbung (AdMob)|An ad will play here later (AdMob)
+#Abgeschlossen|Completed
+#{0} von {1} Kapiteln|{0} of {1} chapters
+#{0} Kapitel|{0} chapters
+#Weitere Geschichten folgen|More stories coming
+#Bald im Regal|Soon on the shelf
+#Spiel beginnen|Start game
+#Nochmal von vorne|Play again
+#Weiterspielen – {0}|Continue – {0}
+#Noch verschlossen|Still locked
+#Geschafft|Done
+#Bereit|Ready
+#Schließe das vorherige Kapitel ab|Finish the previous chapter
+#Von vorne beginnen?|Start over?
+#Dein Fortschritt in diesem Buch wird gelöscht.|Your progress in this book will be deleted.
+#Ja, neu beginnen|Yes, start over
+#Kapitel wechseln?|Switch chapter?
+#Dein Fortschritt im laufenden Kapitel geht verloren.|Your progress in the current chapter will be lost.
+#Kapitel starten|Start chapter
+@Tippe Bücher an, um sie herauszuziehen. Nach dem vierten Buch zeigt sich, ob die Reihenfolge stimmt.|Tap books to pull them out. After the fourth book you’ll see whether the order is right.
