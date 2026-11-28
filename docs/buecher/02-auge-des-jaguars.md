@@ -128,10 +128,14 @@ Jeder mitgebrachte Gegenstand kommt hier ein letztes Mal vor (Waage, Hebel, Lins
 - Abwechslung: K1 Kombinieren/Licht/Zahlencode · K2 Brückenbau/Symbolschloss · K3 Licht/Kalenderrad · K4 Spiegel · K5 Waage/Sternkarte.
 
 ## Stand
-**Kapitel 1 fertig eingebaut** (28.11.2026), Durchspiel-Test `tools/playtest_jaguar.py` läuft fehlerfrei. Buch im Regal angemeldet.
-- Bilder in `www/books/auge-des-jaguars/img/`: zelt.jpg (hell), zelt_dunkel.jpg, p_kiste(_d).webp (Kiste offen, Overlay x0 y900 490×548),
-  intro1.jpg, karte.jpg (Karte ohne Beschriftung; Gitter/Ruinen als SVG in `openMap`), seite1_gross.webp, Icons + big/.
+**Kapitel 1 und 2 fertig eingebaut** (28.11.2026). Durchspiel-Test `tools/playtest_jaguar.py` spielt beide Kapitel fehlerfrei durch.
+- Kapitel 1: zelt.jpg / zelt_dunkel.jpg, Overlays p_kiste(_leer)(_d), p_becher(_d), karte.jpg (Gitter/Ruinen als SVG in `openMap`), seite1_gross.webp.
+- Kapitel 2: cenote.jpg; alle Veränderungen sind Ausschnitte aus einer „alles erledigt“-Variante:
+  p_bruecke, p_machete, p_planken, p_kalebasse, p_relief, p_tuer (weiche Ränder, Koordinaten in `R2.ov`).
+  Nahansichten relief.jpg und tuersturz.jpg, Glyphen und Maya-Punkte als SVG (`GLYPH`, `RELIEF_G`, `STURZ`).
+  Tierköpfe kopf_*.webp (aus einem 3×2-Bogen), auch als Overlay auf den Türscheiben im Raum (`TUER_START`).
+  Lösung Tür: Fledermaus, Jaguar, Frosch, Affe.
+- Abweichung vom Konzept: Die Kalebasse wird an der Treppe gefüllt (nicht vom Rand aus); Lou muss erst über die Brücke, bevor Türsturz, Relief und Tür nutzbar sind.
 - Cover ist vorläufig intro1.jpg.
-- Kiste leer: p_kiste_leer(_d).webp (gleicher Ausschnitt), Overlay in `ov` bei `f.inhalt`. Becher weg: p_becher(_d).webp (x290 y745, 125×120, weicher Rand) bei `f.becher`. Alle Bilder für Kapitel 1 vorhanden.
-- Noch offen: Rückmeldung des Nutzers zu Kapitel 1, dann Kapitel 2 (Bild-Prompts).
+- Nächster Schritt: Rückmeldung zu Kapitel 2, dann Kapitel 3 (Bild-Prompts).
 - Übersetzungen: noch keine (leere i18n-Dateien angelegt).

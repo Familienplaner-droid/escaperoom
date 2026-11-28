@@ -40,6 +40,39 @@ with sync_playwright() as p:
     pg.click('#bHint'); pg.wait_for_timeout(200); pg.click('#bHintGo'); pg.wait_for_timeout(200); pg.screenshot(path='j_hint.png'); pg.click('#bNo')
     item('feldbuch'); item('feldbuch'); pg.wait_for_timeout(200); close()
     item('roehre'); hot('funk'); pg.wait_for_timeout(1800); pg.screenshot(path='j_funk.png'); pg.click('#dClose'); pg.wait_for_timeout(900)
-    print('ENDE:', pg.inner_text('#endTitle'), '|', pg.inner_text('#endSoon')); pg.screenshot(path='j_end.png')
+    print('ENDE:', pg.inner_text('#endTitle')); pg.screenshot(path='j_end.png')
+    pg.click('#bNext'); pg.wait_for_timeout(2500); pg.screenshot(path='j_intro2.png')
+    for _ in range(8):
+        if pg.is_visible('.h[data-id="tuer"]'): break
+        try: pg.click('#bIntro',timeout=1500)
+        except Exception: pass
+        pg.wait_for_timeout(500)
+    # ===== Kapitel 2 =====
+    pg.screenshot(path='j_k2_start.png')
+    hot('tuer'); msg('Tür vorher:'); hot('relief'); msg('Relief vorher:')
+    hot('rucksack'); hot('stumpf'); item('machete'); hot('lianen'); item('machete'); hot('stapel')
+    item('kalebasse') if False else None
+    hot('bruecke'); msg('Brücke kaputt:')
+    item('liane'); hot('bruecke'); msg('Liane:'); hot('bruecke'); msg('Halb:')
+    item('planken'); hot('bruecke2'); msg('Planken:')
+    hot('nische'); item('kalebasse'); hot('wasser'); msg('Wasser oben:')
+    item('kalebasse'); hot('treppe')
+    item('kalebasseW'); hot('relief'); msg('Relief zu weit:')
+    hot('bruecke'); msg('Rüber:'); pg.wait_for_timeout(300); pg.screenshot(path='j_k2_bruecke.png')
+    item('kalebasseW'); hot('relief'); msg('Relief:')
+    hot('relief'); pg.wait_for_timeout(300); pg.screenshot(path='j_relief.png'); close()
+    hot('tuersturz'); pg.wait_for_timeout(300); pg.screenshot(path='j_sturz.png'); close()
+    hot('tuer'); pg.wait_for_timeout(300); pg.screenshot(path='j_schloss.png')
+    pg.click('#jPress'); pg.wait_for_timeout(300); msg('Falsch:')
+    want=['fledermaus','jaguar','frosch','affe']; order=['jaguar','affe','tukan','schlange','frosch','fledermaus']
+    hot('tuer'); pg.wait_for_timeout(200)
+    for i,w in enumerate(want):
+        for _ in range(6):
+            cur=pg.get_attribute(f'.jDisc[data-i="{i}"] img','src').split('kopf_')[1].split('.')[0]
+            if cur==w: break
+            pg.click(f'.jDisc[data-i="{i}"]'); pg.wait_for_timeout(40)
+    pg.screenshot(path='j_schloss2.png'); pg.click('#jPress'); pg.wait_for_timeout(700); msg('Tür:'); pg.screenshot(path='j_k2_offen.png')
+    pg.wait_for_timeout(3000)
+    print('ENDE2:', pg.inner_text('#endTitle'), '|', pg.inner_text('#endSoon')); pg.screenshot(path='j_end2.png')
     miss=pg.evaluate("[...(window.__trMiss||[])]"); print('UNEXACT',len(miss)); [print('  ',m.replace(chr(10),' ')[:150]) for m in miss[:20]]
     print('ERR',errs); b.close()
