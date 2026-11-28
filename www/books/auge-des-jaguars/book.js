@@ -6,6 +6,35 @@ const A=name=>'books/auge-des-jaguars/img/'+name;
 const W=1086, H=1448;
 const img=(src,st='')=>`<img src="${A(src)}" alt="" style="${st}">`;
 
+
+/* ================= STERNBILDER & MAYA-ZAHLEN (SVG) ================= */
+const STERNE={
+ schildkroete:{n:'Schildkröte',p:[[30,42],[50,32],[70,42],[72,62],[50,72],[28,62],[50,14],[50,52]],l:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0],[1,6]]},
+ skorpion:{n:'Skorpion',p:[[18,22],[30,28],[40,37],[48,50],[54,63],[62,75],[75,80],[86,71]],l:[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7]]},
+ schlange:{n:'Schlange',p:[[14,70],[27,45],[41,66],[55,40],[69,62],[85,36]],l:[[0,1],[1,2],[2,3],[3,4],[4,5]]},
+ vogel:{n:'Vogel',p:[[50,18],[50,44],[50,82],[18,36],[82,36]],l:[[0,1],[1,2],[3,1],[1,4]]},
+ fledermaus:{n:'Fledermaus',p:[[14,32],[31,66],[50,46],[69,66],[86,32],[50,28]],l:[[0,1],[1,2],[2,3],[3,4],[2,5]]},
+ hirsch:{n:'Hirsch',p:[[50,86],[50,56],[35,36],[25,14],[65,36],[75,14],[44,22],[56,22]],l:[[0,1],[1,2],[2,3],[1,4],[4,5],[2,6],[4,7]]}
+};
+// Sternbild zeichnen: style 'himmel' (leuchtend), 'stein' (eingeritzt), 'blei' (Bleistift)
+function stern(k,cx,cy,sz,style='himmel'){
+ const c=STERNE[k], f=v=>v/100*sz, X=v=>cx-sz/2+f(v[0]), Y=v=>cy-sz/2+f(v[1]);
+ const lc=style==='himmel'?'#cfe0ff':style==='blei'?'#3a3a3a':'#1d1d16', lo=style==='himmel'?.35:.75, lw=style==='himmel'?sz*.012:sz*.03;
+ const lines=c.l.map(([a,b])=>`<line x1="${X(c.p[a])}" y1="${Y(c.p[a])}" x2="${X(c.p[b])}" y2="${Y(c.p[b])}" stroke="${lc}" stroke-opacity="${lo}" stroke-width="${lw}" stroke-linecap="round"/>`).join('');
+ const dots=c.p.map(v=>style==='himmel'?`<circle cx="${X(v)}" cy="${Y(v)}" r="${sz*.045}" fill="#fff" opacity=".25"/><circle cx="${X(v)}" cy="${Y(v)}" r="${sz*.022}" fill="#fff"/>`
+  :`<circle cx="${X(v)}" cy="${Y(v)}" r="${sz*.05}" fill="${lc}" fill-opacity="${style==='blei'?.85:.82}"${style==='stein'?` stroke="#fff" stroke-opacity=".25" stroke-width="${sz*.012}"`:''}/>`).join('');
+ return lines+dots;
+}
+// Maya-Zahl: Punkte oben, Striche darunter
+function maya(n,cx,cy,sz,col='#1d1d16',hi=true){
+ const bars=Math.floor(n/5), d=n%5, bh=sz*.13, gap=sz*.07, r=sz*.075, rows=bars+(d?1:0), H=rows*bh+(rows-1)*gap; let y=cy-H/2, out='';
+ const st=hi?` stroke="#fff" stroke-opacity=".25" stroke-width="${sz*.02}"`:'';
+ if(d){ for(let i=0;i<d;i++) out+=`<circle cx="${cx+(i-(d-1)/2)*r*2.9}" cy="${y+bh/2}" r="${r}" fill="${col}" fill-opacity=".85"${st}/>`; y+=bh+gap; }
+ for(let i=0;i<bars;i++){ out+=`<rect x="${cx-sz*.4}" y="${y}" width="${sz*.8}" height="${bh}" rx="${bh/2}" fill="${col}" fill-opacity=".85"${st}/>`; y+=bh+gap; }
+ return out;
+}
+const mayaSVG=(n,w=46)=>`<svg viewBox="0 0 100 100" style="width:${w}px;height:${w}px;vertical-align:middle">${maya(n,50,50,90,'#3a2a14',false)}</svg>`;
+
 /* ================= AMALIAS FELDBUCH ================= */
 // Das Feldbuch wächst mit: Seiten aus früheren Kapiteln sind schon eingelegt, die aktuelle erst, wenn Lou sie gefunden hat.
 const P_NOTIZ='<b>Auf dem Umschlag, in Amalias eiliger Schrift:</b><br><br>Lou, das Auge öffnet sich nur einmal im Jahr. <b>Morgen bei Sonnenaufgang.</b> Ich kann nicht warten, bis der Sturm vorbei ist.<br><br>Folge meinen Zeichnungen, Lou.<br><br>– A.';
@@ -14,8 +43,13 @@ const P_PACK='<b>Packliste für Mateos Maultiere</b> (Gewicht in Lot)<div style=
    .map(([n,g])=>`<span>${tr(n)}</span><span style="text-align:right">${g}</span>`).join('')+'</div>';
 const P_SEITE1=()=>img('seite1_gross.webp','max-width:260px;margin:0 auto 10px')+'<b>Mein Tempel.</b> Drei Stufen, ganz oben der Jaguar. Dort wartet das Auge.<br><br>Die Kiste kennt den Weg dorthin, Lou. Du musst ihn nur auf der Karte finden.';
 const P_SEITE2='<b>Lou!</b> Der Sturm hat die Brücke zerrissen, gleich nachdem ich drüben war. Du findest einen Weg hinüber, da bin ich sicher.<br><br>Die Steintür öffnet sich nur, wenn ihre vier <b>Tierköpfe</b> in der richtigen Reihenfolge stehen.<br><br>• Über der Tür stehen vier <b>Zeichen</b>. Die <b>Punkte</b> darunter zählen: ein Punkt = das erste Tier, zwei Punkte = das zweite, und so weiter.<br>• Welches Tier zu welchem Zeichen gehört, verrät das <b>Relief</b> neben der Tür: Unter jedem Tier ist sein Zeichen eingemeißelt.<br>• Dann die Köpfe auf der Tür von links nach rechts einstellen.<br><br>Der Regen hat Schlamm über das Relief gespült – aber darunter ist alles noch da.';
+const P_SEITE3=()=>'<b>Lou,</b> das Tor öffnet sich nur für den <b>Tag des Auges</b>. Die Priester haben ihn nicht mit Worten aufgeschrieben, sondern mit dem Himmel:<br><br>Das <b>Zeichen</b> des Tages ist das Sternbild, das vor Sonnenaufgang <b>im Osten</b> über den Bäumen steht. Seine <b>Zahl</b> steht auf der Stele, gleich neben dem Sternbild.<br><br>Die Maya schreiben Zahlen mit Punkten und Strichen:<div style="display:grid;grid-template-columns:repeat(3,auto);gap:4px 10px;justify-content:center;align-items:center;font-style:normal;margin:8px 0">'
+ +[1,2,4,5,6,10].map(n=>`<span style="text-align:center">${mayaSVG(n)}<br>${n}</span>`).join('')+'</div>Ein Punkt ist eins, ein Strich ist fünf.';
+const P_STERN=()=>'<b>Deine eigene Zeichnung:</b> das Sternbild, das vor Sonnenaufgang im Osten stand.<div style="text-align:center"><svg viewBox="0 0 100 100" style="width:150px;height:150px">'+stern('schildkroete',50,50,86,'blei')+'</svg></div>Zum ersten Mal hast du etwas gezeichnet, das du selbst entdeckt hast.';
 function feldbuchHTML(){
  const pg=[P_NOTIZ];
+ if(S.room>2||S.f.sternbild) pg.push(P_STERN());
+ if(S.room>2||S.f.seite3) pg.push(P_SEITE3());
  if(S.room>1||S.f.seite2) pg.push(P_SEITE2);
  if(S.room>0||S.f.seite1) pg.push(P_SEITE1());
  pg.push(P_PACK);
@@ -41,7 +75,11 @@ const ITEMS={
  liane:{n:'Liane',i:'liane.png',d:'Eine lange, zähe Liane. Hält mehr aus als manches Seil.'},
  planken:{n:'Planken',i:'planken.png',d:'Drei alte, aber feste Holzplanken.'},
  kalebasse:{n:'Kalebasse',i:'kalebasse.png',d:'Eine getrocknete Kürbisschale. Leer.'},
- kalebasseW:{n:'Kalebasse mit Wasser',i:'kalebasseW.png',d:'Randvoll mit klarem Wasser aus dem Cenote.'}
+ kalebasseW:{n:'Kalebasse mit Wasser',i:'kalebasseW.png',d:'Randvoll mit klarem Wasser aus dem Cenote.'},
+ seite3:{n:'Amalias Seite über den Kalender',i:'seite.png',get paper(){ return ['Eine lose Seite',P_SEITE3()]; }},
+ fackel:{n:'Fackel',i:'fackel.png',d:'Eine Fackel, der Kopf mit öligem Tuch umwickelt. Sie ist trocken geblieben.'},
+ fackelAn:{n:'Brennende Fackel',i:'fackelAn.png',d:'Die Fackel brennt hell und warm. Sie wird eine Weile halten.'},
+ jadegriff:{n:'Jadegriff',i:'jadegriff.png',d:'Ein Griff aus grüner Jade mit einem eckigen Zapfen am Ende. Er sieht aus, als gehöre er irgendwo hinein.'}
 };
 
 /* ================= KAPITEL 1: DAS EXPEDITIONSZELT ================= */
@@ -194,7 +232,6 @@ function openTierschloss(){
 }
 const R2={
  title:'Der Pfad am Cenote', chapter:'Kapitel 2', img:A('cenote.jpg'), introImg:A('intro2.jpg'),
- soon:'Kapitel 3: Das Tor des Kalenders – bald verfügbar',
  keep:['feldbuch','federmesser','kompass','karbidlampeAn'],
  intro:['Der Regen hat nachgelassen. Ein voller Mond hängt über dem Dschungel, und der Pfad glänzt silbern.','Am Ende des Pfades öffnet sich die Erde: ein Cenote, ein heiliger Brunnen der Maya, tief und still.','Auf der anderen Seite liegt eine Tempelmauer. Und die Hängebrücke dorthin … ist zerrissen.'],
  firstMsg:'Der Cenote. Drüben die Tempeltür – aber die Brücke ist zerrissen. Neben dem Brückenpfosten lehnt <b>Amalias Rucksack</b>.',
@@ -255,6 +292,105 @@ const R2={
   `<circle cx="120" cy="1010" r="3" fill="#ffe27a" class="flicker"/><circle cx="1040" cy="190" r="3" fill="#ffe27a" class="flicker" style="animation-delay:-1s"/><circle cx="290" cy="790" r="2.5" fill="#ffe27a" class="flicker" style="animation-delay:-.4s"/>`]; }
 };
 
+/* ================= KAPITEL 3: DAS TOR DES KALENDERS ================= */
+// Lösung: Schildkröte (Sternbild im Osten) + 11 (Stele)
+const RING=['schildkroete','skorpion','schlange','vogel','fledermaus','hirsch'];
+const STELE=[['vogel',9],['schildkroete',11],['hirsch',6],['skorpion',7],['fledermaus',12],['schlange',4]];
+const RAD_LOESUNG=[0,10];   // Ring-Index, Zahl-Index (Zahl = Index+1)
+function openStele(){
+ const XL=318, XR=708, Y=[268,482,697,912,1125,1338];
+ dialog('Die Stele',`<div style="position:relative;width:min(280px,72vw);margin:0 auto"><img src="${A('stele.jpg')}" alt="" style="display:block;width:100%;border-radius:6px"><svg viewBox="0 0 1024 1536" style="position:absolute;inset:0;width:100%;height:100%">${STELE.map(([k,n],i)=>stern(k,XL,Y[i],185,'stein')+maya(n,XR,Y[i],170)).join('')}</svg></div><p>Im Fackelschein: sechs Reihen. Links je ein Sternbild, rechts je eine Zahl aus Punkten und Strichen.</p>`);
+}
+function openHimmel(){
+ const first=!S.f.sternbild; S.f.sternbild=1;
+ dialog('Der Himmel',`<div style="position:relative;width:100%;aspect-ratio:1;margin:0 auto;border-radius:6px;overflow:hidden"><img src="${A('himmel.jpg')}" alt="" style="display:block;width:100%;height:100%"><svg viewBox="0 0 1254 1254" style="position:absolute;inset:0;width:100%;height:100%">${stern('schlange',260,470,260)}${stern('vogel',640,250,250)}${stern('schildkroete',990,520,270)}
+  <g transform="translate(627 1080)"><circle r="92" fill="#1a1408" fill-opacity=".55" stroke="#c9a46a" stroke-width="5"/><path d="M0-70L12 0L0 70L-12 0z" fill="#c9a46a" opacity=".5"/><path d="M-70 0L0 13L70 0L0-13z" fill="#c9a46a"/><path d="M70 0L44 -16L44 16z" fill="#e05a3a"/><text x="112" y="14" font-size="44" fill="#ffd27a" font-family="Georgia,serif" font-weight="bold">O</text><text x="-148" y="14" font-size="44" fill="#c9a46a" font-family="Georgia,serif">W</text></g>
+  <circle cx="990" cy="520" r="175" fill="none" stroke="#ffd27a" stroke-width="5" stroke-dasharray="14 12" opacity=".8"/></svg></div>
+  <p>Der Kompass zeigt: <b>Osten liegt rechts</b>, dort, wo der Himmel schon violett schimmert. Und genau dort steht ein Sternbild.</p>${first?'<p><i>Du ziehst den Bleistift hervor und zeichnest es ab, Stern für Stern, in Amalias Feldbuch.</i></p>':''}`);
+ sfx('chime');
+}
+function openRad(){
+ if(!S.f.rad) S.f.rad=[2,4];
+ const r=S.f.rad, C=400, step2=360/13;
+ const outer=RING.map((k,i)=>`<g transform="rotate(${i*60} ${C} ${C})">${stern(k,C,C-284,96,'stein')}</g>`).join('');
+ const inner=Array.from({length:13},(_,i)=>`<g transform="rotate(${i*step2} ${C} ${C})">${maya(i+1,C,C-168,64)}</g>`).join('');
+ const body=dialog('Das Kalenderrad',`<div style="position:relative;width:100%;aspect-ratio:1;margin:0 auto"><img src="${A('rad.jpg')}" alt="" style="display:block;width:100%;border-radius:50%"><svg viewBox="0 0 800 800" style="position:absolute;inset:0;width:100%;height:100%">
+  <circle cx="400" cy="116" r="56" fill="#ffd27a" fill-opacity=".16" stroke="#ffd27a" stroke-opacity=".55" stroke-width="2.5"/><circle cx="400" cy="232" r="38" fill="#ffd27a" fill-opacity=".16" stroke="#ffd27a" stroke-opacity=".55" stroke-width="2.5"/>
+  <g id="jOut" style="transition:transform .5s;transform-origin:400px 400px;transform:rotate(${-r[0]*60}deg)">${outer}</g>
+  <g id="jIn" style="transition:transform .5s;transform-origin:400px 400px;transform:rotate(${-r[1]*step2}deg)">${inner}</g>
+  <circle id="jOutHit" cx="400" cy="400" r="375" fill="transparent"/><circle id="jInHit" cx="400" cy="400" r="240" fill="transparent"/></svg></div>
+  <p>Zwei steinerne Ringe. Tippe auf den äußeren oder inneren Ring, um ihn weiterzudrehen. Was oben in den goldenen Kreisen steht, ist eingestellt.</p><button class="btn pri" id="jTurn">Am Jadegriff drehen</button>`);
+ body.querySelector('#jOutHit').addEventListener('click',()=>{ r[0]=(r[0]+1)%6; sfx('slide'); body.querySelector('#jOut').style.transform=`rotate(${-r[0]*60}deg)`; });
+ body.querySelector('#jInHit').addEventListener('click',()=>{ r[1]=(r[1]+1)%13; sfx('slide'); body.querySelector('#jIn').style.transform=`rotate(${-r[1]*step2}deg)`; });
+ body.querySelector('#jTurn').addEventListener('click',()=>{
+  closeDialog();
+  if(r[0]===RAD_LOESUNG[0]&&r[1]===RAD_LOESUNG[1]){ S.f.offen=1; sfx('door'); render(); say('Du drehst am Jadegriff. Ein tiefes Mahlen geht durch den Stein – das Rad teilt sich, und das Tor schwingt auf. Dahinter führt eine Treppe ins Innere des Tempels.'); setTimeout(win,2800); }
+  else { sfx('no'); say('Du drehst am Jadegriff. Es knirscht – dann blockiert das Rad. Dieser Tag ist es nicht.'); }
+ });
+}
+const R3={
+ title:'Das Tor des Kalenders', chapter:'Kapitel 3', img:A('tor.jpg'), introImg:A('intro3.jpg'),
+ soon:'Kapitel 4: Die Halle der Spiegel – bald verfügbar',
+ keep:['feldbuch','federmesser','kompass','karbidlampeAn','machete','kalebasse'],
+ intro:['Die Treppe hinter der Steintür führt hinauf, durch Wurzeln und Nebel, bis an den Fuß des Tempels.','Der Mond ist untergegangen. Über den Bäumen stehen die Sterne, und ganz im Osten wird der Himmel schon violett.','Vor dir: ein gewaltiges Tor mit einem steinernen Rad. Und deine Karbidlampe beginnt zu flackern.'],
+ firstMsg:'Das Tor des Kalenders. Deine Karbidlampe sputtert – das Karbid ist fast verbraucht. Lange hält sie nicht mehr.',
+ comboNo:{'fackel+machete':'Die Fackel ist schon handlich genug.','fackelAn+feldbuch':'Vorsicht mit dem Feldbuch!','jadegriff+machete':'Jade ist hart, aber die Machete würde sie nur zerkratzen.','fackel+kalebasse':'Nasses Tuch brennt nicht.'},
+ combos:[
+  {a:'fackel',b:'karbidlampeAn',t:()=>{ take('fackel'); take('karbidlampeAn'); give('fackelAn'); sfx('unlock'); return 'Du hältst das ölige Tuch an die letzte Flamme der Karbidlampe. Wusch – die <b>Fackel brennt</b>! Im selben Moment erlischt die Karbidlampe. Sie hat ihren Dienst getan.'; }}
+ ],
+ cuts:[],
+ hot:[
+  {id:'himmel',r:[215,0,800,250],act(){ if(S.f.sternbild){ openHimmel(); return 'Das Sternbild im Osten.'; } return 'Über den Bäumen funkeln unzählige Sterne. Aber wo genau ist Osten? Ohne das zu wissen, ist es nur Glitzern.'; },
+   no:{fackelAn:'Die Fackel blendet. Am Himmel siehst du jetzt noch weniger.',karbidlampeAn:'Die Lampe blendet nur.'},
+   use:{kompass(){ openHimmel(); return S.f.seite3?'Osten – dort steht das Sternbild.':'Osten liegt rechts. Ob das wichtig ist?'; }}},
+  {id:'pyramide',r:[610,250,270,180],act:()=>'Hoch über dem Tor ragt die Pyramide auf. Irgendwo dort oben wartet das Auge.'},
+  {id:'maske',r:[455,320,180,150],act:()=>'Eine steinerne Fratze über dem Tor. Sie grinst, als kenne sie die Lösung.'},
+  {id:'stele',r:[0,190,230,880],act(){ const f=S.f;
+    if(!f.wurzeln) return 'Hinter dicken Wurzeln verbirgt sich eine Stele. Du erkennst eingeritzte Linien, aber die Wurzeln verdecken fast alles.';
+    if(!has('fackelAn')) return 'Die Stele liegt im tiefen Schatten der Bäume. Die Zeichen sind nur dunkle Flecken – du brauchst Licht.';
+    openStele(); return 'Die Stele.'; },
+   no:{federmesser:'Die Wurzeln sind dick wie Arme. Da hilft das Federmesser nicht.',kalebasse:'Die Stele ist nicht schmutzig – nur zugewachsen.',karbidlampeAn:'Die Karbidlampe flackert zu schwach. Für die Stele brauchst du helleres Licht.',fackel:'Die Fackel brennt ja noch nicht.'},
+   use:{machete(){ if(S.f.wurzeln) return 'Die Wurzeln sind schon weg.'; S.f.wurzeln=1; sfx('click'); return 'Hieb um Hieb kappst du die Wurzeln. Dahinter kommt eine <b>Stele</b> zum Vorschein, über und über mit Zeichen bedeckt. Im Schatten der Bäume sind sie aber kaum zu lesen.'; },
+    fackelAn(){ if(!S.f.wurzeln) return 'Im Fackelschein siehst du: Hinter den Wurzeln ist eine Stele. Aber sie ist völlig zugewachsen.'; openStele(); return 'Die Stele im Fackelschein.'; }}},
+  {id:'halter',r:[232,545,80,210],act(){ if(!S.f.fackel){ S.f.fackel=1; give('fackel'); return 'In dem eisernen Wandhalter steckt eine <b>Fackel</b>. Das ölige Tuch ist trocken geblieben.'; } return 'Ein leerer Fackelhalter.'; }},
+  {id:'rad',r:[335,505,420,420],act(){ const f=S.f;
+    if(f.offen) return 'Das Tor steht offen.';
+    if(!f.griff) return 'Ein steinernes <b>Kalenderrad</b> mit zwei Ringen. In der Mitte ein leeres, eckiges Loch – hier fehlt ein Griff.';
+    openRad(); return 'Das Kalenderrad.'; },
+   no:{machete:'Mit der Machete das Rad aufhebeln? Das ist Stein. Und Jahrtausende alt.',federmesser:'Das Federmesser passt nicht in das eckige Loch.',fackelAn:'Im Fackelschein siehst du die Ringe genauer. Drehen lassen sie sich so nicht.'},
+   use:{jadegriff(){ take('jadegriff'); S.f.griff=1; sfx('click'); render(); return 'Der eckige Zapfen passt genau. Mit einem Klicken sitzt der <b>Jadegriff</b> in der Mitte des Rades.'; }}},
+  {id:'schlange',r:[780,440,306,140],act:()=>'Eine gefiederte Schlange aus Stein bewacht die Treppe.'},
+  {id:'maul',r:[790,580,260,250],act(){ const f=S.f;
+    if(f.jade) return 'Das Maul der Schlange ist leer.';
+    if(f.maulHell){ f.jade=1; give('jadegriff'); sfx('pick'); return 'Du greifst tief in das Maul – und ziehst einen <b>Jadegriff</b> heraus.'; }
+    return 'Das Maul der Schlange ist pechschwarz. Hineingreifen, ohne zu sehen, was darin ist? Lieber nicht.'; },
+   no:{karbidlampeAn:'Die Karbidlampe flackert nur noch – im Maul bleibt es dunkel.',fackel:'Die Fackel brennt ja noch nicht.',machete:'Blind mit der Machete herumstochern? Dann zerbricht vielleicht etwas.'},
+   use:{fackelAn(){ if(S.f.jade) return 'Das Maul ist leer.'; S.f.maulHell=1; return 'Du leuchtest in das Maul. Ganz hinten, zwischen den steinernen Zähnen, <b>schimmert etwas Grünes</b>.'; }}},
+  {id:'krug',r:[405,1075,240,270],act(){ if(!S.f.seite3){ S.f.seite3=1; give('seite3'); sfx('pick'); return 'Du hebst den Deckel vom Tonkrug. Darin, trocken und sicher: eine <b>Seite aus Amalias Feldbuch</b>.'; } return 'Der Krug ist leer.'; }},
+  {id:'treppe',r:[300,950,600,110],act:()=>'Die Stufen sind glatt vom Tau.'}
+ ],
+ hint(){ const f=S.f;
+  if(!has('fackelAn')&&!f.fackelAn){
+   if(!f.fackel) return ['Deine Lampe geht gleich aus. Du brauchst ein neues Licht.','Neben dem Tor steckt eine Fackel im Wandhalter.'];
+   return ['Die Fackel braucht eine Flamme.','Kombiniere die Fackel mit der Karbidlampe, solange sie noch brennt.']; }
+  if(!f.seite3) return ['Amalia hat dir sicher wieder etwas hinterlassen.','Schau in den Tonkrug auf der Treppe.'];
+  if(!f.griff){
+   if(!f.maulHell) return ['Dem Kalenderrad fehlt der Griff. Irgendwo hier muss er sein.','Das Maul der Steinschlange ist so dunkel …','Leuchte mit der brennenden Fackel in das Maul der Schlange.'];
+   if(!f.jade) return ['Im Maul schimmert etwas.','Greif hinein: Tippe auf das Maul.'];
+   return ['Der Jadegriff hat einen eckigen Zapfen.','Setz den Jadegriff in die Mitte des Kalenderrads.']; }
+  if(!f.wurzeln) return ['Amalia schreibt: Die Zahl steht auf der Stele.','Die Stele links ist von Wurzeln überwuchert.','Benutze die Machete an den Wurzeln.'];
+  if(!f.sternbild) return ['Das Zeichen des Tages ist das Sternbild im Osten. Aber wo ist Osten?','Du hast einen Kompass dabei.','Benutze den Kompass am Himmel.'];
+  return ['Stell auf dem Rad das Sternbild aus dem Osten ein – und die Zahl, die auf der Stele daneben steht.','Das Sternbild im Osten ist die Schildkröte. Auf der Stele steht neben ihr: zwei Striche und ein Punkt.','Äußerer Ring: Schildkröte. Innerer Ring: 11 (zwei Striche, ein Punkt).']; },
+ end:['Kapitel 3 geschafft','Die Treppe hinter dem Tor führt hinab, nicht hinauf. Die Luft wird kühl, die Fackel flackert.<br><br>Unten öffnet sich eine Halle, so dunkel, dass das Licht der Fackel sich darin verliert. Irgendwo über dir fällt ein schmaler Strahl Mondlicht durch den Stein.'],
+ ov(f){ const glow=has('fackelAn')&&!f.offen;
+  return [`${f.wurzeln?`<image href="${A('p_stele.webp')}" x="0" y="90" width="245" height="1100"/>`:''}
+  ${f.fackel?`<image href="${A('p_halter.webp')}" x="225" y="535" width="100" height="230"/>`:''}
+  ${f.seite3?`<image href="${A('p_krug.webp')}" x="395" y="1065" width="360" height="290"/>`:''}
+  ${f.offen?`<image href="${A('p_tor.webp')}" x="318" y="465" width="460" height="480"/>`:(f.griff?`<image href="${A('griff_rad.png')}" x="482" y="687" width="130" height="38"/>`:'')}`,
+  `<defs><radialGradient id="torchG" cx="543" cy="1150" r="700" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffb35a" stop-opacity=".28"/><stop offset="1" stop-color="#ffb35a" stop-opacity="0"/></radialGradient></defs>${glow?`<rect width="${W}" height="${H}" fill="url(#torchG)" class="flicker"/>`:''}
+  <circle cx="300" cy="60" r="2" fill="#fff" class="flicker"/><circle cx="905" cy="120" r="2" fill="#fff" class="flicker" style="animation-delay:-.8s"/><circle cx="640" cy="40" r="1.6" fill="#fff" class="flicker" style="animation-delay:-1.6s"/>`]; }
+};
+
 // rechter Teil der Brücke (hinauf zur Tür) verhält sich wie die Brücke
 R2.hot.push({...R2.hot.find(h=>h.id==='bruecke'),id:'bruecke2',r:[770,420,200,135]});
 
@@ -267,7 +403,7 @@ return {
  size:[W,H],
  asset:A,
  items:ITEMS,
- rooms:[R1,R2],
+ rooms:[R1,R2,R3],
  firstMsg:'Tippe auf Dinge im Zelt, um sie zu untersuchen.'
 };
 }

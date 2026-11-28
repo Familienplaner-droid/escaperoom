@@ -128,7 +128,7 @@ Jeder mitgebrachte Gegenstand kommt hier ein letztes Mal vor (Waage, Hebel, Lins
 - Abwechslung: K1 Kombinieren/Licht/Zahlencode · K2 Brückenbau/Symbolschloss · K3 Licht/Kalenderrad · K4 Spiegel · K5 Waage/Sternkarte.
 
 ## Stand
-**Kapitel 1 und 2 fertig eingebaut** (28.11.2026). Durchspiel-Test `tools/playtest_jaguar.py` spielt beide Kapitel fehlerfrei durch.
+**Kapitel 1–3 fertig eingebaut** (28.11.2026). Durchspiel-Test `tools/playtest_jaguar.py` spielt alle drei Kapitel fehlerfrei durch.
 - Kapitel 1: zelt.jpg / zelt_dunkel.jpg, Overlays p_kiste(_leer)(_d), p_becher(_d), karte.jpg (Gitter/Ruinen als SVG in `openMap`), seite1_gross.webp.
 - Kapitel 2: cenote.jpg; alle Veränderungen sind Ausschnitte aus einer „alles erledigt“-Variante:
   p_bruecke, p_machete, p_planken, p_kalebasse, p_relief, p_tuer (weiche Ränder, Koordinaten in `R2.ov`).
@@ -136,7 +136,12 @@ Jeder mitgebrachte Gegenstand kommt hier ein letztes Mal vor (Waage, Hebel, Lins
   Tierköpfe kopf_*.webp (aus einem 3×2-Bogen), auch als Overlay auf den Türscheiben im Raum (`TUER_START`).
   Lösung Tür: Fledermaus, Jaguar, Frosch, Affe.
 - Abweichung vom Konzept: Die Kalebasse wird an der Treppe gefüllt (nicht vom Rand aus); Lou muss erst über die Brücke, bevor Türsturz, Relief und Tür nutzbar sind.
+- Kapitel 3: tor.jpg; Patches aus der „erledigt“-Variante: p_stele (linke Spalte, Baum weg), p_halter, p_krug, p_tor; Jadegriff im Rad als Overlay griff_rad.png.
+  Nahansichten stele.jpg, rad.jpg, himmel.jpg. Sternbilder (`STERNE`, Funktion `stern`) und Maya-Zahlen (`maya`) als SVG.
+  Stele: `STELE`; Himmel: Schlange (W), Vogel (oben), Schildkröte (O). Rad: äußerer Ring 6 Sternbilder, innerer Ring 1–13.
+  Lösung Rad: Schildkröte + 11. Lou zeichnet das Sternbild ins Feldbuch (`P_STERN`, wichtig für Kap. 5).
+  Karbidlampe wird beim Anzünden der Fackel verbraucht; Fackel brennt weiter (für Kap. 4/5 in `keep` aufnehmen: fackelAn).
 - Cover ist vorläufig intro1.jpg.
-- Nächster Schritt: Rückmeldung zu Kapitel 2, dann Kapitel 3 (Bild-Prompts).
+- Nächster Schritt: Rückmeldung zu Kapitel 3, dann Kapitel 4 (Bild-Prompts).
 - Übersetzungen: noch keine (leere i18n-Dateien angelegt).
 - Test-APK wird seit 28.11. immer mit demselben Schlüssel (`ci/debug.keystore`) signiert, Versionsnummer = Laufnummer → Updates behalten den Spielstand.

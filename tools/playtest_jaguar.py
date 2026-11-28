@@ -73,6 +73,33 @@ with sync_playwright() as p:
             pg.click(f'.jDisc[data-i="{i}"]'); pg.wait_for_timeout(40)
     pg.screenshot(path='j_schloss2.png'); pg.click('#jPress'); pg.wait_for_timeout(700); msg('Tür:'); pg.screenshot(path='j_k2_offen.png')
     pg.wait_for_timeout(3000)
-    print('ENDE2:', pg.inner_text('#endTitle'), '|', pg.inner_text('#endSoon')); pg.screenshot(path='j_end2.png')
+    print('ENDE2:', pg.inner_text('#endTitle'))
+    pg.click('#bNext'); pg.wait_for_timeout(1500); pg.screenshot(path='j_intro3.png')
+    for _ in range(8):
+        try: pg.click('#bIntro',timeout=1500)
+        except Exception: pass
+        pg.wait_for_timeout(400)
+        if pg.is_visible('#sGame'): break
+    # ===== Kapitel 3 =====
+    pg.screenshot(path='j_k3_start.png')
+    hot('himmel'); msg('Himmel ohne Kompass:'); hot('rad'); msg('Rad ohne Griff:'); hot('maul'); msg('Maul dunkel:')
+    hot('stele'); msg('Stele Wurzeln:'); item('machete'); hot('stele'); hot('stele'); msg('Stele dunkel:')
+    hot('halter'); item('fackel'); item('karbidlampeAn'); msg('Fackel:')
+    hot('krug'); hot('stele'); pg.wait_for_timeout(300); pg.screenshot(path='j_stele.png'); close()
+    item('fackelAn'); hot('maul'); hot('maul'); msg('Jade:')
+    item('kompass'); hot('himmel'); pg.wait_for_timeout(300); pg.screenshot(path='j_himmel.png'); close()
+    item('feldbuch'); item('feldbuch'); pg.wait_for_timeout(300); pg.screenshot(path='j_feldbuch3.png'); close()
+    item('jadegriff'); hot('rad'); pg.wait_for_timeout(300); pg.screenshot(path='j_k3_griff.png')
+    hot('rad'); pg.wait_for_timeout(300); pg.screenshot(path='j_rad.png')
+    pg.click('#jTurn'); pg.wait_for_timeout(300); msg('Rad falsch:')
+    hot('rad'); pg.wait_for_timeout(300)
+    st=pg.evaluate("(async()=>{const e=await import('./js/engine.js'); return e.state.f.rad})()")
+    o=(0-st[0])%6; n=(10-st[1])%13
+    bb=pg.locator('#jOutHit').bounding_box()
+    for _ in range(o): pg.mouse.click(bb['x']+bb['width']/2, bb['y']+bb['height']*0.07); pg.wait_for_timeout(60)
+    for _ in range(n): pg.click('#jInHit',force=True); pg.wait_for_timeout(60)
+    pg.wait_for_timeout(600); pg.screenshot(path='j_rad2.png'); pg.click('#jTurn'); pg.wait_for_timeout(900); msg('Rad:'); pg.screenshot(path='j_k3_offen.png')
+    pg.wait_for_timeout(3000)
+    print('ENDE3:', pg.inner_text('#endTitle'), '|', pg.inner_text('#endSoon')); pg.screenshot(path='j_end3.png')
     miss=pg.evaluate("[...(window.__trMiss||[])]"); print('UNEXACT',len(miss)); [print('  ',m.replace(chr(10),' ')[:150]) for m in miss[:20]]
     print('ERR',errs); b.close()
