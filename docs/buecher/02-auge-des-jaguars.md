@@ -139,3 +139,4 @@ Jeder mitgebrachte Gegenstand kommt hier ein letztes Mal vor (Waage, Hebel, Lins
 - Cover ist vorläufig intro1.jpg.
 - Nächster Schritt: Rückmeldung zu Kapitel 2, dann Kapitel 3 (Bild-Prompts).
 - Übersetzungen: noch keine (leere i18n-Dateien angelegt).
+- Test-APK wird seit 28.11. immer mit demselben Schlüssel (`ci/debug.keystore`) signiert, Versionsnummer = Laufnummer → Updates behalten den Spielstand.
