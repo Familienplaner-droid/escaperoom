@@ -183,7 +183,7 @@ function openTierschloss(){
  if(!S.f.tuer) S.f.tuer=TUER_START.slice();
  const t=S.f.tuer;
  const draw=()=>t.map((n,i)=>`<button class="jDisc" data-i="${i}" style="border:0;padding:0;background:none;width:21%;aspect-ratio:1;border-radius:50%;cursor:pointer"><img src="${A('kopf_'+n+'.webp')}" alt="${tr(TIERNAME[n])}" style="width:100%;display:block;border-radius:50%;box-shadow:0 4px 12px #000a"></button>`).join('');
- const body=dialog('Die Steintür',`<div class="jDiscs" style="display:flex;justify-content:space-between;gap:2%;margin:4px 0 14px">${draw()}</div><p>Vier steinerne Scheiben mit Tierköpfen. Tippe auf eine Scheibe, um sie weiterzudrehen. Das erste Tier gehört nach links.</p><button class="btn pri" id="jPress" style="margin-top:4px">Gegen die Tür drücken</button>`);
+ const body=dialog('Die Steintür',`<div class="jDiscs" style="display:flex;justify-content:space-between;gap:2%;margin:4px 0 14px">${draw()}</div><p>Vier steinerne Scheiben mit Tierköpfen. Tippe auf eine Scheibe, um sie weiterzudrehen. Das erste Tier gehört nach links.</p>${S.f.sturzGesehen?'':'<p><i>Über der Tür, im Türsturz, sind Zeichen eingemeißelt. Die solltest du dir genauer ansehen.</i></p>'}<button class="btn pri" id="jPress" style="margin-top:4px">Gegen die Tür drücken</button>`);
  const box=body.querySelector('.jDiscs');
  box.addEventListener('click',e=>{ const b=e.target.closest('.jDisc'); if(!b) return; const i=+b.dataset.i;
   t[i]=TIERE[(TIERE.indexOf(t[i])+1)%TIERE.length]; sfx('slide'); box.innerHTML=draw(); render(); });
@@ -209,7 +209,7 @@ const R2={
   {id:'stumpf',r:[20,880,210,260],act(){ if(!S.f.machete){ S.f.machete=1; give('machete'); sfx('pick'); return 'In dem Baumstumpf steckt eine <b>Machete</b>. Du ruckelst – und ziehst sie heraus.'; } return 'Ein alter Baumstumpf mit einer frischen Kerbe.'; }},
   {id:'rucksack',r:[462,990,150,170],act(){ if(!S.f.seite2){ S.f.seite2=1; give('seite2'); return 'Amalias Rucksack! Ganz oben liegt eine <b>Seite aus ihrem Feldbuch</b> – für dich.'; } return 'Amalias Rucksack. Sie hat ihn hiergelassen, um schneller zu sein.'; }},
   {id:'bruecke',r:[140,540,620,210],act(){ const f=S.f;
-    if(f.seil&&f.bretter){ if(!f.drueben){ f.drueben=1; sfx('slide'); return 'Die Brücke schwankt, die Planken knarren – aber sie hält. Schritt für Schritt balancierst du <b>hinüber</b> zur Tempeltür.'; } return 'Die Brücke hält. Du kannst jederzeit hin und her.'; }
+    if(f.seil&&f.bretter){ if(!f.drueben){ f.drueben=1; sfx('slide'); return 'Die Brücke schwankt, die Planken knarren – aber sie hält. Schritt für Schritt balancierst du <b>hinüber</b> zur Tempeltür. Jetzt erkennst du auch die <b>Zeichen über der Tür</b> und das verschlammte Relief daneben.'; } return 'Die Brücke hält. Du kannst jederzeit hin und her.'; }
     if(!f.seil&&!f.bretter) return 'Ein Halteseil ist gerissen und hängt ins Wasser, und mittendrin fehlen Planken. So kommst du nicht hinüber.';
     if(!f.seil) return 'Die Lücken sind gestopft, aber das Halteseil fehlt noch. Ohne festhalten wagst du dich nicht hinüber.';
     return 'Das Halteseil ist neu. Aber in der Mitte klaffen noch Lücken zwischen den Brettern.'; },
@@ -225,7 +225,7 @@ const R2={
   {id:'stapel',r:[620,1090,466,358],vis:()=>!S.f.planken,act:()=>'Ein Stapel alter Planken. Grüne Ranken halten ihn fest umschlungen.',
    no:{federmesser:'Die Ranken sind zäh. Mit dem Federmesser dauert das Stunden.'},
    use:{machete(){ S.f.planken=1; give('planken'); sfx('pick'); return 'Ein paar Hiebe, die Ranken fallen. Du ziehst drei feste <b>Planken</b> heraus.'; }}},
-  {id:'tuersturz',r:[545,195,215,55],act(){ if(!S.f.drueben) return 'Über der Tür sind Zeichen. Von hier aus viel zu weit weg, um Einzelheiten zu erkennen.'; openSturz(); return 'Der Türsturz.'; }},
+  {id:'tuersturz',r:[528,180,255,75],act(){ if(!S.f.drueben) return 'Über der Tür sind Zeichen. Von hier aus viel zu weit weg, um Einzelheiten zu erkennen.'; openSturz(); return 'Der Türsturz.'; }},
   {id:'tuer',r:[530,255,255,175],act(){ if(S.f.offen) return 'Die Tür steht offen.'; if(!S.f.drueben) return 'Die Steintür liegt auf der anderen Seite. Erst musst du hinüber.'; openTierschloss(); return 'Die Steintür.'; }},
   {id:'relief',r:[850,210,195,200],act(){ if(!S.f.drueben) return 'Neben der Tür: eine Steinplatte voller Schlamm. Zu weit weg.'; if(!S.f.sauber) return 'Das Relief ist dick mit getrocknetem Schlamm überzogen. Darunter erahnst du Formen.'; openRelief(); return 'Das Relief.'; },
    no:{kalebasse:'Die Kalebasse ist leer.',machete:'Mit der Machete kratzen? Dann zerstörst du das Relief.',federmesser:'Kratzen würde die Figuren beschädigen.'},
