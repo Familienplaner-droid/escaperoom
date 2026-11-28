@@ -128,7 +128,7 @@ Jeder mitgebrachte Gegenstand kommt hier ein letztes Mal vor (Waage, Hebel, Lins
 - Abwechslung: K1 Kombinieren/Licht/Zahlencode · K2 Brückenbau/Symbolschloss · K3 Licht/Kalenderrad · K4 Spiegel · K5 Waage/Sternkarte.
 
 ## Stand
-**Kapitel 1–3 fertig eingebaut** (28.11.2026). Durchspiel-Test `tools/playtest_jaguar.py` spielt alle drei Kapitel fehlerfrei durch.
+**Kapitel 1–4 fertig eingebaut** (28.11.2026). Durchspiel-Test `tools/playtest_jaguar.py` spielt alle vier Kapitel fehlerfrei durch.
 - Kapitel 1: zelt.jpg / zelt_dunkel.jpg, Overlays p_kiste(_leer)(_d), p_becher(_d), karte.jpg (Gitter/Ruinen als SVG in `openMap`), seite1_gross.webp.
 - Kapitel 2: cenote.jpg; alle Veränderungen sind Ausschnitte aus einer „alles erledigt“-Variante:
   p_bruecke, p_machete, p_planken, p_kalebasse, p_relief, p_tuer (weiche Ränder, Koordinaten in `R2.ov`).
@@ -141,7 +141,13 @@ Jeder mitgebrachte Gegenstand kommt hier ein letztes Mal vor (Waage, Hebel, Lins
   Stele: `STELE`; Himmel: Schlange (W), Vogel (oben), Schildkröte (O). Rad: äußerer Ring 6 Sternbilder, innerer Ring 1–13.
   Lösung Rad: Schildkröte + 11. Lou zeichnet das Sternbild ins Feldbuch (`P_STERN`, wichtig für Kap. 5).
   Karbidlampe wird beim Anzünden der Fackel verbraucht; Fackel brennt weiter (für Kap. 4/5 in `keep` aufnehmen: fackelAn).
+- Kapitel 4: halle.jpg (Fackel im Halter) / halle_dunkel.jpg (`f.hell`). Patches aus „erledigt“: p_spiegel (alle Spiegel blank, nur wenn Platte + sauber),
+  p_schutt, p_becken (Asche weg), p_fach + p_tuer4 (nach Lösung). Seite 4 als SVG-Zettel auf dem Boden. Mondstrahl mit Staub als SVG.
+  Spiegelrätsel `openSpiegel`: Draufsicht 4×4 auf boden.jpg, Spiegel `SPIEGEL` (Zeile, Spalte), Stellungen 0 '/', 1 '\', 2/3 quer (schlucken).
+  Strahl kommt unten in Spalte 0 herein; Altäre oben: Sonne, Tür, Mond, Jaguar. Lösung `SPIEGEL_LOESUNG` = [0,1,1,0]. Mond als Köder.
+  Die Fackel bleibt im Halter, wird über `keep` in Kap. 5 wieder mitgegeben (fackelAn in keep von R5 aufnehmen!).
+- Kap. 5 braucht in `keep`: feldbuch, federmesser, kompass, machete, kalebasse, fackelAn, linse.
 - Cover ist vorläufig intro1.jpg.
-- Nächster Schritt: Rückmeldung zu Kapitel 3, dann Kapitel 4 (Bild-Prompts).
+- Nächster Schritt: Rückmeldung zu Kapitel 4, dann Kapitel 5 (Bild-Prompts).
 - Übersetzungen: noch keine (leere i18n-Dateien angelegt).
 - Test-APK wird seit 28.11. immer mit demselben Schlüssel (`ci/debug.keystore`) signiert, Versionsnummer = Laufnummer → Updates behalten den Spielstand.

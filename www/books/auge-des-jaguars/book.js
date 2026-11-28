@@ -46,8 +46,10 @@ const P_SEITE2='<b>Lou!</b> Der Sturm hat die Brücke zerrissen, gleich nachdem 
 const P_SEITE3=()=>'<b>Lou,</b> das Tor öffnet sich nur für den <b>Tag des Auges</b>. Die Priester haben ihn nicht mit Worten aufgeschrieben, sondern mit dem Himmel:<br><br>Das <b>Zeichen</b> des Tages ist das Sternbild, das vor Sonnenaufgang <b>im Osten</b> über den Bäumen steht. Seine <b>Zahl</b> steht auf der Stele, gleich neben dem Sternbild.<br><br>Die Maya schreiben Zahlen mit Punkten und Strichen:<div style="display:grid;grid-template-columns:repeat(3,auto);gap:4px 10px;justify-content:center;align-items:center;font-style:normal;margin:8px 0">'
  +[1,2,4,5,6,10].map(n=>`<span style="text-align:center">${mayaSVG(n)}<br>${n}</span>`).join('')+'</div>Ein Punkt ist eins, ein Strich ist fünf.';
 const P_STERN=()=>'<b>Deine eigene Zeichnung:</b> das Sternbild, das vor Sonnenaufgang im Osten stand.<div style="text-align:center"><svg viewBox="0 0 100 100" style="width:150px;height:150px">'+stern('schildkroete',50,50,86,'blei')+'</svg></div>Zum ersten Mal hast du etwas gezeichnet, das du selbst entdeckt hast.';
+const P_SEITE4='<b>Lou,</b> in dieser Halle haben die Priester das Mondlicht eingefangen. Vier Spiegel aus Obsidian lenken es durch den Raum – wenn sie blank sind und richtig stehen.<br><br><b>Das Licht muss den Jaguar wecken.</b> Nicht die Sonne, nicht den Mond. Nur der Jaguar öffnet den Weg.<br><br>Sieh dir den Strahl genau an, bevor du die Spiegel drehst. Man sieht ihn nur, wenn Staub in der Luft liegt.';
 function feldbuchHTML(){
  const pg=[P_NOTIZ];
+ if(S.room>3||S.f.seite4) pg.push(P_SEITE4);
  if(S.room>2||S.f.sternbild) pg.push(P_STERN());
  if(S.room>2||S.f.seite3) pg.push(P_SEITE3());
  if(S.room>1||S.f.seite2) pg.push(P_SEITE2);
@@ -79,6 +81,10 @@ const ITEMS={
  seite3:{n:'Amalias Seite über den Kalender',i:'seite.png',get paper(){ return ['Eine lose Seite',P_SEITE3()]; }},
  fackel:{n:'Fackel',i:'fackel.png',d:'Eine Fackel, der Kopf mit öligem Tuch umwickelt. Sie ist trocken geblieben.'},
  fackelAn:{n:'Brennende Fackel',i:'fackelAn.png',d:'Die Fackel brennt hell und warm. Sie wird eine Weile halten.'},
+ seite4:{n:'Amalias Seite über die Spiegel',i:'seite.png',get paper(){ return ['Eine lose Seite',P_SEITE4]; }},
+ spiegelplatte:{n:'Spiegelplatte',i:'spiegelplatte.png',d:'Eine Platte aus schwarzem Obsidian in einem Steinrahmen. Unbeschädigt!'},
+ asche:{n:'Asche',i:'asche.png',d:'Eine Handvoll feiner, grauer Asche. Sie staubt bei jeder Bewegung.'},
+ linse:{n:'Kristalllinse',i:'linse.png',d:'Eine vollkommen klare Linse aus Kristall, so groß wie deine Handfläche. In ihr glimmt ein weiches Licht. Das Auge des Jaguars.'},
  jadegriff:{n:'Jadegriff',i:'jadegriff.png',d:'Ein Griff aus grüner Jade mit einem eckigen Zapfen am Ende. Er sieht aus, als gehöre er irgendwo hinein.'}
 };
 
@@ -330,7 +336,6 @@ function openRad(){
 }
 const R3={
  title:'Das Tor des Kalenders', chapter:'Kapitel 3', img:A('tor.jpg'), introImg:A('intro3.jpg'),
- soon:'Kapitel 4: Die Halle der Spiegel – bald verfügbar',
  keep:['feldbuch','federmesser','kompass','karbidlampeAn','machete','kalebasse'],
  intro:['Die Treppe hinter der Steintür führt hinauf, durch Wurzeln und Nebel, bis an den Fuß des Tempels.','Der Mond ist untergegangen. Über den Bäumen stehen die Sterne, und ganz im Osten wird der Himmel schon violett.','Vor dir: ein gewaltiges Tor mit einem steinernen Rad. Und deine Karbidlampe beginnt zu flackern.'],
  firstMsg:'Das Tor des Kalenders. Deine Karbidlampe sputtert – das Karbid ist fast verbraucht. Lange hält sie nicht mehr.',
@@ -381,7 +386,7 @@ const R3={
   if(!f.wurzeln) return ['Amalia schreibt: Die Zahl steht auf der Stele.','Die Stele links ist von Wurzeln überwuchert.','Benutze die Machete an den Wurzeln.'];
   if(!f.sternbild) return ['Das Zeichen des Tages ist das Sternbild im Osten. Aber wo ist Osten?','Du hast einen Kompass dabei.','Benutze den Kompass am Himmel.'];
   return ['Stell auf dem Rad das Sternbild aus dem Osten ein – und die Zahl, die auf der Stele daneben steht.','Das Sternbild im Osten ist die Schildkröte. Auf der Stele steht neben ihr: zwei Striche und ein Punkt.','Äußerer Ring: Schildkröte. Innerer Ring: 11 (zwei Striche, ein Punkt).']; },
- end:['Kapitel 3 geschafft','Die Treppe hinter dem Tor führt hinab, nicht hinauf. Die Luft wird kühl, die Fackel flackert.<br><br>Unten öffnet sich eine Halle, so dunkel, dass das Licht der Fackel sich darin verliert. Irgendwo über dir fällt ein schmaler Strahl Mondlicht durch den Stein.'],
+ end:['Kapitel 3 geschafft','Die Treppe hinter dem Tor führt hinab, nicht hinauf. Die Luft wird kühl, die Fackel flackert.<br><br>Unten öffnet sich eine Halle, so dunkel, dass das Licht der Fackel sich darin verliert. Irgendwo über dir fällt ein schmaler Strahl Mondlicht durch den Stein.<br><br>Du nimmst die Fackel mit hinab.'],
  ov(f){ const glow=has('fackelAn')&&!f.offen;
   return [`${f.wurzeln?`<image href="${A('p_stele.webp')}" x="0" y="90" width="245" height="1100"/>`:''}
   ${f.fackel?`<image href="${A('p_halter.webp')}" x="225" y="535" width="100" height="230"/>`:''}
@@ -391,6 +396,132 @@ const R3={
   <circle cx="300" cy="60" r="2" fill="#fff" class="flicker"/><circle cx="905" cy="120" r="2" fill="#fff" class="flicker" style="animation-delay:-.8s"/><circle cx="640" cy="40" r="1.6" fill="#fff" class="flicker" style="animation-delay:-1.6s"/>`]; }
 };
 
+/* ================= KAPITEL 4: DIE HALLE DER SPIEGEL ================= */
+// Draufsicht 4×4. Strahl kommt unten in Spalte 0 herein (nach oben). Altäre oben: Sonne (Sp. 0), Tür (1), Mond (2), Jaguar (3).
+// Spiegel: Stellung 0 '/', 1 '\', 2 waagerecht, 3 senkrecht (2/3 schlucken das Licht).
+const SPIEGEL=[[2,0],[2,2],[3,2],[3,3]];      // [Zeile, Spalte]
+const SPIEGEL_LOESUNG=[0,1,1,0];
+function strahl(st){
+ let r=4,c=0,dr=-1,dc=0; const pts=[[c,r]];
+ for(let n=0;n<40;n++){
+  r+=dr; c+=dc;
+  if(r<0){ pts.push([c,-0.35]); return {pts,ziel:['sonne','tuer','mond','jaguar'][c]}; }
+  if(r>3||c<0||c>3){ pts.push([c,r]); return {pts,ziel:'wand'}; }
+  const i=SPIEGEL.findIndex(([a,b])=>a===r&&b===c); if(i<0) continue;
+  pts.push([c,r]); const m=st[i];
+  if(m>=2) return {pts,ziel:'block'};
+  if(m===0) [dr,dc]=[-dc,-dr]; else [dr,dc]=[dc,dr];
+ }
+ return {pts,ziel:'wand'};
+}
+function openSpiegel(){
+ if(!S.f.spiegel) S.f.spiegel=[2,0,3,2];
+ const st=S.f.spiegel, T=200, O=100, P=(c,r)=>[O+c*T+T/2,O+r*T+T/2];
+ const ang=[-45,45,0,90];
+ const alt=(c,k)=>{ const [x]=P(c,0), y=50;
+  if(k==='sonne') return `<circle cx="${x}" cy="${y}" r="22" fill="#e8b04a"/>${Array.from({length:8},(_,i)=>`<line x1="${x}" y1="${y}" x2="${x+38*Math.cos(i*Math.PI/4)}" y2="${y+38*Math.sin(i*Math.PI/4)}" stroke="#e8b04a" stroke-width="6"/>`).join('')}`;
+  if(k==='mond') return `<path d="M${x+10} ${y-30}a32 32 0 1 0 0 60a24 24 0 1 1 0-60z" fill="#cfd8e8"/>`;
+  if(k==='jaguar') return `<image href="${A('kopf_jaguar.webp')}" x="${x-42}" y="${y-42}" width="84" height="84"/>`;
+  return `<rect x="${x-34}" y="${y-36}" width="68" height="72" fill="#120c06" stroke="#6b4a2a" stroke-width="5"/>`; };
+ const mirrors=()=>SPIEGEL.map(([r,c],i)=>{ const [x,y]=P(c,r); return `<g class="jM" data-i="${i}" style="cursor:pointer"><circle cx="${x}" cy="${y}" r="78" fill="#000" fill-opacity=".001"/><circle cx="${x}" cy="${y}" r="34" fill="#3a2a1a" stroke="#8a6a45" stroke-width="5"/><g transform="rotate(${ang[st[i]]} ${x} ${y})"><rect x="${x-80}" y="${y-11}" width="160" height="22" rx="4" fill="#0d0d12" stroke="#b9c3d6" stroke-width="4"/><rect x="${x-74}" y="${y-6}" width="60" height="5" fill="#fff" opacity=".35"/></g></g>`; }).join('');
+ const grid=`<g stroke="#000" stroke-opacity=".25" stroke-width="3">${[1,2,3].map(i=>`<line x1="${O+i*T}" y1="${O}" x2="${O+i*T}" y2="${O+4*T}"/><line x1="${O}" y1="${O+i*T}" x2="${O+4*T}" y2="${O+i*T}"/>`).join('')}</g>`;
+ const body=dialog('Die Spiegel',`<div style="position:relative;width:100%;aspect-ratio:1;margin:0 auto"><svg viewBox="0 0 1000 1000" style="display:block;width:100%;height:100%;border-radius:6px;background:#1a120a">
+  <image href="${A('boden.jpg')}" x="${O}" y="${O}" width="${4*T}" height="${4*T}"/>${grid}
+  <rect x="0" y="0" width="1000" height="${O}" fill="#2a1d10"/>${alt(0,'sonne')}${alt(1,'tuer')}${alt(2,'mond')}${alt(3,'jaguar')}
+  <g><rect x="${O+T/2-26}" y="${O+4*T}" width="52" height="${O}" fill="#dfe9ff" opacity=".35"/><circle cx="${O+T/2}" cy="${O+4*T+50}" r="16" fill="#fff"/></g>
+  <g id="jBeam"></g><g id="jMs">${mirrors()}</g></svg></div>
+  <p>Von oben gesehen: vier Spiegel auf ihren Sockeln. Unten fällt der Mondstrahl herein, oben stehen die drei Altäre und die Tür. Tippe auf einen Spiegel, um ihn zu drehen.</p><button class="btn pri" id="jLicht">Licht durchlassen</button>`);
+ const box=body.querySelector('#jMs'), beam=body.querySelector('#jBeam');
+ box.addEventListener('click',e=>{ const g=e.target.closest('.jM'); if(!g) return; st[+g.dataset.i]=(st[+g.dataset.i]+1)%4; sfx('slide'); box.innerHTML=mirrors(); beam.innerHTML=''; });
+ body.querySelector('#jLicht').addEventListener('click',()=>{
+  const res=strahl(st), pts=res.pts.map(([c,r])=>P(c,r));
+  const d='M'+pts.map(p=>p.join(' ')).join('L'); let len=0; for(let i=1;i<pts.length;i++) len+=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);
+  beam.innerHTML=`<path d="${d}" fill="none" stroke="#dfe9ff" stroke-width="26" stroke-opacity=".25" stroke-linecap="round" stroke-dasharray="${len}" stroke-dashoffset="${len}"><animate attributeName="stroke-dashoffset" to="0" dur="1.2s" fill="freeze"/></path><path d="${d}" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-dasharray="${len}" stroke-dashoffset="${len}"><animate attributeName="stroke-dashoffset" to="0" dur="1.2s" fill="freeze"/></path>`;
+  sfx('chime');
+  setTimeout(()=>{
+   if(res.ziel==='jaguar'&&st.join()===SPIEGEL_LOESUNG.join()){ closeDialog(); S.f.licht=1; sfx('door'); render(); say('Der Mondstrahl springt von Spiegel zu Spiegel – und trifft den steinernen Jaguar. Er glüht silbern auf! Ein Knirschen: Am Jaguar-Altar öffnet sich ein kleines <b>Fach</b>, und die schwere Tür gleitet zur Seite.'); }
+   else { const t={sonne:'Der Strahl trifft den Sonnen-Altar. Er leuchtet kurz – dann nichts.',mond:'Der Strahl trifft den Mond-Altar. Er schimmert silbern – aber nichts geschieht.',tuer:'Der Strahl trifft die Tür. Stein bleibt Stein.',block:'Ein Spiegel steht quer und schluckt das Licht.',wand:'Der Strahl verliert sich an der Wand.'}[res.ziel]; say(t); }
+  },1400);
+ });
+}
+const R4={
+ title:'Die Halle der Spiegel', chapter:'Kapitel 4', img:A('halle_dunkel.jpg'), imgFor:f=>A(f.hell?'halle.jpg':'halle_dunkel.jpg'), introImg:A('intro4.jpg'),
+ soon:'Kapitel 5: Die Kammer des Jaguars – bald verfügbar',
+ keep:['feldbuch','federmesser','kompass','machete','kalebasse','fackelAn'],
+ intro:['Die Treppe endet in einer Halle, so groß, dass das Licht deiner Fackel sich darin verliert.','Von hoch oben fällt ein dünner Strahl Mondlicht durch einen Schacht in der Decke.','Irgendwo in dieser Dunkelheit muss der Weg weitergehen. Amalia ist hier durchgekommen.'],
+ firstMsg:'Stockdunkel. Deine Fackel erhellt nur ein paar Schritte. Links an der Wand ertastest du einen leeren <b>Fackelhalter</b>.',
+ comboNo:{'asche+kalebasse':'Asche in die Kalebasse? Dann wird sie schmutzig – und die Asche nass.','asche+kalebasseW':'Nasse Asche staubt nicht mehr.','machete+spiegelplatte':'Vorsicht! Obsidian splittert.','kalebasseW+spiegelplatte':'Erst muss die Platte an ihren Platz. Dann putzt du alle zusammen.'},
+ combos:[],
+ cuts:[],
+ hot:[
+  {id:'halter',r:[15,170,140,270],act:()=>S.f.hell?'Die Fackel brennt ruhig im Halter und erhellt die ganze Halle.':'Ein eiserner Fackelhalter an der Wand. Leer.',
+   use:{fackelAn(){ if(S.f.hell) return 'Sie steckt schon.'; take('fackelAn'); S.f.hell=1; sfx('unlock'); return 'Du steckst die Fackel in den Halter. Hoch oben an der Wand verteilt sich ihr Licht – jetzt siehst du die <b>ganze Halle</b>.'; }},
+   no:{fackel:'Die Fackel brennt ja nicht.'}},
+  {id:'schacht',r:[545,0,170,90],act:()=>'Ein Schacht in der Decke. Durch ihn fällt das letzte Mondlicht der Nacht.'},
+  {id:'strahl',r:[570,90,150,160],act:()=>S.f.staub?'Der Mondstrahl hängt wie ein silberner Faden in der staubigen Luft. Jetzt siehst du, wo er einfällt.':'Ein Strahl Mondlicht – so dünn, dass du ihn kaum siehst. Wohin er fällt, kannst du nur ahnen.',
+   no:{kalebasseW:'Wasser in den Strahl? Das glitzert kurz, aber sichtbar wird er davon nicht.',fackelAn:'Die Fackel überstrahlt das Mondlicht nur.',machete:'Licht kann man nicht zerschneiden.'},
+   use:{asche(){ take('asche'); S.f.staub=1; sfx('slide'); return 'Du wirfst die Asche in die Luft. Feiner Staub wirbelt hoch – und plötzlich ist der <b>Mondstrahl sichtbar</b>: ein silberner Faden, der schräg durch die Halle fällt.'; }}},
+  {id:'sonne',r:[205,250,200,205],act:()=>S.f.hell?'Ein Altar mit einer steinernen <b>Sonne</b>.':'Ein Altar. Im Dunkeln erkennst du nur eine runde Form.'},
+  {id:'tuer',r:[455,300,155,155],act:()=>S.f.licht?'Die Tür steht offen. Dahinter führt ein Gang tiefer in den Tempel.':(S.f.hell?'Eine schwere Steintür. Kein Griff, kein Schloss. Sie muss sich anders öffnen lassen.':'Dort ist etwas Großes, Dunkles. Eine Tür?'),
+   no:{machete:'Die Machete würde nur abbrechen.'}},
+  {id:'mond',r:[615,250,195,205],act:()=>S.f.hell?'Ein Altar mit einer steinernen <b>Mondsichel</b>.':'Ein Altar. Im Dunkeln erkennst du nur eine Sichel.'},
+  {id:'jaguar',r:[860,250,215,250],act(){ const f=S.f;
+    if(f.licht){ if(!f.linse){ f.linse=1; give('linse'); sfx('pick'); setTimeout(win,2200); return 'In dem Fach liegt, auf rotem Stoff, eine <b>Kristalllinse</b>. Sie glimmt von innen. Das Auge des Jaguars!'; } return 'Das Fach ist leer.'; }
+    return f.hell?'Ein Altar mit einem fauchenden <b>Jaguarkopf</b>. Seine Augen sind leere Höhlen.':'Ein Altar. Im Dunkeln glaubst du, Zähne zu sehen.'; }},
+  {id:'spiegel',r:[140,455,640,300],act(){ const f=S.f;
+    if(!f.hell) return 'Große, dunkle Platten auf steinernen Sockeln. Im Dunkeln erkennst du nicht mehr.';
+    if(!f.platte) return 'Drei Spiegel aus Obsidian auf drehbaren Sockeln – der vierte Sockel rechts ist <b>leer</b>.'+(f.sauber?'':' Und alle sind stumpf vor Staub.');
+    if(!f.sauber) return 'Vier Spiegel aus Obsidian. Aber sie sind <b>stumpf vor Staub</b> – so spiegeln sie nichts.';
+    if(!f.staub) return 'Die Spiegel sind blank. Aber wie sollst du sie ausrichten, wenn du den Mondstrahl kaum siehst?';
+    if(f.licht) return 'Die Spiegel stehen richtig.';
+    openSpiegel(); return 'Die Spiegel.'; },
+   no:{kalebasse:'Die Kalebasse ist leer.',machete:'Kratzen würde den Obsidian zerkratzen.',asche:'Asche auf die Spiegel? Dann sind sie noch stumpfer.'},
+   use:{kalebasseW(){ if(!S.f.hell) return 'Im Dunkeln siehst du nicht, was du putzt.'; take('kalebasseW'); give('kalebasse'); S.f.sauber=1; sfx('slide'); return 'Du gießt Wasser über die Spiegel und wischst mit dem Ärmel nach. Der Obsidian wird <b>blank</b> und spiegelt das Fackellicht.'+(S.f.platte?'':' Den vierten Sockel musst du noch bestücken.'); }}},
+  {id:'sockel4',r:[905,560,170,350],act:()=>S.f.platte?'Die Spiegelplatte sitzt fest.':(S.f.hell?'Ein leerer Sockel. Hier fehlt eine Spiegelplatte.':'Ein steinerner Sockel.'),
+   use:{spiegelplatte(){ take('spiegelplatte'); S.f.platte=1; sfx('click'); return 'Die Platte rastet mit einem satten Klacken in den Sockel ein. <b>Vier Spiegel</b>.'+(S.f.sauber?'':' Aber auch diese ist staubig.'); }},
+   no:{kalebasseW:'Hier ist noch gar kein Spiegel.'}},
+  {id:'becken',r:[420,895,395,150],act:()=>'Ein flaches Steinbecken, randvoll mit Regenwasser.',
+   use:{kalebasse(){ take('kalebasse'); give('kalebasseW'); sfx('slide'); return 'Du füllst die Kalebasse mit Regenwasser.'; }},
+   no:{asche:'Nasse Asche staubt nicht mehr.',kalebasseW:'Die Kalebasse ist schon voll.'}},
+  {id:'kohle',r:[0,1035,370,360],act(){ if(!S.f.hell) return 'Eine große steinerne Schale. Riecht nach altem Feuer.'; if(!S.f.asche){ S.f.asche=1; give('asche'); return 'Ein steinernes Kohlebecken voller kalter <b>Asche</b>. Du nimmst eine Handvoll.'; } return 'Nur noch ein Rest Asche.'; },
+   no:{fackelAn:'Die Asche ist längst kalt. Da brennt nichts mehr.'}},
+  {id:'seite',r:[395,1150,230,140],vis:()=>!S.f.seite4,act(){ if(!S.f.hell) return 'Etwas Helles liegt auf dem Boden.'; S.f.seite4=1; give('seite4'); return 'Auf dem Boden liegt eine <b>Seite aus Amalias Feldbuch</b>, mit einem Steinchen beschwert.'; }},
+  {id:'schutt',r:[700,1050,386,398],act(){ const f=S.f;
+    if(!f.hell) return 'Ein Haufen Steine. Im Dunkeln stolperst du fast darüber.';
+    if(!f.platte&&!has('spiegelplatte')) return 'Ein Schutthaufen. Darunter ragt die <b>Kante einer schwarzen Platte</b> hervor. Die Steine sind viel zu schwer, um sie mit bloßen Händen zu bewegen.';
+    return 'Nur noch Schutt.'; },
+   no:{federmesser:'Das Federmesser würde sofort abbrechen.',kalebasse:'Damit kannst du nicht hebeln.'},
+   use:{machete(){ if(!S.f.hell) return 'Im Dunkeln siehst du nicht, wo du ansetzen sollst.'; if(S.f.platte||has('spiegelplatte')) return 'Hier liegt nichts mehr.'; give('spiegelplatte'); S.f.schutt=1; sfx('pick'); return 'Du setzt die Machete als Hebel an. Ein Stein rollt zur Seite – und du ziehst eine <b>Spiegelplatte</b> aus Obsidian hervor. Heil!'; }}}
+ ],
+ hint(){ const f=S.f;
+  if(!f.hell) return ['Mit der Fackel in der Hand siehst du nur ein paar Schritte weit.','Links an der Wand ist ein Fackelhalter.','Steck die brennende Fackel in den Halter.'];
+  if(!f.seite4) return ['Amalia war hier.','Auf dem Boden liegt eine Seite aus ihrem Feldbuch.'];
+  if(!f.platte){
+   if(!has('spiegelplatte')) return ['Einem Sockel fehlt sein Spiegel.','Unter dem Schutt rechts ragt eine schwarze Platte hervor.','Benutze die Machete als Hebel am Schutthaufen.'];
+   return ['Die Platte gehört auf den leeren Sockel.','Benutze die Spiegelplatte am leeren Sockel rechts.']; }
+  if(!f.sauber){
+   if(has('kalebasse')) return ['Die Spiegel sind stumpf vor Staub.','Mit Wasser würden sie blank. Im Becken unter dem Schacht ist Regenwasser.','Fülle die Kalebasse am Becken und gieß sie über die Spiegel.'];
+   return ['Jetzt die Spiegel putzen.','Benutze die Kalebasse mit Wasser an den Spiegeln.']; }
+  if(!f.staub){
+   if(!has('asche')) return ['Amalia schreibt: Den Strahl sieht man nur, wenn Staub in der Luft liegt.','Im Kohlebecken links liegt alte Asche.'];
+   return ['Jetzt den Strahl sichtbar machen.','Wirf die Asche in den Mondstrahl unter dem Schacht.']; }
+  if(!f.licht) return ['Der Strahl muss den Jaguar treffen – nicht Sonne, nicht Mond.','Der Strahl kommt unten links herein und geht nach oben. Jeder Spiegel lenkt ihn um eine Ecke. Quer stehende Spiegel schlucken ihn.','Von unten links nach oben rechts: Strahl nach rechts, dann nach unten, dann nach rechts, dann hinauf zum Jaguar. Die Spiegel stehen: / \\ \\ /'];
+  return ['Der Jaguar-Altar hat sich geöffnet.','Tippe auf das Fach am Jaguar-Altar.']; },
+ end:['Kapitel 4 geschafft','Du hältst das Auge des Jaguars in der Hand. Es ist warm, als hätte es auf dich gewartet.<br><br>Du nimmst die Fackel wieder aus dem Halter. Hinter der offenen Tür führt ein Gang nach oben – und von dort hörst du eine Stimme. „Lou? Lou, bist du das?“'],
+ ov(f){
+  const seite=!f.seite4&&f.hell?`<g transform="rotate(-8 510 1220)"><rect x="440" y="1175" width="140" height="95" rx="4" fill="#efe1bf" stroke="#8a6a35" stroke-width="2"/><path d="M455 1195h100M455 1210h90M455 1225h105M455 1240h70" stroke="#6b5233" stroke-width="3" opacity=".6"/><circle cx="560" cy="1250" r="12" fill="#6b6155"/></g>`:'';
+  return [`${f.hell?'':`<rect x="15" y="160" width="140" height="280" fill="#05070b" opacity=".0"/>`}
+  ${f.hell&&f.platte&&f.sauber?`<image href="${A('p_spiegel.webp')}" x="135" y="450" width="850" height="300"/>`:''}
+  ${f.hell&&f.platte&&!f.sauber?`<g transform="translate(905 465)"><rect x="0" y="0" width="160" height="260" fill="#151517" opacity=".92"/><rect x="6" y="6" width="148" height="248" fill="#3b3d42" opacity=".35"/></g>`:''}
+  ${f.hell&&(f.schutt||f.platte)?`<image href="${A('p_schutt.webp')}" x="560" y="890" width="526" height="558"/>`:''}
+  ${f.hell&&f.asche?`<image href="${A('p_becken.webp')}" x="0" y="1030" width="375" height="380"/>`:''}
+  ${f.licht?`<image href="${A('p_fach.webp')}" x="915" y="375" width="150" height="115"/><image href="${A('p_tuer4.webp')}" x="445" y="285" width="180" height="215"/>`:''}
+  ${seite}`,
+  `${f.staub?`<defs><linearGradient id="beamG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8f0ff" stop-opacity=".55"/><stop offset="1" stop-color="#e8f0ff" stop-opacity=".12"/></linearGradient></defs><path d="M600 70L690 70L700 930L590 930z" fill="url(#beamG)" class="flicker"/>${[[630,200],[660,330],[620,470],[675,600],[640,760],[612,860]].map(([x,y],i)=>`<circle cx="${x}" cy="${y}" r="3" fill="#fff" opacity=".8" class="flicker" style="animation-delay:-${i*.4}s"/>`).join('')}`:''}
+  ${!f.hell&&has('fackelAn')?`<defs><radialGradient id="hand4" cx="543" cy="1300" r="520" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffb35a" stop-opacity=".35"/><stop offset="1" stop-color="#ffb35a" stop-opacity="0"/></radialGradient></defs><rect width="${W}" height="${H}" fill="url(#hand4)" class="flicker"/>`:''}`]; }
+};
+
+R4.hot.push({...R4.hot.find(h=>h.id==='strahl'),id:'strahl2',r:[570,760,150,130]});
 // rechter Teil der Brücke (hinauf zur Tür) verhält sich wie die Brücke
 R2.hot.push({...R2.hot.find(h=>h.id==='bruecke'),id:'bruecke2',r:[770,420,200,135]});
 
@@ -403,7 +534,7 @@ return {
  size:[W,H],
  asset:A,
  items:ITEMS,
- rooms:[R1,R2,R3],
+ rooms:[R1,R2,R3,R4],
  firstMsg:'Tippe auf Dinge im Zelt, um sie zu untersuchen.'
 };
 }

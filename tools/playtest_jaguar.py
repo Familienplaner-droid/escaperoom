@@ -100,6 +100,30 @@ with sync_playwright() as p:
     for _ in range(n): pg.click('#jInHit',force=True); pg.wait_for_timeout(60)
     pg.wait_for_timeout(600); pg.screenshot(path='j_rad2.png'); pg.click('#jTurn'); pg.wait_for_timeout(900); msg('Rad:'); pg.screenshot(path='j_k3_offen.png')
     pg.wait_for_timeout(3000)
-    print('ENDE3:', pg.inner_text('#endTitle'), '|', pg.inner_text('#endSoon')); pg.screenshot(path='j_end3.png')
+    print('ENDE3:', pg.inner_text('#endTitle'))
+    pg.click('#bNext'); pg.wait_for_timeout(1500); pg.screenshot(path='j_intro4.png')
+    for _ in range(8):
+        try: pg.click('#bIntro',timeout=1500)
+        except Exception: pass
+        pg.wait_for_timeout(400)
+        if pg.is_visible('#sGame'): break
+    # ===== Kapitel 4 =====
+    pg.screenshot(path='j_k4_start.png')
+    hot('spiegel'); msg('Spiegel dunkel:'); hot('kohle'); msg('Kohle dunkel:'); hot('schutt'); msg('Schutt dunkel:')
+    item('fackelAn'); hot('halter'); msg('Licht:'); pg.wait_for_timeout(300); pg.screenshot(path='j_k4_hell.png')
+    hot('seite'); hot('jaguar'); msg('Jaguar:'); hot('spiegel'); msg('Spiegel:')
+    item('machete'); hot('schutt'); item('spiegelplatte'); hot('sockel4'); msg('Sockel:')
+    item('kalebasse'); hot('becken'); item('kalebasseW'); hot('spiegel'); msg('Putzen:')
+    hot('spiegel'); msg('ohne Staub:')
+    hot('kohle'); item('asche'); hot('strahl'); msg('Staub:'); pg.wait_for_timeout(300); pg.screenshot(path='j_k4_staub.png')
+    hot('spiegel'); pg.wait_for_timeout(300); pg.screenshot(path='j_spiegel.png')
+    pg.click('#jLicht'); pg.wait_for_timeout(1700); pg.screenshot(path='j_spiegel_falsch.png'); msg('Falsch:')
+    hot('spiegel'); pg.wait_for_timeout(300)
+    st=pg.evaluate("(async()=>{const e=await import('./js/engine.js'); return e.state.f.spiegel})()")
+    for i,w in enumerate([0,1,1,0]):
+        for _ in range((w-st[i])%4): pg.click(f'.jM[data-i="{i}"]',force=True); pg.wait_for_timeout(60)
+    pg.click('#jLicht'); pg.wait_for_timeout(700); pg.screenshot(path='j_spiegel_ok.png'); pg.wait_for_timeout(1000); msg('Licht:')
+    pg.screenshot(path='j_k4_offen.png'); hot('jaguar'); msg('Linse:'); pg.wait_for_timeout(3200)
+    print('ENDE4:', pg.inner_text('#endTitle'), '|', pg.inner_text('#endSoon')); pg.screenshot(path='j_end4.png')
     miss=pg.evaluate("[...(window.__trMiss||[])]"); print('UNEXACT',len(miss)); [print('  ',m.replace(chr(10),' ')[:150]) for m in miss[:20]]
     print('ERR',errs); b.close()
