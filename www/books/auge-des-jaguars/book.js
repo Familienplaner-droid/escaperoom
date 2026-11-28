@@ -13,7 +13,7 @@ const P_PACK='<b>Packliste für Mateos Maultiere</b> (Gewicht in Lot)<div style=
  +[['Zelt',40],['Funkgerät',22],['Theodolit',14],['Machete',8],['Kochtopf',6],['Fackel',5],['Kalebasse (leer)',3],['Kompass',2],['Lous Federmesser',1]]
    .map(([n,g])=>`<span>${tr(n)}</span><span style="text-align:right">${g}</span>`).join('')+'</div>';
 const P_SEITE1=()=>img('seite1_gross.webp','max-width:260px;margin:0 auto 10px')+'<b>Mein Tempel.</b> Drei Stufen, ganz oben der Jaguar. Dort wartet das Auge.<br><br>Die Kiste kennt den Weg dorthin, Lou. Du musst ihn nur auf der Karte finden.';
-const P_SEITE2='<b>Lou!</b> Der Sturm hat die Brücke zerrissen, gleich nachdem ich drüben war. Du findest einen Weg hinüber, da bin ich sicher.<br><br>Die Tür auf der anderen Seite hört nur auf die <b>Tiere</b>. Über der Tür stehen ihre <b>Zeichen</b> – die Punkte nennen die Reihenfolge. Welches Tier zu welchem Zeichen gehört, verrät das <b>Relief</b> neben der Tür. Der Regen hat Schlamm darübergespült, aber darunter ist alles noch da.';
+const P_SEITE2='<b>Lou!</b> Der Sturm hat die Brücke zerrissen, gleich nachdem ich drüben war. Du findest einen Weg hinüber, da bin ich sicher.<br><br>Die Steintür öffnet sich nur, wenn ihre vier <b>Tierköpfe</b> in der richtigen Reihenfolge stehen.<br><br>• Über der Tür stehen vier <b>Zeichen</b>. Die <b>Punkte</b> darunter zählen: ein Punkt = das erste Tier, zwei Punkte = das zweite, und so weiter.<br>• Welches Tier zu welchem Zeichen gehört, verrät das <b>Relief</b> neben der Tür: Unter jedem Tier ist sein Zeichen eingemeißelt.<br>• Dann die Köpfe auf der Tür von links nach rechts einstellen.<br><br>Der Regen hat Schlamm über das Relief gespült – aber darunter ist alles noch da.';
 function feldbuchHTML(){
  const pg=[P_NOTIZ];
  if(S.room>1||S.f.seite2) pg.push(P_SEITE2);
@@ -171,17 +171,19 @@ const glyph=(g,cx,cy,sz)=>{ const k=sz/100, t=`translate(${cx-sz/2} ${cy-sz/2}) 
 const dots=(n,cx,cy,r)=>Array.from({length:n},(_,i)=>`<circle cx="${cx+(i-(n-1)/2)*r*2.8}" cy="${cy}" r="${r}" fill="#1d1d16" fill-opacity=".82" stroke="#fff" stroke-opacity=".25" stroke-width="${r*.25}"/>`).join('');
 function openSturz(){
  const X=[430,868,1302,1740];
- dialog('Der Türsturz',`<div style="position:relative;width:100%;margin:0 auto"><img src="${A('tuersturz.jpg')}" alt="" style="display:block;width:100%;border-radius:6px"><svg viewBox="0 0 2172 724" style="position:absolute;inset:0;width:100%;height:100%">${STURZ.map(([g,n],i)=>glyph(g,X[i],350,210)+dots(n,X[i],505,22)).join('')}</svg></div><p>Über der Tür: vier Zeichen, tief in den Stein geschnitten. Unter jedem eine Reihe Punkte.</p>`);
+ dialog('Der Türsturz',`<div style="position:relative;width:100%;margin:0 auto"><img src="${A('tuersturz.jpg')}" alt="" style="display:block;width:100%;border-radius:6px"><svg viewBox="0 0 2172 724" style="position:absolute;inset:0;width:100%;height:100%">${STURZ.map(([g,n],i)=>glyph(g,X[i],350,210)+dots(n,X[i],505,22)).join('')}</svg></div><p>Über der Tür: vier Zeichen, tief in den Stein geschnitten. Unter jedem eine Reihe Punkte – einer, zwei, drei, vier.</p>${S.f.reliefGesehen?'<p><i>Dieselben Zeichen wie unter den Tieren im Relief!</i></p>':'<p><i>Wo hast du diese Zeichen schon einmal gesehen?</i></p>'}`);
+ S.f.sturzGesehen=1;
 }
 function openRelief(){
  const X=[175,465,752,1037,1320,1610];
- dialog('Das Relief',`<div style="position:relative;width:100%;margin:0 auto"><img src="${A('relief.jpg')}" alt="" style="display:block;width:100%;border-radius:6px"><svg viewBox="0 0 1774 887" style="position:absolute;inset:0;width:100%;height:100%">${RELIEF_G.map((g,i)=>glyph(g,X[i],575,165)).join('')}</svg></div><p>Sechs Tiere ziehen über den Stein – und unter jedem ist ein Zeichen eingemeißelt.</p>`);
+ dialog('Das Relief',`<div style="position:relative;width:100%;margin:0 auto"><img src="${A('relief.jpg')}" alt="" style="display:block;width:100%;border-radius:6px"><svg viewBox="0 0 1774 887" style="position:absolute;inset:0;width:100%;height:100%">${RELIEF_G.map((g,i)=>glyph(g,X[i],575,165)).join('')}</svg></div><p>Sechs Tiere ziehen über den Stein – und unter jedem ist ein Zeichen eingemeißelt.</p>${S.f.sturzGesehen?'<p><i>Vier dieser Zeichen stehen auch über der Tür!</i></p>':''}`);
+ S.f.reliefGesehen=1;
 }
 function openTierschloss(){
  if(!S.f.tuer) S.f.tuer=TUER_START.slice();
  const t=S.f.tuer;
  const draw=()=>t.map((n,i)=>`<button class="jDisc" data-i="${i}" style="border:0;padding:0;background:none;width:21%;aspect-ratio:1;border-radius:50%;cursor:pointer"><img src="${A('kopf_'+n+'.webp')}" alt="${tr(TIERNAME[n])}" style="width:100%;display:block;border-radius:50%;box-shadow:0 4px 12px #000a"></button>`).join('');
- const body=dialog('Die Steintür',`<div class="jDiscs" style="display:flex;justify-content:space-between;gap:2%;margin:4px 0 14px">${draw()}</div><p>Vier steinerne Scheiben mit Tierköpfen. Jede lässt sich drehen.</p><button class="btn pri" id="jPress" style="margin-top:4px">Gegen die Tür drücken</button>`);
+ const body=dialog('Die Steintür',`<div class="jDiscs" style="display:flex;justify-content:space-between;gap:2%;margin:4px 0 14px">${draw()}</div><p>Vier steinerne Scheiben mit Tierköpfen. Tippe auf eine Scheibe, um sie weiterzudrehen. Das erste Tier gehört nach links.</p><button class="btn pri" id="jPress" style="margin-top:4px">Gegen die Tür drücken</button>`);
  const box=body.querySelector('.jDiscs');
  box.addEventListener('click',e=>{ const b=e.target.closest('.jDisc'); if(!b) return; const i=+b.dataset.i;
   t[i]=TIERE[(TIERE.indexOf(t[i])+1)%TIERE.length]; sfx('slide'); box.innerHTML=draw(); render(); });
@@ -241,7 +243,7 @@ const R2={
    if(!has('kalebasse')&&!has('kalebasseW')) return ['Das Relief ist voller Schlamm. Mit Wasser ginge er ab.','Du brauchst ein Gefäß. Im Opferschrein stehen Kalebassen.'];
    if(has('kalebasse')) return ['Wasser gibt es im Cenote genug.','Die Steinstufen rechts führen hinunter zum Wasser. Benutze die Kalebasse an der Treppe.'];
    return ['Jetzt das Relief.','Gieß das Wasser über das Relief neben der Tür.']; }
-  return ['Der Türsturz nennt Zeichen und Reihenfolge, das Relief verrät, welches Tier zu welchem Zeichen gehört.','Lies die Zeichen in der Reihenfolge der Punkte (1 bis 4) und such sie im Relief.','Die Reihenfolge ist: Fledermaus, Jaguar, Frosch, Affe.']; },
+  return ['Über der Tür stehen dieselben Zeichen wie unter den Tieren im Relief.','Nimm das Zeichen mit einem Punkt, such es im Relief: Das Tier darüber kommt nach ganz links. Dann zwei Punkte, drei, vier.','Von links nach rechts: Fledermaus, Jaguar, Frosch, Affe.']; },
  end:['Kapitel 2 geschafft','Der Gang hinter der Tür riecht nach Stein und Jahrhunderten. Du entzündest die Karbidlampe höher und gehst hinein.<br><br>Am Ende des Ganges: Treppen, die hinauf zum Tempel führen. Und am Himmel beginnen die Sterne zu verblassen.'],
  ov(f){ const disc=[[567,333],[628,333],[690,333],[751,333]], t=f.tuer||TUER_START;
   return [`${f.machete?`<image href="${A('p_machete.webp')}" x="50" y="880" width="160" height="240"/>`:''}
