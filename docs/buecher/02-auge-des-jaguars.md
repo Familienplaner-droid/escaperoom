@@ -132,6 +132,6 @@ Jeder mitgebrachte Gegenstand kommt hier ein letztes Mal vor (Waage, Hebel, Lins
 - Bilder in `www/books/auge-des-jaguars/img/`: zelt.jpg (hell), zelt_dunkel.jpg, p_kiste(_d).webp (Kiste offen, Overlay x0 y900 490×548),
   intro1.jpg, karte.jpg (Karte ohne Beschriftung; Gitter/Ruinen als SVG in `openMap`), seite1_gross.webp, Icons + big/.
 - Cover ist vorläufig intro1.jpg.
-- Kiste leer: p_kiste_leer(_d).webp (gleicher Ausschnitt), Overlay in `ov` bei `f.inhalt`. Alle Bilder für Kapitel 1 vorhanden.
+- Kiste leer: p_kiste_leer(_d).webp (gleicher Ausschnitt), Overlay in `ov` bei `f.inhalt`. Becher weg: p_becher(_d).webp (x290 y745, 125×120, weicher Rand) bei `f.becher`. Alle Bilder für Kapitel 1 vorhanden.
 - Noch offen: Rückmeldung des Nutzers zu Kapitel 1, dann Kapitel 2 (Bild-Prompts).
 - Übersetzungen: noch keine (leere i18n-Dateien angelegt).

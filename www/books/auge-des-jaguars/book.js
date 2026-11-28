@@ -134,7 +134,7 @@ const R1={
   if(!f.inhalt) return ['Die Kiste ist offen.','Nimm, was darin liegt.'];
   return ['Das Funkgerät hat einen leeren Sockel.','Setz die Funkröhre ins Funkgerät.']; },
  end:['Kapitel 1 geschafft','Das Rauschen verstummt. Aber du hast genug gehört: Amalia ist am Tempel, und sie braucht dich vor Sonnenaufgang.<br><br>Du steckst ihr Feldbuch ein, den Kompass, die Karbidlampe. Dann trittst du hinaus in den Regen. Zum ersten Mal folgst du nicht nur – du gehst voran.'],
- ov(f){ return [`${f.kiste?`<image href="${A((f.inhalt?'p_kiste_leer':'p_kiste')+(f.lit?'':'_d')+'.webp')}" x="0" y="900" width="490" height="548"/>`:''}
+ ov(f){ return [`${f.becher?`<image href="${A('p_becher'+(f.lit?'':'_d')+'.webp')}" x="290" y="745" width="125" height="120"/>`:''}${f.kiste?`<image href="${A((f.inhalt?'p_kiste_leer':'p_kiste')+(f.lit?'':'_d')+'.webp')}" x="0" y="900" width="490" height="548"/>`:''}
  ${f.radio?`<circle cx="952" cy="532" r="28" fill="#ff9a3a" opacity=".35" class="flicker"/><circle cx="985" cy="532" r="24" fill="#ff9a3a" opacity=".3" class="flicker" style="animation-delay:-.7s"/><circle cx="1036" cy="526" r="18" fill="#ffb35a" opacity=".55" class="flicker"/>`:''}`,
  `<defs><radialGradient id="lantG" cx="585" cy="225" r="560" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffd48a" stop-opacity=".35"/><stop offset=".5" stop-color="#ffb35a" stop-opacity=".08"/><stop offset="1" stop-color="#ffb35a" stop-opacity="0"/></radialGradient>
   <radialGradient id="handG" cx="543" cy="1010" r="420" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff4d8" stop-opacity=".32"/><stop offset="1" stop-color="#fff4d8" stop-opacity="0"/></radialGradient></defs>
