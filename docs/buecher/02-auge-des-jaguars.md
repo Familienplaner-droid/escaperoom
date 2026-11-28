@@ -128,7 +128,7 @@ Jeder mitgebrachte Gegenstand kommt hier ein letztes Mal vor (Waage, Hebel, Lins
 - Abwechslung: K1 Kombinieren/Licht/Zahlencode · K2 Brückenbau/Symbolschloss · K3 Licht/Kalenderrad · K4 Spiegel · K5 Waage/Sternkarte.
 
 ## Stand
-**Kapitel 1–4 fertig eingebaut** (28.11.2026). Durchspiel-Test `tools/playtest_jaguar.py` spielt alle vier Kapitel fehlerfrei durch.
+**Alle 5 Kapitel eingebaut** (28.11.2026). Durchspiel-Test `tools/playtest_jaguar.py` spielt das ganze Buch fehlerfrei bis zum Ende.
 - Kapitel 1: zelt.jpg / zelt_dunkel.jpg, Overlays p_kiste(_leer)(_d), p_becher(_d), karte.jpg (Gitter/Ruinen als SVG in `openMap`), seite1_gross.webp.
 - Kapitel 2: cenote.jpg; alle Veränderungen sind Ausschnitte aus einer „alles erledigt“-Variante:
   p_bruecke, p_machete, p_planken, p_kalebasse, p_relief, p_tuer (weiche Ränder, Koordinaten in `R2.ov`).
@@ -146,8 +146,12 @@ Jeder mitgebrachte Gegenstand kommt hier ein letztes Mal vor (Waage, Hebel, Lins
   Spiegelrätsel `openSpiegel`: Draufsicht 4×4 auf boden.jpg, Spiegel `SPIEGEL` (Zeile, Spalte), Stellungen 0 '/', 1 '\', 2/3 quer (schlucken).
   Strahl kommt unten in Spalte 0 herein; Altäre oben: Sonne, Tür, Mond, Jaguar. Lösung `SPIEGEL_LOESUNG` = [0,1,1,0]. Mond als Köder.
   Die Fackel bleibt im Halter, wird über `keep` in Kap. 5 wieder mitgegeben (fackelAn in keep von R5 aufnehmen!).
-- Kap. 5 braucht in `keep`: feldbuch, federmesser, kompass, machete, kalebasse, fackelAn, linse.
-- Cover ist vorläufig intro1.jpg.
-- Nächster Schritt: Rückmeldung zu Kapitel 4, dann Kapitel 5 (Bild-Prompts).
+- Kapitel 5: kammer.jpg; Patches aus „erledigt“: p_gitter (Gitter oben, Amalia frei), p_schale (Schale unten), p_auge, p_spalt.
+  Amalia-Dialog mit amalia.jpg (`openAmalia`), gibt Seite 5 (Fundliste: Figur 15 Lot).
+  Waage `openWaage` (waage.jpg), Gegenstände mit `GEWICHT` in die Schale, Hebel prüft Summe 15 (einzige Lösung Machete 8 + Fackel 5 + Kompass 2).
+  Linse ins Auge + Machete am Spalt → `sonne()` → Sonnenstrahl, Sternkarte an der Wand (`openKarte`, sternwand.jpg):
+  Sterne der Schildkröte antippen + „Zeichnen“. Sieg, wenn Karte gezeichnet UND Gitter offen (egal in welcher Reihenfolge).
+  Endbild = cover.jpg (`endImg`). Cover des Buchs: cover.jpg.
+- Nächster Schritt: Rückmeldung des Nutzers zum ganzen Buch; danach Übersetzungen (en, fr, es, pt) – siehe docs/NEUES-BUCH.md.
 - Übersetzungen: noch keine (leere i18n-Dateien angelegt).
 - Test-APK wird seit 28.11. immer mit demselben Schlüssel (`ci/debug.keystore`) signiert, Versionsnummer = Laufnummer → Updates behalten den Spielstand.

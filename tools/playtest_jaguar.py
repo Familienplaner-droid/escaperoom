@@ -124,6 +124,29 @@ with sync_playwright() as p:
         for _ in range((w-st[i])%4): pg.click(f'.jM[data-i="{i}"]',force=True); pg.wait_for_timeout(60)
     pg.click('#jLicht'); pg.wait_for_timeout(700); pg.screenshot(path='j_spiegel_ok.png'); pg.wait_for_timeout(1000); msg('Licht:')
     pg.screenshot(path='j_k4_offen.png'); hot('jaguar'); msg('Linse:'); pg.wait_for_timeout(3200)
-    print('ENDE4:', pg.inner_text('#endTitle'), '|', pg.inner_text('#endSoon')); pg.screenshot(path='j_end4.png')
+    print('ENDE4:', pg.inner_text('#endTitle'))
+    pg.click('#bNext'); pg.wait_for_timeout(1500); pg.screenshot(path='j_intro5.png')
+    for _ in range(8):
+        try: pg.click('#bIntro',timeout=1500)
+        except Exception: pass
+        pg.wait_for_timeout(400)
+        if pg.is_visible('#sGame'): break
+    # ===== Kapitel 5 =====
+    pg.screenshot(path='j_k5_start.png')
+    hot('wand'); msg('Wand:'); hot('amalia'); pg.wait_for_timeout(300); pg.screenshot(path='j_amalia.png'); close()
+    item('feldbuch'); item('feldbuch'); pg.wait_for_timeout(200); pg.screenshot(path='j_feldbuch5.png'); close()
+    item('machete'); hot('schale'); item('kalebasse'); hot('schale'); item('federmesser'); hot('schale'); msg('Schale:')
+    hot('hebel'); msg('Hebel falsch:'); hot('schale'); pg.wait_for_timeout(300); pg.screenshot(path='j_waage.png')
+    pg.click('.jPan[data-k="kalebasse"]'); pg.wait_for_timeout(300); pg.click('.jPan[data-k="federmesser"]'); pg.wait_for_timeout(300); close()
+    item('fackelAn'); hot('schale'); item('kompass'); hot('schale'); pg.screenshot(path='j_k5_schale.png')
+    hot('hebel'); msg('Hebel:'); pg.wait_for_timeout(300); pg.screenshot(path='j_k5_frei.png')
+    item('linse'); hot('auge'); msg('Auge:'); item('machete'); hot('spalt'); msg('Spalt:'); pg.wait_for_timeout(300); pg.screenshot(path='j_k5_sonne.png')
+    hot('wand'); pg.wait_for_timeout(300); pg.click('#jDraw'); pg.wait_for_timeout(300); msg('Karte falsch:')
+    hot('wand'); pg.wait_for_timeout(300)
+    idx=pg.evaluate("[...document.querySelectorAll('.jSt')].length")
+    for i in range(8): pg.click(f'.jSt[data-i="{i}"]',force=True); pg.wait_for_timeout(50)
+    pg.screenshot(path='j_karte5.png'); pg.click('#jDraw'); pg.wait_for_timeout(1300); pg.screenshot(path='j_karte5_ok.png'); pg.wait_for_timeout(800); msg('Karte:')
+    pg.wait_for_timeout(3500)
+    print('ENDE5:', pg.inner_text('#endTitle'), '| next:', pg.is_visible('#bNext')); pg.screenshot(path='j_end5.png')
     miss=pg.evaluate("[...(window.__trMiss||[])]"); print('UNEXACT',len(miss)); [print('  ',m.replace(chr(10),' ')[:150]) for m in miss[:20]]
     print('ERR',errs); b.close()

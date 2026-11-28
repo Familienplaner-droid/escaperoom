@@ -47,8 +47,10 @@ const P_SEITE3=()=>'<b>Lou,</b> das Tor öffnet sich nur für den <b>Tag des Aug
  +[1,2,4,5,6,10].map(n=>`<span style="text-align:center">${mayaSVG(n)}<br>${n}</span>`).join('')+'</div>Ein Punkt ist eins, ein Strich ist fünf.';
 const P_STERN=()=>'<b>Deine eigene Zeichnung:</b> das Sternbild, das vor Sonnenaufgang im Osten stand.<div style="text-align:center"><svg viewBox="0 0 100 100" style="width:150px;height:150px">'+stern('schildkroete',50,50,86,'blei')+'</svg></div>Zum ersten Mal hast du etwas gezeichnet, das du selbst entdeckt hast.';
 const P_SEITE4='<b>Lou,</b> in dieser Halle haben die Priester das Mondlicht eingefangen. Vier Spiegel aus Obsidian lenken es durch den Raum – wenn sie blank sind und richtig stehen.<br><br><b>Das Licht muss den Jaguar wecken.</b> Nicht die Sonne, nicht den Mond. Nur der Jaguar öffnet den Weg.<br><br>Sieh dir den Strahl genau an, bevor du die Spiegel drehst. Man sieht ihn nur, wenn Staub in der Luft liegt.';
+const P_SEITE5='<b>Fundliste, 21. März 1926</b><br><br>Jaguarfigur aus grüner Jade, von der Waage am Gitter: <b>15 Lot</b>.<br><br><i>Darunter, krakelig:</i> Lou! Ich habe die Figur von der Waagschale genommen – und das Gitter ist heruntergekracht. Durch die Stäbe passt sie nicht. Leg genau <b>15 Lot</b> in die Schale und zieh den Hebel. Was deine Sachen wiegen, steht in meiner Packliste.';
 function feldbuchHTML(){
  const pg=[P_NOTIZ];
+ if(S.f.seite5) pg.push(P_SEITE5);
  if(S.room>3||S.f.seite4) pg.push(P_SEITE4);
  if(S.room>2||S.f.sternbild) pg.push(P_STERN());
  if(S.room>2||S.f.seite3) pg.push(P_SEITE3());
@@ -85,6 +87,7 @@ const ITEMS={
  spiegelplatte:{n:'Spiegelplatte',i:'spiegelplatte.png',d:'Eine Platte aus schwarzem Obsidian in einem Steinrahmen. Unbeschädigt!'},
  asche:{n:'Asche',i:'asche.png',d:'Eine Handvoll feiner, grauer Asche. Sie staubt bei jeder Bewegung.'},
  linse:{n:'Kristalllinse',i:'linse.png',d:'Eine vollkommen klare Linse aus Kristall, so groß wie deine Handfläche. In ihr glimmt ein weiches Licht. Das Auge des Jaguars.'},
+ seite5:{n:'Amalias Fundliste',i:'seite.png',get paper(){ return ['Eine lose Seite',P_SEITE5]; }},
  jadegriff:{n:'Jadegriff',i:'jadegriff.png',d:'Ein Griff aus grüner Jade mit einem eckigen Zapfen am Ende. Er sieht aus, als gehöre er irgendwo hinein.'}
 };
 
@@ -446,7 +449,6 @@ function openSpiegel(){
 }
 const R4={
  title:'Die Halle der Spiegel', chapter:'Kapitel 4', img:A('halle_dunkel.jpg'), imgFor:f=>A(f.hell?'halle.jpg':'halle_dunkel.jpg'), introImg:A('intro4.jpg'),
- soon:'Kapitel 5: Die Kammer des Jaguars – bald verfügbar',
  keep:['feldbuch','federmesser','kompass','machete','kalebasse','fackelAn'],
  intro:['Die Treppe endet in einer Halle, so groß, dass das Licht deiner Fackel sich darin verliert.','Von hoch oben fällt ein dünner Strahl Mondlicht durch einen Schacht in der Decke.','Irgendwo in dieser Dunkelheit muss der Weg weitergehen. Amalia ist hier durchgekommen.'],
  firstMsg:'Stockdunkel. Deine Fackel erhellt nur ein paar Schritte. Links an der Wand ertastest du einen leeren <b>Fackelhalter</b>.',
@@ -521,6 +523,105 @@ const R4={
   ${!f.hell&&has('fackelAn')?`<defs><radialGradient id="hand4" cx="543" cy="1300" r="520" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffb35a" stop-opacity=".35"/><stop offset="1" stop-color="#ffb35a" stop-opacity="0"/></radialGradient></defs><rect width="${W}" height="${H}" fill="url(#hand4)" class="flicker"/>`:''}`]; }
 };
 
+/* ================= KAPITEL 5: DIE KAMMER DES JAGUARS ================= */
+const GEWICHT={federmesser:1,kompass:2,kalebasse:3,fackelAn:5,machete:8};
+// Sternkarte: Schildkröte (Lösung) + andere Sternbilder + Streusterne. Koordinaten 0..1000
+const KARTE_BILDER=[['schildkroete',680,600,300],['skorpion',230,280,280],['vogel',560,200,220],['schlange',240,760,260],['hirsch',860,230,220],['fledermaus',500,880,200]];
+const KARTE_STREU=[[90,120],[150,520],[380,110],[420,470],[700,90],[930,420],[960,700],[880,900],[120,920],[360,580],[600,400],[80,640],[520,660],[760,800],[980,140],[330,950]];
+function karteSterne(){
+ const out=[];
+ KARTE_BILDER.forEach(([k,cx,cy,sz])=>STERNE[k].p.forEach(([x,y])=>out.push({x:cx-sz/2+x/100*sz,y:cy-sz/2+y/100*sz,k})));
+ KARTE_STREU.forEach(([x,y])=>out.push({x,y,k:''}));
+ return out;
+}
+function openAmalia(){
+ const f=S.f; let t;
+ if(!f.seite5){ f.seite5=1; t='„Lou! Du bist es wirklich!“ Amalia lacht und hustet zugleich. „Mir geht es gut, nur der Knöchel ist verstaucht. Ich war zu gierig, Lou. Ich habe die Jaguarfigur von der Waage genommen – und rums, das Gitter fiel.“<br><br>Sie schiebt dir eine Seite durch die Stäbe. „Hier. Ich habe die Figur gewogen. Leg genau so viel in die Waagschale, dann hebt sich das Gitter. Das Auge – hast du das Auge? Gleich geht die Sonne auf!“'; sfx('pick'); }
+ else if(!f.frei) t='„Genau 15 Lot, Lou. Was deine Sachen wiegen, steht in meiner Packliste – vorne im Feldbuch.“';
+ else if(!f.auge) t='„Das Auge gehört in die leere Augenhöhle des Jaguars. Schnell!“';
+ else if(!f.spalt) t='„Der Spalt in der Ostwand! Ein Stein steckt darin. Die Sonne muss hereinkönnen.“';
+ else if(!f.karte) t='„Sieh nur, Lou! Eine Sternkarte! Zeichne sie – find das Sternbild, das heute Nacht im Osten stand.“';
+ else t='„Du hast es gezeichnet. Du, Lou.“';
+ dialog('Amalia',`<img src="${A('amalia.jpg')}" alt="" style="display:block;width:min(200px,55vw);margin:0 auto 10px;border-radius:8px;box-shadow:0 6px 18px #000a"><p>${t}</p>`);
+}
+function openWaage(){
+ const f=S.f; if(!f.schale) f.schale=[];
+ const draw=()=>{ const n=f.schale.length;
+  return f.schale.map((k,i)=>`<img class="jPan" data-k="${k}" src="${A(ITEMS[k].i)}" alt="${tr(ITEMS[k].n)}" style="position:absolute;width:15%;left:${18+(i-(n-1)/2)*11}%;top:54%;cursor:pointer;filter:drop-shadow(0 3px 4px #000)">`).join(''); };
+ const body=dialog('Die Waage',`<div class="jW" style="position:relative;width:100%;aspect-ratio:1"><img src="${A('waage.jpg')}" alt="" style="display:block;width:100%;border-radius:6px">${draw()}</div><p>${f.schale.length?'In der Schale liegt: '+f.schale.map(k=>tr(ITEMS[k].n)).join(', ')+'. Tippe einen Gegenstand an, um ihn zurückzunehmen.':'Die Waagschale ist leer. Leg Gegenstände aus deinem Gepäck hinein (Gegenstand wählen, dann auf die Schale tippen).'}</p>`);
+ body.querySelector('.jW').addEventListener('click',e=>{ const im=e.target.closest('.jPan'); if(!im) return; const k=im.dataset.k; f.schale.splice(f.schale.indexOf(k),1); give(k); sfx('pick'); closeDialog(); render(); openWaage(); });
+}
+function openKarte(){
+ const st=karteSterne(), sel=S.f.sel||(S.f.sel=[]);
+ const dots=()=>st.map((p,i)=>`<g class="jSt" data-i="${i}" style="cursor:pointer"><circle cx="${p.x}" cy="${p.y}" r="27" fill="#000" fill-opacity=".001"/><circle cx="${p.x}" cy="${p.y}" r="17" fill="#fff6d8" opacity=".25"/><circle cx="${p.x}" cy="${p.y}" r="8" fill="#fff8e6"/>${sel.includes(i)?`<circle cx="${p.x}" cy="${p.y}" r="22" fill="none" stroke="#3a2a14" stroke-width="5"/>`:''}</g>`).join('');
+ const body=dialog('Die Sternkarte',`<div style="position:relative;width:100%;aspect-ratio:1"><img src="${A('sternwand.jpg')}" alt="" style="display:block;width:100%;border-radius:6px"><svg viewBox="0 0 1000 1000" style="position:absolute;inset:0;width:100%;height:100%"><g id="jLines"></g><g id="jDots">${dots()}</g></svg></div><p>Das Auge wirft Lichtpunkte an die Wand – eine ganze Sternkarte. Tippe die Sterne des Sternbilds an, das heute Nacht im Osten stand. Dann zeichne.</p><button class="btn pri" id="jDraw">Zeichnen</button>`);
+ const g=body.querySelector('#jDots');
+ g.addEventListener('click',e=>{ const d=e.target.closest('.jSt'); if(!d) return; const i=+d.dataset.i, j=sel.indexOf(i); if(j<0) sel.push(i); else sel.splice(j,1); sfx('click'); g.innerHTML=dots(); });
+ body.querySelector('#jDraw').addEventListener('click',()=>{
+  const want=st.map((p,i)=>p.k==='schildkroete'?i:-1).filter(i=>i>=0);
+  if(sel.length===want.length&&want.every(i=>sel.includes(i))){
+   const c=STERNE.schildkroete, [k,cx,cy,sz]=KARTE_BILDER[0], X=v=>cx-sz/2+v[0]/100*sz, Y=v=>cy-sz/2+v[1]/100*sz;
+   body.querySelector('#jLines').innerHTML=c.l.map(([a,b])=>`<line x1="${X(c.p[a])}" y1="${Y(c.p[a])}" x2="${X(c.p[b])}" y2="${Y(c.p[b])}" stroke="#3a2a14" stroke-width="7" stroke-linecap="round"/>`).join('');
+   sfx('chime'); S.f.karte=1;
+   setTimeout(()=>{ closeDialog(); render();
+    if(S.f.frei){ say('Die Schildkröte. Sie steht genau in der Mitte des Lichts – und um sie herum Sterne, die auf keiner Karte der Welt verzeichnet sind. Amalia legt dir die Hand auf die Schulter.'); setTimeout(win,3000); }
+    else say('Die Schildkröte! Hinter dem Gitter drückt Amalia das Gesicht an die Stäbe. „Lou … es ist wunderschön. Und jetzt hol mich bitte hier raus!“');
+   },1500);
+  } else { sfx('no'); say('Du zeichnest – aber die Linien ergeben kein Sternbild, das du kennst. Welches stand heute Nacht im Osten?'); closeDialog(); }
+ });
+}
+const R5={
+ title:'Die Kammer des Jaguars', chapter:'Kapitel 5', img:A('kammer.jpg'), introImg:A('intro5.jpg'), endImg:A('cover.jpg'),
+ keep:['feldbuch','federmesser','kompass','machete','kalebasse','fackelAn','linse'],
+ intro:['Der Gang führt steil hinauf. Am Ende: warmes Licht – und eine Stimme.','„Lou? Lou, bist du das?“','Du stolperst in eine kleine Kammer. Ein steinerner Jaguar blickt nach Osten. Und hinter einem Gitter aus Stein steht Amalia.'],
+ firstMsg:'Amalia! Sie steht hinter einem steinernen Gitter und winkt dir zu. Tippe sie an, um mit ihr zu sprechen.',
+ comboNo:{'linse+machete':'Vorsicht mit dem Auge!','fackelAn+linse':'Das Auge braucht Sonnenlicht, nicht Feuer.'},
+ combos:[],
+ cuts:[],
+ hot:[
+  {id:'amalia',r:[140,100,300,410],act(){ openAmalia(); return S.f.frei?'Amalia ist frei.':'Amalia hinter dem Gitter.'; },
+   no:{linse:'„Behalte das Auge, Lou. Es gehört in den Jaguar, nicht zu mir.“',machete:'„Die Stäbe sind aus Stein, Lou. Da hilft keine Machete. Die Waage!“',fackelAn:'„Danke, ich habe meine Laterne.“',feldbuch:'„Behalte es. Es ist jetzt auch dein Feldbuch.“'}},
+  {id:'fackelwand',r:[0,30,135,340],act:()=>'Eine Fackel an der Wand. Amalia muss sie angezündet haben.'},
+  {id:'balken',r:[40,520,475,120],act:()=>'Ein steinerner Waagbalken. Links hängt die Schale, rechts führt eine Kette hinauf zum Gitter.'},
+  {id:'schale',r:[0,880,285,180],act(){ if(S.f.frei) return 'Die Waagschale hängt jetzt tief. Das Gitter ist eingerastet.'; openWaage(); return 'Die Waagschale.'; },
+   use:Object.fromEntries(Object.keys(GEWICHT).map(k=>[k,()=>{ if(S.f.frei) return 'Das Gitter ist schon oben.'; take(k); (S.f.schale||(S.f.schale=[])).push(k); sfx('click'); return `Du legst ${tr(ITEMS[k].n)} in die Schale.`; }])),
+   no:{linse:'Das Auge auf die Waage? Niemals – das gehört in den Jaguar.',feldbuch:'Amalias Feldbuch gibst du nicht aus der Hand.',seite5:'Ein Blatt Papier wiegt so gut wie nichts.'}},
+  {id:'hebel',r:[90,1070,330,220],act(){ const f=S.f;
+    if(f.frei) return 'Der Hebel ist umgelegt.';
+    const sum=(f.schale||[]).reduce((a,k)=>a+GEWICHT[k],0);
+    if(!sum) return 'Du ziehst am Hebel. Die leere Schale schwingt hoch – nichts geschieht.';
+    if(sum===15){ f.frei=1; (f.schale||[]).forEach(k=>give(k)); f.schale=[]; sfx('door'); render();
+     if(f.karte) setTimeout(win,3000);
+     return 'Du ziehst am Hebel. Die Schale senkt sich, die Kette spannt sich – und mit einem tiefen Grollen hebt sich das <b>Gitter</b>! Es rastet oben ein. Amalia humpelt heraus und schließt dich in die Arme. Du nimmst deine Sachen wieder aus der Schale.'; }
+    sfx('no'); return 'Du ziehst am Hebel. Die Waage schwankt, die Kette ruckt – dann sackt alles zurück. Das Gitter bleibt unten.'; }},
+  {id:'statue',r:[520,520,400,660],act:()=>'Ein gewaltiger Jaguar aus Stein. Er blickt nach Osten, zum Spalt in der Wand.'},
+  {id:'auge',r:[640,300,280,200],act:()=>S.f.auge?'Das Auge sitzt in der Augenhöhle und schimmert.':'Der Kopf des Jaguars. Eine seiner Augenhöhlen ist <b>leer</b> – rund und glatt, als warte sie auf etwas.',
+   use:{linse(){ take('linse'); S.f.auge=1; sfx('click'); render(); return sonne('Du setzt die Kristalllinse in die Augenhöhle. Sie passt genau – das <b>Auge des Jaguars</b> ist zurück.'); }},
+   no:{machete:'Am Jaguar kratzen? Lieber nicht.',fackelAn:'Das Auge erwacht nicht durch Feuer.'}},
+  {id:'spalt',r:[940,200,146,590],act:()=>S.f.spalt?'Durch den Spalt fällt das erste Sonnenlicht.':'Ein schmaler Spalt in der Ostwand. Ein Steinpfropfen steckt fest darin, an den Rändern schimmert rosa Morgenlicht.',
+   no:{federmesser:'Der Pfropfen sitzt viel zu fest für das kleine Messer.',fackelAn:'Brennen kann Stein nicht.',kompass:'Ja, das ist Osten. Aber der Stein muss raus.'},
+   use:{machete(){ if(S.f.spalt) return 'Der Spalt ist frei.'; S.f.spalt=1; sfx('door'); render(); return sonne('Du setzt die Machete als Hebel an. Ein Ruck – der Steinpfropfen poltert hinaus, und rosa-goldenes <b>Morgenlicht</b> fällt in die Kammer.'); }}},
+  {id:'wand',r:[450,60,480,240],act(){ if(S.f.sonnenstrahl){ openKarte(); return 'Die Sternkarte.'; } return 'Eine glatte, dunkle Wand. Völlig leer.'; }}
+ ],
+ hint(){ const f=S.f;
+  if(!f.seite5) return ['Amalia steht hinter dem Gitter.','Sprich mit ihr: Tippe Amalia an.'];
+  if(!f.frei){
+   const sum=(f.schale||[]).reduce((a,k)=>a+GEWICHT[k],0);
+   return ['Das Gitter hebt sich, wenn genau 15 Lot in der Waagschale liegen.','Die Gewichte deiner Sachen stehen in der Packliste im Feldbuch. Welche ergeben zusammen 15?'+(sum?` (In der Schale liegen gerade ${sum} Lot.)`:''),'Leg Machete (8), Fackel (5) und Kompass (2) in die Schale – sonst nichts – und zieh den Hebel.']; }
+  if(!f.auge) return ['Das Auge des Jaguars gehört zurück.','Setz die Kristalllinse in die leere Augenhöhle der Statue.'];
+  if(!f.spalt) return ['Die Sonne muss den Jaguar erreichen.','Im Spalt der Ostwand steckt ein Steinpfropfen. Hebel ihn mit der Machete heraus.'];
+  if(!f.karte) return ['Das Auge wirft eine Sternkarte an die Wand.','Tippe auf die Wand und markiere das Sternbild, das in Kapitel 3 im Osten stand. Deine Zeichnung ist im Feldbuch.','Es ist die Schildkröte: sechs Sterne im Kreis, einer darüber, einer in der Mitte.'];
+  return ['Geschafft!','…']; },
+ end:['Das Auge des Jaguars','Die Sonne steigt über den Dschungel, und die Sternkarte verblasst langsam an der Wand. Aber sie ist nicht verloren: Sie steht in Amalias Feldbuch – gezeichnet von dir.<br><br>„Weißt du, was das bedeutet, Lou?“, sagt Amalia leise. „Diese Entdeckung trägt deinen Namen. Nicht meinen.“<br><br><b>Ende.</b>'],
+ ov(f){
+  const pan=(f.schale||[]).map((k,i,a)=>`<image href="${A(ITEMS[k].i)}" x="${100+(i-(a.length-1)/2)*55}" y="880" width="80" height="80"/>`).join('');
+  return [`${f.frei?`<image href="${A('p_gitter.webp')}" x="90" y="50" width="470" height="660"/><image href="${A('p_schale.webp')}" x="0" y="860" width="320" height="440"/>`:pan}
+  ${f.auge?`<image href="${A('p_auge.webp')}" x="715" y="320" width="160" height="150"/>`:''}
+  ${f.spalt?`<image href="${A('p_spalt.webp')}" x="930" y="150" width="156" height="660"/>`:''}`,
+  `${f.sonnenstrahl?`<defs><linearGradient id="sunG" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#ffd27a" stop-opacity=".55"/><stop offset="1" stop-color="#ffd27a" stop-opacity=".05"/></linearGradient><filter id="sunB"><feGaussianBlur stdDeviation="10"/></filter></defs><path d="M1010 320L1010 580L770 405L770 375z" fill="url(#sunG)" filter="url(#sunB)" class="flicker"/><circle cx="765" cy="390" r="28" fill="#fff" opacity=".6" class="flicker"/>${karteSterne().filter((p,i)=>i%2===0).map(p=>`<circle cx="${470+p.x*.45}" cy="${70+p.y*.22}" r="3.5" fill="#fff8e6" opacity=".9" class="flicker" style="animation-delay:-${(p.x%7)/3}s"/>`).join('')}`:''}`]; }
+};
+function sonne(t){ const f=S.f; if(f.auge&&f.spalt&&!f.sonnenstrahl){ f.sonnenstrahl=1; render(); sfx('chime'); return t+'<br><br>Ein Sonnenstrahl fällt durch den Spalt und trifft das Auge. Es glüht auf – und an der Wand erscheinen <b>Lichtpunkte</b>. Eine Sternkarte!'; } return t; }
+
 R4.hot.push({...R4.hot.find(h=>h.id==='strahl'),id:'strahl2',r:[570,760,150,130]});
 // rechter Teil der Brücke (hinauf zur Tür) verhält sich wie die Brücke
 R2.hot.push({...R2.hot.find(h=>h.id==='bruecke'),id:'bruecke2',r:[770,420,200,135]});
@@ -530,11 +631,11 @@ return {
  title:'Das Auge des Jaguars',
  genre:'Abenteuer',
  tagline:'Ein Sturm im Dschungel. Eine verschwundene Archäologin. Und ein Tempel, der sein Geheimnis nur einmal im Jahr preisgibt.',
- cover:A('intro1.jpg'),
+ cover:A('cover.jpg'),
  size:[W,H],
  asset:A,
  items:ITEMS,
- rooms:[R1,R2,R3,R4],
+ rooms:[R1,R2,R3,R4,R5],
  firstMsg:'Tippe auf Dinge im Zelt, um sie zu untersuchen.'
 };
 }
